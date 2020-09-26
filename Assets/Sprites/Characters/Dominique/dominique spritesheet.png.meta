@@ -536,6 +536,567 @@ TextureImporter:
   - first:
       213: 9088679985010502894
     second: character1_177
+  - first:
+      213: 5627909821430417307
+    second: dominique spritesheet_0
+  - first:
+      213: -869790371886976922
+    second: dominique spritesheet_1
+  - first:
+      213: 6971134369252597310
+    second: dominique spritesheet_2
+  - first:
+      213: 1661773150085591714
+    second: dominique spritesheet_3
+  - first:
+      213: 1515789395506140050
+    second: dominique spritesheet_4
+  - first:
+      213: -4919890229506730408
+    second: dominique spritesheet_5
+  - first:
+      213: -7233648228079535672
+    second: dominique spritesheet_6
+  - first:
+      213: 6024654797628123689
+    second: dominique spritesheet_7
+  - first:
+      213: -993501623471871597
+    second: dominique spritesheet_8
+  - first:
+      213: -4504293532994177079
+    second: dominique spritesheet_9
+  - first:
+      213: 3864911782550553501
+    second: dominique spritesheet_10
+  - first:
+      213: 6835097881525837046
+    second: dominique spritesheet_11
+  - first:
+      213: 4018701521323708983
+    second: dominique spritesheet_12
+  - first:
+      213: 209366299253642467
+    second: dominique spritesheet_13
+  - first:
+      213: -2084863427232006036
+    second: dominique spritesheet_14
+  - first:
+      213: 1227611599555975447
+    second: dominique spritesheet_15
+  - first:
+      213: 1790163392049295896
+    second: dominique spritesheet_16
+  - first:
+      213: -2402166882151546435
+    second: dominique spritesheet_17
+  - first:
+      213: -8399369275801262161
+    second: dominique spritesheet_18
+  - first:
+      213: -8005542059093612178
+    second: dominique spritesheet_19
+  - first:
+      213: 8319789159091054366
+    second: dominique spritesheet_20
+  - first:
+      213: -2528389491022293631
+    second: dominique spritesheet_21
+  - first:
+      213: -3977121167472539239
+    second: dominique spritesheet_22
+  - first:
+      213: -7608202023879202738
+    second: dominique spritesheet_23
+  - first:
+      213: -5353920634183188640
+    second: dominique spritesheet_24
+  - first:
+      213: 7914555252601502627
+    second: dominique spritesheet_25
+  - first:
+      213: 1101354694442598071
+    second: dominique spritesheet_26
+  - first:
+      213: -5624073704336964176
+    second: dominique spritesheet_27
+  - first:
+      213: -1451636526097082882
+    second: dominique spritesheet_28
+  - first:
+      213: 468923318007848907
+    second: dominique spritesheet_29
+  - first:
+      213: -5675980864941628485
+    second: dominique spritesheet_30
+  - first:
+      213: 5850701818205331721
+    second: dominique spritesheet_31
+  - first:
+      213: 8566857500380419787
+    second: dominique spritesheet_32
+  - first:
+      213: -3718925278147655524
+    second: dominique spritesheet_33
+  - first:
+      213: -4880412055640891669
+    second: dominique spritesheet_34
+  - first:
+      213: -394791302933705697
+    second: dominique spritesheet_35
+  - first:
+      213: -8613666687897293265
+    second: dominique spritesheet_36
+  - first:
+      213: 2824017629960948205
+    second: dominique spritesheet_37
+  - first:
+      213: 1995436645157908754
+    second: dominique spritesheet_38
+  - first:
+      213: -8973844758729591038
+    second: dominique spritesheet_39
+  - first:
+      213: -405456889798911502
+    second: dominique spritesheet_40
+  - first:
+      213: -8115159839005479233
+    second: dominique spritesheet_41
+  - first:
+      213: 9222205794389715593
+    second: dominique spritesheet_42
+  - first:
+      213: -9186883821349461899
+    second: dominique spritesheet_43
+  - first:
+      213: 8029299520025964644
+    second: dominique spritesheet_44
+  - first:
+      213: 4261831903006995415
+    second: dominique spritesheet_45
+  - first:
+      213: -8882953508636148555
+    second: dominique spritesheet_46
+  - first:
+      213: 9021232559528902110
+    second: dominique spritesheet_47
+  - first:
+      213: -6369219659936510437
+    second: dominique spritesheet_48
+  - first:
+      213: 8014982000856694766
+    second: dominique spritesheet_49
+  - first:
+      213: -1088190604311535727
+    second: dominique spritesheet_50
+  - first:
+      213: -6638623855995460582
+    second: dominique spritesheet_51
+  - first:
+      213: -8283214013666529136
+    second: dominique spritesheet_52
+  - first:
+      213: 5904866085244809359
+    second: dominique spritesheet_53
+  - first:
+      213: 1753623157206487830
+    second: dominique spritesheet_54
+  - first:
+      213: -3986743169900142363
+    second: dominique spritesheet_55
+  - first:
+      213: -1716729654253994811
+    second: dominique spritesheet_56
+  - first:
+      213: -3523393787998260985
+    second: dominique spritesheet_57
+  - first:
+      213: -1241314598454202696
+    second: dominique spritesheet_58
+  - first:
+      213: -5847977599974872160
+    second: dominique spritesheet_59
+  - first:
+      213: -7745879456036215286
+    second: dominique_walk_forward01
+  - first:
+      213: -6659311153335691593
+    second: dominique_walk_forward02
+  - first:
+      213: -896164058487840457
+    second: dominique_walk_forward03
+  - first:
+      213: 7077668998301945180
+    second: dominique_walk_forward04
+  - first:
+      213: -3924578942270575174
+    second: dominique_walk_forward05
+  - first:
+      213: -8087273524973652026
+    second: dominique_walk_forward06
+  - first:
+      213: -4439833415541808056
+    second: dominique_walk_forward07
+  - first:
+      213: 3298708988394141613
+    second: dominique_walk_forward08
+  - first:
+      213: -6079247606588941300
+    second: dominique_walk_forward09
+  - first:
+      213: -6110412183443781854
+    second: dominique_walk_left01
+  - first:
+      213: 1077421859746230071
+    second: dominique_walk_left02
+  - first:
+      213: -4968596580292612011
+    second: dominique_walk_left03
+  - first:
+      213: 483779257414529533
+    second: dominique_walk_left04
+  - first:
+      213: -6044076902184643715
+    second: dominique_walk_left05
+  - first:
+      213: -3946599206035081799
+    second: dominique_walk_left06
+  - first:
+      213: -4515016561334966919
+    second: dominique_walk_left07
+  - first:
+      213: -6908439968273049346
+    second: dominique_walk_left08
+  - first:
+      213: 4548593159444024569
+    second: dominique_walk_left09
+  - first:
+      213: 5369212047354650394
+    second: dominique_walk_backward01
+  - first:
+      213: -3027262287806496510
+    second: dominique_walk_backward02
+  - first:
+      213: 7823850693731955543
+    second: dominique_walk_backward03
+  - first:
+      213: -2631112383674488443
+    second: dominique_walk_backward04
+  - first:
+      213: 4777026270312425116
+    second: dominique_walk_backward05
+  - first:
+      213: -6906624530840355295
+    second: dominique_walk_backward06
+  - first:
+      213: -4667066975433218575
+    second: dominique_walk_backward07
+  - first:
+      213: 5370453593988764187
+    second: dominique_walk_backward08
+  - first:
+      213: -3577103435419340272
+    second: dominique_walk_backward09
+  - first:
+      213: 8926456105526719120
+    second: dominique_walk_right01
+  - first:
+      213: 933876521814738050
+    second: dominique_walk_right02
+  - first:
+      213: 2648115421232278190
+    second: dominique_walk_right03
+  - first:
+      213: 4898939194614379242
+    second: dominique_walk_right04
+  - first:
+      213: 7930183144501583093
+    second: dominique_walk_right05
+  - first:
+      213: -3549626815703527099
+    second: dominique_walk_right06
+  - first:
+      213: -7297352077897863307
+    second: dominique_walk_right07
+  - first:
+      213: 428960788283398816
+    second: dominique_walk_right08
+  - first:
+      213: 488430659044695677
+    second: dominique_walk_right09
+  - first:
+      213: -3538384103260957413
+    second: dominique spritesheet_96
+  - first:
+      213: 7526979204513184725
+    second: dominique spritesheet_97
+  - first:
+      213: 1112008118834989285
+    second: dominique spritesheet_98
+  - first:
+      213: -4627644080154422398
+    second: dominique spritesheet_99
+  - first:
+      213: 7480726261277208022
+    second: dominique spritesheet_100
+  - first:
+      213: 2359685602418339987
+    second: dominique spritesheet_101
+  - first:
+      213: -1220743266144048126
+    second: dominique spritesheet_102
+  - first:
+      213: 8208805287139295978
+    second: dominique spritesheet_103
+  - first:
+      213: -204705406136351310
+    second: dominique spritesheet_104
+  - first:
+      213: 7626887629250211397
+    second: dominique spritesheet_105
+  - first:
+      213: 8838681838297121046
+    second: dominique spritesheet_106
+  - first:
+      213: -5514392697997873866
+    second: dominique spritesheet_107
+  - first:
+      213: -277907559901973656
+    second: dominique spritesheet_108
+  - first:
+      213: -6516008219567061199
+    second: dominique spritesheet_109
+  - first:
+      213: -3033517906067104357
+    second: dominique spritesheet_110
+  - first:
+      213: -3857873347416265035
+    second: dominique spritesheet_111
+  - first:
+      213: 2356873384865057979
+    second: dominique spritesheet_112
+  - first:
+      213: 5449253834065622127
+    second: dominique spritesheet_113
+  - first:
+      213: 1132915182705273521
+    second: dominique spritesheet_114
+  - first:
+      213: 3764064393535010210
+    second: dominique spritesheet_115
+  - first:
+      213: 2622007538597248392
+    second: dominique spritesheet_116
+  - first:
+      213: -6311562239538007657
+    second: dominique spritesheet_117
+  - first:
+      213: 5164302503932895889
+    second: dominique spritesheet_118
+  - first:
+      213: -2148785572931483343
+    second: dominique spritesheet_119
+  - first:
+      213: -1685801544296312842
+    second: dominique spritesheet_120
+  - first:
+      213: 1234287836996929578
+    second: dominique spritesheet_121
+  - first:
+      213: 448516231497247264
+    second: dominique spritesheet_122
+  - first:
+      213: 105968101002801676
+    second: dominique spritesheet_123
+  - first:
+      213: 1896092059041651576
+    second: dominique spritesheet_124
+  - first:
+      213: 8588331024492502493
+    second: dominique spritesheet_125
+  - first:
+      213: 2057801960774278086
+    second: dominique spritesheet_126
+  - first:
+      213: -4965128823647333591
+    second: dominique spritesheet_127
+  - first:
+      213: -5176945770166022425
+    second: dominique spritesheet_128
+  - first:
+      213: 4921222689497506021
+    second: dominique spritesheet_129
+  - first:
+      213: 4111648630434430705
+    second: dominique spritesheet_130
+  - first:
+      213: -7959359084935278505
+    second: dominique spritesheet_131
+  - first:
+      213: 4168839951859766901
+    second: dominique spritesheet_132
+  - first:
+      213: 92581207967536931
+    second: dominique spritesheet_133
+  - first:
+      213: 5821774997487643913
+    second: dominique spritesheet_134
+  - first:
+      213: 2347346938382631103
+    second: dominique spritesheet_135
+  - first:
+      213: 5259430211479664630
+    second: dominique spritesheet_136
+  - first:
+      213: -6528972752616716754
+    second: dominique spritesheet_137
+  - first:
+      213: -5171124910518005528
+    second: dominique spritesheet_138
+  - first:
+      213: 1511299687710240127
+    second: dominique spritesheet_139
+  - first:
+      213: 4928858280469875008
+    second: dominique spritesheet_140
+  - first:
+      213: -2238945137401948688
+    second: dominique spritesheet_141
+  - first:
+      213: 2156959210826968919
+    second: dominique spritesheet_142
+  - first:
+      213: -2477042565610123580
+    second: dominique spritesheet_143
+  - first:
+      213: 4486229091648354615
+    second: dominique spritesheet_144
+  - first:
+      213: -7003398799593927840
+    second: dominique spritesheet_145
+  - first:
+      213: 2464976872980611844
+    second: dominique spritesheet_146
+  - first:
+      213: -8091717166188942526
+    second: dominique spritesheet_147
+  - first:
+      213: -2893499531525385151
+    second: dominique spritesheet_148
+  - first:
+      213: -8890480961940949425
+    second: dominique spritesheet_149
+  - first:
+      213: 5876760867865475643
+    second: dominique spritesheet_150
+  - first:
+      213: -2351707900561282038
+    second: dominique spritesheet_151
+  - first:
+      213: 3756978576105202166
+    second: dominique spritesheet_152
+  - first:
+      213: 554640635230348733
+    second: dominique spritesheet_153
+  - first:
+      213: 7488748144126015441
+    second: dominique spritesheet_154
+  - first:
+      213: -3659868033413585679
+    second: dominique spritesheet_155
+  - first:
+      213: 9036482305859705891
+    second: dominique spritesheet_156
+  - first:
+      213: 8776254098726467186
+    second: dominique spritesheet_157
+  - first:
+      213: 3837506826374082778
+    second: dominique spritesheet_158
+  - first:
+      213: -4736574398654236829
+    second: dominique spritesheet_159
+  - first:
+      213: -8375820125823127731
+    second: dominique spritesheet_160
+  - first:
+      213: 4289615164809609565
+    second: dominique spritesheet_161
+  - first:
+      213: -6364448521989289683
+    second: dominique spritesheet_162
+  - first:
+      213: -1551942350435553240
+    second: dominique spritesheet_163
+  - first:
+      213: -7150323417015120474
+    second: dominique spritesheet_164
+  - first:
+      213: -2269626595208624832
+    second: dominique spritesheet_165
+  - first:
+      213: -912364884471748581
+    second: dominique spritesheet_166
+  - first:
+      213: 275655134653355281
+    second: dominique spritesheet_167
+  - first:
+      213: 8671399484364578942
+    second: dominique spritesheet_168
+  - first:
+      213: -1599355249150804089
+    second: dominique spritesheet_169
+  - first:
+      213: 8777046868330163467
+    second: dominique spritesheet_170
+  - first:
+      213: -6957869563094815005
+    second: dominique spritesheet_171
+  - first:
+      213: 5517307654910255135
+    second: dominique spritesheet_172
+  - first:
+      213: -4109370734546408644
+    second: dominique spritesheet_173
+  - first:
+      213: -2654034311913297240
+    second: dominique spritesheet_174
+  - first:
+      213: -5121651658842723413
+    second: dominique spritesheet_175
+  - first:
+      213: 6647134224258681997
+    second: dominique spritesheet_176
+  - first:
+      213: -5823508457218940868
+    second: dominique spritesheet_177
+  - first:
+      213: -8360874584133807112
+    second: dominique_transform01
+  - first:
+      213: 5406360099675966403
+    second: dominique_transform02
+  - first:
+      213: -2203118267617149218
+    second: dominique_transform03
+  - first:
+      213: -8525439060249405330
+    second: dominique_transform04
+  - first:
+      213: 6089255737286577992
+    second: dominique_transform05
+  - first:
+      213: 2515719992862912173
+    second: dominique_swim_forward01
+  - first:
+      213: 8634488690127619666
+    second: dominique_swim_backward01
+  - first:
+      213: 3193226968667473584
+    second: dominique_swim_right01
+  - first:
+      213: -8186993396013146140
+    second: dominique_swim_left01
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -633,7 +1194,301 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: character1_0
+      name: dominique spritesheet_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1408
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b97ca462a2a5a1e40800000000000000
+      internalID: 5627909821430417307
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: dominique spritesheet_1
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 1408
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6603f9ed342ede3f0800000000000000
+      internalID: -869790371886976922
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: dominique spritesheet_2
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 1408
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e3e51d036c17eb060800000000000000
+      internalID: 6971134369252597310
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: dominique spritesheet_3
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 1408
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2a2322420edcf0710800000000000000
+      internalID: 1661773150085591714
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: dominique spritesheet_4
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 1408
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 29392799c6a290510800000000000000
+      internalID: 1515789395506140050
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: dominique spritesheet_5
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 1408
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 856165827e909bbb0800000000000000
+      internalID: -4919890229506730408
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: dominique spritesheet_6
+      rect:
+        serializedVersion: 2
+        x: 384
+        y: 1408
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8c97f27134bec9b90800000000000000
+      internalID: -7233648228079535672
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: dominique spritesheet_7
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1344
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 92a2af25e9fdb9350800000000000000
+      internalID: 6024654797628123689
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: dominique spritesheet_8
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 1344
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3996f29898f5632f0800000000000000
+      internalID: -993501623471871597
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: dominique spritesheet_9
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 1344
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9c7fac185e88d71c0800000000000000
+      internalID: -4504293532994177079
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: dominique spritesheet_10
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 1344
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d93c52ff9cce2a530800000000000000
+      internalID: 3864911782550553501
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: dominique spritesheet_11
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 1344
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6fc5f513f452bde50800000000000000
+      internalID: 6835097881525837046
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: dominique spritesheet_12
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 1344
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 73252dcddbb45c730800000000000000
+      internalID: 4018701521323708983
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: dominique spritesheet_13
+      rect:
+        serializedVersion: 2
+        x: 384
+        y: 1344
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3e493f63a81d7e200800000000000000
+      internalID: 209366299253642467
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: dominique spritesheet_14
       rect:
         serializedVersion: 2
         x: 0
@@ -647,14 +1502,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 203aa8513260e6450800000000000000
-      internalID: 6083806894379148034
+      spriteID: c6002ae42c31113e0800000000000000
+      internalID: -2084863427232006036
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: character1_1
+      name: dominique spritesheet_15
       rect:
         serializedVersion: 2
         x: 64
@@ -668,14 +1523,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 3449a506b9c0ea810800000000000000
-      internalID: 1778372764333937731
+      spriteID: 719dea1ee3a590110800000000000000
+      internalID: 1227611599555975447
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: character1_2
+      name: dominique spritesheet_16
       rect:
         serializedVersion: 2
         x: 128
@@ -689,14 +1544,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: bbb9a2ebf819124b0800000000000000
-      internalID: -5466928426094257221
+      spriteID: 812b101de10f7d810800000000000000
+      internalID: 1790163392049295896
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: character1_3
+      name: dominique spritesheet_17
       rect:
         serializedVersion: 2
         x: 192
@@ -710,14 +1565,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 3bc4fb0cf057fa860800000000000000
-      internalID: 7543376611387591859
+      spriteID: db1462aa2f9c9aed0800000000000000
+      internalID: -2402166882151546435
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: character1_4
+      name: dominique spritesheet_18
       rect:
         serializedVersion: 2
         x: 256
@@ -731,14 +1586,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: b9d965f95d0af2380800000000000000
-      internalID: -8993793091473859173
+      spriteID: fa7298a35227f6b80800000000000000
+      internalID: -8399369275801262161
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: character1_5
+      name: dominique spritesheet_19
       rect:
         serializedVersion: 2
         x: 320
@@ -752,14 +1607,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 75bc5bec2f9001360800000000000000
-      internalID: 7138216347836992343
+      spriteID: e69a64599e996e090800000000000000
+      internalID: -8005542059093612178
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: character1_6
+      name: dominique spritesheet_20
       rect:
         serializedVersion: 2
         x: 384
@@ -773,14 +1628,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 77ea0b180ee592010800000000000000
-      internalID: 1164566296993508983
+      spriteID: e17a4c9f824d57370800000000000000
+      internalID: 8319789159091054366
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: character1_7
+      name: dominique spritesheet_21
       rect:
         serializedVersion: 2
         x: 0
@@ -794,14 +1649,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 9247733a66fd448c0800000000000000
-      internalID: -4015839335789661143
+      spriteID: 18519c5672b59ecd0800000000000000
+      internalID: -2528389491022293631
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: character1_8
+      name: dominique spritesheet_22
       rect:
         serializedVersion: 2
         x: 64
@@ -815,14 +1670,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 4cf42e9d4f9e4f100800000000000000
-      internalID: 140994726192107460
+      spriteID: 999cc10be5d6ec8c0800000000000000
+      internalID: -3977121167472539239
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: character1_9
+      name: dominique spritesheet_23
       rect:
         serializedVersion: 2
         x: 128
@@ -836,14 +1691,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 3a690593c151f2660800000000000000
-      internalID: 7363127126738900643
+      spriteID: e48a54bb19c3a6690800000000000000
+      internalID: -7608202023879202738
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: character1_10
+      name: dominique spritesheet_24
       rect:
         serializedVersion: 2
         x: 192
@@ -857,14 +1712,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 7ea11a4e9905f77e0800000000000000
-      internalID: -1765603907009963289
+      spriteID: 06f70ebac8d03b5b0800000000000000
+      internalID: -5353920634183188640
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: character1_11
+      name: dominique spritesheet_25
       rect:
         serializedVersion: 2
         x: 256
@@ -878,14 +1733,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 2fb1159250d613bf0800000000000000
-      internalID: -346375827395372046
+      spriteID: 3abb382b11626dd60800000000000000
+      internalID: 7914555252601502627
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: character1_12
+      name: dominique spritesheet_26
       rect:
         serializedVersion: 2
         x: 320
@@ -899,14 +1754,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 13d4b37ccf46519b0800000000000000
-      internalID: -5110067165344871119
+      spriteID: 7beb5f5624cc84f00800000000000000
+      internalID: 1101354694442598071
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: character1_13
+      name: dominique spritesheet_27
       rect:
         serializedVersion: 2
         x: 384
@@ -920,14 +1775,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 0b00a2b7e6f063d00800000000000000
-      internalID: 951965338422608048
+      spriteID: 0b5416673c643f1b0800000000000000
+      internalID: -5624073704336964176
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: character1_14
+      name: dominique spritesheet_28
       rect:
         serializedVersion: 2
         x: 0
@@ -941,14 +1796,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 6691a4dcadbeac4d0800000000000000
-      internalID: -3113416867393693338
+      spriteID: ef550074540cadbe0800000000000000
+      internalID: -1451636526097082882
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: character1_15
+      name: dominique spritesheet_29
       rect:
         serializedVersion: 2
         x: 64
@@ -962,14 +1817,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: a29d6e372279ae0f0800000000000000
-      internalID: -1086890185827362518
+      spriteID: bcf51c4f543f18600800000000000000
+      internalID: 468923318007848907
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: character1_16
+      name: dominique spritesheet_30
       rect:
         serializedVersion: 2
         x: 128
@@ -983,14 +1838,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: f0e43a6e34787b080800000000000000
-      internalID: -9171713390414705137
+      spriteID: bb36d39d97dda31b0800000000000000
+      internalID: -5675980864941628485
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: character1_17
+      name: dominique spritesheet_31
       rect:
         serializedVersion: 2
         x: 192
@@ -1004,14 +1859,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 8654446e299597580800000000000000
-      internalID: -8828927107019815576
+      spriteID: 9016cd82e4ed13150800000000000000
+      internalID: 5850701818205331721
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: character1_18
+      name: dominique spritesheet_32
       rect:
         serializedVersion: 2
         x: 256
@@ -1025,14 +1880,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 311678bf054ac9c40800000000000000
-      internalID: 5520467910973677843
+      spriteID: bc6d097e18793e670800000000000000
+      internalID: 8566857500380419787
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: character1_19
+      name: dominique spritesheet_33
       rect:
         serializedVersion: 2
         x: 320
@@ -1046,14 +1901,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: f39ac97001fa612c0800000000000000
-      internalID: -4461185897481852609
+      spriteID: c98c9c9c929b36cc0800000000000000
+      internalID: -3718925278147655524
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: character1_20
+      name: dominique spritesheet_34
       rect:
         serializedVersion: 2
         x: 384
@@ -1067,14 +1922,35 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 62b62ad99db896f60800000000000000
-      internalID: 8028101577533451046
+      spriteID: bee9df9c71b454cb0800000000000000
+      internalID: -4880412055640891669
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: character1_21
+      name: dominique spritesheet_35
+      rect:
+        serializedVersion: 2
+        x: 448
+        y: 1152
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f1c0934d66b658af0800000000000000
+      internalID: -394791302933705697
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: dominique spritesheet_36
       rect:
         serializedVersion: 2
         x: 0
@@ -1088,14 +1964,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 60af332e49b881fb0800000000000000
-      internalID: -4676834741457782266
+      spriteID: f2e2446d8cb167880800000000000000
+      internalID: -8613666687897293265
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: character1_22
+      name: dominique spritesheet_37
       rect:
         serializedVersion: 2
         x: 64
@@ -1109,14 +1985,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 529c28ed5dec8f730800000000000000
-      internalID: 4033200884266748197
+      spriteID: de94349721de03720800000000000000
+      internalID: 2824017629960948205
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: character1_23
+      name: dominique spritesheet_38
       rect:
         serializedVersion: 2
         x: 128
@@ -1130,14 +2006,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 430ebeea2bf5831a0800000000000000
-      internalID: -6829603613863845836
+      spriteID: 2113f667e0731bb10800000000000000
+      internalID: 1995436645157908754
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: character1_24
+      name: dominique spritesheet_39
       rect:
         serializedVersion: 2
         x: 192
@@ -1151,14 +2027,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: bf72e42161535e280800000000000000
-      internalID: -9014740710199515141
+      spriteID: 207fb66ccbf767380800000000000000
+      internalID: -8973844758729591038
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: character1_25
+      name: dominique spritesheet_40
       rect:
         serializedVersion: 2
         x: 256
@@ -1172,14 +2048,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: fd50bfaa5fe155d80800000000000000
-      internalID: -8262663900856908321
+      spriteID: 2f91dcf5b178f5af0800000000000000
+      internalID: -405456889798911502
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: character1_26
+      name: dominique spritesheet_41
       rect:
         serializedVersion: 2
         x: 320
@@ -1193,14 +2069,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 8cac177d9f98511e0800000000000000
-      internalID: -2227722734510421304
+      spriteID: fbeef845f19216f80800000000000000
+      internalID: -8115159839005479233
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: character1_27
+      name: dominique spritesheet_42
       rect:
         serializedVersion: 2
         x: 384
@@ -1214,14 +2090,35 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 4e13e5eabe3743070800000000000000
-      internalID: 8085214687116800484
+      spriteID: 98ae5240f4bdbff70800000000000000
+      internalID: 9222205794389715593
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: character1_28
+      name: dominique spritesheet_43
+      rect:
+        serializedVersion: 2
+        x: 448
+        y: 1088
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 570aea3b6d1a18080800000000000000
+      internalID: -9186883821349461899
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: dominique spritesheet_44
       rect:
         serializedVersion: 2
         x: 0
@@ -1235,14 +2132,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: b56a0c42122809b10800000000000000
-      internalID: 1986230514532525659
+      spriteID: 460bc565f5dcd6f60800000000000000
+      internalID: 8029299520025964644
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: character1_29
+      name: dominique spritesheet_45
       rect:
         serializedVersion: 2
         x: 64
@@ -1256,14 +2153,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 60dabb0cb9a3825d0800000000000000
-      internalID: -3087153103934608122
+      spriteID: 7d3b82f1981152b30800000000000000
+      internalID: 4261831903006995415
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: character1_30
+      name: dominique spritesheet_46
       rect:
         serializedVersion: 2
         x: 128
@@ -1277,14 +2174,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 94c98284f5c47ad80800000000000000
-      internalID: -8239533021134807991
+      spriteID: 5bcbe6909d869b480800000000000000
+      internalID: -8882953508636148555
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: character1_31
+      name: dominique spritesheet_47
       rect:
         serializedVersion: 2
         x: 192
@@ -1298,14 +2195,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 89f4faf4e0204cde0800000000000000
-      internalID: -1313922930795655272
+      spriteID: edd78e2673bd13d70800000000000000
+      internalID: 9021232559528902110
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: character1_32
+      name: dominique spritesheet_48
       rect:
         serializedVersion: 2
         x: 256
@@ -1319,14 +2216,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: fbd813220f8ae3830800000000000000
-      internalID: 4052862463999315391
+      spriteID: b1ecc01077cfb97a0800000000000000
+      internalID: -6369219659936510437
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: character1_33
+      name: dominique spritesheet_49
       rect:
         serializedVersion: 2
         x: 320
@@ -1340,14 +2237,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 6924de152a9ec3d70800000000000000
-      internalID: 9024344636712108694
+      spriteID: eef76322aafea3f60800000000000000
+      internalID: 8014982000856694766
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: character1_34
+      name: dominique spritesheet_50
       rect:
         serializedVersion: 2
         x: 384
@@ -1361,14 +2258,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 07cee13fbed156250800000000000000
-      internalID: 5937184582991277168
+      spriteID: 19fd71e2968f5e0f0800000000000000
+      internalID: -1088190604311535727
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: character1_35
+      name: dominique spritesheet_51
       rect:
         serializedVersion: 2
         x: 448
@@ -1382,14 +2279,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 96234fcc3ebea9c50800000000000000
-      internalID: 6672905161531470441
+      spriteID: a14e4f1a6ceded3a0800000000000000
+      internalID: -6638623855995460582
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: character1_36
+      name: dominique spritesheet_52
       rect:
         serializedVersion: 2
         x: 0
@@ -1403,14 +2300,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 0bc598f113e137a30800000000000000
-      internalID: 4211743272852872368
+      spriteID: 0907edcadbc1c0d80800000000000000
+      internalID: -8283214013666529136
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: character1_37
+      name: dominique spritesheet_53
       rect:
         serializedVersion: 2
         x: 64
@@ -1424,14 +2321,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: ddd0cb2caa2996a80800000000000000
-      internalID: -8473079961811677731
+      spriteID: f80b4415b6c42f150800000000000000
+      internalID: 5904866085244809359
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: character1_38
+      name: dominique spritesheet_54
       rect:
         serializedVersion: 2
         x: 128
@@ -1445,14 +2342,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: ee8796afcde0e82f0800000000000000
-      internalID: -968820527581267730
+      spriteID: 613113b68fe165810800000000000000
+      internalID: 1753623157206487830
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: character1_39
+      name: dominique spritesheet_55
       rect:
         serializedVersion: 2
         x: 192
@@ -1466,14 +2363,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: b772dfbc86b6becc0800000000000000
-      internalID: -3680730172602112133
+      spriteID: 5e0236ba53e3ca8c0800000000000000
+      internalID: -3986743169900142363
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: character1_40
+      name: dominique spritesheet_56
       rect:
         serializedVersion: 2
         x: 256
@@ -1487,14 +2384,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 04ab01a5681d88940800000000000000
-      internalID: 5298715336568257088
+      spriteID: 5ccbfce9973fc28e0800000000000000
+      internalID: -1716729654253994811
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: character1_41
+      name: dominique spritesheet_57
       rect:
         serializedVersion: 2
         x: 320
@@ -1508,14 +2405,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 472bb62074d860060800000000000000
-      internalID: 6919373213624152692
+      spriteID: 701bb8e74046a1fc0800000000000000
+      internalID: -3523393787998260985
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: character1_42
+      name: dominique spritesheet_58
       rect:
         serializedVersion: 2
         x: 384
@@ -1529,14 +2426,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 3d1229a8019f6f130800000000000000
-      internalID: 3600338801568915923
+      spriteID: 8be61a013f6f5cee0800000000000000
+      internalID: -1241314598454202696
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: character1_43
+      name: dominique spritesheet_59
       rect:
         serializedVersion: 2
         x: 448
@@ -1550,14 +2447,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 0f9b5d15a235cb240800000000000000
-      internalID: 4808809943351540208
+      spriteID: 0ab6e035b5fc7dea0800000000000000
+      internalID: -5847977599974872160
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: character1_44
+      name: dominique_walk_forward01
       rect:
         serializedVersion: 2
         x: 0
@@ -1571,14 +2468,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 939d4b3d45653ac00800000000000000
-      internalID: 910666471988058425
+      spriteID: a0627f59cab118490800000000000000
+      internalID: -7745879456036215286
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: character1_45
+      name: dominique_walk_forward02
       rect:
         serializedVersion: 2
         x: 64
@@ -1592,14 +2489,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: c9909912155c63000800000000000000
-      internalID: 15416600989075868
+      spriteID: 7b611a0e9cf5593a0800000000000000
+      internalID: -6659311153335691593
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: character1_46
+      name: dominique_walk_forward03
       rect:
         serializedVersion: 2
         x: 128
@@ -1613,14 +2510,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 135321fe34892c140800000000000000
-      internalID: 4738517175488361777
+      spriteID: 7312c51798f2093f0800000000000000
+      internalID: -896164058487840457
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: character1_47
+      name: dominique_walk_forward04
       rect:
         serializedVersion: 2
         x: 192
@@ -1634,14 +2531,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: afcab3fc30f685980800000000000000
-      internalID: -8549961830410507014
+      spriteID: c5d0591747ee83260800000000000000
+      internalID: 7077668998301945180
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: character1_48
+      name: dominique_walk_forward05
       rect:
         serializedVersion: 2
         x: 256
@@ -1655,14 +2552,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: f0d640ff49ac672c0800000000000000
-      internalID: -4434134041817223921
+      spriteID: abdebfcce381989c0800000000000000
+      internalID: -3924578942270575174
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: character1_49
+      name: dominique_walk_forward06
       rect:
         serializedVersion: 2
         x: 320
@@ -1676,14 +2573,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 9ccfb544f9ab8f810800000000000000
-      internalID: 1799393244343958729
+      spriteID: 6c73686c39b34cf80800000000000000
+      internalID: -8087273524973652026
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: character1_50
+      name: dominique_walk_forward07
       rect:
         serializedVersion: 2
         x: 384
@@ -1697,14 +2594,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 6a391becd9c91be90800000000000000
-      internalID: -7011650943247608922
+      spriteID: 844a8b4280b8262c0800000000000000
+      internalID: -4439833415541808056
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: character1_51
+      name: dominique_walk_forward08
       rect:
         serializedVersion: 2
         x: 448
@@ -1718,14 +2615,35 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 7f1b2171bfb12c210800000000000000
-      internalID: 1351673603402412535
+      spriteID: da7fe9ef85e57cd20800000000000000
+      internalID: 3298708988394141613
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: character1_52
+      name: dominique_walk_forward09
+      rect:
+        serializedVersion: 2
+        x: 512
+        y: 896
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c0c5f93d28c22aba0800000000000000
+      internalID: -6079247606588941300
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: dominique_walk_left01
       rect:
         serializedVersion: 2
         x: 0
@@ -1739,14 +2657,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 4eaf8845453520ff0800000000000000
-      internalID: -71403022423885084
+      spriteID: 2274d965e74733ba0800000000000000
+      internalID: -6110412183443781854
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: character1_53
+      name: dominique_walk_left02
       rect:
         serializedVersion: 2
         x: 64
@@ -1760,14 +2678,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 9bb3f857867c08700800000000000000
-      internalID: 540651206747306937
+      spriteID: 73f2a671975c3fe00800000000000000
+      internalID: 1077421859746230071
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: character1_54
+      name: dominique_walk_left03
       rect:
         serializedVersion: 2
         x: 128
@@ -1781,14 +2699,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: db0b590447ca16570800000000000000
-      internalID: 8458231190478237885
+      spriteID: 55030772cbffb0bb0800000000000000
+      internalID: -4968596580292612011
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: character1_55
+      name: dominique_walk_left04
       rect:
         serializedVersion: 2
         x: 192
@@ -1802,14 +2720,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 8258d40827f5dc2f0800000000000000
-      internalID: -950999000921832152
+      spriteID: df135e3ebaab6b600800000000000000
+      internalID: 483779257414529533
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: character1_56
+      name: dominique_walk_left05
       rect:
         serializedVersion: 2
         x: 256
@@ -1823,14 +2741,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: d03d639b6127815d0800000000000000
-      internalID: -3091595702267620595
+      spriteID: d73142294102f1ca0800000000000000
+      internalID: -6044076902184643715
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: character1_57
+      name: dominique_walk_left06
       rect:
         serializedVersion: 2
         x: 320
@@ -1844,14 +2762,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 3f7742d570cb6da30800000000000000
-      internalID: 4239782839029364723
+      spriteID: 9b5b07d9eecda39c0800000000000000
+      internalID: -3946599206035081799
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: character1_58
+      name: dominique_walk_left07
       rect:
         serializedVersion: 2
         x: 384
@@ -1865,14 +2783,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 842c3951850481e80800000000000000
-      internalID: -8207739573819424184
+      spriteID: 975af9aeb507751c0800000000000000
+      internalID: -4515016561334966919
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: character1_59
+      name: dominique_walk_left08
       rect:
         serializedVersion: 2
         x: 448
@@ -1886,14 +2804,35 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 3a933548abeaf9ed0800000000000000
-      internalID: -2405011559885358685
+      spriteID: ef859fa837a4020a0800000000000000
+      internalID: -6908439968273049346
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: character1_walk_forward01
+      name: dominique_walk_left09
+      rect:
+        serializedVersion: 2
+        x: 512
+        y: 832
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9fcce680169df1f30800000000000000
+      internalID: 4548593159444024569
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: dominique_walk_backward01
       rect:
         serializedVersion: 2
         x: 0
@@ -1907,14 +2846,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: e937864907c4478b0800000000000000
-      internalID: -5155411627022453858
+      spriteID: a1f5256e8e5438a40800000000000000
+      internalID: 5369212047354650394
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: character1_walk_forward02
+      name: dominique_walk_backward02
       rect:
         serializedVersion: 2
         x: 64
@@ -1928,14 +2867,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 4bba45f84e7bb5970800000000000000
-      internalID: 8744785293755067316
+      spriteID: 2018b550df00df5d0800000000000000
+      internalID: -3027262287806496510
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: character1_walk_forward03
+      name: dominique_walk_backward03
       rect:
         serializedVersion: 2
         x: 128
@@ -1949,18 +2888,18 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 0640db64b8b223590800000000000000
-      internalID: -7696040936035515296
+      spriteID: 753369fd0c6e39c60800000000000000
+      internalID: 7823850693731955543
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: character1_walk_forward04
+      name: dominique_walk_backward04
       rect:
         serializedVersion: 2
         x: 192
-        y: 769
+        y: 768
         width: 64
         height: 64
       alignment: 0
@@ -1970,14 +2909,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: ad351c773ae3264f0800000000000000
-      internalID: -837037708927740966
+      spriteID: 58963fe2a396c7bd0800000000000000
+      internalID: -2631112383674488443
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: character1_walk_forward05
+      name: dominique_walk_backward05
       rect:
         serializedVersion: 2
         x: 256
@@ -1991,14 +2930,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: f819e969a425b0560800000000000000
-      internalID: 7281003702882570639
+      spriteID: c966ea445186b4240800000000000000
+      internalID: 4777026270312425116
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: character1_walk_forward06
+      name: dominique_walk_backward06
       rect:
         serializedVersion: 2
         x: 320
@@ -2012,14 +2951,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 8133020b438b07230800000000000000
-      internalID: 3634607435720700696
+      spriteID: 12ef242059db620a0800000000000000
+      internalID: -6906624530840355295
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: character1_walk_forward07
+      name: dominique_walk_backward07
       rect:
         serializedVersion: 2
         x: 384
@@ -2033,14 +2972,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 1e30d995815cf2f80800000000000000
-      internalID: -8129062094007106591
+      spriteID: 1f5a852205f3b3fb0800000000000000
+      internalID: -4667066975433218575
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: character1_walk_forward08
+      name: dominique_walk_backward08
       rect:
         serializedVersion: 2
         x: 448
@@ -2054,14 +2993,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: d36eebaeeeeb502a0800000000000000
-      internalID: -6771796531331799491
+      spriteID: b129b60071fa78a40800000000000000
+      internalID: 5370453593988764187
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: character1_walk_forward09
+      name: dominique_walk_backward09
       rect:
         serializedVersion: 2
         x: 512
@@ -2075,14 +3014,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: b903ef40698e18ce0800000000000000
-      internalID: -1404585877736378213
+      spriteID: 0123007b0639b5ec0800000000000000
+      internalID: -3577103435419340272
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: character1_walk_left01
+      name: dominique_walk_right01
       rect:
         serializedVersion: 2
         x: 0
@@ -2096,14 +3035,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 434adbbd530caa4d0800000000000000
-      internalID: -3122472054075579340
+      spriteID: 0927909988421eb70800000000000000
+      internalID: 8926456105526719120
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: character1_walk_left02
+      name: dominique_walk_right02
       rect:
         serializedVersion: 2
         x: 64
@@ -2117,14 +3056,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 5ae9da0d7840a7a50800000000000000
-      internalID: 6519528391940349605
+      spriteID: 28448daafbbc5fc00800000000000000
+      internalID: 933876521814738050
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: character1_walk_left03
+      name: dominique_walk_right03
       rect:
         serializedVersion: 2
         x: 128
@@ -2138,14 +3077,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 6e4070b18f7539840800000000000000
-      internalID: 5229620315424228582
+      spriteID: eaaa8cef1feffb420800000000000000
+      internalID: 2648115421232278190
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: character1_walk_left04
+      name: dominique_walk_right04
       rect:
         serializedVersion: 2
         x: 192
@@ -2159,14 +3098,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 55ee7763a2e028830800000000000000
-      internalID: 4071832587561594453
+      spriteID: ae27a37ed378cf340800000000000000
+      internalID: 4898939194614379242
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: character1_walk_left05
+      name: dominique_walk_right05
       rect:
         serializedVersion: 2
         x: 256
@@ -2180,14 +3119,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 3a8f47a6fbf5d4d60800000000000000
-      internalID: 7876056599070308515
+      spriteID: 5fc9ec3dd8bad0e60800000000000000
+      internalID: 7930183144501583093
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: character1_walk_left06
+      name: dominique_walk_right06
       rect:
         serializedVersion: 2
         x: 320
@@ -2201,14 +3140,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 6a479a23c2cc8cad0800000000000000
-      internalID: -2681669087898536794
+      spriteID: 5415ac4c7313dbec0800000000000000
+      internalID: -3549626815703527099
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: character1_walk_left07
+      name: dominique_walk_right07
       rect:
         serializedVersion: 2
         x: 384
@@ -2222,14 +3161,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 4aeb053933e4509a0800000000000000
-      internalID: -6267517322994336092
+      spriteID: 57f60fbb2f89aba90800000000000000
+      internalID: -7297352077897863307
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: character1_walk_left08
+      name: dominique_walk_right08
       rect:
         serializedVersion: 2
         x: 448
@@ -2243,14 +3182,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 5349c4c3036bc5580800000000000000
-      internalID: -8836988050521418699
+      spriteID: 0aa14307099f3f500800000000000000
+      internalID: 428960788283398816
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: character1_walk_left09
+      name: dominique_walk_right09
       rect:
         serializedVersion: 2
         x: 512
@@ -2264,14 +3203,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 8a5de08dea8e150f0800000000000000
-      internalID: -1129866193846479448
+      spriteID: d7ed4c9b81147c600800000000000000
+      internalID: 488430659044695677
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: character1_walk_downward01
+      name: dominique spritesheet_96
       rect:
         serializedVersion: 2
         x: 0
@@ -2285,14 +3224,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 11568e35364a06100800000000000000
-      internalID: 99259938318607633
+      spriteID: b15dd3eb76225eec0800000000000000
+      internalID: -3538384103260957413
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: character1_walk_downward02
+      name: dominique spritesheet_97
       rect:
         serializedVersion: 2
         x: 64
@@ -2306,14 +3245,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: f929e6011c8a26270800000000000000
-      internalID: 8242335815199265439
+      spriteID: 5dbb2c4f4b3357860800000000000000
+      internalID: 7526979204513184725
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: character1_walk_downward03
+      name: dominique spritesheet_98
       rect:
         serializedVersion: 2
         x: 128
@@ -2327,14 +3266,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 3e5f1aa171b254970800000000000000
-      internalID: 8738438030213379555
+      spriteID: 5e8828e0e75ae6f00800000000000000
+      internalID: 1112008118834989285
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: character1_walk_downward04
+      name: dominique spritesheet_99
       rect:
         serializedVersion: 2
         x: 192
@@ -2348,14 +3287,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: f1db1066e032fd1c0800000000000000
-      internalID: -4476820959835079393
+      spriteID: 283d4773a3e47cfb0800000000000000
+      internalID: -4627644080154422398
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: character1_walk_downward05
+      name: dominique spritesheet_100
       rect:
         serializedVersion: 2
         x: 256
@@ -2369,14 +3308,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 547f44ca8f5dcf720800000000000000
-      internalID: 2881413125629081413
+      spriteID: 6dd2d5966e0e0d760800000000000000
+      internalID: 7480726261277208022
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: character1_walk_downward06
+      name: dominique spritesheet_101
       rect:
         serializedVersion: 2
         x: 320
@@ -2390,18 +3329,522 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 260ac17583f34fc70800000000000000
-      internalID: 9003891066232676450
+      spriteID: 390bfb1ad894fb020800000000000000
+      internalID: 2359685602418339987
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: character1_walk_downward07
+      name: dominique spritesheet_102
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 576
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 20ca88b977c0f0fe0800000000000000
+      internalID: -1220743266144048126
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: dominique spritesheet_103
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 576
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ae24942aae88be170800000000000000
+      internalID: 8208805287139295978
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: dominique spritesheet_104
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 576
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2b504a7848db82df0800000000000000
+      internalID: -204705406136351310
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: dominique spritesheet_105
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 576
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 54ea74bc3e528d960800000000000000
+      internalID: 7626887629250211397
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: dominique spritesheet_106
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 576
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 61185667d4e49aa70800000000000000
+      internalID: 8838681838297121046
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: dominique spritesheet_107
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 576
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 63d24d3ce01f873b0800000000000000
+      internalID: -5514392697997873866
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: dominique spritesheet_108
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 512
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 863b5a3fb8ca42cf0800000000000000
+      internalID: -277907559901973656
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: dominique spritesheet_109
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 512
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1370e2f2c0d7295a0800000000000000
+      internalID: -6516008219567061199
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: dominique spritesheet_110
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 512
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b9d55156987c6e5d0800000000000000
+      internalID: -3033517906067104357
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: dominique spritesheet_111
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 512
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5be6ec261a4167ac0800000000000000
+      internalID: -3857873347416265035
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: dominique spritesheet_112
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 512
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bbc44753bdb45b020800000000000000
+      internalID: 2356873384865057979
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: dominique spritesheet_113
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 512
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f64ba6e9d73af9b40800000000000000
+      internalID: 5449253834065622127
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: dominique spritesheet_114
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 448
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1ba6bc13b5ce8bf00800000000000000
+      internalID: 1132915182705273521
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: dominique spritesheet_115
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 448
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2a5b9508f94ac3430800000000000000
+      internalID: 3764064393535010210
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: dominique spritesheet_116
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 448
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 88d3c70e6fd336420800000000000000
+      internalID: 2622007538597248392
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: dominique spritesheet_117
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 448
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 791719e4593d868a0800000000000000
+      internalID: -6311562239538007657
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: dominique spritesheet_118
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 448
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 192a49304c94ba740800000000000000
+      internalID: 5164302503932895889
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: dominique spritesheet_119
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 448
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1394feaf7eafd22e0800000000000000
+      internalID: -2148785572931483343
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: dominique spritesheet_120
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 384
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6ffc96e5d64da98e0800000000000000
+      internalID: -1685801544296312842
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: dominique spritesheet_121
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 384
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a2889ca8f32112110800000000000000
+      internalID: 1234287836996929578
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: dominique spritesheet_122
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 384
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 02ae36ed223793600800000000000000
+      internalID: 448516231497247264
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: dominique spritesheet_123
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 384
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c027bc92d69787100800000000000000
+      internalID: 105968101002801676
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: dominique spritesheet_124
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 384
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 87bdd988ea5405a10800000000000000
+      internalID: 1896092059041651576
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: dominique spritesheet_125
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 384
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ddd97585091ef2770800000000000000
+      internalID: 8588331024492502493
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: dominique spritesheet_126
       rect:
         serializedVersion: 2
         x: 384
-        y: 640
+        y: 384
         width: 64
         height: 64
       alignment: 0
@@ -2411,18 +3854,18 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 03c12bf5529c61160800000000000000
-      internalID: 6996000233523125296
+      spriteID: 6cb9d0a0bf7ce8c10800000000000000
+      internalID: 2057801960774278086
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: character1_walk_downward08
+      name: dominique spritesheet_127
       rect:
         serializedVersion: 2
         x: 448
-        y: 640
+        y: 384
         width: 64
         height: 64
       alignment: 0
@@ -2432,18 +3875,18 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: b800cefe9811146a0800000000000000
-      internalID: -6466868305793908597
+      spriteID: 923927a24a1581bb0800000000000000
+      internalID: -4965128823647333591
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: character1_walk_downward09
+      name: dominique spritesheet_128
       rect:
         serializedVersion: 2
         x: 512
-        y: 640
+        y: 384
         width: 64
         height: 64
       alignment: 0
@@ -2453,18 +3896,102 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 0107e258357d59410800000000000000
-      internalID: 1483328406005116944
+      spriteID: 7ee0bcb204bc728b0800000000000000
+      internalID: -5176945770166022425
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: character1_walk_right01
+      name: dominique spritesheet_129
+      rect:
+        serializedVersion: 2
+        x: 576
+        y: 384
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5e0671c56f1bb4440800000000000000
+      internalID: 4921222689497506021
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: dominique spritesheet_130
+      rect:
+        serializedVersion: 2
+        x: 640
+        y: 384
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1fef34a15a28f0930800000000000000
+      internalID: 4111648630434430705
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: dominique spritesheet_131
+      rect:
+        serializedVersion: 2
+        x: 704
+        y: 384
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 75097ae251daa8190800000000000000
+      internalID: -7959359084935278505
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: dominique spritesheet_132
+      rect:
+        serializedVersion: 2
+        x: 768
+        y: 384
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 576de0849d1bad930800000000000000
+      internalID: 4168839951859766901
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: dominique spritesheet_133
       rect:
         serializedVersion: 2
         x: 0
-        y: 576
+        y: 320
         width: 64
         height: 64
       alignment: 0
@@ -2474,18 +4001,18 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 3494d5e5f56c2d380800000000000000
-      internalID: -8947871396724389565
+      spriteID: 32718cd3e1ae84100800000000000000
+      internalID: 92581207967536931
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: character1_walk_right02
+      name: dominique spritesheet_134
       rect:
         serializedVersion: 2
         x: 64
-        y: 576
+        y: 320
         width: 64
         height: 64
       alignment: 0
@@ -2495,18 +4022,18 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: dfefcc7d46e6bd9c0800000000000000
-      internalID: -3901403272790081795
+      spriteID: 90d608fd3891bc050800000000000000
+      internalID: 5821774997487643913
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: character1_walk_right03
+      name: dominique spritesheet_135
       rect:
         serializedVersion: 2
         x: 128
-        y: 576
+        y: 320
         width: 64
         height: 64
       alignment: 0
@@ -2516,18 +4043,18 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 745a6341dbca9ade0800000000000000
-      internalID: -1321335087568607929
+      spriteID: fb0c5ea8a93739020800000000000000
+      internalID: 2347346938382631103
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: character1_walk_right04
+      name: dominique spritesheet_136
       rect:
         serializedVersion: 2
         x: 192
-        y: 576
+        y: 320
         width: 64
         height: 64
       alignment: 0
@@ -2537,18 +4064,18 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 6ff5c34b9aa5f2ec0800000000000000
-      internalID: -3589550693071167498
+      spriteID: 6f7f33469ef3df840800000000000000
+      internalID: 5259430211479664630
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: character1_walk_right05
+      name: dominique spritesheet_137
       rect:
         serializedVersion: 2
         x: 256
-        y: 576
+        y: 320
         width: 64
         height: 64
       alignment: 0
@@ -2558,18 +4085,18 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: dec9eee658e76c270800000000000000
-      internalID: 8270436877269376237
+      spriteID: e26831c9fdd6465a0800000000000000
+      internalID: -6528972752616716754
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: character1_walk_right06
+      name: dominique spritesheet_138
       rect:
         serializedVersion: 2
         x: 320
-        y: 576
+        y: 320
         width: 64
         height: 64
       alignment: 0
@@ -2579,18 +4106,18 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: e9aa2ba1a39ae9740800000000000000
-      internalID: 5160748290034281118
+      spriteID: 8e0966baa497c38b0800000000000000
+      internalID: -5171124910518005528
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: character1_walk_right07
+      name: dominique spritesheet_139
       rect:
         serializedVersion: 2
         x: 384
-        y: 576
+        y: 320
         width: 64
         height: 64
       alignment: 0
@@ -2600,18 +4127,18 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 4d7f4660675aa7ab0800000000000000
-      internalID: -5009509709164251180
+      spriteID: f7da02b0f0739f410800000000000000
+      internalID: 1511299687710240127
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: character1_walk_right08
+      name: dominique spritesheet_140
       rect:
         serializedVersion: 2
         x: 448
-        y: 576
+        y: 320
         width: 64
         height: 64
       alignment: 0
@@ -2621,416 +4148,17 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: b4104a75fd80ca150800000000000000
-      internalID: 5885088568407490891
+      spriteID: 04946abed72d66440800000000000000
+      internalID: 4928858280469875008
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: character1_walk_right09
+      name: dominique spritesheet_141
       rect:
         serializedVersion: 2
         x: 512
-        y: 576
-        width: 64
-        height: 64
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: de105ce2eaaee9710800000000000000
-      internalID: 1702055743022498285
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: character1_96
-      rect:
-        serializedVersion: 2
-        x: 0
-        y: 512
-        width: 64
-        height: 64
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 9b1efc1e3bbf00810800000000000000
-      internalID: 1729659006916485561
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: character1_97
-      rect:
-        serializedVersion: 2
-        x: 64
-        y: 512
-        width: 64
-        height: 64
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: be7ed1bbd0b5514a0800000000000000
-      internalID: -6623287562446444565
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: character1_98
-      rect:
-        serializedVersion: 2
-        x: 128
-        y: 512
-        width: 64
-        height: 64
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 2db9211424ff6d3a0800000000000000
-      internalID: -6640839940486554670
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: character1_99
-      rect:
-        serializedVersion: 2
-        x: 192
-        y: 512
-        width: 64
-        height: 64
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 7b1cb7aa806203f60800000000000000
-      internalID: 8011945555753943479
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: character1_100
-      rect:
-        serializedVersion: 2
-        x: 256
-        y: 512
-        width: 64
-        height: 64
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: e531e2af8af933d60800000000000000
-      internalID: 7868808522047034206
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: character1_101
-      rect:
-        serializedVersion: 2
-        x: 320
-        y: 512
-        width: 64
-        height: 64
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: c9837b19f5a1b26e0800000000000000
-      internalID: -1861365023218648932
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: character1_102
-      rect:
-        serializedVersion: 2
-        x: 0
-        y: 448
-        width: 64
-        height: 64
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 644b991210013eb20800000000000000
-      internalID: 3162388960388953158
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: character1_103
-      rect:
-        serializedVersion: 2
-        x: 64
-        y: 448
-        width: 64
-        height: 64
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 7d2f27f432a056480800000000000000
-      internalID: -8906701541282221353
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: character1_104
-      rect:
-        serializedVersion: 2
-        x: 128
-        y: 448
-        width: 64
-        height: 64
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: e565dd97c1ebf80c0800000000000000
-      internalID: -4571226067244853666
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: character1_105
-      rect:
-        serializedVersion: 2
-        x: 192
-        y: 448
-        width: 64
-        height: 64
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 2279a7254c2a60100800000000000000
-      internalID: 73925407979247394
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: character1_106
-      rect:
-        serializedVersion: 2
-        x: 256
-        y: 448
-        width: 64
-        height: 64
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 16c58946f393b19f0800000000000000
-      internalID: -496740389460878239
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: character1_107
-      rect:
-        serializedVersion: 2
-        x: 320
-        y: 448
-        width: 64
-        height: 64
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 995a99d14621d55f0800000000000000
-      internalID: -766436140380478055
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: character1_108
-      rect:
-        serializedVersion: 2
-        x: 0
-        y: 384
-        width: 64
-        height: 64
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: e86851b739ba08260800000000000000
-      internalID: 7097861662649452174
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: character1_109
-      rect:
-        serializedVersion: 2
-        x: 64
-        y: 384
-        width: 64
-        height: 64
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 1f5f1511ad6d2da40800000000000000
-      internalID: 5391607935997703665
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: character1_110
-      rect:
-        serializedVersion: 2
-        x: 128
-        y: 384
-        width: 64
-        height: 64
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: b099d8a3097ccf4f0800000000000000
-      internalID: -793540012052473589
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: character1_111
-      rect:
-        serializedVersion: 2
-        x: 192
-        y: 384
-        width: 64
-        height: 64
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 40004ff114a3934b0800000000000000
-      internalID: -5460269021826646012
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: character1_112
-      rect:
-        serializedVersion: 2
-        x: 256
-        y: 384
-        width: 64
-        height: 64
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: ea5452201dc393b10800000000000000
-      internalID: 1961665981078390190
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: character1_113
-      rect:
-        serializedVersion: 2
-        x: 320
-        y: 384
-        width: 64
-        height: 64
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 74b8ce7489dbe31a0800000000000000
-      internalID: -6827811523307730105
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: character1_114
-      rect:
-        serializedVersion: 2
-        x: 0
         y: 320
         width: 64
         height: 64
@@ -3041,17 +4169,17 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 6de4edc138505d2e0800000000000000
-      internalID: -2101767590415282474
+      spriteID: 0f5919d824bade0e0800000000000000
+      internalID: -2238945137401948688
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: character1_115
+      name: dominique spritesheet_142
       rect:
         serializedVersion: 2
-        x: 64
+        x: 576
         y: 320
         width: 64
         height: 64
@@ -3062,17 +4190,17 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 9d01a563366a82f60800000000000000
-      internalID: 8009834882322272473
+      spriteID: 75f295469fe0fed10800000000000000
+      internalID: 2156959210826968919
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: character1_116
+      name: dominique spritesheet_143
       rect:
         serializedVersion: 2
-        x: 128
+        x: 640
         y: 320
         width: 64
         height: 64
@@ -3083,17 +4211,17 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 344014c3920c5c7c0800000000000000
-      internalID: -4051621006412807101
+      spriteID: 4ce494719e6cf9dd0800000000000000
+      internalID: -2477042565610123580
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: character1_117
+      name: dominique spritesheet_144
       rect:
         serializedVersion: 2
-        x: 192
+        x: 704
         y: 320
         width: 64
         height: 64
@@ -3104,17 +4232,17 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: a2af953e54a0e8900800000000000000
-      internalID: 688499088317610538
+      spriteID: 73939bcf699424e30800000000000000
+      internalID: 4486229091648354615
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: character1_118
+      name: dominique spritesheet_145
       rect:
         serializedVersion: 2
-        x: 256
+        x: 768
         y: 320
         width: 64
         height: 64
@@ -3125,35 +4253,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: d01bfb79a2014c100800000000000000
-      internalID: 127244464593809677
+      spriteID: 06b8ec9b5edeece90800000000000000
+      internalID: -7003398799593927840
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: character1_119
-      rect:
-        serializedVersion: 2
-        x: 320
-        y: 320
-        width: 64
-        height: 64
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 20bec7de29148e1c0800000000000000
-      internalID: -4474254130487170302
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: character1_120
+      name: dominique spritesheet_146
       rect:
         serializedVersion: 2
         x: 0
@@ -3167,14 +4274,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 2dfdf298cc36f5910800000000000000
-      internalID: 1828289703861805010
+      spriteID: 403009de76b553220800000000000000
+      internalID: 2464976872980611844
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: character1_121
+      name: dominique spritesheet_147
       rect:
         serializedVersion: 2
         x: 64
@@ -3188,14 +4295,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: a2150aea91a834ee0800000000000000
-      internalID: -1278026026334531286
+      spriteID: 24ba06eeb1274bf80800000000000000
+      internalID: -8091717166188942526
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: character1_122
+      name: dominique spritesheet_148
       rect:
         serializedVersion: 2
         x: 128
@@ -3209,14 +4316,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 9c50d903c16f2a0b0800000000000000
-      internalID: -5718737975871994423
+      spriteID: 1449ba9a18938d7d0800000000000000
+      internalID: -2893499531525385151
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: character1_123
+      name: dominique spritesheet_149
       rect:
         serializedVersion: 2
         x: 192
@@ -3230,14 +4337,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 4edaa1234bc317440800000000000000
-      internalID: 4931789811579792868
+      spriteID: f46f22d3baaae9480800000000000000
+      internalID: -8890480961940949425
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: character1_124
+      name: dominique spritesheet_150
       rect:
         serializedVersion: 2
         x: 256
@@ -3251,14 +4358,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: b7c6ce16d22633ed0800000000000000
-      internalID: -2435495026421371781
+      spriteID: b3ab9077fd27e8150800000000000000
+      internalID: 5876760867865475643
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: character1_125
+      name: dominique spritesheet_151
       rect:
         serializedVersion: 2
         x: 320
@@ -3272,14 +4379,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 03629842df2c07c00800000000000000
-      internalID: 896430718342211120
+      spriteID: a0ca093df1e0d5fd0800000000000000
+      internalID: -2351707900561282038
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: character1_126
+      name: dominique spritesheet_152
       rect:
         serializedVersion: 2
         x: 384
@@ -3293,14 +4400,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: f8d219f97a3bf3290800000000000000
-      internalID: -7908404888121299569
+      spriteID: 6f1e0811c18732430800000000000000
+      internalID: 3756978576105202166
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: character1_127
+      name: dominique spritesheet_153
       rect:
         serializedVersion: 2
         x: 448
@@ -3314,14 +4421,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 112beeb2af6245f80800000000000000
-      internalID: -8118821372321418735
+      spriteID: db5e6e818ba72b700800000000000000
+      internalID: 554640635230348733
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: character1_128
+      name: dominique spritesheet_154
       rect:
         serializedVersion: 2
         x: 512
@@ -3335,14 +4442,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 0fb92c5a692b2ad60800000000000000
-      internalID: 7900073056457104368
+      spriteID: 1d73ffe82c06de760800000000000000
+      internalID: 7488748144126015441
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: character1_129
+      name: dominique spritesheet_155
       rect:
         serializedVersion: 2
         x: 576
@@ -3356,14 +4463,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 9222c98d010b0a110800000000000000
-      internalID: 1270208681318556201
+      spriteID: 1f463971a69853dc0800000000000000
+      internalID: -3659868033413585679
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: character1_130
+      name: dominique spritesheet_156
       rect:
         serializedVersion: 2
         x: 640
@@ -3377,14 +4484,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 3d9019337c1dbee60800000000000000
-      internalID: 7992712617192917459
+      spriteID: 32cded3a7c8086d70800000000000000
+      internalID: 9036482305859705891
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: character1_131
+      name: dominique spritesheet_157
       rect:
         serializedVersion: 2
         x: 704
@@ -3398,14 +4505,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 30b91a19dcb73d330800000000000000
-      internalID: 3734464638862072579
+      spriteID: 276382daa948bc970800000000000000
+      internalID: 8776254098726467186
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: character1_132
+      name: dominique spritesheet_158
       rect:
         serializedVersion: 2
         x: 768
@@ -3419,14 +4526,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 53b067a0bba259000800000000000000
-      internalID: 41986754352646965
+      spriteID: ad0f9296020914530800000000000000
+      internalID: 3837506826374082778
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: character1_133
+      name: dominique spritesheet_159
       rect:
         serializedVersion: 2
         x: 0
@@ -3440,14 +4547,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: d3d10cf188e4c34a0800000000000000
-      internalID: -6612323806331527875
+      spriteID: 367310c0eae444eb0800000000000000
+      internalID: -4736574398654236829
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: character1_134
+      name: dominique spritesheet_160
       rect:
         serializedVersion: 2
         x: 64
@@ -3461,14 +4568,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 05c1255a7140580e0800000000000000
-      internalID: -2268402337706795952
+      spriteID: d4faeb9f8fb13cb80800000000000000
+      internalID: -8375820125823127731
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: character1_135
+      name: dominique spritesheet_161
       rect:
         serializedVersion: 2
         x: 128
@@ -3482,14 +4589,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 247fdddcac1e725d0800000000000000
-      internalID: -3087250758385666238
+      spriteID: d510b99d346c78b30800000000000000
+      internalID: 4289615164809609565
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: character1_136
+      name: dominique spritesheet_162
       rect:
         serializedVersion: 2
         x: 192
@@ -3503,14 +4610,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 1c70230b28fb1f210800000000000000
-      internalID: 1365082730092693441
+      spriteID: d29819f1acfeca7a0800000000000000
+      internalID: -6364448521989289683
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: character1_137
+      name: dominique spritesheet_163
       rect:
         serializedVersion: 2
         x: 256
@@ -3524,14 +4631,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 1c668bb5183ed1890800000000000000
-      internalID: -7485576860890798399
+      spriteID: 8207762a7a4667ae0800000000000000
+      internalID: -1551942350435553240
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: character1_138
+      name: dominique spritesheet_164
       rect:
         serializedVersion: 2
         x: 320
@@ -3545,14 +4652,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 866cd2dbd69bfa400800000000000000
-      internalID: 337692378052544104
+      spriteID: 6ad08ab7cb2f4cc90800000000000000
+      internalID: -7150323417015120474
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: character1_139
+      name: dominique spritesheet_165
       rect:
         serializedVersion: 2
         x: 384
@@ -3566,14 +4673,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: e6f87291da3e6c870800000000000000
-      internalID: 8702893662530932590
+      spriteID: 0458fcbf2aaa080e0800000000000000
+      internalID: -2269626595208624832
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: character1_140
+      name: dominique spritesheet_166
       rect:
         serializedVersion: 2
         x: 448
@@ -3587,14 +4694,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: e1d67399c6933dc60800000000000000
-      internalID: 7841674514771963166
+      spriteID: b186583b8f0a653f0800000000000000
+      internalID: -912364884471748581
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: character1_141
+      name: dominique spritesheet_167
       rect:
         serializedVersion: 2
         x: 512
@@ -3608,14 +4715,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 8f4d062d239540b90800000000000000
-      internalID: -7276593023111080712
+      spriteID: 115968d62e253d300800000000000000
+      internalID: 275655134653355281
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: character1_142
+      name: dominique spritesheet_168
       rect:
         serializedVersion: 2
         x: 576
@@ -3629,14 +4736,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: bf449ff7e83a718a0800000000000000
-      internalID: -6334414518445587205
+      spriteID: e706e0353eff65870800000000000000
+      internalID: 8671399484364578942
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: character1_143
+      name: dominique spritesheet_169
       rect:
         serializedVersion: 2
         x: 640
@@ -3650,14 +4757,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: e7f199365d6455b30800000000000000
-      internalID: 4275401303571111806
+      spriteID: 78fb5b8efd2fdc9e0800000000000000
+      internalID: -1599355249150804089
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: character1_144
+      name: dominique spritesheet_170
       rect:
         serializedVersion: 2
         x: 704
@@ -3671,14 +4778,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 51ed95925c76c8e80800000000000000
-      internalID: -8175045127084319211
+      spriteID: b0d26cbbf955ec970800000000000000
+      internalID: 8777046868330163467
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: character1_145
+      name: dominique spritesheet_171
       rect:
         serializedVersion: 2
         x: 768
@@ -3692,14 +4799,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: c450e37f8d5736cf0800000000000000
-      internalID: -260234778735934132
+      spriteID: 3ee2b3a2f7ea07f90800000000000000
+      internalID: -6957869563094815005
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: character1_146
+      name: dominique spritesheet_172
       rect:
         serializedVersion: 2
         x: 0
@@ -3713,14 +4820,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 3ec30867c2fb04a50800000000000000
-      internalID: 6503408059610578147
+      spriteID: f102877841a619c40800000000000000
+      internalID: 5517307654910255135
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: character1_147
+      name: dominique spritesheet_173
       rect:
         serializedVersion: 2
         x: 64
@@ -3734,14 +4841,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: dcb54702be78b4d30800000000000000
-      internalID: 4416773303498464205
+      spriteID: c3ba9fcd61598f6c0800000000000000
+      internalID: -4109370734546408644
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: character1_148
+      name: dominique spritesheet_174
       rect:
         serializedVersion: 2
         x: 128
@@ -3755,14 +4862,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 73bbc1e0047ce1eb0800000000000000
-      internalID: -4747137879273325769
+      spriteID: 8aaa5b0ead9fa2bd0800000000000000
+      internalID: -2654034311913297240
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: character1_149
+      name: dominique spritesheet_175
       rect:
         serializedVersion: 2
         x: 192
@@ -3776,14 +4883,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 3ad58cb06157dfaa0800000000000000
-      internalID: -6125611180606595677
+      spriteID: baba363b3fc3ce8b0800000000000000
+      internalID: -5121651658842723413
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: character1_150
+      name: dominique spritesheet_176
       rect:
         serializedVersion: 2
         x: 256
@@ -3797,14 +4904,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: d1a7a96134e56d7d0800000000000000
-      internalID: -2894022068303922659
+      spriteID: d8cc743eb5d5f3c50800000000000000
+      internalID: 6647134224258681997
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: character1_151
+      name: dominique spritesheet_177
       rect:
         serializedVersion: 2
         x: 320
@@ -3818,161 +4925,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 4dc1e0004e3f05250800000000000000
-      internalID: 5931508869825961172
+      spriteID: c306bf499edbe2fa0800000000000000
+      internalID: -5823508457218940868
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: character1_152
-      rect:
-        serializedVersion: 2
-        x: 384
-        y: 128
-        width: 64
-        height: 64
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: a174f6c675d9d3750800000000000000
-      internalID: 6286353653686028058
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: character1_153
-      rect:
-        serializedVersion: 2
-        x: 448
-        y: 128
-        width: 64
-        height: 64
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: fc85a138a7fa64f00800000000000000
-      internalID: 1100760099659077839
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: character1_154
-      rect:
-        serializedVersion: 2
-        x: 512
-        y: 128
-        width: 64
-        height: 64
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 00402323c3d7a3600800000000000000
-      internalID: 448808810370434048
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: character1_155
-      rect:
-        serializedVersion: 2
-        x: 576
-        y: 128
-        width: 64
-        height: 64
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 0e0d5504b3f43f740800000000000000
-      internalID: 5184574711934603488
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: character1_156
-      rect:
-        serializedVersion: 2
-        x: 640
-        y: 128
-        width: 64
-        height: 64
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: ae0106a6742c0b9d0800000000000000
-      internalID: -2760492959594966806
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: character1_157
-      rect:
-        serializedVersion: 2
-        x: 704
-        y: 128
-        width: 64
-        height: 64
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 2a2603c4e17511570800000000000000
-      internalID: 8435619364680524450
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: character1_158
-      rect:
-        serializedVersion: 2
-        x: 768
-        y: 128
-        width: 64
-        height: 64
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 0d927b9d02d263a10800000000000000
-      internalID: 1888746712843364816
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: character1_159
+      name: dominique_transform01
       rect:
         serializedVersion: 2
         x: 0
@@ -3986,14 +4946,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 54f87d029e4fc0c00800000000000000
-      internalID: 868338110291218245
+      spriteID: 8f3dc111dd438fb80800000000000000
+      internalID: -8360874584133807112
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: character1_160
+      name: dominique_transform02
       rect:
         serializedVersion: 2
         x: 64
@@ -4007,14 +4967,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: c293b8ac4051d1230800000000000000
-      internalID: 3611065586543180076
+      spriteID: 3cb0805dddf370b40800000000000000
+      internalID: 5406360099675966403
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: character1_161
+      name: dominique_transform03
       rect:
         serializedVersion: 2
         x: 128
@@ -4028,14 +4988,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: f16132690d39d3a40800000000000000
-      internalID: 5349594456467379743
+      spriteID: ede7184bb93fc61e0800000000000000
+      internalID: -2203118267617149218
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: character1_162
+      name: dominique_transform04
       rect:
         serializedVersion: 2
         x: 192
@@ -4049,14 +5009,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: ecdb3ee4443bcf8d0800000000000000
-      internalID: -2811174961423335986
+      spriteID: e68189b285e8fa980800000000000000
+      internalID: -8525439060249405330
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: character1_163
+      name: dominique_transform05
       rect:
         serializedVersion: 2
         x: 256
@@ -4070,182 +5030,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 506c515cbaa0a0340800000000000000
-      internalID: 4830685283170502149
+      spriteID: 84fc97fa4d1618450800000000000000
+      internalID: 6089255737286577992
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: character1_164
-      rect:
-        serializedVersion: 2
-        x: 320
-        y: 64
-        width: 64
-        height: 64
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: ddac86b0974581410800000000000000
-      internalID: 1448000159058807517
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: character1_165
-      rect:
-        serializedVersion: 2
-        x: 384
-        y: 64
-        width: 64
-        height: 64
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 4503985cbebbfa550800000000000000
-      internalID: 6174360235454050388
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: character1_166
-      rect:
-        serializedVersion: 2
-        x: 448
-        y: 64
-        width: 64
-        height: 64
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 2210f54721264a240800000000000000
-      internalID: 4802070934085108002
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: character1_167
-      rect:
-        serializedVersion: 2
-        x: 512
-        y: 64
-        width: 64
-        height: 64
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 15a73df2e5d449b20800000000000000
-      internalID: 3140219907108731473
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: character1_168
-      rect:
-        serializedVersion: 2
-        x: 576
-        y: 64
-        width: 64
-        height: 64
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 6cbb84df834c499c0800000000000000
-      internalID: -3921293626486244410
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: character1_169
-      rect:
-        serializedVersion: 2
-        x: 640
-        y: 64
-        width: 64
-        height: 64
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: f686b2d924b9dd080800000000000000
-      internalID: -9160995356594706321
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: character1_170
-      rect:
-        serializedVersion: 2
-        x: 704
-        y: 64
-        width: 64
-        height: 64
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 48d626d2581f898e0800000000000000
-      internalID: -1686332506155881084
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: character1_171
-      rect:
-        serializedVersion: 2
-        x: 768
-        y: 64
-        width: 64
-        height: 64
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: eaa09fc978cbdce00800000000000000
-      internalID: 1066715977396849326
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: character1_172
+      name: dominique_swim_forward01
       rect:
         serializedVersion: 2
         x: 0
@@ -4259,14 +5051,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 3f16b400f8ce11b50800000000000000
-      internalID: 6562286230984942067
+      spriteID: dae21f03102a9e220800000000000000
+      internalID: 2515719992862912173
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: character1_173
+      name: dominique_swim_backward01
       rect:
         serializedVersion: 2
         x: 64
@@ -4280,14 +5072,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 50b1ff24bb30fceb0800000000000000
-      internalID: -4697531783506355451
+      spriteID: 2564f2857bdd3d770800000000000000
+      internalID: 8634488690127619666
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: character1_174
+      name: dominique_swim_right01
       rect:
         serializedVersion: 2
         x: 128
@@ -4301,14 +5093,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: cae12b7f429d734f0800000000000000
-      internalID: -848971251938353492
+      spriteID: 0b64f92720f905c20800000000000000
+      internalID: 3193226968667473584
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: character1_175
+      name: dominique_swim_left01
       rect:
         serializedVersion: 2
         x: 192
@@ -4322,50 +5114,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 872f3a66c58573700800000000000000
-      internalID: 519981435866837624
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: character1_176
-      rect:
-        serializedVersion: 2
-        x: 256
-        y: 0
-        width: 64
-        height: 64
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: a6b08f61a3d1c4490800000000000000
-      internalID: -7760795922535543958
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: character1_177
-      rect:
-        serializedVersion: 2
-        x: 320
-        y: 0
-        width: 64
-        height: 64
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: eece0cfda4a712e70800000000000000
-      internalID: 9088679985010502894
+      spriteID: 4efda2402e4f16e80800000000000000
+      internalID: -8186993396013146140
       vertices: []
       indices: 
       edges: []

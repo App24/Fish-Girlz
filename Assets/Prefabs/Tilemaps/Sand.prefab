@@ -10,9 +10,9 @@ GameObject:
   m_Component:
   - component: {fileID: 7871161086938936886}
   - component: {fileID: 3231493440454041828}
-  m_Layer: 0
+  m_Layer: 4
   m_Name: Sand
-  m_TagString: Untagged
+  m_TagString: Water
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

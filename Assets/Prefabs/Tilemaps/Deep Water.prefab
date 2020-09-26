@@ -11,9 +11,9 @@ GameObject:
   - component: {fileID: 2362973798980897508}
   - component: {fileID: 2362973798980897509}
   - component: {fileID: 2362973798980897507}
-  m_Layer: 0
+  m_Layer: 4
   m_Name: Deep Water
-  m_TagString: Untagged
+  m_TagString: Water
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
