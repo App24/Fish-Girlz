@@ -102,7 +102,7 @@ namespace Fish_Girlz.Utils
             return colliding;
         }
 
-        public static bool CollideWithEntity(this Tile tile, Entity other){
+        /*public static bool CollideWithEntity(this Tile tile, Entity other){
             return BoundingBoxTest(tile, other);
         }
         
@@ -140,7 +140,7 @@ namespace Fish_Girlz.Utils
                 object1.OnCollision?.Invoke(object1, new CollisionEventArgs(object2));
             }
             return colliding;
-        }
+        }*/
     }
 
     class BitmaskManager
