@@ -3,6 +3,7 @@ using Fish_Girlz.Art;
 using Fish_Girlz.UI;
 using Fish_Girlz.States;
 using Fish_Girlz.Entities;
+using Fish_Girlz.Entities.Tiles;
 using Fish_Girlz.UI.Components;
 using SFML.Graphics;
 using System.Collections.Generic;
@@ -11,9 +12,20 @@ using SFML.System;
 namespace Fish_Girlz.Utils{
     public static class RenderSystem {
         public static void Render(State currentState){
+            RenderTiles(currentState.GetTiles());
             RenderSprites(currentState.GetSprites());
             RenderEntities(currentState.GetEntities());
             RenderGUI(currentState.GetGUIs());
+        }
+
+        private static void RenderTiles(List<TileEntity> tileEntities){
+            tileEntities.Sort();
+
+            foreach(TileEntity tileEntity in tileEntities){
+                LayeredSprite sprite=(LayeredSprite)tileEntity.Sprite;
+                sprite.Position=tileEntity.Position;
+                DisplayManager.Window.Draw(sprite);
+            }
         }
 
         private static void RenderSprites(List<LayeredSprite> sprites){

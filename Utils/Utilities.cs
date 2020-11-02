@@ -46,6 +46,7 @@ namespace Fish_Girlz.Utils{
                 if(item!=null)
                 text+=item.ToString()+", ";
             }
+            if(text.Length>2)
             text=text.Substring(0, text.Length-2);
             text+="]";
             return text;

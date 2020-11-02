@@ -1,5 +1,5 @@
 ﻿using Fish_Girlz.Entities;
-using Fish_Girlz.Tiles;
+using Fish_Girlz.Entities.Tiles;
 using Fish_Girlz.Art;
 using SFML;
 using SFML.Graphics;
@@ -99,48 +99,18 @@ namespace Fish_Girlz.Utils
                 object2.OnCollision?.Invoke(object2, new CollisionEventArgs(object1));
                 object1.OnCollision?.Invoke(object1, new CollisionEventArgs(object2));
             }
-            return colliding;
-        }
-
-        /*public static bool CollideWithEntity(this Tile tile, Entity other){
-            return BoundingBoxTest(tile, other);
-        }
-        
-        public static bool BoundingBoxTest(Tile object1, Entity object2)
-        {
-
-            OrientatedBoundingBox OBB1 = new OrientatedBoundingBox(object1);
-            OrientatedBoundingBox OBB2 = new OrientatedBoundingBox(object2);
-
-            Vector2f[] axis = new Vector2f[]
-            {
-                new Vector2f (OBB1.points[1].X-OBB1.points[0].X,
-                              OBB1.points[1].Y-OBB1.points[0].Y),
-                new Vector2f (OBB1.points[1].X-OBB1.points[2].X,
-                              OBB1.points[1].Y-OBB1.points[2].Y),
-                new Vector2f (OBB2.points[0].X-OBB2.points[3].X,
-                              OBB2.points[0].Y-OBB2.points[3].Y),
-                new Vector2f (OBB2.points[0].X-OBB2.points[1].X,
-                              OBB2.points[0].Y-OBB2.points[1].Y)
-            };
-
-            bool colliding=true;
-            for (int i = 0; i < 4; i++)
-            {
-                float minOBB1, maxOBB1, minOBB2, maxOBB2;
-
-                OBB1.ProjectOntoAxis(axis[i], out minOBB1, out maxOBB1);
-                OBB2.ProjectOntoAxis(axis[i], out minOBB2, out maxOBB2);
-                if (!((minOBB2 <= maxOBB1) && (maxOBB2 >= minOBB1))){
-                    colliding=false;
-                }
+            if(object1 is TileEntity){
+                TileEntity tileEntity=(TileEntity)object1;
+                if(!tileEntity.Collidable)
+                    return false;
             }
-            if(colliding){
-                object2.OnCollision?.Invoke(object2, new CollisionEventArgs(object1));
-                object1.OnCollision?.Invoke(object1, new CollisionEventArgs(object2));
+            if(object2 is TileEntity){
+                TileEntity tileEntity=(TileEntity)object2;
+                if(!tileEntity.Collidable)
+                    return false;
             }
             return colliding;
-        }*/
+        }
     }
 
     class BitmaskManager
@@ -208,15 +178,6 @@ namespace Fish_Girlz.Utils
         {
             Transform trans = entity.ToLayeredSprite().Transform;
             IntRect local = entity.Sprite.bounds;
-            points[0] = trans.TransformPoint(0f, 0f);
-            points[1] = trans.TransformPoint(local.Width, 0f);
-            points[2] = trans.TransformPoint(local.Width, local.Height);
-            points[3] = trans.TransformPoint(0f, local.Height);
-        }
-        public OrientatedBoundingBox(Tile tile)
-        {
-            Transform trans = tile.ToLayeredSprite().Transform;
-            IntRect local = tile.Sprite.bounds;
             points[0] = trans.TransformPoint(0f, 0f);
             points[1] = trans.TransformPoint(local.Width, 0f);
             points[2] = trans.TransformPoint(local.Width, local.Height);

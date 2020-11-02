@@ -85,7 +85,7 @@ namespace Fish_Girlz.Entities
 
         }
 
-        public void Update()
+        public override void Update()
         {
             if (currentAnimation.Update())
             {

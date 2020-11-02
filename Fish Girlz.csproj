@@ -2,9 +2,13 @@
   <PropertyGroup>
     <dOutputType>WinExe</dOutputType>
     <OutputType>Exe</OutputType>
-    <TargetFramework>netcoreapp3.1</TargetFramework>
+    <TargetFramework>netcoreapp2.2</TargetFramework>
     <RootNamespace>Fish_Girlz</RootNamespace>
     <ApplicationIcon>icon.ico</ApplicationIcon>
+    <IsDev Condition="$(Configuration)=='Development'">true</IsDev>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(IsDev)'=='true'">
+    <DefineConstants>DEV</DefineConstants>
   </PropertyGroup>
   <ItemGroup>
     <PackageReference Include="SFML.Net" Version="*"/>

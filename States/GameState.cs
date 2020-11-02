@@ -3,9 +3,11 @@ using System.Collections.Generic;
 using Fish_Girlz.UI;
 using Fish_Girlz.UI.Components;
 using Fish_Girlz.Entities;
+using Fish_Girlz.Entities.Tiles;
 using SFML.Graphics;
 using SFML.System;
 using Fish_Girlz.Utils;
+using Fish_Girlz.World;
 using Fish_Girlz.Art;
 
 namespace Fish_Girlz.States{
@@ -13,7 +15,6 @@ namespace Fish_Girlz.States{
     {
         UIText text;
         Player player;
-        TileEntity staticEntity, staticEntity2;
 
         public override void Init()
         {
@@ -21,15 +22,13 @@ namespace Fish_Girlz.States{
             guis.Add(text);
             player=new Player(new Vector2f());
             entities.Add(player);
-            staticEntity=new TileEntity(new Vector2f(120,120), (SpriteInfo)new LayeredSprite(AssetManager.GetTexture("temp")), true);
-            staticEntity2=new TileEntity(new Vector2f(420,120), (SpriteInfo)new LayeredSprite(AssetManager.GetTexture("temp")), false);
-            entities.Add(staticEntity);
-            entities.Add(staticEntity2);
+            MapGenerator.InitMap();
+            tiles=MapGenerator.GetTiles();
         }
 
         public override void Update()
         {
-            player.Update();
+            UpdateEntities();
             CheckCollisions();
             Camera.TargetEntity(player);
         }

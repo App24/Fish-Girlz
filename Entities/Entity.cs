@@ -32,17 +32,21 @@ namespace Fish_Girlz.Entities{
             return sprite;
         }
 
-        public List<Entity> GetNearbyEntities(List<Entity> entities){
-            List<Entity> newEntities=new List<Entity>();
-            foreach (Entity entity in entities)
+        public List<T> GetNearbyEntities<T>(List<T> entities) where T: Entity{
+            List<T> newEntities=new List<T>();
+            foreach (T entity in entities)
             {
                 if(entity==this)
                     continue;
+                if(entity.Position.Distance(Position)<=1000)
+                    Console.WriteLine(entity.Position.Distance(Position));
                 if(entity.Position.Distance(Position)<=500){
                     newEntities.Add(entity);
                 }
             }
             return newEntities;
         }
+
+        public abstract void Update();
     }
 }

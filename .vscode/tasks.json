@@ -14,6 +14,20 @@
             "problemMatcher": "$msCompile"
         },
         {
+            "label": "build Development",
+            "command": "dotnet",
+            "type": "process",
+            "args": [
+                "build",
+                "${workspaceFolder}/Fish Girlz.csproj",
+                "/property:GenerateFullPaths=true",
+                "/consoleloggerparameters:NoSummary",
+                "-c",
+                "Development"
+            ],
+            "problemMatcher": "$msCompile"
+        },
+        {
             "label": "build Release",
             "command": "dotnet",
             "type": "process",

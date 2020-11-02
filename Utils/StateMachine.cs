@@ -47,6 +47,7 @@ namespace Fish_Girlz.Utils{
                 }
 
                 states.Push(newState);
+                ActiveState.InitState();
                 ActiveState.Init();
                 isAdding = false;
             }

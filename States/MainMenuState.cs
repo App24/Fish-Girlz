@@ -14,10 +14,6 @@ namespace Fish_Girlz.States{
 
         private UIText version;
 
-        #if DEBUG
-            private UIText dev;
-        #endif
-
         public override void Init()
         {
             play=new UIButton(new Vector2u(160, 64), new Vector2f(Utilities.CenterInWindow(DisplayManager.Width, 160), Utilities.CenterInWindow(DisplayManager.Height, 60)-40), "Start Game", new Vector2f(2,13), (FontInfo)AssetManager.GetObject("Button Font"));
@@ -26,10 +22,6 @@ namespace Fish_Girlz.States{
             guis.Add(quit);
             version=new UIText(new FontInfo(AssetManager.GetFont("Arial"), 24), $"Version: {Program.Version}", Color.White, new Vector2f(6,DisplayManager.Height-30));
             guis.Add(version);
-            #if DEBUG
-                dev=new UIText(new FontInfo(AssetManager.GetFont("Arial"), 24), "Development Build", Color.White, new Vector2f(DisplayManager.Width-214,DisplayManager.Height-30));
-                guis.Add(dev);
-            #endif
         }
 
         public override void Update()

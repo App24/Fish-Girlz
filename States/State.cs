@@ -2,13 +2,33 @@ using System;
 using Fish_Girlz.Art;
 using Fish_Girlz.UI;
 using Fish_Girlz.Entities;
+using Fish_Girlz.Entities.Tiles;
 using System.Collections.Generic;
+using Fish_Girlz.UI.Components;
+using Fish_Girlz.Utils;
+using SFML.Graphics;
+using SFML.System;
 
 namespace Fish_Girlz.States{
     public abstract class State {
         protected List<LayeredSprite> sprites=new List<LayeredSprite>();
         protected List<GUI> guis=new List<GUI>();
         protected List<Entity> entities=new List<Entity>();
+        protected List<TileEntity> tiles=new List<TileEntity>();
+
+        #if (DEV || DEBUG)
+            private UIText dev;
+        #endif
+
+        public void InitState(){
+            #if DEV
+                dev=new UIText(new FontInfo(AssetManager.GetFont("Arial"), 24), "Development Build", Color.White, new Vector2f(DisplayManager.Width-214,DisplayManager.Height-30));
+                guis.Add(dev);
+            #elif DEBUG
+                dev=new UIText(new FontInfo(AssetManager.GetFont("Arial"), 24), "Debug Build", Color.White, new Vector2f(DisplayManager.Width-140,DisplayManager.Height-30));
+                guis.Add(dev);
+            #endif
+        }
 
         public abstract void Init();
         public abstract void HandleInput();
@@ -35,19 +55,40 @@ namespace Fish_Girlz.States{
             return entities;
         }
 
+        public List<TileEntity> GetTiles(){
+            return tiles;
+        }
+
         protected void CheckCollisions(){
             foreach (Entity entity in entities)
             {
                 if(entity is LivingEntity){
                     LivingEntity livingEntity=(LivingEntity)entity;
                     List<Entity> nearbyEntities=livingEntity.GetNearbyEntities(entities);
+                    List<TileEntity> nearbyTiles=livingEntity.GetNearbyEntities(tiles);
+                    //Console.WriteLine(nearbyTiles.ToStringExtended());
                     livingEntity.Move();
                     foreach (Entity nearbyEntity in nearbyEntities)
                     {
                         livingEntity.CheckCollision(nearbyEntity);
                     }
+                    foreach (TileEntity nearbyTile in nearbyTiles)
+                    {
+                        livingEntity.CheckCollision(nearbyTile);
+                    }
                     livingEntity.CheckMovement();
                 }
+            }
+        }
+
+        protected void UpdateEntities(){
+            foreach (TileEntity tileEntity in tiles)
+            {
+                tileEntity.Update();
+            }
+            foreach (Entity entity in entities)
+            {
+                entity.Update();
             }
         }
     }
