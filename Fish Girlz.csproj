@@ -1,0 +1,12 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <dOutputType>WinExe</dOutputType>
+    <OutputType>Exe</OutputType>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+    <RootNamespace>Fish_Girlz</RootNamespace>
+    <ApplicationIcon>icon.ico</ApplicationIcon>
+  </PropertyGroup>
+  <ItemGroup>
+    <PackageReference Include="SFML.Net" Version="*"/>
+  </ItemGroup>
+</Project>
