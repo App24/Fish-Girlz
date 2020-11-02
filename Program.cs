@@ -7,6 +7,8 @@ namespace Fish_Girlz
 {
     public class Program
     {
+        public static string Version="Alpha 1.0.0";
+
         public static void Main(string[] args)
         {
             AssetLoader.LoadAssets();

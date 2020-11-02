@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using SFML.Graphics;
+using Fish_Girlz.UI.Components;
 
 namespace Fish_Girlz.Utils
 {
@@ -12,6 +13,7 @@ namespace Fish_Girlz.Utils
             AssetManager.LoadTexture("temp", "res/temp player.png");
             AssetManager.LoadSoundBuffer("Button Click", "res/audio/button_click.wav");
             AssetManager.LoadFont("Arial", "res/fonts/arial.ttf");
+            AssetManager.LoadObject("Button Font", new FontInfo(AssetManager.GetFont("Arial"), 30));
         }
     }
 }

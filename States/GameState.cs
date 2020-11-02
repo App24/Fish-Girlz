@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using Fish_Girlz.UI;
+using Fish_Girlz.UI.Components;
 using Fish_Girlz.Entities;
 using SFML.Graphics;
 using SFML.System;
@@ -16,7 +17,7 @@ namespace Fish_Girlz.States{
 
         public override void Init()
         {
-            text=new UIText("LMAO",Color.White,new Vector2f(0,0));
+            text=new UIText(new FontInfo(AssetManager.GetFont("Arial"), 16), "LMAO",Color.White,new Vector2f(0,0));
             guis.Add(text);
             player=new Player(new Vector2f());
             entities.Add(player);

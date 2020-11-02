@@ -9,9 +9,9 @@ namespace Fish_Girlz.UI{
     {
         private TextComponent textComponent;
 
-        public UIText(string text, Color color, Vector2f position) : base(position)
+        public UIText(FontInfo fontInfo, string text, Color color, Vector2f position) : base(position)
         {
-            textComponent=AddComponent(new TextComponent(AssetManager.GetFont("Arial"), text, new Vector2f(0,0), color));
+            textComponent=AddComponent(new TextComponent(fontInfo, text, new Vector2f(0,0), color));
         }
 
         public string Text{

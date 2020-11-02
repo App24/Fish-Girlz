@@ -10,6 +10,8 @@ namespace Fish_Girlz.Utils{
 
         public static void CreateWindow(uint width, uint height, string title){
             Window=new RenderWindow(new VideoMode(width, height), title, Styles.Close|Styles.Titlebar);
+            VideoMode desktop=VideoMode.DesktopMode;
+            Window.Position=new Vector2i((int)(desktop.Width-Width)/2, (int)(desktop.Height-Height-30)/2);
             View view=new View(new Vector2f(width/2, height/2), new Vector2f(width, height));
             Window.SetView(view);
             Window.Closed+=new EventHandler((object sender, EventArgs e)=>{Window.Close();});

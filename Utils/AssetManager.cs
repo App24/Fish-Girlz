@@ -13,6 +13,7 @@ namespace Fish_Girlz.Utils
         private static Dictionary<string, Font> fonts = new Dictionary<string, Font>();
         private static Dictionary<string, SoundBuffer> soundBuffers = new Dictionary<string, SoundBuffer>();
         private static Dictionary<string, SpriteSheet> spriteSheets = new Dictionary<string, SpriteSheet>();
+        private static Dictionary<string, object> objects = new Dictionary<string, object>();
 
         public static void LoadTexture(string name, string filePath)
         {
@@ -58,6 +59,10 @@ namespace Fish_Girlz.Utils
             {
                 Console.WriteLine("Couldn't load font: " + filePath);
             }
+        }
+
+        public static void LoadObject(string name, object value){
+            objects.Add(name, value);
         }
 
         public static void LoadSoundBuffer(string name, string filePath)
@@ -107,6 +112,15 @@ namespace Fish_Girlz.Utils
             if(!successful)
                 throw new Exception("Could not find any spreadsheet by the name of "+name);
             return spriteSheet;
+        }
+
+        public static object GetObject(string name)
+        {
+            object obj;
+            bool successful = objects.TryGetValue(name, out obj);
+            if(!successful)
+                throw new Exception("Could not find any object by the name of "+name);
+            return obj;
         }
     }
 }

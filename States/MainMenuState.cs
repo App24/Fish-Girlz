@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using Fish_Girlz.UI;
+using Fish_Girlz.UI.Components;
 using Fish_Girlz.Utils;
 using Fish_Girlz.Art;
 using SFML.System;
@@ -11,12 +12,16 @@ namespace Fish_Girlz.States{
     {
         private UIButton play, quit;
 
+        private UIText version;
+
         public override void Init()
         {
-            play=new UIButton(new Vector2u(160, 64), new Vector2f(Utilities.CenterInWindow(DisplayManager.Width, 160), Utilities.CenterInWindow(DisplayManager.Height, 60)-40), "Start Game", new Vector2f(2,13));
-            quit=new UIButton(new Vector2u(160, 64), new Vector2f(Utilities.CenterInWindow(DisplayManager.Width, 160), Utilities.CenterInWindow(DisplayManager.Height, 60)+40), "Quit", new Vector2f(51,13));
+            play=new UIButton(new Vector2u(160, 64), new Vector2f(Utilities.CenterInWindow(DisplayManager.Width, 160), Utilities.CenterInWindow(DisplayManager.Height, 60)-40), "Start Game", new Vector2f(2,13), (FontInfo)AssetManager.GetObject("Button Font"));
+            quit=new UIButton(new Vector2u(160, 64), new Vector2f(Utilities.CenterInWindow(DisplayManager.Width, 160), Utilities.CenterInWindow(DisplayManager.Height, 60)+40), "Quit", new Vector2f(51,13), (FontInfo)AssetManager.GetObject("Button Font"));
             guis.Add(play);
             guis.Add(quit);
+            version=new UIText(new FontInfo(AssetManager.GetFont("Arial"), 24), $"Version: {Program.Version}", Color.White, new Vector2f(6,DisplayManager.Height-30));
+            guis.Add(version);
         }
 
         public override void Update()
