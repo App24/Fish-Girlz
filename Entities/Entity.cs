@@ -38,8 +38,6 @@ namespace Fish_Girlz.Entities{
             {
                 if(entity==this)
                     continue;
-                if(entity.Position.Distance(Position)<=1000)
-                    Console.WriteLine(entity.Position.Distance(Position));
                 if(entity.Position.Distance(Position)<=500){
                     newEntities.Add(entity);
                 }

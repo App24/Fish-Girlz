@@ -65,6 +65,8 @@ namespace Fish_Girlz.Utils{
                         Text text=new Text(textComponent.Text, fontInfo.Font, fontInfo.Size);
                         text.Position=gui.Position+textComponent.Position;
                         text.FillColor=textComponent.TextColor;
+                        text.OutlineColor=textComponent.OutlineColor;
+                        text.OutlineThickness=textComponent.OutlineThickness;
                         DisplayManager.Window.Draw(text);
                     }
                 }

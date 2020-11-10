@@ -6,7 +6,9 @@ namespace Fish_Girlz.UI.Components{
     public class TextComponent : GUIComponent {
         public FontInfo FontInfo {get; private set;}
         public string Text {get; set;}
-        public Color TextColor {get;private set;}
+        public Color TextColor {get; set;}
+        public Color OutlineColor {get;set;}
+        public float OutlineThickness {get; set;}
 
         public Vector2f Position{get; set;}
 
@@ -15,6 +17,8 @@ namespace Fish_Girlz.UI.Components{
             this.Text=text;
             Position=position;
             TextColor=color;
+            OutlineColor=new Color();
+            OutlineThickness=0;
         }
     }
 

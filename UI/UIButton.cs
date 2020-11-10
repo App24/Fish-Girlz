@@ -13,6 +13,8 @@ namespace Fish_Girlz.UI{
         private ButtonInformation buttonInformation;
         private Sound clickSound;
 
+        public EventHandler OnClick;
+
         struct ButtonInformation
         {
             public Texture normalTexture, hoverTexture;
@@ -33,7 +35,7 @@ namespace Fish_Girlz.UI{
             clickSound=new Sound(AssetManager.GetSoundBuffer("Button Click"));
         }
 
-        public bool OnClick(){
+        public void Update(){
             if(clickComponent.onHover()){
                 imageComponent.Texture=buttonInformation.hoverTexture;
             }else{
@@ -41,9 +43,8 @@ namespace Fish_Girlz.UI{
             }
             if(clickComponent.OnClick()){
                 clickSound.Play();
-                return true;
+                OnClick?.Invoke(this, new EventArgs());
             }
-            return false;
         }
     }
 }

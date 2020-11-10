@@ -20,9 +20,9 @@ namespace Fish_Girlz.States{
         {
             text=new UIText(new FontInfo(AssetManager.GetFont("Arial"), 16), "LMAO",Color.White,new Vector2f(0,0));
             guis.Add(text);
-            player=new Player(new Vector2f());
-            entities.Add(player);
             MapGenerator.InitMap();
+            player=new Player(MapGenerator.GetPlayerPos());
+            entities.Add(player);
             tiles=MapGenerator.GetTiles();
         }
 

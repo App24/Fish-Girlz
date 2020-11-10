@@ -6,7 +6,7 @@ using SFML.System;
 namespace Fish_Girlz.Entities.Tiles{
     public class WallTileEntity : TileEntity
     {
-        public WallTileEntity(Vector2f position) : base(position, (SpriteInfo)new LayeredSprite(AssetManager.GetTexture("temp")), true, 0)
+        public WallTileEntity(Vector2f position) : base(position, (SpriteInfo)new LayeredSprite(AssetManager.GetTexture("temp")), true, 1)
         {
 
         }

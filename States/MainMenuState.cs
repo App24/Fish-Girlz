@@ -22,6 +22,8 @@ namespace Fish_Girlz.States{
             guis.Add(quit);
             version=new UIText(new FontInfo(AssetManager.GetFont("Arial"), 24), $"Version: {Program.Version}", Color.White, new Vector2f(6,DisplayManager.Height-30));
             guis.Add(version);
+            play.OnClick+=new EventHandler((sender, e)=>{StateMachine.AddState(new GameState());});
+            quit.OnClick+=new EventHandler((sender, e)=>{DisplayManager.Window.Close();});
         }
 
         public override void Update()
@@ -31,12 +33,8 @@ namespace Fish_Girlz.States{
 
         public override void HandleInput()
         {
-            if(play.OnClick()){
-                StateMachine.AddState(new GameState());
-            }
-            if(quit.OnClick()){
-                DisplayManager.Window.Close();
-            }
+            play.Update();
+            quit.Update();
         }
     }
 }

@@ -32,9 +32,8 @@ namespace Fish_Girlz.Utils{
         }
 
         public static double Distance(this Vector2f v1, Vector2f v2){
-            float a=v1.X-v2.Y;
-            float b=v1.Y-v2.Y;
-            float c2=(a*a)+(b*b);
+            Vector2f dif=v1-v2;
+            float c2=(dif.X*dif.X)+(dif.Y*dif.Y);
             double c=Math.Sqrt(c2);
             return c;
         }
@@ -50,6 +49,32 @@ namespace Fish_Girlz.Utils{
             text=text.Substring(0, text.Length-2);
             text+="]";
             return text;
+        }
+
+        public static List<T> Clone<T>(this List<T> list){
+            T[] array=new T[list.Count];
+            list.CopyTo(array);
+            List<T> newList=array.ToList();
+            return newList;
+        }
+
+        public static List<T> ToList<T>(this T[] array){
+            List<T> newList=new List<T>();
+            foreach (T item in array)
+            {
+                newList.Add(item);
+            }
+            return newList;
+        }
+
+        public static Color Divide(this Color color, byte amount, bool alpha=false){
+            Color newColor=new Color(color);
+            newColor.R/=amount;
+            newColor.G/=amount;
+            newColor.B/=amount;
+            if(alpha)
+                newColor.A/=amount;
+            return newColor;
         }
     }
 }

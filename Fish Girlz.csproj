@@ -2,7 +2,7 @@
   <PropertyGroup>
     <dOutputType>WinExe</dOutputType>
     <OutputType>Exe</OutputType>
-    <TargetFramework>netcoreapp2.2</TargetFramework>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
     <RootNamespace>Fish_Girlz</RootNamespace>
     <ApplicationIcon>icon.ico</ApplicationIcon>
     <IsDev Condition="$(Configuration)=='Development'">true</IsDev>
@@ -12,5 +12,6 @@
   </PropertyGroup>
   <ItemGroup>
     <PackageReference Include="SFML.Net" Version="*"/>
+    <PackageReference Include="DiscordRichPresence" Version="*"/>
   </ItemGroup>
 </Project>

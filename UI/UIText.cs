@@ -22,5 +22,32 @@ namespace Fish_Girlz.UI{
                 textComponent.Text=value;
             }
         }
+
+        public Color TextColor{
+            get{
+                return textComponent.TextColor;
+            }
+            set{
+                textComponent.TextColor=value;
+            }
+        }
+
+        
+        public Color OutlineColor {
+            get{
+                return textComponent.OutlineColor;
+            }
+            set{
+                textComponent.OutlineColor=value;
+            }
+        }
+        public float OutlineThickness {
+            get{
+                return textComponent.OutlineThickness;
+            }
+            set{
+                textComponent.OutlineThickness=value;
+            }
+        }
     }
 }

@@ -17,6 +17,13 @@ namespace Fish_Girlz.States{
             guis.Add(continueButton);
             guis.Add(quit);
             guis.Add(menu);
+            continueButton.OnClick+=new EventHandler((sender, e)=>{StateMachine.RemoveState();});
+            quit.OnClick+=new EventHandler((sender, e)=>{DisplayManager.Window.Close();});
+            menu.OnClick+=new EventHandler((sender, e)=>{
+                StateMachine.RemoveState();
+                StateMachine.RemoveState();
+                StateMachine.AddState(new MainMenuState());
+            });
         }
 
         public override void Update()
@@ -26,17 +33,12 @@ namespace Fish_Girlz.States{
         
         public override void HandleInput()
         {
-            if(continueButton.OnClick()||InputManager.IsKeyPressed(SFML.Window.Keyboard.Key.Escape)){
+            if(InputManager.IsKeyPressed(SFML.Window.Keyboard.Key.Escape)){
                 StateMachine.RemoveState();
             }
-            if(quit.OnClick()){
-                DisplayManager.Window.Close();
-            }
-            if(menu.OnClick()){
-                StateMachine.RemoveState();
-                StateMachine.RemoveState();
-                StateMachine.AddState(new MainMenuState());
-            }
+            continueButton.Update();
+            quit.Update();
+            menu.Update();
         }
     }
 }

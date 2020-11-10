@@ -23,9 +23,13 @@ namespace Fish_Girlz.States{
         public void InitState(){
             #if DEV
                 dev=new UIText(new FontInfo(AssetManager.GetFont("Arial"), 24), "Development Build", Color.White, new Vector2f(DisplayManager.Width-214,DisplayManager.Height-30));
-                guis.Add(dev);
             #elif DEBUG
                 dev=new UIText(new FontInfo(AssetManager.GetFont("Arial"), 24), "Debug Build", Color.White, new Vector2f(DisplayManager.Width-140,DisplayManager.Height-30));
+            #endif
+            #if (DEV || DEBUG)
+                dev.OutlineColor=Color.Black;
+                dev.OutlineThickness=2;
+                dev.TextColor=Color.White;
                 guis.Add(dev);
             #endif
         }
@@ -44,19 +48,19 @@ namespace Fish_Girlz.States{
         }
 
         public List<LayeredSprite> GetSprites(){
-            return sprites;
+            return sprites.Clone();
         }
 
         public List<GUI> GetGUIs(){
-            return guis;
+            return guis.Clone();
         }
 
         public List<Entity> GetEntities(){
-            return entities;
+            return entities.Clone();
         }
 
         public List<TileEntity> GetTiles(){
-            return tiles;
+            return tiles.Clone();
         }
 
         protected void CheckCollisions(){
