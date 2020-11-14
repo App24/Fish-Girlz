@@ -38,6 +38,30 @@ namespace Fish_Girlz.Utils{
             return c;
         }
 
+        public static double Magnitude(this Vector2f v){
+            return Math.Sqrt(v.X*v.X+v.Y*v.Y);
+        }
+
+        public static double Magnitude(this Vector3f v){
+            return Math.Sqrt(v.X*v.X+v.Y*v.Y+v.Z*v.Z);
+        }
+
+        public static double Magnitude(this Vector4f v){
+            return Math.Sqrt(v.X*v.X+v.Y*v.Y+v.Z*v.Z+v.W*v.W);
+        }
+
+        public static double SqrMagnitude(this Vector2f v){
+            return v.Magnitude()*v.Magnitude();
+        }
+
+        public static double SqrMagnitude(this Vector3f v){
+            return v.Magnitude()*v.Magnitude();
+        }
+
+        public static double SqrMagnitude(this Vector4f v){
+            return v.Magnitude()*v.Magnitude();
+        }
+
         public static String ToStringExtended<T>(this IList<T> list){
             string text="[";
             foreach (T item in list)

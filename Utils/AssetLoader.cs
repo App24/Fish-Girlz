@@ -14,6 +14,7 @@ namespace Fish_Girlz.Utils
             AssetManager.LoadSoundBuffer("Button Click", "res/audio/button_click.wav");
             AssetManager.LoadFont("Arial", "res/fonts/arial.ttf");
             AssetManager.LoadObject("Button Font", new FontInfo(AssetManager.GetFont("Arial"), 30));
+            AssetManager.LoadObject("Title Font", new FontInfo(AssetManager.GetFont("Arial"), 40));
         }
     }
 }
