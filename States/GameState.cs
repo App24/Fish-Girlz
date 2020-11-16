@@ -28,8 +28,6 @@ namespace Fish_Girlz.States{
 
         public override void Update()
         {
-            UpdateEntities();
-            CheckCollisions();
             Camera.TargetEntity(player);
         }
 

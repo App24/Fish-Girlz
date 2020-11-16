@@ -54,13 +54,15 @@ namespace Fish_Girlz
 
                 if (!StateMachine.IsEmpty)
                 {
+                    LogicSystem.Update();
+                    CollisionSystem.CheckCollisions();
                     StateMachine.ActiveState.Update();
                     StateMachine.ActiveState.HandleInput();
                 }
 
                 DisplayManager.Window.Clear();
                 if (!StateMachine.IsEmpty)
-                    RenderSystem.Render(StateMachine.ActiveState);
+                    RenderSystem.Render();
                 DisplayManager.Window.Display();
             }
 

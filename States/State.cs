@@ -62,38 +62,5 @@ namespace Fish_Girlz.States{
         public List<TileEntity> GetTiles(){
             return tiles.Clone();
         }
-
-        protected void CheckCollisions(){
-            foreach (Entity entity in entities)
-            {
-                if(entity is LivingEntity){
-                    LivingEntity livingEntity=(LivingEntity)entity;
-                    List<Entity> nearbyEntities=livingEntity.GetNearbyEntities(entities);
-                    List<TileEntity> nearbyTiles=livingEntity.GetNearbyEntities(tiles);
-                    //Console.WriteLine(nearbyTiles.ToStringExtended());
-                    livingEntity.Move();
-                    foreach (Entity nearbyEntity in nearbyEntities)
-                    {
-                        livingEntity.CheckCollision(nearbyEntity);
-                    }
-                    foreach (TileEntity nearbyTile in nearbyTiles)
-                    {
-                        livingEntity.CheckCollision(nearbyTile);
-                    }
-                    livingEntity.CheckMovement();
-                }
-            }
-        }
-
-        protected void UpdateEntities(){
-            foreach (TileEntity tileEntity in tiles)
-            {
-                tileEntity.Update();
-            }
-            foreach (Entity entity in entities)
-            {
-                entity.Update();
-            }
-        }
     }
 }

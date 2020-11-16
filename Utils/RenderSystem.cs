@@ -11,7 +11,8 @@ using SFML.System;
 
 namespace Fish_Girlz.Utils{
     public static class RenderSystem {
-        public static void Render(State currentState){
+        public static void Render(){
+            State currentState=StateMachine.ActiveState;
             RenderTiles(currentState.GetTiles());
             RenderSprites(currentState.GetSprites());
             RenderEntities(currentState.GetEntities());
