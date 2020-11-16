@@ -33,9 +33,29 @@ namespace Fish_Girlz.Utils{
 
         public static double Distance(this Vector2f v1, Vector2f v2){
             Vector2f dif=v1-v2;
-            float c2=(dif.X*dif.X)+(dif.Y*dif.Y);
-            double c=Math.Sqrt(c2);
-            return c;
+            float total=0;
+            total+=(dif.X*dif.X);
+            total+=(dif.Y*dif.Y);
+            return Math.Sqrt(total);
+        }
+
+        public static double Distance(this Vector3f v1, Vector3f v2){
+            Vector3f dif=v1-v2;
+            float total=0;
+            total+=(dif.X*dif.X);
+            total+=(dif.Y*dif.Y);
+            total+=(dif.Z*dif.Z);
+            return Math.Sqrt(total);
+        }
+
+        public static double Distance(this Vector4f v1, Vector4f v2){
+            Vector4f dif=v1-v2;
+            float total=0;
+            total+=(dif.X*dif.X);
+            total+=(dif.Y*dif.Y);
+            total+=(dif.Z*dif.Z);
+            total+=(dif.W*dif.W);
+            return Math.Sqrt(total);
         }
 
         public static double Magnitude(this Vector2f v){
