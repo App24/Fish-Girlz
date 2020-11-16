@@ -56,6 +56,7 @@ namespace Fish_Girlz
                 {
                     LogicSystem.Update();
                     CollisionSystem.CheckCollisions();
+                    
                     StateMachine.ActiveState.Update();
                     StateMachine.ActiveState.HandleInput();
                 }
