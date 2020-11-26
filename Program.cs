@@ -69,6 +69,7 @@ namespace Fish_Girlz
 
             StateMachine.CleanUp();
             AudioSystem.CleanUp();
+            client.Dispose();
         }
     }
 }

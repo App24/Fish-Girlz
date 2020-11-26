@@ -9,10 +9,10 @@ namespace Fish_Girlz.Utils
     {
         public static void LoadAssets()
         {
-            AssetManager.LoadSpriteSheet("dominique", "res/dominique spritesheet.png", 64, 64);
-            AssetManager.LoadTexture("temp", "res/temp player.png");
-            AssetManager.LoadSoundBuffer("Button Click", "res/audio/button_click.wav");
-            AssetManager.LoadFont("Arial", "res/fonts/arial.ttf");
+            AssetManager.LoadSpriteSheet("dominique", "res/textures/dominique spritesheet", 64, 64);
+            AssetManager.LoadTexture("temp", "res/textures/temp player");
+            AssetManager.LoadSoundBuffer("Button Click", "res/audio/button_click");
+            AssetManager.LoadFont("Arial", "res/fonts/arial");
             AssetManager.LoadObject("Button Font", new FontInfo(AssetManager.GetFont("Arial"), 30));
             AssetManager.LoadObject("Title Font", new FontInfo(AssetManager.GetFont("Arial"), 40));
         }

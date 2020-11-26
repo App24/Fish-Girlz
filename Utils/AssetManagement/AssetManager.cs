@@ -4,6 +4,7 @@ using Fish_Girlz.Art;
 using SFML;
 using SFML.Audio;
 using SFML.Graphics;
+using System.IO;
 
 namespace Fish_Girlz.Utils
 {
@@ -19,7 +20,8 @@ namespace Fish_Girlz.Utils
         {
             try
             {
-                Texture texture = new Texture(filePath);
+                Stream stream=FileObfuscator.Deobfuscate(filePath+".gph");
+                Texture texture = new Texture(stream);
                 LoadTexture(name, texture);
                 //Collision.CreateBitmask(texture);
             }
@@ -37,7 +39,8 @@ namespace Fish_Girlz.Utils
         {
             try
             {
-                Texture texture = new Texture(filePath);
+                Stream stream=FileObfuscator.Deobfuscate(filePath+".gph");
+                Texture texture = new Texture(stream);
                 SpriteSheet spriteSheet = new SpriteSheet(texture, spriteWidth, spriteHeight);
                 spriteSheets.Add(name, spriteSheet);
                 //Collision.CreateBitmask(texture);
@@ -52,8 +55,10 @@ namespace Fish_Girlz.Utils
         {
             try
             {
-                Font font = new Font(filePath);
+                Stream stream=FileObfuscator.Deobfuscate(filePath+".font");
+                Font font = new Font(stream);
                 fonts.Add(name, font);
+                //File.Delete(Utilities.GetFileInTemp(name+".ttf"));
             }
             catch (LoadingFailedException)
             {
@@ -69,7 +74,8 @@ namespace Fish_Girlz.Utils
         {
             try
             {
-                SoundBuffer soundBuffer = new SoundBuffer(filePath);
+                Stream stream=FileObfuscator.Deobfuscate(filePath+".aud");
+                SoundBuffer soundBuffer = new SoundBuffer(stream);
                 soundBuffers.Add(name, soundBuffer);
             }
             catch (LoadingFailedException)
