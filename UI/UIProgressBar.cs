@@ -7,12 +7,12 @@ using Fish_Girlz.Utils;
 namespace Fish_Girlz.UI{
     public class UIProgressBar : GUI {
         float percentage;
-        ImageComponent bar;
+        TextureComponent bar;
         Vector2u size;
 
         public UIProgressBar(Vector2u size, Vector2f position, Color backgroundColor, Color barColor):base(position){
-            AddComponent(new ImageComponent(Utilities.CreateTexture(size.X,size.Y,backgroundColor)));
-            bar=AddComponent(new ImageComponent(Utilities.CreateTexture(size.X,size.Y,barColor)));
+            AddComponent(new TextureComponent(Utilities.CreateTexture(size.X,size.Y,backgroundColor)));
+            bar=AddComponent(new TextureComponent(Utilities.CreateTexture(size.X,size.Y,barColor)));
             this.size=size;
             SetPercentage(1);
         }

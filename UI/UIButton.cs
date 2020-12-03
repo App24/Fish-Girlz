@@ -7,9 +7,9 @@ using Fish_Girlz.Utils;
 using Fish_Girlz.UI.Components;
 
 namespace Fish_Girlz.UI{
-    public class UIButton : GUI {
+    public class UIButton : UpdatableGUI {
         private ClickComponent clickComponent;
-        private ImageComponent imageComponent;
+        private TextureComponent imageComponent;
         private ButtonInformation buttonInformation;
         private Sound clickSound;
 
@@ -30,12 +30,12 @@ namespace Fish_Girlz.UI{
             Texture hoverTexture=Utilities.CreateTexture(size.X,size.Y, new Color(255/2,255/2,255/2));
             buttonInformation=new ButtonInformation(texture, hoverTexture);
             clickComponent=AddComponent(new ClickComponent(new Vector4f(position, (Vector2f)texture.Size)));
-            imageComponent=AddComponent(new ImageComponent(texture));
+            imageComponent=AddComponent(new TextureComponent(texture));
             AddComponent(new TextComponent(fontInfo, text, textPosition, Color.Black));
             clickSound=new Sound(AssetManager.GetSoundBuffer("Button Click"));
         }
 
-        public void Update(){
+        public override void Update(){
             if(clickComponent.onHover()){
                 imageComponent.Texture=buttonInformation.hoverTexture;
             }else{

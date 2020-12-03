@@ -3,6 +3,8 @@ using Fish_Girlz.Utils;
 using Fish_Girlz.States;
 using Fish_Girlz.Audio;
 using DiscordRPC;
+using DiscordRPC.Events;
+using DiscordRPC.Message;
 using DiscordRPC.Logging;
 
 namespace Fish_Girlz
@@ -22,7 +24,7 @@ namespace Fish_Girlz
             InputManager.InitInputManager();
             StateMachine.AddState(new MainMenuState());
             client = new DiscordRpcClient("772930748784967750");
-            client.Logger = new ConsoleLogger() { Level = LogLevel.Warning };
+            client.Logger = new ConsoleLogger() { Level = LogLevel.Error };
             client.Initialize();
 
             startTime = (ulong)DateTimeOffset.UtcNow.ToUnixTimeMilliseconds();
@@ -69,6 +71,7 @@ namespace Fish_Girlz
 
             StateMachine.CleanUp();
             AudioSystem.CleanUp();
+            client.Deinitialize();
             client.Dispose();
         }
     }

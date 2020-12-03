@@ -15,6 +15,7 @@ namespace Fish_Girlz.Utils
             AssetManager.LoadFont("Arial", "res/fonts/arial");
             AssetManager.LoadObject("Button Font", new FontInfo(AssetManager.GetFont("Arial"), 30));
             AssetManager.LoadObject("Title Font", new FontInfo(AssetManager.GetFont("Arial"), 40));
+            AssetManager.LoadObject("Input Font", new FontInfo(AssetManager.GetFont("Arial"), 40));
         }
     }
 }

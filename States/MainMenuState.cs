@@ -13,6 +13,8 @@ namespace Fish_Girlz.States{
     {
         private UIButton play, quit;
 
+        private UITextField test;
+
         private UIText version;
 
         public override void Init()
@@ -25,6 +27,8 @@ namespace Fish_Girlz.States{
             guis.Add(version);
             play.OnClick+=new EventHandler((sender, e)=>{StateMachine.AddState(new GameState());});
             quit.OnClick+=new EventHandler((sender, e)=>{DisplayManager.Window.Close();});
+            test=new UITextField(new Vector2f(400,400));
+            guis.Add(test);
         }
 
         public override void Update()
@@ -34,8 +38,7 @@ namespace Fish_Girlz.States{
 
         public override void HandleInput()
         {
-            play.Update();
-            quit.Update();
+            
         }
     }
 }

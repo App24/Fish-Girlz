@@ -41,9 +41,6 @@ namespace Fish_Girlz.States{
             if(InputManager.IsKeyPressed(SFML.Window.Keyboard.Key.Escape)){
                 StateMachine.RemoveState();
             }
-            continueButton.Update();
-            quit.Update();
-            menu.Update();
         }
     }
 }

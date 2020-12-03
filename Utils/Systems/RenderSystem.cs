@@ -55,10 +55,10 @@ namespace Fish_Girlz.Utils{
                 List<GUIComponent> guiComponents=gui.GetGUIComponents();
                 guiComponents.Sort();
                 foreach(GUIComponent guiComponent in guiComponents){
-                    if(guiComponent is ImageComponent){
-                        ImageComponent imageComponent=(ImageComponent)guiComponent;
+                    if(guiComponent is TextureComponent){
+                        TextureComponent imageComponent=(TextureComponent)guiComponent;
                         Sprite sprite=new Sprite(imageComponent.Texture);
-                        sprite.Position=gui.Position;
+                        sprite.Position=gui.Position+imageComponent.Pos;
                         DisplayManager.Window.Draw(sprite);
                     }else if(guiComponent is TextComponent){
                         TextComponent textComponent=(TextComponent) guiComponent;
@@ -68,7 +68,30 @@ namespace Fish_Girlz.Utils{
                         text.FillColor=textComponent.TextColor;
                         text.OutlineColor=textComponent.OutlineColor;
                         text.OutlineThickness=textComponent.OutlineThickness;
+                        float textWidth=text.GetLocalBounds().Width;
+                        float textHeight=text.CharacterSize;
+                        float x=text.Position.X;
+                        float y=text.Position.Y;
+                        text.Position=new Vector2f();
+                        if(gui is UITextField){
+                            UITextField uITextField=(UITextField)gui;
+                            textWidth=uITextField.Size.X;
+                            textHeight=uITextField.Size.Y;
+                            x+=1.5f;
+                            y+=1.5f;
+                            if(text.GetLocalBounds().Width>textWidth){
+                                text.Position=new Vector2f(textWidth-text.GetLocalBounds().Width,0);
+                            }
+                        }
+                        View textView=new View(new Vector2f(textWidth/2, textHeight/2), new Vector2f(textWidth, textHeight));
+                        //Console.WriteLine(textView.Viewport);
+                        textView.Viewport=new FloatRect(x/view.Size.X, y/view.Size.Y, (textWidth)/view.Size.X, (textHeight)/view.Size.Y);
+                        //Console.WriteLine(textView.Viewport);
+                        //textView.Move(text.Position);
+                        DisplayManager.Window.SetView(textView);
+                        //DisplayManager.Window.Draw(new Sprite(new Texture(500,500).CreateTexture(Color.Blue)));
                         DisplayManager.Window.Draw(text);
+                        DisplayManager.Window.SetView(DisplayManager.Window.DefaultView);
                     }
                 }
             }
