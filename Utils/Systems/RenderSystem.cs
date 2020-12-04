@@ -74,13 +74,16 @@ namespace Fish_Girlz.Utils{
                         float y=text.Position.Y;
                         text.Position=new Vector2f();
                         if(gui is UITextField){
-                            UITextField uITextField=(UITextField)gui;
-                            textWidth=uITextField.Size.X;
-                            textHeight=uITextField.Size.Y;
+                            UITextField uiTextField=(UITextField)gui;
+                            textWidth=uiTextField.Size.X;
+                            textHeight=uiTextField.Size.Y;
                             x+=1.5f;
                             y+=1.5f;
-                            if(text.GetLocalBounds().Width>textWidth){
-                                text.Position=new Vector2f(textWidth-text.GetLocalBounds().Width,0);
+                            if(uiTextField.CursorIndex>0){
+                                float width=uiTextField.CursorPosition;
+                                if(width>textWidth){
+                                    text.Position=new Vector2f(textWidth-text.GetLocalBounds().Width,0);
+                                }
                             }
                         }
                         View textView=new View(new Vector2f(textWidth/2, textHeight/2), new Vector2f(textWidth, textHeight));

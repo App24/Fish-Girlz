@@ -13,9 +13,12 @@ namespace Fish_Girlz.States{
     {
         private UIButton play, quit;
 
-        private UITextField test;
 
         private UIText version;
+
+        #if (DEV || DEBUG)
+            private UIButton uiTestButton;
+        #endif
 
         public override void Init()
         {
@@ -27,8 +30,12 @@ namespace Fish_Girlz.States{
             guis.Add(version);
             play.OnClick+=new EventHandler((sender, e)=>{StateMachine.AddState(new GameState());});
             quit.OnClick+=new EventHandler((sender, e)=>{DisplayManager.Window.Close();});
-            test=new UITextField(new Vector2f(400,400));
-            guis.Add(test);
+
+            #if(DEV||DEBUG)
+                uiTestButton=new UIButton(new Vector2u(160,64), new Vector2f(Utilities.CenterInWindow(DisplayManager.Width, 160), 0), "UI Test", new Vector2f(33,13), (FontInfo)AssetManager.GetObject("Button Font"));
+                uiTestButton.OnClick+=new EventHandler((sender, e)=>{StateMachine.AddState(new UITestState());});
+                guis.Add(uiTestButton);
+            #endif
         }
 
         public override void Update()
@@ -38,7 +45,7 @@ namespace Fish_Girlz.States{
 
         public override void HandleInput()
         {
-            
+
         }
     }
 }

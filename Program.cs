@@ -67,6 +67,8 @@ namespace Fish_Girlz
                 if (!StateMachine.IsEmpty)
                     RenderSystem.Render();
                 DisplayManager.Window.Display();
+
+                InputManager.ResetInputManager();
             }
 
             StateMachine.CleanUp();

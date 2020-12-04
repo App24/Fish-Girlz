@@ -9,7 +9,9 @@ namespace Fish_Girlz.Utils
     public static class InputManager
     {
         private static bool[] keysPressed = new bool[(int)Keyboard.Key.KeyCount];
-        private static bool[] mouseButtonPressed=new bool[(int)Mouse.Button.ButtonCount];
+        private static bool[] mouseButtonsHeld=new bool[(int)Mouse.Button.ButtonCount];
+        private static bool[] mouseButtonsPressed=new bool[(int)Mouse.Button.ButtonCount];
+        private static bool[] mouseButtonsPressedThisFrame=new bool[(int)Mouse.Button.ButtonCount];
 
         private static string keyPressed="";
 
@@ -21,6 +23,8 @@ namespace Fish_Girlz.Utils
             DisplayManager.Window.MouseMoved+=MouseMoved;
             DisplayManager.Window.KeyPressed+=KeyPressed;
             DisplayManager.Window.KeyReleased+=KeyReleased;
+            DisplayManager.Window.MouseButtonPressed+=MouseButtonPressed;
+            DisplayManager.Window.MouseButtonReleased+=MouseButtonReleased;
         }
 
         public static bool IsKeyHeld(Keyboard.Key key)
@@ -43,21 +47,40 @@ namespace Fish_Girlz.Utils
 
         public static bool IsMouseButtonHeld(Mouse.Button button)
         {
-            return Mouse.IsButtonPressed(button);
+            return mouseButtonsHeld[(int) button];
         }
 
         public static bool IsMouseButtonPressed(Mouse.Button button)
         {
-            if (Mouse.IsButtonPressed(button) && !mouseButtonPressed[(int)button])
-            {
-                mouseButtonPressed[(int)button] = true;
+            if(mouseButtonsPressedThisFrame[(int)button]){
                 return true;
             }
-            else if (!Mouse.IsButtonPressed(button))
+            if (mouseButtonsHeld[(int) button] && !mouseButtonsPressed[(int)button])
             {
-                mouseButtonPressed[(int)button] = false;
+                mouseButtonsPressed[(int)button] = true;
+                mouseButtonsPressedThisFrame[(int)button]=true;
+                return true;
+            }
+            else if (!mouseButtonsHeld[(int) button])
+            {
+                mouseButtonsPressed[(int)button] = false;
             }
             return false;
+        }
+
+        public static void ResetInputManager(){
+            for (int i = 0; i < mouseButtonsPressedThisFrame.Length; i++)
+            {
+                mouseButtonsPressedThisFrame[i]=false;
+            }
+        }
+
+        private static void MouseButtonPressed(object sender, MouseButtonEventArgs e){
+            mouseButtonsHeld[(int)e.Button]=true;
+        }
+
+        private static void MouseButtonReleased(object sender, MouseButtonEventArgs e){
+            mouseButtonsHeld[(int)e.Button]=false;
         }
 
         private static void MouseMoved(object sender, MouseMoveEventArgs e){

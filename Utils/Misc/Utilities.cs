@@ -42,6 +42,22 @@ namespace Fish_Girlz.Utils{
             return texture;
         }
 
+        public static Texture SetColor(this Texture texture, Color color){
+            List<byte> pixels=new List<byte>();
+            for (int x = 0; x < texture.Size.X; x++)
+            {
+                for (int y = 0; y < texture.Size.Y; y++)
+                {
+                    pixels.Add(color.R);
+                    pixels.Add(color.G);
+                    pixels.Add(color.B);
+                    pixels.Add(color.A);
+                }
+            }
+            texture.Update(pixels.ToArray());
+            return texture;
+        }
+
         public static string GetFileNameWithoutExtension(this string filePath){
             return Path.GetFileNameWithoutExtension(filePath);
         }
