@@ -30,14 +30,14 @@ namespace Fish_Girlz.UI{
         }}
 
         float drawCursorPosition{get{
-            return CursorPosition;
+            return Math.Clamp(CursorPosition, 0, Size.X-10);
         }}
 
         public UITextField(Vector2f position) : base(position)
         {
             Size=new Vector2u(300,50);
             AddComponent(new TextureComponent(Utilities.CreateTexture(Size.X+5,Size.Y+5, Color.White.Divide(2))));
-            AddComponent(new TextureComponent(Utilities.CreateTexture(Size.X, Size.Y, Color.White))).Pos=new Vector2f(2.5f,2.5f);
+            AddComponent(new TextureComponent(Utilities.CreateTexture(Size.X, Size.Y, Color.White))).Position=new Vector2f(2.5f,2.5f);
             textComponent=AddComponent(new TextComponent((FontInfo)AssetManager.GetObject("Input Font"), "", new Vector2f(), Color.Black));
             clickComponent=AddComponent(new ClickComponent(new Vector4f(position, new Vector2f(Size.X+5, Size.Y+5))));
             cursorComponent=AddComponent(new TextureComponent(Utilities.CreateTexture(3,40, Color.Black)));
@@ -76,11 +76,13 @@ namespace Fish_Girlz.UI{
                     bool ignoreCursor=false;
                     switch(input){
                         case "\b":
-                            if(typedText.Length>0&&CursorIndex>0)
+                            if(typedText.Length>0&&CursorIndex>0){
                                 typedText=typedText.Remove(CursorIndex-1, 1);
+                                CursorIndex-=1;
+                            }
                             break;
                         case "\bd":
-                            if(typedText.Length>1&&(CursorIndex>=0 && CursorIndex<typedText.Length))
+                            if(typedText.Length>=1&&(CursorIndex>=0 && CursorIndex<typedText.Length))
                                 typedText=typedText.Remove(CursorIndex, 1);
                             break;
                         case "home":
@@ -104,15 +106,19 @@ namespace Fish_Girlz.UI{
                             ignoreCursor=true;
                             break;
                         default:
-                            if(visibility==CharacterVisibility.Visible)
-                                typedText+=input;
+                            if(visibility==CharacterVisibility.Visible){
+                                typedText=typedText.Insert(CursorIndex, input);
+                                CursorIndex+=1;
+                            }
                             break;
                     }
-                    if(!ignoreCursor)
-                        CursorIndex=typedText.Length;
+                    if(!ignoreCursor){
+                        if(CursorIndex>typedText.Length/*||(typedText.Length>textComponent.Text.Length&&CursorIndex>=textComponent.Text.Length)*/)
+                            CursorIndex=typedText.Length;
+                    }
                     textComponent.Text=typedText;
                 }
-                cursorComponent.Pos=new Vector2f(drawCursorPosition+cursorComponent.Texture.Size.X+5, (Size.Y-40)/1.5f);
+                cursorComponent.Position=new Vector2f(drawCursorPosition+cursorComponent.Texture.Size.X+5, (Size.Y-40)/1.5f);
             }else{
                 cursorComponent.Texture.SetColor(new Color(0,0,0,0));
             }

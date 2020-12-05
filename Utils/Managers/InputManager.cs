@@ -8,7 +8,11 @@ namespace Fish_Girlz.Utils
 {
     public static class InputManager
     {
+        private static bool[] keysHeld = new bool[(int)Keyboard.Key.KeyCount];
         private static bool[] keysPressed = new bool[(int)Keyboard.Key.KeyCount];
+        private static bool[] keysPressedThisFrame = new bool[(int)Keyboard.Key.KeyCount];
+
+
         private static bool[] mouseButtonsHeld=new bool[(int)Mouse.Button.ButtonCount];
         private static bool[] mouseButtonsPressed=new bool[(int)Mouse.Button.ButtonCount];
         private static bool[] mouseButtonsPressedThisFrame=new bool[(int)Mouse.Button.ButtonCount];
@@ -29,16 +33,19 @@ namespace Fish_Girlz.Utils
 
         public static bool IsKeyHeld(Keyboard.Key key)
         {
-            return Keyboard.IsKeyPressed(key);
+            return keysHeld[(int)key];
         }
 
         public static bool IsKeyPressed(Keyboard.Key key)
         {
-            if (Keyboard.IsKeyPressed(key) && !keysPressed[(int)key])
+            if(keysPressedThisFrame[(int)key])
+                return true;
+            if (keysHeld[(int)key] && !keysPressed[(int)key])
             {
                 keysPressed[(int)key] = true;
+                keysPressedThisFrame[(int)key]=true;
                 return true;
-            }else if (!Keyboard.IsKeyPressed(key))
+            }else if (!keysHeld[(int)key])
             {
                 keysPressed[(int)key] = false;
             }
@@ -73,6 +80,10 @@ namespace Fish_Girlz.Utils
             {
                 mouseButtonsPressedThisFrame[i]=false;
             }
+            for (int i = 0; i < keysPressedThisFrame.Length; i++)
+            {
+                keysPressedThisFrame[i]=false;
+            }
         }
 
         private static void MouseButtonPressed(object sender, MouseButtonEventArgs e){
@@ -93,10 +104,16 @@ namespace Fish_Girlz.Utils
 
         private static void KeyPressed(object sender, KeyEventArgs e){
             (keyPressed, characterVisibility)=KeyCodeToString(e.Code, e.Shift);
+            if((int)e.Code<0||(int)e.Code>(int)Keyboard.Key.KeyCount)
+                return;
+            keysHeld[(int)e.Code]=true;
         }
 
         private static void KeyReleased(object sender, KeyEventArgs e){
             keyPressed="";
+            if((int)e.Code<0||(int)e.Code>(int)Keyboard.Key.KeyCount)
+                return;
+            keysHeld[(int)e.Code]=false;
         }
         
         public static (string, CharacterVisibility) CheckForInput(){
@@ -256,7 +273,7 @@ namespace Fish_Girlz.Utils
                     visibility=CharacterVisibility.Invisible;
                     break;
                 case Keyboard.Key.LBracket:
-                    keyText="(";
+                    keyText="[";
                     break;
                 case Keyboard.Key.LControl:
                     keyText="lControl";
@@ -356,7 +373,7 @@ namespace Fish_Girlz.Utils
                     visibility=CharacterVisibility.Invisible;
                     break;
                 case Keyboard.Key.RBracket:
-                    keyText="(";
+                    keyText="]";
                     break;
                 case Keyboard.Key.RControl:
                     keyText="rControl";
@@ -421,6 +438,7 @@ namespace Fish_Girlz.Utils
                 case Keyboard.Key.Z:
                     keyText="z";
                     break;
+                default:
                 case Keyboard.Key.Unknown:
                     keyText="�";
                     break;

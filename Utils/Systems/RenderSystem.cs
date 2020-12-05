@@ -58,7 +58,7 @@ namespace Fish_Girlz.Utils{
                     if(guiComponent is TextureComponent){
                         TextureComponent imageComponent=(TextureComponent)guiComponent;
                         Sprite sprite=new Sprite(imageComponent.Texture);
-                        sprite.Position=gui.Position+imageComponent.Pos;
+                        sprite.Position=gui.Position+imageComponent.Position;
                         DisplayManager.Window.Draw(sprite);
                     }else if(guiComponent is TextComponent){
                         TextComponent textComponent=(TextComponent) guiComponent;
@@ -82,7 +82,7 @@ namespace Fish_Girlz.Utils{
                             if(uiTextField.CursorIndex>0){
                                 float width=uiTextField.CursorPosition;
                                 if(width>textWidth){
-                                    text.Position=new Vector2f(textWidth-text.GetLocalBounds().Width,0);
+                                    text.Position=new Vector2f(textWidth-width,0);
                                 }
                             }
                         }
