@@ -142,6 +142,15 @@ namespace Fish_Girlz.Utils{
             return newList;
         }
 
+        public static void AddOrReplace<T, D>(this Dictionary<T, D> dictionary, T key, D value){
+            if(!dictionary.ContainsKey(key)){
+                dictionary.Add(key, value);
+            }else{
+                dictionary.Remove(key);
+                dictionary.Add(key, value);
+            }
+        }
+
         public static Color Divide(this Color color, byte amount, bool alpha=false){
             Color newColor=new Color(color);
             newColor.R/=amount;

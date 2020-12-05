@@ -1,5 +1,6 @@
 using System;
 using Fish_Girlz.UI;
+using Fish_Girlz.Utils;
 using SFML.System;
 
 namespace Fish_Girlz.States{
@@ -20,7 +21,9 @@ namespace Fish_Girlz.States{
 
         public override void Update()
         {
-
+            if(InputManager.IsKeyPressed(SFML.Window.Keyboard.Key.Escape)){
+                StateMachine.AddState(new MainMenuState());
+            }
         }
     }
 }

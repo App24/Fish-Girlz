@@ -25,17 +25,28 @@ namespace Fish_Girlz.Utils{
         }
 
         static void UpdateEntities(List<Entity> entities){
+            List<Entity> newEntities=new List<Entity>();
             foreach (Entity entity in entities)
             {
                 entity.Update();
+                if(!entity.ToRemove){
+                    newEntities.Add(entity);
+                }
             }
+            entities.Clear();
+            entities.AddRange(newEntities);
         }
 
         static void UpdateTiles(List<TileEntity> tiles){
+            List<TileEntity> newTiles=new List<TileEntity>();
             foreach (TileEntity tile in tiles)
             {
                 tile.Update();
+                if(!tile.ToRemove)
+                    newTiles.Add(tile);
             }
+            tiles.Clear();
+            tiles.AddRange(newTiles);
         }
     }
 }

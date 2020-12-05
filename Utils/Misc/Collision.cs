@@ -16,6 +16,8 @@ namespace Fish_Girlz.Utils
     {
         static BitmaskManager bitmasks=new BitmaskManager();
 
+        static Dictionary<Entity, List<Entity>> collidingEntities=new Dictionary<Entity, List<Entity>>();
+
         public static bool PixelPerfectTest(Sprite object1, Sprite object2, uint alphaLimit = 0)
         {
             FloatRect intersection;
@@ -96,9 +98,59 @@ namespace Fish_Girlz.Utils
                 }
             }
             if(colliding){
-                object2.OnCollision?.Invoke(object2, new CollisionEventArgs(object1));
-                object1.OnCollision?.Invoke(object1, new CollisionEventArgs(object2));
+                if(!collidingEntities.ContainsKey(object1)){
+                    object2.OnCollision?.Invoke(object2, new CollisionEventArgs(object1));
+                    List<Entity> collidingEntity=new List<Entity>();
+                    collidingEntity.Add(object2);
+                    collidingEntities.AddOrReplace(object1, collidingEntity);
+                }else{
+                    List<Entity> collidingEntity=new List<Entity>();
+                    if(collidingEntities.TryGetValue(object1, out collidingEntity)){
+                        if(!collidingEntity.Contains(object2)){
+                            object2.OnCollision?.Invoke(object2, new CollisionEventArgs(object1));
+                            collidingEntity.Add(object2);
+                            collidingEntities.AddOrReplace(object1, collidingEntity);
+                        }
+                    }
+                }
+
+                /*if(!collidingEntities.ContainsKey(object2)){
+                    object2.OnCollision?.Invoke(object2, new CollisionEventArgs(object1));
+                    List<Entity> collidingEntity=new List<Entity>();
+                    collidingEntity.Add(object1);
+                    collidingEntities.AddOrReplace(object2, collidingEntity);
+                }else{
+                    List<Entity> collidingEntity=new List<Entity>();
+                    if(collidingEntities.TryGetValue(object2, out collidingEntity)){
+                        if(!collidingEntity.Contains(object1)){
+                            object2.OnCollision?.Invoke(object2, new CollisionEventArgs(object1));
+                            collidingEntity.Add(object1);
+                            collidingEntities.AddOrReplace(object2, collidingEntity);
+                        }
+                    }
+                }*/
+            }else{
+                if(collidingEntities.ContainsKey(object1)){
+                    List<Entity> collidingEntity=new List<Entity>();
+                    if(collidingEntities.TryGetValue(object1, out collidingEntity)){
+                        if(collidingEntity.Contains(object2)){
+                            collidingEntity.Remove(object2);
+                            collidingEntities.AddOrReplace(object1, collidingEntity);
+                        }
+                    }
+                }
+
+                /*if(collidingEntities.ContainsKey(object2)){
+                    List<Entity> collidingEntity=new List<Entity>();
+                    if(collidingEntities.TryGetValue(object2, out collidingEntity)){
+                        if(collidingEntity.Contains(object1)){
+                            collidingEntity.Remove(object1);
+                            collidingEntities.AddOrReplace(object2, collidingEntity);
+                        }
+                    }
+                }*/
             }
+
             if(object1 is TileEntity){
                 TileEntity tileEntity=(TileEntity)object1;
                 if(!tileEntity.Collidable)
@@ -177,7 +229,7 @@ namespace Fish_Girlz.Utils
         public OrientatedBoundingBox(Entity entity)
         {
             Transform trans = entity.ToLayeredSprite().Transform;
-            IntRect local = entity.Sprite.bounds;
+            IntRect local = entity.Sprite.Bounds;
             points[0] = trans.TransformPoint(0f, 0f);
             points[1] = trans.TransformPoint(local.Width, 0f);
             points[2] = trans.TransformPoint(local.Width, local.Height);

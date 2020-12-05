@@ -6,7 +6,7 @@ using SFML.Graphics;
 
 namespace Fish_Girlz.Entities
 {
-    public class Player : LivingEntity
+    public class PlayerEntity : LivingEntity
     {
         private SpriteSheet spriteSheet;
         float speed = 200f;
@@ -15,7 +15,7 @@ namespace Fish_Girlz.Entities
         Animation currentAnimation;
         (bool, bool) walking;
 
-        public Player(Vector2f position) : base(position, AssetManager.GetSpriteSheet("dominique").GetSpriteInfo(0, 0), 20)
+        public PlayerEntity(Vector2f position) : base(position, AssetManager.GetSpriteSheet("dominique").GetSpriteInfo(0, 0), 20)
         {
             spriteSheet = AssetManager.GetSpriteSheet("dominique");
             SetupAnimations();

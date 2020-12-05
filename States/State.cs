@@ -48,19 +48,19 @@ namespace Fish_Girlz.States{
         }
 
         public List<LayeredSprite> GetSprites(){
-            return sprites.Clone();
+            return sprites;//.Clone();
         }
 
         public List<GUI> GetGUIs(){
-            return guis.Clone();
+            return guis;//.Clone();
         }
 
         public List<Entity> GetEntities(){
-            return entities.Clone();
+            return entities;//.Clone();
         }
 
         public List<TileEntity> GetTiles(){
-            return tiles.Clone();
+            return tiles;//.Clone();
         }
     }
 }

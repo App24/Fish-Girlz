@@ -14,27 +14,34 @@ namespace Fish_Girlz.States{
     public class GameState : State
     {
         UIText text;
-        Player player;
+        PlayerEntity player;
+        TestEnemy test;
 
         public override void Init()
         {
-            text=new UIText(new FontInfo(AssetManager.GetFont("Arial"), 16), "LMAO",Color.White,new Vector2f(0,0));
+            text=new UIText(new FontInfo(AssetManager.GetFont("Arial"), 16), "Health: ",Color.White,new Vector2f(0,0));
             guis.Add(text);
             MapGenerator.InitMap();
-            player=new Player(MapGenerator.GetPlayerPos());
+            player=new PlayerEntity(MapGenerator.GetPlayerPos());
             entities.Add(player);
             tiles=MapGenerator.GetTiles();
+            test=new TestEnemy(new Vector2f(256,256), new SpriteInfo(AssetManager.GetTexture("temp"), new IntRect(0,0,64,64)));
+            entities.Add(test);
         }
 
         public override void Update()
         {
             Camera.TargetEntity(player);
+            text.Text=$"Health: {player.Health}";
         }
 
         public override void HandleInput()
         {
             if(InputManager.IsKeyPressed(SFML.Window.Keyboard.Key.Escape)){
                 StateMachine.AddState(new PauseState(), false);
+            }
+            if(InputManager.IsKeyPressed(SFML.Window.Keyboard.Key.Space)){
+                test.Damage(1);
             }
         }
     }

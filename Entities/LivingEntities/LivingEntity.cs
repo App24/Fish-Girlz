@@ -23,7 +23,7 @@ namespace Fish_Girlz.Entities{
             if(amount<0) Heal(Math.Abs(amount));
             Health-=amount;
             if(Health<=0)
-                OnDeath();
+                Die();
         }
 
         public void Heal(int amount){
@@ -31,6 +31,11 @@ namespace Fish_Girlz.Entities{
             Health+=amount;
             if(Health>MaxHealth)
                 Health=MaxHealth;
+        }
+
+        private void Die(){
+            ToRemove=true;
+            OnDeath();
         }
 
         protected abstract void OnDeath();

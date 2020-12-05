@@ -68,8 +68,8 @@ namespace Fish_Girlz.Utils{
                         text.FillColor=textComponent.TextColor;
                         text.OutlineColor=textComponent.OutlineColor;
                         text.OutlineThickness=textComponent.OutlineThickness;
-                        float textWidth=text.GetLocalBounds().Width;
-                        float textHeight=text.CharacterSize;
+                        float textWidth=text.GetLocalBounds().Width+10;
+                        float textHeight=text.CharacterSize+10;
                         float x=text.Position.X;
                         float y=text.Position.Y;
                         text.Position=new Vector2f();

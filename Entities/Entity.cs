@@ -13,6 +13,8 @@ namespace Fish_Girlz.Entities{
 
         public CollisionEventHandler OnCollision;
 
+        public bool ToRemove{get;protected set;}
+
         public Entity(Vector2f position, SpriteInfo sprite){
             this.Sprite=sprite;
             Position=position;
@@ -27,7 +29,7 @@ namespace Fish_Girlz.Entities{
 
         public LayeredSprite ToLayeredSprite(){
             LayeredSprite sprite=new LayeredSprite(Sprite.texture);
-            sprite.TextureRect=Sprite.bounds;
+            sprite.TextureRect=Sprite.Bounds;
             sprite.Position=Position;
             return sprite;
         }
