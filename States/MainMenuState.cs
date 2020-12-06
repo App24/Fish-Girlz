@@ -24,17 +24,17 @@ namespace Fish_Girlz.States{
         {
             play=new UIButton(new Vector2u(160, 64), new Vector2f(Utilities.CenterInWindow(DisplayManager.Width, 160), Utilities.CenterInWindow(DisplayManager.Height, 60)-40), Language.GetCurrentLanguage().GetTranslation("button.start"), new Vector2f(2,13), (FontInfo)AssetManager.GetObject("Button Font"));
             quit=new UIButton(new Vector2u(160, 64), new Vector2f(Utilities.CenterInWindow(DisplayManager.Width, 160), Utilities.CenterInWindow(DisplayManager.Height, 60)+40), Language.GetCurrentLanguage().GetTranslation("button.quit"), new Vector2f(51,13), (FontInfo)AssetManager.GetObject("Button Font"));
-            guis.Add(play);
-            guis.Add(quit);
+            AddGUI(play);
+            AddGUI(quit);
             version = new UIText(new FontInfo(AssetManager.GetFont("Arial"), 24), Language.GetCurrentLanguage().GetTranslation("text.version", Program.Version), Color.White, new Vector2f(6, DisplayManager.Height-30));
-            guis.Add(version);
+            AddGUI(version);
             play.OnClick+=new EventHandler((sender, e)=>{StateMachine.AddState(new GameState());});
             quit.OnClick+=new EventHandler((sender, e)=>{DisplayManager.Window.Close();});
 
             #if(DEV||DEBUG)
                 uiTestButton=new UIButton(new Vector2u(160,64), new Vector2f(Utilities.CenterInWindow(DisplayManager.Width, 160), 0), "UI Test", new Vector2f(33,13), (FontInfo)AssetManager.GetObject("Button Font"));
                 uiTestButton.OnClick+=new EventHandler((sender, e)=>{StateMachine.AddState(new UITestState());});
-                guis.Add(uiTestButton);
+                AddGUI(uiTestButton);
             #endif
         }
 

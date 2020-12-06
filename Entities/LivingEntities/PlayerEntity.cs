@@ -1,6 +1,8 @@
 using System;
+using System.Collections.Generic;
 using Fish_Girlz.Art;
 using Fish_Girlz.Utils;
+using Fish_Girlz.States;
 using SFML.System;
 using SFML.Graphics;
 
@@ -85,7 +87,7 @@ namespace Fish_Girlz.Entities
 
         }
 
-        public override void Update()
+        public override void Update(State currentState)
         {
             if (currentAnimation.Update())
             {
@@ -97,13 +99,13 @@ namespace Fish_Girlz.Entities
         {
             if (InputManager.IsKeyHeld(SFML.Window.Keyboard.Key.W))
             {
-                Movement += new Vector2f(0, Delta.GetDelta() * -speed);
+                Speed += new Vector2f(0, Delta.GetDelta() * -speed);
                 currentAnimation = walkForward;
                 walking.Item1 = true;
             }
             else if (InputManager.IsKeyHeld(SFML.Window.Keyboard.Key.S))
             {
-                Movement += new Vector2f(0, Delta.GetDelta() * speed);
+                Speed += new Vector2f(0, Delta.GetDelta() * speed);
                 currentAnimation = walkBackward;
                 walking.Item1 = true;
             }
@@ -114,13 +116,13 @@ namespace Fish_Girlz.Entities
 
             if (InputManager.IsKeyHeld(SFML.Window.Keyboard.Key.A))
             {
-                Movement += new Vector2f(Delta.GetDelta() * -speed, 0);
+                Speed += new Vector2f(Delta.GetDelta() * -speed, 0);
                 currentAnimation = walkLeft;
                 walking.Item2 = true;
             }
             else if (InputManager.IsKeyHeld(SFML.Window.Keyboard.Key.D))
             {
-                Movement += new Vector2f(Delta.GetDelta() * speed, 0);
+                Speed += new Vector2f(Delta.GetDelta() * speed, 0);
                 currentAnimation = walkRight;
                 walking.Item2 = true;
             }

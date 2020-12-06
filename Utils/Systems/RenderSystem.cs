@@ -44,6 +44,7 @@ namespace Fish_Girlz.Utils{
             foreach(Entity entity in entities){
                 LayeredSprite sprite=(LayeredSprite)entity.Sprite;
                 sprite.Position=entity.Position;
+                sprite.Rotation=entity.Rotation;
                 DisplayManager.Window.Draw(sprite);
             }
         }

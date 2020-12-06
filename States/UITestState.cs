@@ -11,7 +11,7 @@ namespace Fish_Girlz.States{
         public override void Init()
         {
             test=new UITextField(new Vector2f(400,400));
-            guis.Add(test);
+            AddGUI(test);
         }
 
         public override void HandleInput()

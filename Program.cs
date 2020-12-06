@@ -56,6 +56,7 @@ namespace Fish_Girlz
 
                 if (!StateMachine.IsEmpty)
                 {
+                    StateMachine.ActiveState.StateLogic();
                     LogicSystem.Update();
                     CollisionSystem.CheckCollisions();
                     

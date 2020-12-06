@@ -14,22 +14,18 @@ namespace Fish_Girlz.Utils{
         static void CheckCollisions(List<Entity> entities, List<TileEntity> tiles){
             foreach (Entity entity in entities)
             {
-                if(entity is LivingEntity){
-                    LivingEntity livingEntity=(LivingEntity)entity;
-                    List<Entity> nearbyEntities=livingEntity.GetNearbyEntities(entities);
-                    List<TileEntity> nearbyTiles=livingEntity.GetNearbyEntities(tiles);
-                    //Console.WriteLine(nearbyTiles.ToStringExtended());
-                    livingEntity.Move();
-                    foreach (Entity nearbyEntity in nearbyEntities)
-                    {
-                        livingEntity.CheckCollision(nearbyEntity);
-                    }
-                    foreach (TileEntity nearbyTile in nearbyTiles)
-                    {
-                        livingEntity.CheckCollision(nearbyTile);
-                    }
-                    livingEntity.CheckMovement();
+                List<Entity> nearbyEntities=entity.GetNearbyEntities(entities);
+                List<TileEntity> nearbyTiles=entity.GetNearbyEntities(tiles);
+                entity.Move();
+                foreach (Entity nearbyEntity in nearbyEntities)
+                {
+                    entity.CheckCollision(nearbyEntity);
                 }
+                foreach (TileEntity nearbyTile in nearbyTiles)
+                {
+                    entity.CheckCollision(nearbyTile);
+                }
+                entity.CheckMovement();
             }
         }
     }

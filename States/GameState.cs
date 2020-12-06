@@ -20,13 +20,13 @@ namespace Fish_Girlz.States{
         public override void Init()
         {
             text=new UIText(new FontInfo(AssetManager.GetFont("Arial"), 16), "Health: ",Color.White,new Vector2f(0,0));
-            guis.Add(text);
+            AddGUI(text);
             MapGenerator.InitMap();
             player=new PlayerEntity(MapGenerator.GetPlayerPos());
-            entities.Add(player);
-            tiles=MapGenerator.GetTiles();
+            AddEntity(player);
+            tileEntities=MapGenerator.GetTiles();
             test=new TestEnemy(new Vector2f(256,256), new SpriteInfo(AssetManager.GetTexture("temp"), new IntRect(0,0,64,64)));
-            entities.Add(test);
+            AddEntity(test);
         }
 
         public override void Update()

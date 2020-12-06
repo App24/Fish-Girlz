@@ -9,12 +9,13 @@ namespace Fish_Girlz.Utils{
     public static class LogicSystem {
         public static void Update(){
             State currentState=StateMachine.ActiveState;
-            UpdateTiles(currentState.GetTiles());
-            UpdateEntities(currentState.GetEntities());
-            UpdateGUI(currentState.GetGUIs());
+            UpdateTiles(currentState);
+            UpdateEntities(currentState);
+            UpdateGUI(currentState);
         }
 
-        static void UpdateGUI(List<GUI> guis){
+        static void UpdateGUI(State currentState){
+            List<GUI> guis=currentState.GetGUIs();
             foreach (GUI gui in guis)
             {
                 if(gui is UpdatableGUI){
@@ -24,11 +25,12 @@ namespace Fish_Girlz.Utils{
             }
         }
 
-        static void UpdateEntities(List<Entity> entities){
+        static void UpdateEntities(State currentState){
+            List<Entity> entities=currentState.GetEntities();
             List<Entity> newEntities=new List<Entity>();
             foreach (Entity entity in entities)
             {
-                entity.Update();
+                entity.Update(currentState);
                 if(!entity.ToRemove){
                     newEntities.Add(entity);
                 }
@@ -37,11 +39,12 @@ namespace Fish_Girlz.Utils{
             entities.AddRange(newEntities);
         }
 
-        static void UpdateTiles(List<TileEntity> tiles){
+        static void UpdateTiles(State currentState){
+            List<TileEntity> tiles=currentState.GetTiles();
             List<TileEntity> newTiles=new List<TileEntity>();
             foreach (TileEntity tile in tiles)
             {
-                tile.Update();
+                tile.Update(currentState);
                 if(!tile.ToRemove)
                     newTiles.Add(tile);
             }

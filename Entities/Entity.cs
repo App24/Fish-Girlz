@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using Fish_Girlz.Art;
 using Fish_Girlz.Utils;
+using Fish_Girlz.States;
 using SFML.System;
 using SFML.Graphics;
 
@@ -9,15 +10,22 @@ namespace Fish_Girlz.Entities{
     public abstract class Entity : IComparable<Entity> {
         public SpriteInfo Sprite {get; protected set;}
 
-        public Vector2f Position{get;set;}
+        public Vector2f Position{get; private set;}
+        public Vector2f Speed {get; protected set;}
+
+        public bool Colliding{get;protected set;}
 
         public CollisionEventHandler OnCollision;
 
         public bool ToRemove{get;protected set;}
 
+        public float Rotation{get;protected set;}
+        public bool Collidable{get; protected set;}
+
         public Entity(Vector2f position, SpriteInfo sprite){
             this.Sprite=sprite;
             Position=position;
+            Collidable=true;
         }
 
         public int CompareTo(Entity other)
@@ -28,7 +36,7 @@ namespace Fish_Girlz.Entities{
         }
 
         public LayeredSprite ToLayeredSprite(){
-            LayeredSprite sprite=new LayeredSprite(Sprite.texture);
+            LayeredSprite sprite=new LayeredSprite(Sprite.Texture);
             sprite.TextureRect=Sprite.Bounds;
             sprite.Position=Position;
             return sprite;
@@ -47,6 +55,27 @@ namespace Fish_Girlz.Entities{
             return newEntities;
         }
 
-        public abstract void Update();
+        public abstract void Update(State currentState);
+
+        public abstract void Move();
+
+        public void CheckCollision(Entity entity){
+            Position+=Speed;
+            if(entity!=null){
+                if (this.CollideWithEntity(entity))
+                {
+                    Colliding=true;
+                }
+            }
+            Position -= Speed;
+        }
+
+        public void CheckMovement(){
+            if(!Colliding){
+                Position+=Speed;
+            }
+            Speed=new Vector2f();
+            Colliding=false;
+        }
     }
 }

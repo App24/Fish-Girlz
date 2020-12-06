@@ -68,6 +68,7 @@ namespace Fish_Girlz.Utils
             return BoundingBoxTest(entity, other);
         }
         
+        //TODO: MEMORY LEAK ISSUE
         public static bool BoundingBoxTest(Entity object1, Entity object2)
         {
 
@@ -151,16 +152,10 @@ namespace Fish_Girlz.Utils
                 }*/
             }
 
-            if(object1 is TileEntity){
-                TileEntity tileEntity=(TileEntity)object1;
-                if(!tileEntity.Collidable)
-                    return false;
-            }
-            if(object2 is TileEntity){
-                TileEntity tileEntity=(TileEntity)object2;
-                if(!tileEntity.Collidable)
-                    return false;
-            }
+            if(!object1.Collidable)
+                return false;
+            if(!object2.Collidable)
+                return false;
             return colliding;
         }
     }

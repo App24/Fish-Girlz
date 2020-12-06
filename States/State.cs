@@ -12,9 +12,13 @@ using SFML.System;
 namespace Fish_Girlz.States{
     public abstract class State {
         protected List<LayeredSprite> sprites=new List<LayeredSprite>();
-        protected List<GUI> guis=new List<GUI>();
-        protected List<Entity> entities=new List<Entity>();
-        protected List<TileEntity> tiles=new List<TileEntity>();
+        private List<GUI> guis=new List<GUI>();
+        private List<Entity> entities=new List<Entity>();
+        protected List<TileEntity> tileEntities=new List<TileEntity>();
+
+        private List<Entity> toAddEntities=new List<Entity>();
+        private List<TileEntity> toAddTileEntities=new List<TileEntity>();
+        private List<GUI> toAddGuis=new List<GUI>();
 
         #if (DEV || DEBUG)
             private UIText dev;
@@ -46,6 +50,16 @@ namespace Fish_Girlz.States{
         public virtual void Remove(){
             
         }
+        public void StateLogic(){
+            entities.AddRange(toAddEntities);
+            toAddEntities.Clear();
+
+            tileEntities.AddRange(toAddTileEntities);
+            toAddTileEntities.Clear();
+
+            guis.AddRange(toAddGuis);
+            toAddGuis.Clear();
+        }
 
         public List<LayeredSprite> GetSprites(){
             return sprites;//.Clone();
@@ -60,7 +74,22 @@ namespace Fish_Girlz.States{
         }
 
         public List<TileEntity> GetTiles(){
-            return tiles;//.Clone();
+            return tileEntities;//.Clone();
+        }
+
+        public Entity AddEntity(Entity entity){
+            toAddEntities.Add(entity);
+            return entity;
+        }
+
+        public TileEntity AddTileEntity(TileEntity tileEntity){
+            toAddTileEntities.Add(tileEntity);
+            return tileEntity;
+        }
+
+        public GUI AddGUI(GUI gui){
+            toAddGuis.Add(gui);
+            return gui;
         }
     }
 }

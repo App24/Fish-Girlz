@@ -9,10 +9,6 @@ namespace Fish_Girlz.Entities{
         public int MaxHealth {get; protected set;}
         public int Health {get; protected set;}
 
-        public bool Colliding{get;protected set;}
-
-        protected Vector2f Movement{get; set;}
-
         public LivingEntity(Vector2f position, SpriteInfo sprite, int maxHealth) : base(position, sprite)
         {
             MaxHealth=maxHealth;
@@ -40,26 +36,7 @@ namespace Fish_Girlz.Entities{
 
         protected abstract void OnDeath();
 
-        public abstract void Move();
-
-        public void CheckCollision(Entity entity){
-            Position+=Movement;
-            if(entity!=null){
-                if (this.CollideWithEntity(entity))
-                {
-                    Colliding=true;
-                }
-            }
-            Position -= Movement;
-        }
-
-        public void CheckMovement(){
-            if(!Colliding){
-                Position+=Movement;
-            }
-            Movement=new Vector2f();
-            Colliding=false;
-        }
+        
 
     }
 }

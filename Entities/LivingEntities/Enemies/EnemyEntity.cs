@@ -20,7 +20,7 @@ namespace Fish_Girlz.Entities{
             if(e.Other is PlayerEntity){
                 PlayerEntity player=(PlayerEntity)e.Other;
                 if(collideDamage)
-                player.Damage(damage);
+                    player.Damage(damage);
             }
         }
     }
