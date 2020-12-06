@@ -11,7 +11,7 @@ namespace Fish_Girlz.World{
     public static class MapGenerator {
         public static int TileSize=64;
 
-        private static List<TileEntity> tiles=new List<TileEntity>();
+        private static List<TileEntity> tileEntities=new List<TileEntity>();
         public static int MapWidth=24;
         public static int MapHeight=24;
 
@@ -81,14 +81,14 @@ namespace Fish_Girlz.World{
                 for (int y = 0; y < MapHeight; y++)
                 {
                     if(x==0||x==MapWidth-1||y==0||y==MapHeight-1){
-                        tiles.Add(new WallTileEntity(new SFML.System.Vector2f(x*TileSize,y*TileSize)));
+                        tileEntities.Add(new WallTileEntity(new SFML.System.Vector2f(x*TileSize,y*TileSize)));
                     }
                 }
             }
         }
 
         public static List<TileEntity> GetTiles(){
-            return tiles;
+            return tileEntities;
         }
         
         public static Vector2f GetPlayerPos(){

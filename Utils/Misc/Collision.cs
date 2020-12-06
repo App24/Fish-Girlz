@@ -224,11 +224,11 @@ namespace Fish_Girlz.Utils
         public OrientatedBoundingBox(Entity entity)
         {
             Transform trans = entity.ToLayeredSprite().Transform;
-            IntRect local = entity.Sprite.Bounds;
-            points[0] = trans.TransformPoint(0f, 0f);
-            points[1] = trans.TransformPoint(local.Width, 0f);
+            IntRect local = entity.CollisionBounds;
+            points[0] = trans.TransformPoint(local.Left, local.Top);
+            points[1] = trans.TransformPoint(local.Width, local.Top);
             points[2] = trans.TransformPoint(local.Width, local.Height);
-            points[3] = trans.TransformPoint(0f, local.Height);
+            points[3] = trans.TransformPoint(local.Left, local.Height);
         }
 
         public void ProjectOntoAxis(Vector2f axis, out float min, out float max)

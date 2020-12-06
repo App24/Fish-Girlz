@@ -22,10 +22,13 @@ namespace Fish_Girlz.Entities{
         public float Rotation{get;protected set;}
         public bool Collidable{get; protected set;}
 
+        public IntRect CollisionBounds {get; protected set;}
+
         public Entity(Vector2f position, SpriteInfo sprite){
             this.Sprite=sprite;
             Position=position;
             Collidable=true;
+            CollisionBounds=new IntRect(0,0,sprite.Bounds.Width, sprite.Bounds.Height);
         }
 
         public int CompareTo(Entity other)

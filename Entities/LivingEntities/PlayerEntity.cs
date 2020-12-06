@@ -23,6 +23,7 @@ namespace Fish_Girlz.Entities
             SetupAnimations();
             currentAnimation = walkForward;
             Sprite.Layer=10000;
+            CollisionBounds=new IntRect(20,14,44,63);
         }
 
         private void SetupAnimations()

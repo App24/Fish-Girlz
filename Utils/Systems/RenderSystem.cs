@@ -45,6 +45,10 @@ namespace Fish_Girlz.Utils{
                 LayeredSprite sprite=(LayeredSprite)entity.Sprite;
                 sprite.Position=entity.Position;
                 sprite.Rotation=entity.Rotation;
+                //Sprite collisionSprite=new Sprite(Utilities.CreateTexture((uint)(entity.CollisionBounds.Width-entity.CollisionBounds.Left), (uint)(entity.CollisionBounds.Height-entity.CollisionBounds.Top), Color.Blue));
+                //collisionSprite.Position=entity.Position+new Vector2f(entity.CollisionBounds.Left, entity.CollisionBounds.Top);
+                //sprite.Rotation=entity.Rotation;
+                //DisplayManager.Window.Draw(collisionSprite);
                 DisplayManager.Window.Draw(sprite);
             }
         }

@@ -23,7 +23,6 @@ namespace Fish_Girlz.Entities{
         public override void Update(State currentState)
         {
             if(shootClock.ElapsedTime.AsMilliseconds()>=1000){
-                //entities.Add(new ArrowProjectile(Position, damage, this, 2));
                 currentState.AddEntity(new ArrowProjectile(Position, damage, this, 5));
                 shootClock.Restart();
             }
