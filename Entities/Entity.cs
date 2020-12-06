@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using Fish_Girlz.Art;
 using Fish_Girlz.Utils;
 using Fish_Girlz.States;
+using Fish_Girlz.Effects;
 using SFML.System;
 using SFML.Graphics;
 
@@ -45,11 +46,12 @@ namespace Fish_Girlz.Entities{
             return sprite;
         }
 
-        public List<T> GetNearbyEntities<T>(List<T> entities) where T: Entity{
+        public List<T> GetNearbyEntities<T>(List<T> entities, params Type[] toIgnore) where T: Entity{
             List<T> newEntities=new List<T>();
+            List<Type> toIgnoreList=new List<Type>(toIgnore);
             foreach (T entity in entities)
             {
-                if(entity==this)
+                if(entity==this||toIgnoreList.Contains(entity.GetType()))
                     continue;
                 if(entity.Position.Distance(Position)<=500){
                     newEntities.Add(entity);

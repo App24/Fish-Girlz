@@ -6,12 +6,12 @@ using SFML.System;
 namespace Fish_Girlz.States{
     public class UITestState : State
     {
-        private UITextField test;
+        private UITextField testTextField;
 
         public override void Init()
         {
-            test=new UITextField(new Vector2f(400,400));
-            AddGUI(test);
+            testTextField=new UITextField(new Vector2f(400,400));
+            AddGUI(testTextField);
         }
 
         public override void HandleInput()

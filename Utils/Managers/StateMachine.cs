@@ -9,10 +9,11 @@ namespace Fish_Girlz.Utils{
         private static Stack<State> states=new Stack<State>();
         private static State newState;
 
-        public static void AddState(State newState, bool replace=true){
+        public static T AddState<T>(T newState, bool replace=true) where T : State{
             isReplacing=replace;
             isAdding=true;
             StateMachine.newState=newState;
+            return newState;
         }
 
         public static void RemoveState(){

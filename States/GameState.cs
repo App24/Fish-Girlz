@@ -16,7 +16,7 @@ namespace Fish_Girlz.States{
         UIText text;
         PlayerEntity player;
         TestEnemy test;
-
+        
         public override void Init()
         {
             text=new UIText(new FontInfo(AssetManager.GetFont("Arial"), 16), "Health: ",Color.White,new Vector2f(0,0));
@@ -43,6 +43,12 @@ namespace Fish_Girlz.States{
             if(InputManager.IsKeyPressed(SFML.Window.Keyboard.Key.Space)){
                 test.Damage(1);
             }
+        }
+
+        public override void Pause()
+        {
+            PlayerStats.Store("player", player);
+            
         }
     }
 }
