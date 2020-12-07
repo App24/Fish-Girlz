@@ -1,10 +1,12 @@
 using System;
 using Fish_Girlz.Entities;
+using Fish_Girlz.Utils;
+using Fish_Girlz.States;
 
 namespace Fish_Girlz.Battle{
     public static class BattleSystem {
         public static void TriggerBattle(BattleData battleData){
-            
+            StateMachine.AddState(new BattleState(), false).battleData=battleData;
         }
     }
 

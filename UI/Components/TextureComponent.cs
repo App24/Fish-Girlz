@@ -7,7 +7,7 @@ namespace Fish_Girlz.UI.Components{
         public Texture Texture{get;set;}
         public Vector2f Position{get;set;}
 
-        public TextureComponent(Texture texture):base(2){
+        public TextureComponent(Texture texture){
             this.Texture=texture;
         }
     }

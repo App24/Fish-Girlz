@@ -58,7 +58,6 @@ namespace Fish_Girlz.Utils{
             DisplayManager.Window.SetView(DisplayManager.Window.DefaultView);
             foreach(GUI gui in guis){
                 List<GUIComponent> guiComponents=gui.GetGUIComponents();
-                guiComponents.Sort();
                 foreach(GUIComponent guiComponent in guiComponents){
                     if(guiComponent is TextureComponent){
                         TextureComponent imageComponent=(TextureComponent)guiComponent;

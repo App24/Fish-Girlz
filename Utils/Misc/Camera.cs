@@ -14,6 +14,11 @@ namespace Fish_Girlz.Utils{
             Move(new Vector2f(x,y));
         }
 
+        public static void ResetView(){
+            View view=new View(new Vector2f(DisplayManager.Width/2, DisplayManager.Height/2), new Vector2f(DisplayManager.Width, DisplayManager.Height));
+            DisplayManager.Window.SetView(view);
+        }
+
         public static void TargetEntity(Entity entity){
             Vector2i WorldToScreen = DisplayManager.Window.MapCoordsToPixel(entity.Position);
             if (WorldToScreen.X > float.MinValue && WorldToScreen.X < DisplayManager.Width / 5f)

@@ -6,7 +6,7 @@ namespace Fish_Girlz.UI.Components{
     public class ClickComponent : GUIComponent{
         private Vector4f bounds;
 
-        public ClickComponent(Vector4f bounds):base(0){
+        public ClickComponent(Vector4f bounds){
             this.bounds=bounds;
         }
         
