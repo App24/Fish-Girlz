@@ -16,12 +16,12 @@ namespace Fish_Girlz.States{
 
         public override void Update()
         {
-            StateMachine.RemoveState();
+            
         }
 
         public override void Remove()
         {
-            PlayerStats.ClearPlayerStats();
+            
         }
     }
 }

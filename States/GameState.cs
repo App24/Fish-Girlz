@@ -47,7 +47,6 @@ namespace Fish_Girlz.States{
 
         public override void Pause()
         {
-            PlayerStats.Store("player", player);
             
         }
     }

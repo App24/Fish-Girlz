@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using Fish_Girlz.Art;
 using Fish_Girlz.Utils;
 using Fish_Girlz.States;
+using Fish_Girlz.Battle;
 using SFML.System;
 using System.Collections;
 
@@ -19,16 +20,17 @@ namespace Fish_Girlz.Entities{
 
         private void Collision(object sender, CollisionEventArgs e){
             if(e.Other is PlayerEntity){
-                PlayerStats.Store("enemy 0", this);
-                List<Entity> nearbyEntities=GetNearbyEntities(StateMachine.ActiveState.GetEntities(), typeof(PlayerEntity));
-                nearbyEntities.Sort(delegate(Entity x, Entity y){
+                List<EnemyEntity> nearbyEntities=GetNearbyEnemies(StateMachine.ActiveState.GetEntities());
+                nearbyEntities.Sort(delegate(EnemyEntity x, EnemyEntity y){
                     return x.Position.Distance(Position).CompareTo(y.Position.Distance(Position));
                 });
+                EnemyEntity[] enemies=new EnemyEntity[2];
                 for (int i = 0; i < Math.Min(2, nearbyEntities.Count); i++)
                 {
-                    PlayerStats.Store($"enemy {i+1}", nearbyEntities[i]);
+                    enemies[i]=nearbyEntities[i];
                 }
-                StateMachine.AddState(new BattleState(), false);
+                BattleData battleData=new BattleData((PlayerEntity)e.Other, this, enemies[0], enemies[1]);
+                BattleSystem.TriggerBattle(battleData);
             }
         }
     }

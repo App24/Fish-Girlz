@@ -46,15 +46,28 @@ namespace Fish_Girlz.Entities{
             return sprite;
         }
 
-        public List<T> GetNearbyEntities<T>(List<T> entities, params Type[] toIgnore) where T: Entity{
+        public List<T> GetNearbyEntities<T>(List<T> entities, float distance=500, params Type[] toIgnore) where T: Entity{
             List<T> newEntities=new List<T>();
             List<Type> toIgnoreList=new List<Type>(toIgnore);
             foreach (T entity in entities)
             {
                 if(entity==this||toIgnoreList.Contains(entity.GetType()))
                     continue;
-                if(entity.Position.Distance(Position)<=500){
+                if(entity.Position.Distance(Position)<=distance){
                     newEntities.Add(entity);
+                }
+            }
+            return newEntities;
+        }
+
+        public List<EnemyEntity> GetNearbyEnemies(List<Entity> entities, float distance=500){
+            List<EnemyEntity> newEntities=new List<EnemyEntity>();
+            foreach (Entity entity in entities)
+            {
+                if(entity==this||!(entity is EnemyEntity))
+                    continue;
+                if(entity.Position.Distance(Position)<=distance){
+                    newEntities.Add((EnemyEntity)entity);
                 }
             }
             return newEntities;

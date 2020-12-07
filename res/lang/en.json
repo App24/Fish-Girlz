@@ -1,9 +1,0 @@
-{
-	"text.version": "Version: {0}",
-	"text.paused": "Paused",
-	
-	"button.start": "Start Game",
-	"button.quit": "Quit",
-	"button.menu": "Menu",
-	"button.continue": "Continue",
-}
