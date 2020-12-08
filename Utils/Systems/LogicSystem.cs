@@ -16,13 +16,18 @@ namespace Fish_Girlz.Utils{
 
         static void UpdateGUI(State currentState){
             List<GUI> guis=currentState.GetGUIs();
+            List<GUI> newGuis=new List<GUI>();
             foreach (GUI gui in guis)
             {
                 if(gui is UpdatableGUI){
                     UpdatableGUI updatableGUI=(UpdatableGUI)gui;
                     updatableGUI.Update();
                 }
+                if(!gui.ToRemove)
+                    newGuis.Add(gui);
             }
+            guis.Clear();
+            guis.AddRange(newGuis);
         }
 
         static void UpdateEntities(State currentState){

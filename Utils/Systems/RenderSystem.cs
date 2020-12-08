@@ -57,12 +57,18 @@ namespace Fish_Girlz.Utils{
             View view=new View(DisplayManager.Window.GetView());
             DisplayManager.Window.SetView(DisplayManager.Window.DefaultView);
             foreach(GUI gui in guis){
+                if(!gui.Visible) continue;
                 List<GUIComponent> guiComponents=gui.GetGUIComponents();
                 foreach(GUIComponent guiComponent in guiComponents){
                     if(guiComponent is TextureComponent){
-                        TextureComponent imageComponent=(TextureComponent)guiComponent;
-                        Sprite sprite=new Sprite(imageComponent.Texture);
-                        sprite.Position=gui.Position+imageComponent.Position;
+                        TextureComponent textureComponent=(TextureComponent)guiComponent;
+                        Sprite sprite=new Sprite(textureComponent.Texture);
+                        sprite.Position=gui.Position+textureComponent.Position;
+                        Vector2f temp=new Vector2f(1,1);
+                        if(textureComponent.MaxSize!=new Vector2u()){
+                            temp=new Vector2f(textureComponent.MaxSize.X/(float)textureComponent.Texture.Size.X, textureComponent.MaxSize.Y/(float)textureComponent.Texture.Size.Y);
+                        }
+                        sprite.Scale=new Vector2f(textureComponent.Scale.X*temp.X, textureComponent.Scale.Y*temp.Y);
                         DisplayManager.Window.Draw(sprite);
                     }else if(guiComponent is TextComponent){
                         TextComponent textComponent=(TextComponent) guiComponent;
