@@ -1,4 +1,5 @@
 ﻿using Fish_Girlz.Entities;
+using Fish_Girlz.Entities.Components;
 using Fish_Girlz.Entities.Tiles;
 using Fish_Girlz.Art;
 using SFML;
@@ -71,9 +72,13 @@ namespace Fish_Girlz.Utils
         //TODO: MEMORY LEAK ISSUE
         public static bool BoundingBoxTest(Entity object1, Entity object2)
         {
-
-            OrientatedBoundingBox OBB1 = new OrientatedBoundingBox(object1);
-            OrientatedBoundingBox OBB2 = new OrientatedBoundingBox(object2);
+            CollisionComponent object1CC=object1.GetComponent<CollisionComponent>(typeof(CollisionComponent));
+            CollisionComponent object2CC=object2.GetComponent<CollisionComponent>(typeof(CollisionComponent));
+            if(object1CC==null||object2CC==null){
+                return false;
+            }
+            OrientatedBoundingBox OBB1 = new OrientatedBoundingBox(object1, object1CC);
+            OrientatedBoundingBox OBB2 = new OrientatedBoundingBox(object2, object2CC);
 
             Vector2f[] axis = new Vector2f[]
             {
@@ -100,7 +105,7 @@ namespace Fish_Girlz.Utils
             }
             if(colliding){
                 if(!collidingEntities.ContainsKey(object1)){
-                    object2.OnCollision?.Invoke(object2, new CollisionEventArgs(object1));
+                    object2CC.OnCollision?.Invoke(object2, new CollisionEventArgs(object1));
                     List<Entity> collidingEntity=new List<Entity>();
                     collidingEntity.Add(object2);
                     collidingEntities.AddOrReplace(object1, collidingEntity);
@@ -108,7 +113,7 @@ namespace Fish_Girlz.Utils
                     List<Entity> collidingEntity=new List<Entity>();
                     if(collidingEntities.TryGetValue(object1, out collidingEntity)){
                         if(!collidingEntity.Contains(object2)){
-                            object2.OnCollision?.Invoke(object2, new CollisionEventArgs(object1));
+                            object2CC.OnCollision?.Invoke(object2, new CollisionEventArgs(object1));
                             collidingEntity.Add(object2);
                             collidingEntities.AddOrReplace(object1, collidingEntity);
                         }
@@ -152,9 +157,9 @@ namespace Fish_Girlz.Utils
                 }*/
             }
 
-            if(!object1.Collidable)
+            if(!object1CC.Collidable)
                 return false;
-            if(!object2.Collidable)
+            if(!object2CC.Collidable)
                 return false;
             return colliding;
         }
@@ -221,10 +226,10 @@ namespace Fish_Girlz.Utils
     class OrientatedBoundingBox
     {
         public Vector2f[] points = new Vector2f[4];
-        public OrientatedBoundingBox(Entity entity)
+        public OrientatedBoundingBox(Entity entity, CollisionComponent cc)
         {
             Transform trans = entity.ToLayeredSprite().Transform;
-            IntRect local = entity.CollisionBounds;
+            IntRect local = cc.CollisionBounds;
             points[0] = trans.TransformPoint(local.Left, local.Top);
             points[1] = trans.TransformPoint(local.Width, local.Top);
             points[2] = trans.TransformPoint(local.Width, local.Height);

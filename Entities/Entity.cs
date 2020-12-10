@@ -6,6 +6,7 @@ using Fish_Girlz.States;
 using Fish_Girlz.Effects;
 using SFML.System;
 using SFML.Graphics;
+using Fish_Girlz.Entities.Components;
 
 namespace Fish_Girlz.Entities{
     public abstract class Entity : IComparable<Entity> {
@@ -14,22 +15,15 @@ namespace Fish_Girlz.Entities{
         public Vector2f Position{get; private set;}
         public Vector2f Speed {get; protected set;}
 
-        public bool Colliding{get;protected set;}
-
-        public CollisionEventHandler OnCollision;
-
         public bool ToRemove{get;protected set;}
 
         public float Rotation{get;protected set;}
-        public bool Collidable{get; protected set;}
 
-        public IntRect CollisionBounds {get; protected set;}
+        List<EntityComponent> components=new List<EntityComponent>();
 
         public Entity(Vector2f position, SpriteInfo sprite){
             this.Sprite=sprite;
             Position=position;
-            Collidable=true;
-            CollisionBounds=new IntRect(0,0,sprite.Bounds.Width, sprite.Bounds.Height);
         }
 
         public int CompareTo(Entity other)
@@ -77,23 +71,43 @@ namespace Fish_Girlz.Entities{
 
         public abstract void Move();
 
+        public T GetComponent<T>(Type componentType) where T : EntityComponent{
+            EntityComponent component=components.Find(delegate(EntityComponent e){if(e.GetType()==componentType)return true; return false;});
+            if(component!=null){
+                return (T)component;
+            }
+            return null;
+        }
+
+        protected T AddComponent<T>(T component) where T:EntityComponent{
+            component.ParentEntity=this;
+            component.Init();
+            components.Add(component);
+            return component;
+        }
+
         public void CheckCollision(Entity entity){
             Position+=Speed;
             if(entity!=null){
-                if (this.CollideWithEntity(entity))
-                {
-                    Colliding=true;
+                CollisionComponent collisionComponent=GetComponent<CollisionComponent>(typeof(CollisionComponent));
+                if(collisionComponent!=null){
+                    if (this.CollideWithEntity(entity))
+                    {
+                        collisionComponent.Colliding=true;
+                    }
                 }
             }
             Position -= Speed;
         }
 
         public void CheckMovement(){
-            if(!Colliding){
+            CollisionComponent collisionComponent=GetComponent<CollisionComponent>(typeof(CollisionComponent));
+            if((collisionComponent!=null&&!collisionComponent.Colliding)||(collisionComponent==null)){
                 Position+=Speed;
             }
             Speed=new Vector2f();
-            Colliding=false;
+            if(collisionComponent!=null)
+                collisionComponent.Colliding=false;
         }
     }
 }

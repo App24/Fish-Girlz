@@ -6,16 +6,19 @@ using Fish_Girlz.States;
 using Fish_Girlz.Battle;
 using SFML.System;
 using System.Collections;
+using Fish_Girlz.Entities.Components;
 
 namespace Fish_Girlz.Entities{
     public abstract class EnemyEntity : LivingEntity
     {
         protected int damage;
+        protected CollisionComponent collisionComponent;
 
         public EnemyEntity(Vector2f position, SpriteInfo sprite, int maxHealth, int damage) : base(position, sprite, maxHealth)
         {
             this.damage=damage;
-            base.OnCollision+=Collision;
+            collisionComponent=AddComponent(new CollisionComponent());
+            collisionComponent.OnCollision+=Collision;
         }
 
         private void Collision(object sender, CollisionEventArgs e){

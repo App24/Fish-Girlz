@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using Fish_Girlz.Art;
 using Fish_Girlz.Utils;
 using Fish_Girlz.States;
+using Fish_Girlz.Entities.Components;
 using SFML.System;
 using SFML.Graphics;
 
@@ -16,6 +17,7 @@ namespace Fish_Girlz.Entities
         Animation idle;
         Animation currentAnimation;
         (bool, bool) walking;
+        protected CollisionComponent collisionComponent;
 
         public PlayerEntity(Vector2f position) : base(position, AssetManager.GetSpriteSheet("dominique").GetSpriteInfo(0, 0), 20)
         {
@@ -23,7 +25,8 @@ namespace Fish_Girlz.Entities
             SetupAnimations();
             currentAnimation = walkForward;
             Sprite.Layer=10000;
-            CollisionBounds=new IntRect(20,14,44,63);
+            collisionComponent=AddComponent(new CollisionComponent());
+            collisionComponent.CollisionBounds=new IntRect(20,14,44,63);
         }
 
         private void SetupAnimations()

@@ -3,6 +3,7 @@ using Fish_Girlz.Art;
 using Fish_Girlz.Utils;
 using Fish_Girlz.States;
 using SFML.System;
+using Fish_Girlz.Entities.Components;
 
 namespace Fish_Girlz.Entities{
     public abstract class ProjectileEntity : Entity
@@ -12,6 +13,7 @@ namespace Fish_Girlz.Entities{
         protected bool removeOnImpact;
 
         private LivingEntity originEntity;
+        protected CollisionComponent collisionComponent;
 
         public ProjectileEntity(Vector2f position, SpriteInfo sprite, int damage) : this(position, sprite, damage, null)
         {
@@ -21,8 +23,9 @@ namespace Fish_Girlz.Entities{
         {
             this.damage=damage;
             this.originEntity=originEntity;
-            Collidable=false;
-            OnCollision+=Collision;
+            collisionComponent=AddComponent(new CollisionComponent());
+            collisionComponent.Collidable=false;
+            collisionComponent.OnCollision+=Collision;
             removeOnImpact=true;
         }
 
