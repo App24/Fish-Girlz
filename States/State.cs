@@ -91,5 +91,13 @@ namespace Fish_Girlz.States{
             toAddGuis.Add(gui);
             return gui;
         }
+
+        public virtual PlayerEntity GetPlayer(){
+            return null;
+        }
+
+        public virtual Dialog.DialogBox GetDialogBox(){
+            return null;
+        }
     }
 }

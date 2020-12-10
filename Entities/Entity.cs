@@ -109,5 +109,9 @@ namespace Fish_Girlz.Entities{
             if(collisionComponent!=null)
                 collisionComponent.Colliding=false;
         }
+
+        public List<EntityComponent> GetComponents(){
+            return components;
+        }
     }
 }

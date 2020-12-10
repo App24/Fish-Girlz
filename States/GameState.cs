@@ -9,6 +9,7 @@ using SFML.System;
 using Fish_Girlz.Utils;
 using Fish_Girlz.World;
 using Fish_Girlz.Art;
+using Fish_Girlz.Dialog;
 
 namespace Fish_Girlz.States{
     public class GameState : State
@@ -16,6 +17,8 @@ namespace Fish_Girlz.States{
         UIText text;
         PlayerEntity player;
         TestEnemy test;
+
+        DialogBox dialogBox;
         
         public override void Init()
         {
@@ -27,6 +30,7 @@ namespace Fish_Girlz.States{
             tileEntities=MapGenerator.GetTiles();
             test=new TestEnemy(new Vector2f(256,256), new SpriteInfo(AssetManager.GetTexture("temp"), new IntRect(0,0,64,64)));
             AddEntity(test);
+            dialogBox=new DialogBox();
         }
 
         public override void Update()
@@ -48,6 +52,16 @@ namespace Fish_Girlz.States{
         public override void Pause()
         {
             
+        }
+
+        public override PlayerEntity GetPlayer()
+        {
+            return player;
+        }
+
+        public override DialogBox GetDialogBox()
+        {
+            return dialogBox;
         }
     }
 }
