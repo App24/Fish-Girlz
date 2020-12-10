@@ -6,4 +6,8 @@
 	"button.quit": "Quit",
 	"button.menu": "Menu",
 	"button.continue": "Continue",
+
+	"dialog.test1": "Hello, I'm [speaker]",
+	"dialog.test2": "My name is [speaker]",
+	"dialog.test3": "And mine is [speaker]",
 }

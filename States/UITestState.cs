@@ -1,14 +1,15 @@
 using System;
+using System.Collections.Generic;
 using Fish_Girlz.UI;
-using Fish_Girlz.UI.Presets;
+using Fish_Girlz.Dialog;
 using Fish_Girlz.Utils;
 using SFML.System;
+using Fish_Girlz.Misc;
 
 namespace Fish_Girlz.States{
     public class UITestState : State
     {
         private UITextField testTextField;
-
         private DialogBox dialogBox;
 
         public override void Init()
@@ -16,6 +17,11 @@ namespace Fish_Girlz.States{
             testTextField=new UITextField(new Vector2f(400,400));
             AddGUI(testTextField);
             dialogBox=new DialogBox();
+            List<DialogInfo> dialogInfos=new List<DialogInfo>();
+            dialogInfos.Add(new DialogInfo(CharacterInfo.DOMINIQUE, "dialog.test1", true));
+            dialogInfos.Add(new DialogInfo(CharacterInfo.ASTRA, "dialog.test2", true));
+            dialogInfos.Add(new DialogInfo(CharacterInfo.LAURELY, "dialog.test3", true));
+            dialogBox.SetDialogs(dialogInfos);
         }
 
         public override void HandleInput()
@@ -29,7 +35,7 @@ namespace Fish_Girlz.States{
                 StateMachine.AddState(new MainMenuState());
             }
             if(InputManager.IsKeyPressed(SFML.Window.Keyboard.Key.Space)){
-                dialogBox.ShowDialogBox(AssetManager.GetTexture("dominique portrait"));
+                dialogBox.WriteText();
             }
         }
     }

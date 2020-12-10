@@ -9,6 +9,8 @@ namespace Fish_Girlz.UI{
     {
         TextureComponent topLeft, topRight, top, bottomLeft, bottomRight, bottom, left, right, center;
         TextureComponent characterTextureComponent;
+        TextComponent characterNameTextComponent;
+        TextComponent textTextComponent;
 
         public Texture CharacterTexture{
             get{
@@ -16,6 +18,24 @@ namespace Fish_Girlz.UI{
             }
             set{
                 characterTextureComponent.Texture=value;
+            }
+        }
+
+        public string CharacterName{
+            get{
+                return characterNameTextComponent.Text;
+            }
+            set{
+                characterNameTextComponent.Text=value;
+            }
+        }
+
+        public string Text{
+            get{
+                return textTextComponent.Text;
+            }
+            set{
+                textTextComponent.Text=value;
             }
         }
 
@@ -49,6 +69,11 @@ namespace Fish_Girlz.UI{
             characterTextureComponent=AddComponent(new TextureComponent(Utilities.CreateTexture(10,10,Color.White)));
             characterTextureComponent.Position=new Vector2f(40,40);
             characterTextureComponent.MaxSize=new Vector2u(170,170);
+            characterNameTextComponent=AddComponent(new TextComponent(new FontInfo(AssetManager.GetFont("Arial"), 25), "", new Vector2f(), Color.Black));
+            characterNameTextComponent.Position=new Vector2f(40+170,40);
+
+            textTextComponent=AddComponent(new TextComponent(new FontInfo(AssetManager.GetFont("Arial"), 20), "", new Vector2f(), Color.Black));
+            textTextComponent.Position=new Vector2f(40+170,40+30);
         }
     }
 }

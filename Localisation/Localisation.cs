@@ -30,6 +30,7 @@ namespace Fish_Girlz.Localisation{
                 if(name==key){
                     if(translations.TryGetValue(key, out text)){
                         text=string.Format(text, args);
+                        break;
                     }
                 }
             }
