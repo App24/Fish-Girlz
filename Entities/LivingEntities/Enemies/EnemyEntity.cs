@@ -24,9 +24,6 @@ namespace Fish_Girlz.Entities{
         private void Collision(object sender, CollisionEventArgs e){
             if(e.Other is PlayerEntity){
                 List<EnemyEntity> nearbyEntities=GetNearbyEnemies(StateMachine.ActiveState.GetEntities());
-                nearbyEntities.Sort(delegate(EnemyEntity x, EnemyEntity y){
-                    return x.Position.Distance(Position).CompareTo(y.Position.Distance(Position));
-                });
                 EnemyEntity[] enemies=new EnemyEntity[2];
                 for (int i = 0; i < Math.Min(2, nearbyEntities.Count); i++)
                 {

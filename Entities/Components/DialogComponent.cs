@@ -1,30 +1,20 @@
 using System;
+using System.Collections.Generic;
 using Fish_Girlz.Utils;
 using Fish_Girlz.Dialog;
 
 namespace Fish_Girlz.Entities.Components{
     public class DialogComponent : EntityComponent
     {
-        private int distance;
+        public List<DialogInfo> Dialogs{get;}
 
-        public DialogComponent(int distance){
-            this.distance=distance;
+        public DialogComponent(List<DialogInfo> dialogs){
+            this.Dialogs=dialogs;
         }
 
         public override void Init()
         {
 
-        }
-
-        public override void Update(params object[] args)
-        {
-            PlayerEntity player=(PlayerEntity)args[0];
-            DialogBox dialogBox=(DialogBox)args[1];
-            if(player!=null&&dialogBox!=null){
-                if(ParentEntity.Position.Distance(player.Position)<=distance){
-                    
-                }
-            }
         }
     }
 }

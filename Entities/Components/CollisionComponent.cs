@@ -15,10 +15,5 @@ namespace Fish_Girlz.Entities.Components{
             Collidable=true;
             CollisionBounds=new IntRect(0,0,ParentEntity.Sprite.Bounds.Width, ParentEntity.Sprite.Bounds.Height);
         }
-
-        public override void Update(params object[] args)
-        {
-            
-        }
     }
 }

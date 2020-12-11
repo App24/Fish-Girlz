@@ -8,6 +8,7 @@ namespace Fish_Girlz.UI.Components{
         public Vector2f Position{get;set;}
         public Vector2f Scale{get;set;}
         public Vector2u MaxSize{get;set;}
+        public float Rotation{get;set;}
 
         public TextureComponent(Texture texture){
             this.Texture=texture;

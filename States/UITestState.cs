@@ -35,7 +35,7 @@ namespace Fish_Girlz.States{
                 StateMachine.AddState(new MainMenuState());
             }
             if(InputManager.IsKeyPressed(SFML.Window.Keyboard.Key.Space)){
-                dialogBox.WriteText();
+                dialogBox.Show();
             }
         }
     }

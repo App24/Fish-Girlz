@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using Fish_Girlz.Art;
 using Fish_Girlz.States;
 using SFML.System;
+using Fish_Girlz.Entities.Components;
 
 namespace Fish_Girlz.Entities{
     public class TestEnemy : EnemyEntity

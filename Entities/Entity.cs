@@ -1,4 +1,5 @@
 using System;
+using System.Linq;
 using System.Collections.Generic;
 using Fish_Girlz.Art;
 using Fish_Girlz.Utils;
@@ -51,19 +52,21 @@ namespace Fish_Girlz.Entities{
                     newEntities.Add(entity);
                 }
             }
+            newEntities.Sort(delegate(T x, T y){
+                return x.Position.Distance(Position).CompareTo(y.Position.Distance(Position));
+            });
+            return newEntities;
+        }
+
+        public List<T> GetNearbyEntitiesWithComponent<C, T>(List<T> entities, float distance=500) where T : Entity where C : EntityComponent{
+            List<T> nearbyEntities=GetNearbyEntities(entities, distance);
+            List<T> newEntities=nearbyEntities.FindAll(delegate(T entity){if(entity.GetComponent<C>()!=null)return true; return false;});
             return newEntities;
         }
 
         public List<EnemyEntity> GetNearbyEnemies(List<Entity> entities, float distance=500){
-            List<EnemyEntity> newEntities=new List<EnemyEntity>();
-            foreach (Entity entity in entities)
-            {
-                if(entity==this||!(entity is EnemyEntity))
-                    continue;
-                if(entity.Position.Distance(Position)<=distance){
-                    newEntities.Add((EnemyEntity)entity);
-                }
-            }
+            List<Entity> nearbyEntities=GetNearbyEntities(entities, distance);
+            List<EnemyEntity> newEntities=nearbyEntities.FindAll(delegate(Entity entity){if(entity is EnemyEntity)return true; return false;}).Cast<EnemyEntity>().ToList();
             return newEntities;
         }
 
@@ -71,8 +74,8 @@ namespace Fish_Girlz.Entities{
 
         public abstract void Move();
 
-        public T GetComponent<T>(Type componentType) where T : EntityComponent{
-            EntityComponent component=components.Find(delegate(EntityComponent e){if(e.GetType()==componentType)return true; return false;});
+        public T GetComponent<T>() where T : EntityComponent{
+            EntityComponent component=components.Find(delegate(EntityComponent e){if(e is T)return true; return false;});
             if(component!=null){
                 return (T)component;
             }
@@ -89,7 +92,7 @@ namespace Fish_Girlz.Entities{
         public void CheckCollision(Entity entity){
             Position+=Speed;
             if(entity!=null){
-                CollisionComponent collisionComponent=GetComponent<CollisionComponent>(typeof(CollisionComponent));
+                CollisionComponent collisionComponent=GetComponent<CollisionComponent>();
                 if(collisionComponent!=null){
                     if (this.CollideWithEntity(entity))
                     {
@@ -101,7 +104,7 @@ namespace Fish_Girlz.Entities{
         }
 
         public void CheckMovement(){
-            CollisionComponent collisionComponent=GetComponent<CollisionComponent>(typeof(CollisionComponent));
+            CollisionComponent collisionComponent=GetComponent<CollisionComponent>();
             if((collisionComponent!=null&&!collisionComponent.Colliding)||(collisionComponent==null)){
                 Position+=Speed;
             }

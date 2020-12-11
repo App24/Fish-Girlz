@@ -34,6 +34,7 @@ namespace Fish_Girlz.States{
                 dev.OutlineColor=Color.Black;
                 dev.OutlineThickness=2;
                 dev.TextColor=Color.White;
+                dev.Layer=int.MaxValue;
                 guis.Add(dev);
             #endif
         }
@@ -87,17 +88,9 @@ namespace Fish_Girlz.States{
             return tileEntity;
         }
 
-        public GUI AddGUI(GUI gui){
+        public T AddGUI<T>(T gui) where T:GUI{
             toAddGuis.Add(gui);
             return gui;
-        }
-
-        public virtual PlayerEntity GetPlayer(){
-            return null;
-        }
-
-        public virtual Dialog.DialogBox GetDialogBox(){
-            return null;
         }
     }
 }

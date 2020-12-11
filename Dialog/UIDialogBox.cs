@@ -2,9 +2,10 @@ using System;
 using SFML.System;
 using SFML.Graphics;
 using Fish_Girlz.Utils;
+using Fish_Girlz.UI;
 using Fish_Girlz.UI.Components;
 
-namespace Fish_Girlz.UI{
+namespace Fish_Girlz.Dialog.UI{
     public class UIDialogBox : GUI
     {
         TextureComponent topLeft, topRight, top, bottomLeft, bottomRight, bottom, left, right, center;
@@ -51,11 +52,11 @@ namespace Fish_Girlz.UI{
             bottom=AddComponent(new TextureComponent(AssetManager.GetTexture("DialogBoxBottom")));
             right=AddComponent(new TextureComponent(AssetManager.GetTexture("DialogBoxRight")));
             center=AddComponent(new TextureComponent(AssetManager.GetTexture("DialogBoxCenter")));
-            top.Scale=new Vector2f(2.5f,1);
-            bottom.Scale=new Vector2f(2.5f,1);
+            top.Scale=new Vector2f(2.777777777777778f,1);
+            bottom.Scale=new Vector2f(2.777777777777778f,1);
             left.Scale=new Vector2f(1,1.5f);
             right.Scale=new Vector2f(1,1.5f);
-            center.Scale=new Vector2f(2.5f,1.5f);
+            center.Scale=new Vector2f(2.777777777777778f,1.5f);
 
             top.Position=new Vector2f(40,0);
             topRight.Position=new Vector2f(40+(432*top.Scale.X),0);

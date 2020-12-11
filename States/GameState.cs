@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using Fish_Girlz.UI;
 using Fish_Girlz.UI.Components;
 using Fish_Girlz.Entities;
+using Fish_Girlz.Entities.Components;
 using Fish_Girlz.Entities.Tiles;
 using SFML.Graphics;
 using SFML.System;
@@ -10,6 +11,7 @@ using Fish_Girlz.Utils;
 using Fish_Girlz.World;
 using Fish_Girlz.Art;
 using Fish_Girlz.Dialog;
+using Fish_Girlz.Prompt;
 
 namespace Fish_Girlz.States{
     public class GameState : State
@@ -17,8 +19,8 @@ namespace Fish_Girlz.States{
         UIText text;
         PlayerEntity player;
         TestEnemy test;
-
         DialogBox dialogBox;
+        PromptBox promptBox;
         
         public override void Init()
         {
@@ -29,8 +31,10 @@ namespace Fish_Girlz.States{
             AddEntity(player);
             tileEntities=MapGenerator.GetTiles();
             test=new TestEnemy(new Vector2f(256,256), new SpriteInfo(AssetManager.GetTexture("temp"), new IntRect(0,0,64,64)));
-            AddEntity(test);
+            //AddEntity(test);
+            AddEntity(new TestNPC(new Vector2f(256,256), new SpriteInfo(Utilities.CreateTexture(64,64, Color.Blue), new IntRect(0,0,64,64)), 10));
             dialogBox=new DialogBox();
+            promptBox=new PromptBox();
         }
 
         public override void Update()
@@ -44,24 +48,23 @@ namespace Fish_Girlz.States{
             if(InputManager.IsKeyPressed(SFML.Window.Keyboard.Key.Escape)){
                 StateMachine.AddState(new PauseState(), false);
             }
-            if(InputManager.IsKeyPressed(SFML.Window.Keyboard.Key.Space)){
-                test.Damage(1);
+            List<Entity> nearbyDialogs=player.GetNearbyEntitiesWithComponent<DialogComponent, Entity>(GetEntities(), 200);
+            if(nearbyDialogs.Count>0){
+                promptBox.ShowPrompt("Space");
+                if(InputManager.IsKeyPressed(SFML.Window.Keyboard.Key.Space)&&!dialogBox.Visible){
+                    dialogBox.SetDialogs(nearbyDialogs[0].GetComponent<DialogComponent>().Dialogs);
+                    dialogBox.Show();
+                }
+                dialogBox.Update();
+            }else{
+                promptBox.HidePrompt();
+                dialogBox.Hide();
             }
         }
 
         public override void Pause()
         {
             
-        }
-
-        public override PlayerEntity GetPlayer()
-        {
-            return player;
-        }
-
-        public override DialogBox GetDialogBox()
-        {
-            return dialogBox;
         }
     }
 }

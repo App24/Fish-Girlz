@@ -56,6 +56,7 @@ namespace Fish_Girlz.Utils{
         private static void RenderGUI(List<GUI> guis){
             View view=new View(DisplayManager.Window.GetView());
             DisplayManager.Window.SetView(DisplayManager.Window.DefaultView);
+            guis.Sort();
             foreach(GUI gui in guis){
                 if(!gui.Visible) continue;
                 List<GUIComponent> guiComponents=gui.GetGUIComponents();
@@ -64,6 +65,7 @@ namespace Fish_Girlz.Utils{
                         TextureComponent textureComponent=(TextureComponent)guiComponent;
                         Sprite sprite=new Sprite(textureComponent.Texture);
                         sprite.Position=gui.Position+textureComponent.Position;
+                        sprite.Rotation=textureComponent.Rotation;
                         Vector2f temp=new Vector2f(1,1);
                         if(textureComponent.MaxSize!=new Vector2u()){
                             temp=new Vector2f(textureComponent.MaxSize.X/(float)textureComponent.Texture.Size.X, textureComponent.MaxSize.Y/(float)textureComponent.Texture.Size.Y);

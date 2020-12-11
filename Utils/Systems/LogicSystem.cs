@@ -37,11 +37,6 @@ namespace Fish_Girlz.Utils{
             foreach (Entity entity in entities)
             {
                 entity.Update(currentState);
-                List<EntityComponent> components=entity.GetComponents();
-                foreach (EntityComponent component in components)
-                {
-                    component.Update(currentState.GetPlayer(), currentState.GetDialogBox());
-                }
                 if(!entity.ToRemove){
                     newEntities.Add(entity);
                 }

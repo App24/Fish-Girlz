@@ -72,8 +72,8 @@ namespace Fish_Girlz.Utils
         //TODO: MEMORY LEAK ISSUE
         public static bool BoundingBoxTest(Entity object1, Entity object2)
         {
-            CollisionComponent object1CC=object1.GetComponent<CollisionComponent>(typeof(CollisionComponent));
-            CollisionComponent object2CC=object2.GetComponent<CollisionComponent>(typeof(CollisionComponent));
+            CollisionComponent object1CC=object1.GetComponent<CollisionComponent>();
+            CollisionComponent object2CC=object2.GetComponent<CollisionComponent>();
             if(object1CC==null||object2CC==null){
                 return false;
             }
