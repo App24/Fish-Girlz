@@ -151,6 +151,15 @@ namespace Fish_Girlz.Utils{
             }
         }
 
+        public static void AddOrReplace<T>(this IList<T> list, T value){
+            if(!list.Contains(value)){
+                list.Add(value);
+            }else{
+                list.Remove(value);
+                list.Add(value);
+            }
+        }
+
         public static Color Divide(this Color color, byte amount, bool alpha=false){
             Color newColor=new Color(color);
             newColor.R/=amount;

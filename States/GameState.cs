@@ -4,7 +4,7 @@ using Fish_Girlz.UI;
 using Fish_Girlz.UI.Components;
 using Fish_Girlz.Entities;
 using Fish_Girlz.Entities.Components;
-using Fish_Girlz.Entities.Tiles;
+using Fish_Girlz.Entities.Items;
 using SFML.Graphics;
 using SFML.System;
 using Fish_Girlz.Utils;
@@ -32,7 +32,9 @@ namespace Fish_Girlz.States{
             tileEntities=MapGenerator.GetTiles();
             test=new TestEnemy(new Vector2f(256,256), new SpriteInfo(AssetManager.GetTexture("temp"), new IntRect(0,0,64,64)));
             //AddEntity(test);
-            AddEntity(new TestNPC(new Vector2f(256,256), new SpriteInfo(Utilities.CreateTexture(64,64, Color.Blue), new IntRect(0,0,64,64)), 10));
+            AddEntity(new TestItem(new Vector2f(256,256), new SpriteInfo(Utilities.CreateTexture(64,64, Color.Blue), new IntRect(0,0,64,64))));
+            AddEntity(new TestItem(new Vector2f(256,512), new SpriteInfo(Utilities.CreateTexture(64,64, Color.Blue), new IntRect(0,0,64,64))));
+            AddEntity(new TestItem(new Vector2f(512,256), new SpriteInfo(Utilities.CreateTexture(64,64, Color.Blue), new IntRect(0,0,64,64))));
             dialogBox=new DialogBox();
             promptBox=new PromptBox();
         }

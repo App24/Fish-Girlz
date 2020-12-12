@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using Fish_Girlz.Art;
+using Fish_Girlz.Inventory;
 using Fish_Girlz.Utils;
 using Fish_Girlz.States;
 using Fish_Girlz.Entities.Components;
@@ -19,6 +20,8 @@ namespace Fish_Girlz.Entities
         (bool, bool) walking;
         protected CollisionComponent collisionComponent;
 
+        public PlayerInventory Inventory{get;}
+
         public PlayerEntity(Vector2f position) : base(position, AssetManager.GetSpriteSheet("dominique").GetSpriteInfo(0, 0), 20)
         {
             spriteSheet = AssetManager.GetSpriteSheet("dominique");
@@ -27,6 +30,7 @@ namespace Fish_Girlz.Entities
             Sprite.Layer=10000;
             collisionComponent=AddComponent(new CollisionComponent());
             collisionComponent.CollisionBounds=new IntRect(20,14,44,63);
+            Inventory=new PlayerInventory();
         }
 
         private void SetupAnimations()
