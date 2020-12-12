@@ -455,6 +455,267 @@ namespace Fish_Girlz.Utils
             return (keyText, visibility);
         }
 
+        public static string KeyCodeToString(Keyboard.Key key){
+            string keyText="";
+            switch(key){
+                case Keyboard.Key.A:
+                    keyText="A";
+                    break;
+                case Keyboard.Key.Add:
+                    keyText="+";
+                    break;
+                case Keyboard.Key.B:
+                    keyText="B";
+                    break;
+                case Keyboard.Key.Backslash:
+                    keyText="\\";
+                    break;
+                case Keyboard.Key.Backspace:
+                    keyText="Backspace";
+                    break;
+                case Keyboard.Key.C:
+                    keyText="C";
+                    break;
+                case Keyboard.Key.Comma:
+                    keyText=",";
+                    break;
+                case Keyboard.Key.D:
+                    keyText="D";
+                    break;
+                case Keyboard.Key.Delete:
+                    keyText="Delete";
+                    break;
+                case Keyboard.Key.Divide:
+                    keyText="/";
+                    break;
+                case Keyboard.Key.Down:
+                    keyText="Down Arrow";
+                    break;
+                case Keyboard.Key.E:
+                    keyText="E";
+                    break;
+                case Keyboard.Key.End:
+                    keyText="End";
+                    break;
+                case Keyboard.Key.Enter:
+                    keyText="Enter";
+                    break;
+                case Keyboard.Key.Equal:
+                    keyText="=";
+                    break;
+                case Keyboard.Key.Escape:
+                    keyText="Esc";
+                    break;
+                case Keyboard.Key.F:
+                    keyText="F";
+                    break;
+                case Keyboard.Key.F1:
+                    keyText="F1";
+                    break;
+                case Keyboard.Key.F11:
+                    keyText="F11";
+                    break;
+                case Keyboard.Key.F12:
+                    keyText="F12";
+                    break;
+                case Keyboard.Key.F13:
+                    keyText="F13";
+                    break;
+                case Keyboard.Key.F14:
+                    keyText="F14";
+                    break;
+                case Keyboard.Key.F15:
+                    keyText="F15";
+                    break;
+                case Keyboard.Key.F2:
+                    keyText="F2";
+                    break;
+                case Keyboard.Key.F3:
+                    keyText="F3";
+                    break;
+                case Keyboard.Key.F4:
+                    keyText="F4";
+                    break;
+                case Keyboard.Key.F5:
+                    keyText="F5";
+                    break;
+                case Keyboard.Key.F6:
+                    keyText="F6";
+                    break;
+                case Keyboard.Key.F7:
+                    keyText="F7";
+                    break;
+                case Keyboard.Key.F8:
+                    keyText="F8";
+                    break;
+                case Keyboard.Key.F9:
+                    keyText="F9";
+                    break;
+                case Keyboard.Key.G:
+                    keyText="G";
+                    break;
+                case Keyboard.Key.H:
+                    keyText="H";
+                    break;
+                case Keyboard.Key.Home:
+                    keyText="Home";
+                    break;
+                case Keyboard.Key.Hyphen:
+                    keyText="-";
+                    break;
+                case Keyboard.Key.I:
+                    keyText="I";
+                    break;
+                case Keyboard.Key.Insert:
+                    keyText="Insert";
+                    break;
+                case Keyboard.Key.J:
+                    keyText="J";
+                    break;
+                case Keyboard.Key.K:
+                    keyText="K";
+                    break;
+                case Keyboard.Key.L:
+                    keyText="L";
+                    break;
+                case Keyboard.Key.LBracket:
+                    keyText="Left Bracket";
+                    break;
+                case Keyboard.Key.Left:
+                    keyText="Left Arrow";
+                    break;
+                case Keyboard.Key.M:
+                    keyText="M";
+                    break;
+                case Keyboard.Key.Menu:
+                    keyText="Menu";
+                    break;
+                case Keyboard.Key.Multiply:
+                    keyText="*";
+                    break;
+                case Keyboard.Key.N:
+                    keyText="N";
+                    break;
+                case Keyboard.Key.Numpad0:
+                case Keyboard.Key.Num0:
+                    keyText="0";
+                    break;
+                case Keyboard.Key.Numpad1:
+                case Keyboard.Key.Num1:
+                    keyText="1";
+                    break;
+                case Keyboard.Key.Numpad2:
+                case Keyboard.Key.Num2:
+                    keyText="2";
+                    break;
+                case Keyboard.Key.Numpad3:
+                case Keyboard.Key.Num3:
+                    keyText="3";
+                    break;
+                case Keyboard.Key.Numpad4:
+                case Keyboard.Key.Num4:
+                    keyText="4";
+                    break;
+                case Keyboard.Key.Numpad5:
+                case Keyboard.Key.Num5:
+                    keyText="5";
+                    break;
+                case Keyboard.Key.Numpad6:
+                case Keyboard.Key.Num6:
+                    keyText="6";
+                    break;
+                case Keyboard.Key.Numpad7:
+                case Keyboard.Key.Num7:
+                    keyText="7";
+                    break;
+                case Keyboard.Key.Numpad8:
+                case Keyboard.Key.Num8:
+                    keyText="8";
+                    break;
+                case Keyboard.Key.Numpad9:
+                case Keyboard.Key.Num9:
+                    keyText="9";
+                    break;
+                case Keyboard.Key.O:
+                    keyText="O";
+                    break;
+                case Keyboard.Key.P:
+                    keyText="P";
+                    break;
+                case Keyboard.Key.PageDown:
+                    keyText="Page Down";
+                    break;
+                case Keyboard.Key.PageUp:
+                    keyText="Page Up";
+                    break;
+                case Keyboard.Key.Pause:
+                    keyText="Pause";
+                    break;
+                case Keyboard.Key.Period:
+                    keyText=".";
+                    break;
+                case Keyboard.Key.Q:
+                    keyText="Q";
+                    break;
+                case Keyboard.Key.RBracket:
+                    keyText="Right Bracket";
+                    break;
+                case Keyboard.Key.Right:
+                    keyText="Right Arrow";
+                    break;
+                case Keyboard.Key.S:
+                    keyText="S";
+                    break;
+                case Keyboard.Key.Semicolon:
+                    keyText=";";
+                    break;
+                case Keyboard.Key.Slash:
+                    keyText="/";
+                    break;
+                case Keyboard.Key.Space:
+                    keyText="Space";
+                    break;
+                case Keyboard.Key.Subtract:
+                    keyText="-";
+                    break;
+                case Keyboard.Key.T:
+                    keyText="T";
+                    break;
+                case Keyboard.Key.Tab:
+                    keyText="Tab";
+                    break;
+                case Keyboard.Key.Tilde:
+                    keyText="~";
+                    break;
+                case Keyboard.Key.U:
+                    keyText="U";
+                    break;
+                case Keyboard.Key.Up:
+                    keyText="Up Arrow";
+                    break;
+                case Keyboard.Key.V:
+                    keyText="V";
+                    break;
+                case Keyboard.Key.W:
+                    keyText="W";
+                    break;
+                case Keyboard.Key.X:
+                    keyText="X";
+                    break;
+                case Keyboard.Key.Y:
+                    keyText="Y";
+                    break;
+                case Keyboard.Key.Z:
+                    keyText="Z";
+                    break;
+                default:
+                case Keyboard.Key.Unknown:
+                    keyText="�";
+                    break;
+            }
+            return keyText;
+        }
+
         [DllImport("user32.dll")]
         static extern short VkKeyScan(char c);
 

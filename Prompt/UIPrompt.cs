@@ -31,13 +31,12 @@ namespace Fish_Girlz.Prompt.UI{
 
         public void SetText(string text){
             key.Text=text;
-            Text textText=new Text(text, key.FontInfo.Font, key.FontInfo.Size);
-            float width=textText.GetLocalBounds().Width;
+            FloatRect bounds=key.Bounds;
+            float width=bounds.Width;
             float missingWidth=width/432f;
-            float height=textText.GetLocalBounds().Height+textText.LineSpacing;
+            float height=bounds.Height+1;
             float missingHeight=height/110f;
             ChangeScale(new Vector2f(missingWidth, missingHeight));
-            textText.Dispose();
         }
 
         void ChangeScale(Vector2f scale){

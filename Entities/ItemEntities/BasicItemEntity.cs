@@ -1,13 +1,13 @@
 using System;
 using Fish_Girlz.Art;
+using Fish_Girlz.Inventory.Items;
 using Fish_Girlz.States;
 using SFML.System;
-using Fish_Girlz.Inventory.Items;
 
 namespace Fish_Girlz.Entities.Items{
-    public class TestItem : ItemEntity
+    public class BasicItemEntity : ItemEntity
     {
-        public TestItem(Vector2f position, SpriteInfo sprite) : base(position, sprite, Item.POTION)
+        public BasicItemEntity(Vector2f position, SpriteInfo sprite, Item item) : base(position, sprite, item)
         {
         }
 
@@ -18,7 +18,7 @@ namespace Fish_Girlz.Entities.Items{
 
         public override void Update(State currentState)
         {
-
+            
         }
     }
 }

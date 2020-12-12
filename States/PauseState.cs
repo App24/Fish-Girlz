@@ -15,9 +15,9 @@ namespace Fish_Girlz.States{
         public override void Init()
         {
             pausedText=new UIText((FontInfo)AssetManager.GetObject("Title Font"), Language.GetCurrentLanguage().GetTranslation("text.paused"), Color.White, new Vector2f(DisplayManager.Width/2-68, 200));
-            continueButton=new UIButton(new Vector2u(160, 64), new Vector2f(Utilities.CenterInWindow(DisplayManager.Width, 160), Utilities.CenterInWindow(DisplayManager.Height, 64)-70), Language.GetCurrentLanguage().GetTranslation("button.continue"), new Vector2f(19,13), (FontInfo)AssetManager.GetObject("Button Font"));
-            menu=new UIButton(new Vector2u(160, 64), new Vector2f(Utilities.CenterInWindow(DisplayManager.Width, 160), Utilities.CenterInWindow(DisplayManager.Height, 64)), Language.GetCurrentLanguage().GetTranslation("button.menu"), new Vector2f(42,13), (FontInfo)AssetManager.GetObject("Button Font"));
-            quit=new UIButton(new Vector2u(160, 64), new Vector2f(Utilities.CenterInWindow(DisplayManager.Width, 160), Utilities.CenterInWindow(DisplayManager.Height, 64)+70), Language.GetCurrentLanguage().GetTranslation("button.quit"), new Vector2f(51,13), (FontInfo)AssetManager.GetObject("Button Font"));
+            continueButton=new UIButton(new Vector2u(160, 64), new Vector2f(Utilities.CenterInWindow(DisplayManager.Width, 160), Utilities.CenterInWindow(DisplayManager.Height, 64)-70), Language.GetCurrentLanguage().GetTranslation("button.continue"), (FontInfo)AssetManager.GetObject("Button Font"));
+            menu=new UIButton(new Vector2u(160, 64), new Vector2f(Utilities.CenterInWindow(DisplayManager.Width, 160), Utilities.CenterInWindow(DisplayManager.Height, 64)), Language.GetCurrentLanguage().GetTranslation("button.menu"), (FontInfo)AssetManager.GetObject("Button Font"));
+            quit=new UIButton(new Vector2u(160, 64), new Vector2f(Utilities.CenterInWindow(DisplayManager.Width, 160), Utilities.CenterInWindow(DisplayManager.Height, 64)+70), Language.GetCurrentLanguage().GetTranslation("button.quit"), (FontInfo)AssetManager.GetObject("Button Font"));
             AddGUI(pausedText);
             AddGUI(continueButton);
             AddGUI(quit);
