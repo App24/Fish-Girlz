@@ -12,9 +12,9 @@ namespace Fish_Girlz.Inventory{
 
         UIInventory uIInventory;
 
-        public PlayerInventory(uint inventorySize=4){
+        public PlayerInventory(uint inventorySize=20){
             this.inventorySize=inventorySize;
-            uIInventory=new UIInventory(new Vector2f(), inventorySize);
+            uIInventory=new UIInventory(new Vector2f(Utilities.CenterInWindow(DisplayManager.Width, 32+((inventorySize/2)*64)+((inventorySize/2)*10)), 200), inventorySize);
             uIInventory.Visible=false;
             StateMachine.ActiveState.AddGUI(uIInventory);
             slots=new Slot[inventorySize];

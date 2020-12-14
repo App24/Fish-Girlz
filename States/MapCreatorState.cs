@@ -11,20 +11,26 @@ using Fish_Girlz.Entities.Tiles;
 using Newtonsoft.Json;
 using System.IO;
 using Fish_Girlz.World;
+using Fish_Girlz.Inventory.Items;
+using Fish_Girlz.Entities.Items;
 
 namespace Fish_Girlz.States{
     public class MapCreatorState : State
     {
         int tileId=1;
+        int itemId=0;
 
         UIImage tileImage;
         UIText tileName, selectedMode;
 
         Tile selectedTile;
 
+        Item selectedItem;
+
         LayeredSprite previewSprite;
 
         Dictionary<Vector2f, TileEntity> tiles=new Dictionary<Vector2f, TileEntity>();
+        Dictionary<Vector2f, ItemEntity> items=new Dictionary<Vector2f, ItemEntity>();
 
         SelectedEdit selectedEdit=SelectedEdit.Tile;
 
@@ -37,6 +43,7 @@ namespace Fish_Girlz.States{
             tileName.OutlineColor=SFML.Graphics.Color.White;
             tileName.OutlineThickness=2;
             selectedTile=Tile.GetTile(tileId);
+            selectedItem=Item.GetItem(itemId);
             tileName.Text=selectedTile.Name;
             previewSprite=new LayeredSprite();
             sprites.Add(previewSprite);
@@ -60,44 +67,81 @@ namespace Fish_Girlz.States{
             selectedMode.Text=$"Selected Mode: {Enum.GetName(typeof(SelectedEdit), selectedEdit)}";
             previewSprite.Position=tilePos;
 
-            if(selectedEdit==SelectedEdit.Tile){
-                if(InputManager.ScrollDelta<0){
-                    tileId--;
-                    if(tileId<1) tileId=1;
-                    selectedTile=Tile.GetTile(tileId);
-                    tileName.Text=selectedTile.Name;
-                }
-                if(InputManager.ScrollDelta>0){
-                    tileId++;
-                    if(tileId>Tile.GetTiles().Count-1) tileId=Tile.GetTiles().Count-1;
-                    selectedTile=Tile.GetTile(tileId);
-                    tileName.Text=selectedTile.Name;
-                }
-                if(InputManager.IsMouseButtonHeld(SFML.Window.Mouse.Button.Left)){
-                    if(tiles.ContainsKey(tilePos)){
-                        TileEntity tileEntity;
-                        tiles.TryGetValue(tilePos, out tileEntity);
-                        tileEntity.ToRemove=true;
+            switch(selectedEdit){
+                case SelectedEdit.Tile:
+                    if(InputManager.ScrollDelta<0){
+                        tileId--;
+                        if(tileId<1) tileId=1;
+                        selectedTile=Tile.GetTile(tileId);
+                        tileName.Text=selectedTile.Name;
                     }
-                    tiles.AddOrReplace(tilePos, AddTileEntity(new TileEntity(tilePos, selectedTile)));
-                }
+                    if(InputManager.ScrollDelta>0){
+                        tileId++;
+                        if(tileId>Tile.GetTiles().Count-1) tileId=Tile.GetTiles().Count-1;
+                        selectedTile=Tile.GetTile(tileId);
+                        tileName.Text=selectedTile.Name;
+                    }
+                    if(InputManager.IsMouseButtonHeld(SFML.Window.Mouse.Button.Left)){
+                        if(tiles.ContainsKey(tilePos)){
+                            TileEntity tileEntity;
+                            tiles.TryGetValue(tilePos, out tileEntity);
+                            tileEntity.ToRemove=true;
+                        }
+                        tiles.AddOrReplace(tilePos, AddTileEntity(new TileEntity(tilePos, selectedTile)));
+                    }
 
-                if(InputManager.IsMouseButtonHeld(SFML.Window.Mouse.Button.Right)){
-                    if(tiles.ContainsKey(tilePos)){
-                        TileEntity tileEntity;
-                        tiles.TryGetValue(tilePos, out tileEntity);
-                        tileEntity.ToRemove=true;
-                        tiles.Remove(tilePos);
+                    if(InputManager.IsMouseButtonHeld(SFML.Window.Mouse.Button.Right)){
+                        if(tiles.ContainsKey(tilePos)){
+                            TileEntity tileEntity;
+                            tiles.TryGetValue(tilePos, out tileEntity);
+                            tileEntity.ToRemove=true;
+                            tiles.Remove(tilePos);
+                        }
                     }
-                }
-            }else if(selectedEdit==SelectedEdit.PlayerPos){
-                if(InputManager.IsMouseButtonPressed(SFML.Window.Mouse.Button.Left)){
-                    playerPosSprite.Position=tilePos;
-                    if(!sprites.Contains(playerPosSprite)) sprites.Add(playerPosSprite);
-                }
-                if(InputManager.IsMouseButtonPressed(SFML.Window.Mouse.Button.Right)){
-                    if(sprites.Contains(playerPosSprite)) sprites.Remove(playerPosSprite);
-                }
+                    break;
+                case SelectedEdit.PlayerPos:
+                    if(InputManager.IsMouseButtonPressed(SFML.Window.Mouse.Button.Left)){
+                        playerPosSprite.Position=tilePos;
+                        if(!sprites.Contains(playerPosSprite)) sprites.Add(playerPosSprite);
+                    }
+                    if(InputManager.IsMouseButtonPressed(SFML.Window.Mouse.Button.Right)){
+                        if(sprites.Contains(playerPosSprite)) sprites.Remove(playerPosSprite);
+                    }
+                    break;
+                case SelectedEdit.Entity:
+                    break;
+                case SelectedEdit.Item:
+                    if(InputManager.ScrollDelta<0){
+                        itemId--;
+                        if(itemId<0) itemId=0;
+                        selectedItem=Item.GetItem(itemId);
+                        tileName.Text=selectedItem.Name;
+                    }
+                    if(InputManager.ScrollDelta>0){
+                        itemId++;
+                        if(itemId>Item.GetItems().Count-1) itemId=Item.GetItems().Count-1;
+                        selectedItem=Item.GetItem(itemId);
+                        tileName.Text=selectedItem.Name;
+                    }
+
+                    if(InputManager.IsMouseButtonHeld(SFML.Window.Mouse.Button.Left)){
+                        if(items.ContainsKey(tilePos)){
+                            ItemEntity tileEntity;
+                            items.TryGetValue(tilePos, out tileEntity);
+                            tileEntity.ToRemove=true;
+                        }
+                        items.AddOrReplace(tilePos, AddItem(new ItemEntity(tilePos, selectedItem)));
+                    }
+
+                    if(InputManager.IsMouseButtonHeld(SFML.Window.Mouse.Button.Right)){
+                        if(items.ContainsKey(tilePos)){
+                            ItemEntity itemEntity;
+                            items.TryGetValue(tilePos, out itemEntity);
+                            itemEntity.ToRemove=true;
+                            items.Remove(tilePos);
+                        }
+                    }
+                    break;
             }
 
             if(InputManager.IsKeyHeld(SFML.Window.Keyboard.Key.A)){
@@ -120,7 +164,12 @@ namespace Fish_Girlz.States{
                         {
                             tileDatas.Add(new TileData(new Vector2f(MathF.Floor(pair.Key.X/64), MathF.Floor(pair.Key.Y/64)), pair.Value.Tile.ID));
                         }
-                        MapData mapData=new MapData(new Vector2f(MathF.Floor(playerPosSprite.Position.X/64), MathF.Floor(playerPosSprite.Position.Y/64)), tileDatas);
+                        List<ItemData> itemDatas=new List<ItemData>();
+                        foreach (KeyValuePair<Vector2f, ItemEntity> pair in items)
+                        {
+                            itemDatas.Add(new ItemData(new Vector2f(MathF.Floor(pair.Key.X/64), MathF.Floor(pair.Key.Y/64)), pair.Value.Item.ID));
+                        }
+                        MapData mapData=new MapData(new Vector2f(MathF.Floor(playerPosSprite.Position.X/64), MathF.Floor(playerPosSprite.Position.Y/64)), tileDatas, itemDatas);
                         string text=JsonConvert.SerializeObject(mapData, Formatting.Indented);
                         File.WriteAllText("res/maps/map.json", text);
                     }
@@ -128,10 +177,16 @@ namespace Fish_Girlz.States{
                     if(File.Exists("res/maps/map.json")){
                         MapData mapData=JsonConvert.DeserializeObject<MapData>(File.ReadAllText("res/maps/map.json"));
                         tiles.Clear();
-                        GetTiles().Clear();
-                        foreach (TileData tileData in mapData.TileData)
+                        GetTileEntities().Clear();
+                        GetItems().Clear();
+                        items.Clear();
+                        foreach (TileData tileData in mapData.TilesData)
                         {
                             tiles.Add(tileData.Position*64, AddTileEntity(new TileEntity(tileData.Position*64, Tile.GetTile(tileData.ID))));
+                        }
+                        foreach (ItemData itemData in mapData.ItemsData)
+                        {
+                            items.Add(itemData.Position*64, AddItem(new ItemEntity(itemData.Position*64, Item.GetItem(itemData.ID))));
                         }
                         playerPosSprite.Position=mapData.PlayerPos*64;
                         if(!sprites.Contains(playerPosSprite))
@@ -147,17 +202,24 @@ namespace Fish_Girlz.States{
 
         public override void Update()
         {
-            tileImage.Texture=selectedTile.Sprite.Texture;
-            if(selectedEdit==SelectedEdit.Tile){
-                previewSprite.Texture=selectedTile.Sprite.Texture;
-            }else if(selectedEdit==SelectedEdit.PlayerPos){
-                previewSprite.Texture=Utilities.CreateTexture(64,64,new Color(255,0,0));
+            switch(selectedEdit){
+                case SelectedEdit.Tile:
+                    previewSprite.Texture=selectedTile.Sprite.Texture;
+                    tileImage.Texture=selectedTile.Sprite.Texture;
+                    break;
+                case SelectedEdit.PlayerPos:
+                    previewSprite.Texture=Utilities.CreateTexture(64,64,new Color(255,0,0));
+                    break;
+                case SelectedEdit.Item:
+                    tileImage.Texture=selectedItem.Sprite.Texture;
+                    previewSprite.Texture=selectedItem.Sprite.Texture;
+                    break;
             }
             previewSprite.Color=new Color(255,255,255,(byte)(255/1.5f));
         }
     }
 
     enum SelectedEdit{
-        Tile, PlayerPos
+        Tile, PlayerPos, Entity, Item
     }
 }

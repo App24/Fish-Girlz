@@ -30,13 +30,10 @@ namespace Fish_Girlz.States{
             MapGenerator.InitMap();
             player=new PlayerEntity(MapGenerator.GetPlayerPos());
             AddEntity(player);
-            tileEntities=MapGenerator.GetTiles();
+            tileEntities=MapGenerator.GetTileEntities();
+            itemEntities=MapGenerator.GetItemEntities();
             test=new TestEnemy(new Vector2f(256,256), new SpriteInfo(AssetManager.GetTexture("temp"), new IntRect(0,0,64,64)));
             //AddEntity(test);
-            AddEntity(new BasicItemEntity(new Vector2f(256,256), new SpriteInfo(Utilities.CreateTexture(64,64, Color.Blue), new IntRect(0,0,64,64)), Item.POTION));
-            AddEntity(new BasicItemEntity(new Vector2f(256*3,256), new SpriteInfo(Utilities.CreateTexture(64,64, Color.Blue), new IntRect(0,0,64,64)), Item.POTION));
-            AddEntity(new BasicItemEntity(new Vector2f(256,512), new SpriteInfo(Utilities.CreateTexture(64,64, Color.Red), new IntRect(0,0,64,64)), Item.SWORD));
-            AddEntity(new BasicItemEntity(new Vector2f(512,256), new SpriteInfo(Utilities.CreateTexture(64,64, Color.Cyan), new IntRect(0,0,64,64)), Item.BOW));
 
             dialogBox=new DialogBox();
             promptBox=new PromptBox();

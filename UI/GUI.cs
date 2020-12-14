@@ -20,6 +20,7 @@ namespace Fish_Girlz.UI{
         }
 
         protected T AddComponent<T>(T component) where T : GUIComponent{
+            component.ParentGUI=this;
             components.Add(component);
             return component;
         }

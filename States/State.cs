@@ -8,6 +8,7 @@ using Fish_Girlz.UI.Components;
 using Fish_Girlz.Utils;
 using SFML.Graphics;
 using SFML.System;
+using Fish_Girlz.Entities.Items;
 
 namespace Fish_Girlz.States{
     public abstract class State {
@@ -15,10 +16,12 @@ namespace Fish_Girlz.States{
         private List<GUI> guis=new List<GUI>();
         private List<Entity> entities=new List<Entity>();
         protected List<TileEntity> tileEntities=new List<TileEntity>();
+        protected List<ItemEntity> itemEntities=new List<ItemEntity>();
 
         private List<Entity> toAddEntities=new List<Entity>();
         private List<TileEntity> toAddTileEntities=new List<TileEntity>();
         private List<GUI> toAddGuis=new List<GUI>();
+        private List<ItemEntity> toAddItems=new List<ItemEntity>();
 
         #if (DEV || DEBUG)
             private UIText dev;
@@ -60,6 +63,9 @@ namespace Fish_Girlz.States{
 
             guis.AddRange(toAddGuis);
             toAddGuis.Clear();
+
+            itemEntities.AddRange(toAddItems);
+            toAddItems.Clear();
         }
 
         public List<LayeredSprite> GetSprites(){
@@ -74,8 +80,12 @@ namespace Fish_Girlz.States{
             return entities;//.Clone();
         }
 
-        public List<TileEntity> GetTiles(){
+        public List<TileEntity> GetTileEntities(){
             return tileEntities;//.Clone();
+        }
+
+        public List<ItemEntity> GetItems(){
+            return itemEntities;
         }
 
         public T AddEntity<T>(T entity) where T: Entity{
@@ -91,6 +101,11 @@ namespace Fish_Girlz.States{
         public T AddGUI<T>(T gui) where T:GUI{
             toAddGuis.Add(gui);
             return gui;
+        }
+
+        public T AddItem<T>(T item) where T : ItemEntity{
+            toAddItems.Add(item);
+            return item;
         }
     }
 }

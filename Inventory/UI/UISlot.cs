@@ -14,37 +14,36 @@ namespace Fish_Girlz.Inventory.UI{
 
         public string TextAmount{get;private set;}
         public FontInfo FontInfo{get;}
-        public Vector2f ItemPosition{get;set;}
 
-        bool movingItem;
+        public string ItemText{get;private set;}
+        public bool ShowItemName{get;private set;}
 
         public UISlot(Vector2f position){
             Position=position;
             SlotTexture=Utilities.CreateTexture(64,64,Color.White);
             FontInfo=new FontInfo(AssetManager.GetFont("Arial"), 18);
-            ItemPosition=Position;
+            ShowItemName=false;
         }
 
         public void Update()
         {
-            if(InputManager.IsMouseButtonPressed(SFML.Window.Mouse.Button.Left)){
-                if(InputManager.Hover(new Vector4f(Position, new Vector2f(64,64)))){
-                    movingItem=true;
-                }else{
-                    movingItem=false;
+            if(InputManager.Hover(new Vector4f(Position+ParentGUI.Position, new Vector2f(64,64)))){
+                if(ItemTexture!=null){
+                    ShowItemName=true;
                 }
-            }
-            if(movingItem){
-                ItemPosition=InputManager.MousePosition;
             }else{
-                ItemPosition=Position;
+                ShowItemName=false;
             }
         }
 
         public void UpdateSlot(Slot slot){
+            ItemText="";
+            ItemTexture=null;
+            TextAmount="";
             if(slot.Item!=null){
-                ItemTexture=slot.Item.ItemTexture;
+                ItemTexture=slot.Item.Sprite.Texture;
                 TextAmount=slot.Amount.ToString();
+                ItemText=slot.Item.Name;
             }
         }
     }

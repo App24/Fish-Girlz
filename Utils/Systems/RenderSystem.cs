@@ -10,15 +10,35 @@ using Fish_Girlz.UI.Components;
 using SFML.Graphics;
 using System.Collections.Generic;
 using SFML.System;
+using Fish_Girlz.Entities.Items;
 
 namespace Fish_Girlz.Utils{
     public static class RenderSystem {
         public static void Render(){
             State currentState=StateMachine.ActiveState;
-            RenderTiles(currentState.GetTiles());
+            RenderTiles(currentState.GetTileEntities());
             RenderSprites(currentState.GetSprites());
+            RenderItems(currentState.GetItems());
             RenderEntities(currentState.GetEntities());
             RenderGUI(currentState.GetGUIs());
+        }
+
+        static void RenderItems(List<ItemEntity> itemEntities){
+            itemEntities.Sort();
+
+            foreach (ItemEntity item in itemEntities)
+            {
+                LayeredSprite sprite=(LayeredSprite)item.Sprite;
+                sprite.Position=item.Position;
+                sprite.Rotation=item.Rotation;
+                //CollisionComponent collision=item.GetComponent<CollisionComponent>();
+                //if(collision!=null){
+                //    Sprite collisionSprite=new Sprite(Utilities.CreateTexture((uint)(collision.CollisionBounds.Width-collision.CollisionBounds.Left), (uint)(collision.CollisionBounds.Height-collision.CollisionBounds.Top), Color.Blue));
+                //    collisionSprite.Position=item.Position+new Vector2f(collision.CollisionBounds.Left, collision.CollisionBounds.Top);
+                //    DisplayManager.Window.Draw(collisionSprite);
+                //}
+                DisplayManager.Window.Draw(sprite);
+            }
         }
 
         private static void RenderTiles(List<TileEntity> tileEntities){
@@ -51,7 +71,6 @@ namespace Fish_Girlz.Utils{
                 //if(collision!=null){
                 //    Sprite collisionSprite=new Sprite(Utilities.CreateTexture((uint)(collision.CollisionBounds.Width-collision.CollisionBounds.Left), (uint)(collision.CollisionBounds.Height-collision.CollisionBounds.Top), Color.Blue));
                 //    collisionSprite.Position=entity.Position+new Vector2f(collision.CollisionBounds.Left, collision.CollisionBounds.Top);
-                //    sprite.Rotation=entity.Rotation;
                 //    DisplayManager.Window.Draw(collisionSprite);
                 //}
                 DisplayManager.Window.Draw(sprite);
@@ -122,7 +141,7 @@ namespace Fish_Girlz.Utils{
                         if(slotComponent.ItemTexture!=null){
                             itemSprite=new Sprite(slotComponent.ItemTexture);
                         }
-                        itemSprite.Position=gui.Position+slotComponent.ItemPosition;
+                        itemSprite.Position=slotSprite.Position;
                         if(slotComponent.ItemTexture!=null&&(slotComponent.ItemTexture.Size!=slotComponent.SlotTexture.Size)){
                             //temp=new Vector2f(slotComponent.MaxSize.X/(float)slotComponent.Texture.Size.X, slotComponent.MaxSize.Y/(float)slotComponent.Texture.Size.Y);
                             temp=new Vector2f(slotComponent.SlotTexture.Size.X/(float)slotComponent.ItemTexture.Size.X, slotComponent.SlotTexture.Size.Y/(float)slotComponent.ItemTexture.Size.Y);
@@ -130,28 +149,45 @@ namespace Fish_Girlz.Utils{
                         slotSprite.Scale=new Vector2f(1*temp.X, 1*temp.Y);
                         DisplayManager.Window.Draw(slotSprite);
                         DisplayManager.Window.Draw(itemSprite);
-
+                    }
+                }
+            }
+            foreach(GUI gui in guis){
+                if(!gui.Visible) continue;
+                List<GUIComponent> guiComponents=gui.GetGUIComponents();
+                foreach(GUIComponent guiComponent in guiComponents){
+                    if(guiComponent is UISlot){
+                        UISlot slotComponent=(UISlot)guiComponent;
                         FontInfo fontInfo=slotComponent.FontInfo;
-                        Text text=new Text(slotComponent.TextAmount, fontInfo.Font, fontInfo.Size);
-                        text.Position=gui.Position+slotComponent.Position;
-                        float textWidth=text.GetLocalBounds().Width+10;
-                        float textHeight=text.CharacterSize+10;
-                        float x=text.Position.X;
-                        float y=text.Position.Y;
-                        text.Position=new Vector2f();
-                        View textView=new View(new Vector2f(textWidth/2, textHeight/2), new Vector2f(textWidth, textHeight));
-                        //Console.WriteLine(textView.Viewport);
-                        textView.Viewport=new FloatRect(x/view.Size.X, y/view.Size.Y, (textWidth)/view.Size.X, (textHeight)/view.Size.Y);
-                        //Console.WriteLine(textView.Viewport);
-                        //textView.Move(text.Position);
-                        DisplayManager.Window.SetView(textView);
-                        //DisplayManager.Window.Draw(new Sprite(new Texture(500,500).CreateTexture(Color.Blue)));
-                        DisplayManager.Window.Draw(text);
-                        DisplayManager.Window.SetView(DisplayManager.Window.DefaultView);
+                        DrawText(slotComponent.TextAmount, fontInfo, gui.Position+slotComponent.Position, view);
+                        if(slotComponent.ShowItemName)
+                        DrawText(slotComponent.ItemText, fontInfo, InputManager.MousePosition+new Vector2f(0,-fontInfo.Size), view);
                     }
                 }
             }
             DisplayManager.Window.SetView(view);
+        }
+
+        static void DrawText(string textString, FontInfo fontInfo, Vector2f position, View view){
+            Text text=new Text(textString, fontInfo.Font, fontInfo.Size);
+            text.Position=position;
+            text.FillColor=Color.Black;
+            text.OutlineColor=Color.White;
+            text.OutlineThickness=1;
+            float textWidth=text.GetLocalBounds().Width+10;
+            float textHeight=text.CharacterSize+10;
+            float x=text.Position.X;
+            float y=text.Position.Y;
+            text.Position=new Vector2f();
+            View textView=new View(new Vector2f(textWidth/2, textHeight/2), new Vector2f(textWidth, textHeight));
+            //Console.WriteLine(textView.Viewport);
+            textView.Viewport=new FloatRect(x/view.Size.X, y/view.Size.Y, (textWidth)/view.Size.X, (textHeight)/view.Size.Y);
+            //Console.WriteLine(textView.Viewport);
+            //textView.Move(text.Position);
+            DisplayManager.Window.SetView(textView);
+            //DisplayManager.Window.Draw(new Sprite(new Texture(500,500).CreateTexture(Color.Blue)));
+            DisplayManager.Window.Draw(text);
+            DisplayManager.Window.SetView(DisplayManager.Window.DefaultView);
         }
     }
 }

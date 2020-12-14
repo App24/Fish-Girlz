@@ -60,6 +60,22 @@ namespace Fish_Girlz.Utils{
             return texture;
         }
 
+        public static Texture SetColor(this Texture texture, Color color, Color toReplaceColor){
+            List<byte> pixels=new List<byte>(texture.CopyToImage().Pixels);
+            for (int i = 0; i < pixels.Count; i+=4)
+            {
+                if(pixels[i]==color.R&&pixels[i+1]==color.G&&pixels[i+2]==color.B&&pixels[i+3]==color.A){
+                    pixels[i]=toReplaceColor.R;
+                    pixels[i+1]=toReplaceColor.G;
+                    pixels[i+2]=toReplaceColor.B;
+                    pixels[i+3]=toReplaceColor.A;
+                }
+            }
+            Texture newTexture=new Texture(texture.Size.X, texture.Size.Y);
+            newTexture.Update(pixels.ToArray());
+            return newTexture;
+        }
+
         public static Texture SetColor(this Texture texture, Color color){
             List<byte> pixels=new List<byte>();
             for (int x = 0; x < texture.Size.X; x++)

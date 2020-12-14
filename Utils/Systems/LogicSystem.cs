@@ -5,14 +5,30 @@ using Fish_Girlz.States;
 using Fish_Girlz.Entities.Tiles;
 using Fish_Girlz.Entities.Components;
 using Fish_Girlz.UI;
+using Fish_Girlz.Entities.Items;
 
 namespace Fish_Girlz.Utils{
     public static class LogicSystem {
         public static void Update(){
             State currentState=StateMachine.ActiveState;
-            UpdateTiles(currentState);
+            UpdateTileEntities(currentState);
+            UpdateItemEntities(currentState);
             UpdateEntities(currentState);
             UpdateGUI(currentState);
+        }
+
+        static void UpdateItemEntities(State currentState){
+            List<ItemEntity> itemEntities=currentState.GetItems();
+            List<ItemEntity> newItems=new List<ItemEntity>();
+            foreach (ItemEntity item in itemEntities)
+            {
+                item.Update(currentState);
+                if(!item.ToRemove){
+                    newItems.Add(item);
+                }
+            }
+            itemEntities.Clear();
+            itemEntities.AddRange(newItems);
         }
 
         static void UpdateGUI(State currentState){
@@ -46,8 +62,8 @@ namespace Fish_Girlz.Utils{
             entities.AddRange(newEntities);
         }
 
-        static void UpdateTiles(State currentState){
-            List<TileEntity> tiles=currentState.GetTiles();
+        static void UpdateTileEntities(State currentState){
+            List<TileEntity> tiles=currentState.GetTileEntities();
             List<TileEntity> newTiles=new List<TileEntity>();
             foreach (TileEntity tile in tiles)
             {

@@ -14,12 +14,12 @@ namespace Fish_Girlz.Inventory.UI{
 
         public UIInventory(Vector2f position, uint slotAmount) : base(position)
         {
-            AddComponent(new TextureComponent(Utilities.CreateTexture(512,512,Color.Green)));
-            for (int y = 0; y < slotAmount/2; y++)
+            AddComponent(new TextureComponent(Utilities.CreateTexture(32+((slotAmount/2)*64)+((slotAmount/2)*10),32+(2*64)+(2*10),Color.Green)));
+            for (int y = 0; y < 2; y++)
             {
                 for (int x = 0; x < slotAmount/2; x++)
                 {
-                    slots.Add(AddComponent(new UISlot(new Vector2f(128+(x*64)+(x*10), 128+(y*64)+(y*10)))));
+                    slots.Add(AddComponent(new UISlot(new Vector2f(16+(x*64)+(x*10), 16+(y*64)+(y*10)))));
                     //slots.Add(new UISlot(new Vector2f(128+(x*64)+(x*10), 128+(y*64)+(y*10)), this));
                 }
             }

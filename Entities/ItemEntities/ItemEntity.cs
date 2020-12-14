@@ -5,20 +5,22 @@ using Fish_Girlz.Entities;
 using Fish_Girlz.Inventory.Items;
 using Fish_Girlz.Entities.Components;
 using SFML.System;
+using Fish_Girlz.States;
 
 namespace Fish_Girlz.Entities.Items{
-    public abstract class ItemEntity : Entity
+    public class ItemEntity : Entity
     {
         CollisionComponent collisionComponent;
 
-        Item item;
+        public Item Item{get;}
 
-        public ItemEntity(Vector2f position, SpriteInfo sprite, Item item) : base(position, sprite)
+        public ItemEntity(Vector2f position, Item item) : base(position, item.Sprite)
         {
             collisionComponent=AddComponent(new CollisionComponent());
             collisionComponent.Collidable=false;
             collisionComponent.OnCollision+=OnCollision;
-            this.item=item;
+            collisionComponent.CollisionBounds=item.CollisionBounds;
+            this.Item=item;
         }
 
         void OnCollision(object sender, CollisionEventArgs e){
@@ -28,9 +30,19 @@ namespace Fish_Girlz.Entities.Items{
         }
 
         void PickUp(PlayerEntity player){
-            bool added=player.Inventory.AddItem(item);
+            bool added=player.Inventory.AddItem(Item);
             if(added)
                 ToRemove=true;
+        }
+
+        public override void Update(State currentState)
+        {
+
+        }
+
+        public override void Move()
+        {
+
         }
     }
 }

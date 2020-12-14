@@ -8,12 +8,15 @@ using Fish_Girlz.Entities.Tiles;
 using SFML.System;
 using Fish_Girlz.Tiles;
 using Newtonsoft.Json;
+using Fish_Girlz.Entities.Items;
+using Fish_Girlz.Inventory.Items;
 
 namespace Fish_Girlz.World{
     public static class MapGenerator {
         public static int TileSize=64;
 
         private static List<TileEntity> tileEntities=new List<TileEntity>();
+        private static List<ItemEntity> itemEntities=new List<ItemEntity>();
         public static int MapWidth=24;
         public static int MapHeight=24;
 
@@ -27,18 +30,27 @@ namespace Fish_Girlz.World{
             MapData mapData=JsonConvert.DeserializeObject<MapData>(File.ReadAllText(MapFile));
             playerPos=mapData.PlayerPos*64;
             tileEntities.Clear();
-            foreach (TileData tileData in mapData.TileData)
+            itemEntities.Clear();
+            foreach (TileData tileData in mapData.TilesData)
             {
                 tileEntities.Add(new TileEntity(tileData.Position*64, Tile.GetTile(tileData.ID)));
             }
+            foreach (ItemData itemData in mapData.ItemsData)
+            {
+                itemEntities.Add(new ItemEntity(itemData.Position*64, Item.GetItem(itemData.ID)));
+            }
         }
 
-        public static List<TileEntity> GetTiles(){
+        public static List<TileEntity> GetTileEntities(){
             return tileEntities;
         }
         
         public static Vector2f GetPlayerPos(){
             return playerPos;
+        }
+
+        public static List<ItemEntity> GetItemEntities(){
+            return itemEntities;
         }
     }
 
@@ -52,13 +64,25 @@ namespace Fish_Girlz.World{
         }
     }
 
+    public struct ItemData{
+        public Vector2f Position{get;}
+        public int ID{get;}
+
+        public ItemData(Vector2f position, int id){
+            Position=position;
+            ID=id;
+        }
+    }
+
     public struct MapData{
         public Vector2f PlayerPos{get;}
-        public List<TileData> TileData{get;}
+        public List<TileData> TilesData{get;}
+        public List<ItemData> ItemsData{get;}
 
-        public MapData(Vector2f playerPos, List<TileData> tileData){
+        public MapData(Vector2f playerPos, List<TileData> tilesData, List<ItemData> itemsData){
             PlayerPos=playerPos;
-            TileData=tileData;
+            TilesData=tilesData;
+            ItemsData=itemsData;
         }
     }
 }
