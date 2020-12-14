@@ -6,7 +6,7 @@ using Fish_Girlz.Entities;
 namespace Fish_Girlz.Utils{
     public static class Camera {
         public static void Move(Vector2f offset){
-            View view=DisplayManager.GetView();
+            View view=DisplayManager.View;
             view.Move(offset);
             DisplayManager.Window.SetView(view);
         }
@@ -23,22 +23,22 @@ namespace Fish_Girlz.Utils{
             Vector2i WorldToScreen = DisplayManager.Window.MapCoordsToPixel(entity.Position);
             if (WorldToScreen.X > float.MinValue && WorldToScreen.X < DisplayManager.Width / 5f)
             {
-                Camera.Move((WorldToScreen.X - (DisplayManager.Width / 5f)) * Delta.GetDelta() * 2f, 0);
+                Camera.Move((WorldToScreen.X - (DisplayManager.Width / 5f)) * Delta.DeltaTime * 2f, 0);
             }
             else
             if (WorldToScreen.X < float.MaxValue && WorldToScreen.X > DisplayManager.Width - DisplayManager.Width / 5f)
             {
-                Camera.Move((WorldToScreen.X - (DisplayManager.Width - DisplayManager.Width / 5f)) * Delta.GetDelta() * 2f, 0);
+                Camera.Move((WorldToScreen.X - (DisplayManager.Width - DisplayManager.Width / 5f)) * Delta.DeltaTime * 2f, 0);
             }
 
             if (WorldToScreen.Y > float.MinValue && WorldToScreen.Y < DisplayManager.Height / 4f)
             {
-                Camera.Move(0, (WorldToScreen.Y - (DisplayManager.Height / 4f)) * Delta.GetDelta() * 2f);
+                Camera.Move(0, (WorldToScreen.Y - (DisplayManager.Height / 4f)) * Delta.DeltaTime * 2f);
             }
             else
             if (WorldToScreen.Y < float.MaxValue && WorldToScreen.Y > DisplayManager.Height - DisplayManager.Height / 4f)
             {
-                Camera.Move(0, (WorldToScreen.Y - (DisplayManager.Height - DisplayManager.Height / 4f)) * Delta.GetDelta() * 2f);
+                Camera.Move(0, (WorldToScreen.Y - (DisplayManager.Height - DisplayManager.Height / 4f)) * Delta.DeltaTime * 2f);
             }
         }
     }

@@ -11,8 +11,8 @@ namespace Fish_Girlz.UI{
         ClickComponent clickComponent;
         TextComponent textComponent;
         TextureComponent cursorComponent;
-        bool focused;
-        string typedText;
+        public bool Focused{get;set;}
+        public string Text{get;private set;}
         public int CursorIndex{get; private set;}
         public Vector2u Size {get;}
         Clock blinkClock;
@@ -41,8 +41,8 @@ namespace Fish_Girlz.UI{
             textComponent=AddComponent(new TextComponent(AssetManager.GetObject<FontInfo>("Input Font"), "", new Vector2f(), Color.Black));
             clickComponent=AddComponent(new ClickComponent(new Vector4f(position, new Vector2f(Size.X+5, Size.Y+5))));
             cursorComponent=AddComponent(new TextureComponent(Utilities.CreateTexture(3,40, Color.Black)));
-            focused=false;
-            typedText="";
+            Focused=false;
+            Text="";
             CursorIndex=0;
             blinkClock=new Clock();
         }
@@ -55,12 +55,12 @@ namespace Fish_Girlz.UI{
                 DisplayManager.Window.SetMouseCursor(new Cursor(Cursor.CursorType.Arrow));
             }
             if(clickComponent.OnClick()){
-                focused=true;
+                Focused=true;
             }else if(!clickComponent.onHover()){
                 if(InputManager.IsMouseButtonPressed(Mouse.Button.Left))
-                focused=false;
+                Focused=false;
             }
-            if(focused){
+            if(Focused){
                 if(blinkClock.ElapsedTime.AsMilliseconds()>=500){
                     if(displayCursor){
                         cursorComponent.Texture.SetColor(new Color(0,0,0,0));
@@ -76,14 +76,14 @@ namespace Fish_Girlz.UI{
                     bool ignoreCursor=false;
                     switch(input){
                         case "\b":
-                            if(typedText.Length>0&&CursorIndex>0){
-                                typedText=typedText.Remove(CursorIndex-1, 1);
+                            if(Text.Length>0&&CursorIndex>0){
+                                Text=Text.Remove(CursorIndex-1, 1);
                                 CursorIndex-=1;
                             }
                             break;
                         case "\bd":
-                            if(typedText.Length>=1&&(CursorIndex>=0 && CursorIndex<typedText.Length))
-                                typedText=typedText.Remove(CursorIndex, 1);
+                            if(Text.Length>=1&&(CursorIndex>=0 && CursorIndex<Text.Length))
+                                Text=Text.Remove(CursorIndex, 1);
                             break;
                         case "home":
                         case "dArrow":
@@ -92,7 +92,7 @@ namespace Fish_Girlz.UI{
                             break;
                         case "uArrow":
                         case "end":
-                            CursorIndex=typedText.Length;
+                            CursorIndex=Text.Length;
                             ignoreCursor=true;
                             break;
                         case "lArrow":
@@ -102,21 +102,21 @@ namespace Fish_Girlz.UI{
                             break;
                         case "rArrow":
                             CursorIndex+=1;
-                            if(CursorIndex>typedText.Length) CursorIndex=typedText.Length;
+                            if(CursorIndex>Text.Length) CursorIndex=Text.Length;
                             ignoreCursor=true;
                             break;
                         default:
                             if(visibility==CharacterVisibility.Visible){
-                                typedText=typedText.Insert(CursorIndex, input);
+                                Text=Text.Insert(CursorIndex, input);
                                 CursorIndex+=1;
                             }
                             break;
                     }
                     if(!ignoreCursor){
-                        if(CursorIndex>typedText.Length/*||(typedText.Length>textComponent.Text.Length&&CursorIndex>=textComponent.Text.Length)*/)
-                            CursorIndex=typedText.Length;
+                        if(CursorIndex>Text.Length/*||(typedText.Length>textComponent.Text.Length&&CursorIndex>=textComponent.Text.Length)*/)
+                            CursorIndex=Text.Length;
                     }
-                    textComponent.Text=typedText;
+                    textComponent.Text=Text;
                 }
                 cursorComponent.Position=new Vector2f(drawCursorPosition+cursorComponent.Texture.Size.X+5, (Size.Y-40)/1.5f);
             }else{

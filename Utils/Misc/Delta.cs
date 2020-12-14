@@ -3,15 +3,11 @@ using SFML.System;
 
 namespace Fish_Girlz.Utils{
     public static class Delta {
-        private static float delta;
+        public static float DeltaTime{get;private set;}
         private static Clock clock=new Clock();
 
         public static void UpdateDelta(){
-            delta=clock.Restart().AsSeconds();
-        }
-
-        public static float GetDelta(){
-            return delta;
+            DeltaTime=clock.Restart().AsSeconds();
         }
     }
 }

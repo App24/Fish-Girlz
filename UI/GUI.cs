@@ -7,7 +7,7 @@ using SFML.System;
 namespace Fish_Girlz.UI{
     public abstract class GUI : IComparable<GUI> {
         public Vector2f Position{get; set;}
-        public bool ToRemove {get; protected set;}
+        public bool ToRemove {get; set;}
         public bool Visible{get;set;}
 
         public int Layer{get;set;}

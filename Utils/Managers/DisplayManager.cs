@@ -89,8 +89,6 @@ namespace Fish_Girlz.Utils{
         public static uint Width => Window.Size.X;
         public static uint Height => Window.Size.Y;
 
-        public static View GetView(){
-            return Window.GetView();
-        }
+        public static View View{get{return Window.GetView();}}
     }
 }

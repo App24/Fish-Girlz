@@ -14,7 +14,7 @@ namespace Fish_Girlz.Entities{
         public SpriteInfo Sprite {get; protected set;}
 
         public Vector2f Position{get; private set;}
-        public Vector2f Speed {get; protected set;}
+        public Vector2f Speed {get; set;}
 
         public bool ToRemove{get;set;}
 

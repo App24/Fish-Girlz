@@ -5,6 +5,7 @@ using Fish_Girlz.Inventory.UI;
 using Fish_Girlz.States;
 using Fish_Girlz.Entities;
 using Fish_Girlz.Entities.Tiles;
+using Fish_Girlz.Entities.Components;
 using Fish_Girlz.UI.Components;
 using SFML.Graphics;
 using System.Collections.Generic;
@@ -46,10 +47,13 @@ namespace Fish_Girlz.Utils{
                 LayeredSprite sprite=(LayeredSprite)entity.Sprite;
                 sprite.Position=entity.Position;
                 sprite.Rotation=entity.Rotation;
-                //Sprite collisionSprite=new Sprite(Utilities.CreateTexture((uint)(entity.CollisionBounds.Width-entity.CollisionBounds.Left), (uint)(entity.CollisionBounds.Height-entity.CollisionBounds.Top), Color.Blue));
-                //collisionSprite.Position=entity.Position+new Vector2f(entity.CollisionBounds.Left, entity.CollisionBounds.Top);
-                //sprite.Rotation=entity.Rotation;
-                //DisplayManager.Window.Draw(collisionSprite);
+                //CollisionComponent collision=entity.GetComponent<CollisionComponent>();
+                //if(collision!=null){
+                //    Sprite collisionSprite=new Sprite(Utilities.CreateTexture((uint)(collision.CollisionBounds.Width-collision.CollisionBounds.Left), (uint)(collision.CollisionBounds.Height-collision.CollisionBounds.Top), Color.Blue));
+                //    collisionSprite.Position=entity.Position+new Vector2f(collision.CollisionBounds.Left, collision.CollisionBounds.Top);
+                //    sprite.Rotation=entity.Rotation;
+                //    DisplayManager.Window.Draw(collisionSprite);
+                //}
                 DisplayManager.Window.Draw(sprite);
             }
         }

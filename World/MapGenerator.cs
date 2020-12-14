@@ -7,6 +7,7 @@ using System.Runtime.Serialization;
 using Fish_Girlz.Entities.Tiles;
 using SFML.System;
 using Fish_Girlz.Tiles;
+using Newtonsoft.Json;
 
 namespace Fish_Girlz.World{
     public static class MapGenerator {
@@ -16,78 +17,19 @@ namespace Fish_Girlz.World{
         public static int MapWidth=24;
         public static int MapHeight=24;
 
-        private static string MapFile="res/maps/map01.dat";
+        private static string MapFile="res/maps/map.json";
 
         private static Vector2f playerPos;
 
         public static void InitMap(){
             if(!File.Exists(MapFile)){ return; }
 
-            int counter = 0;  
-            string line;
-            string tempMap="";
-            
-            // Read the file and display it line by line.  
-            System.IO.StreamReader file =
-                new System.IO.StreamReader(MapFile);  
-            while((line = file.ReadLine()) != null)  
+            MapData mapData=JsonConvert.DeserializeObject<MapData>(File.ReadAllText(MapFile));
+            playerPos=mapData.PlayerPos*64;
+            tileEntities.Clear();
+            foreach (TileData tileData in mapData.TileData)
             {
-                if(counter==0){
-                    string[] size=line.Split(",");
-                    int x, y;
-                    try
-                    {
-                        x=int.Parse(size[0]);
-                    }
-                    catch (System.FormatException)
-                    {
-                        throw new FormatException("Player X in "+MapFile+" is not an integer.");
-                    }
-                    try
-                    {
-                        y=int.Parse(size[1]);
-                    }
-                    catch (System.FormatException)
-                    {
-                        throw new FormatException("Player Y in "+MapFile+" is not an integer.");
-                    }
-                    playerPos=new Vector2f(x*TileSize, y*TileSize);
-                }else{
-                    tempMap+=line+"\n";
-                }
-                counter++;  
-            }
-            string[] height=tempMap.Split("\n");
-            MapHeight=height.Length-1;
-            string[] width=height[0].Split(",");
-            MapWidth=width.Length;
-            int[,] map=new int[MapWidth,MapHeight];
-            for (int y = 0; y < MapHeight; y++)
-            {
-                string[] lineWidth=height[y].Split(",");
-                for (int x = 0; x < lineWidth.Length; x++)
-                {
-                    string block=lineWidth[x];
-                    int intBlock=0;
-                    try{
-                        intBlock=Int32.Parse(block);
-                    }catch(System.FormatException){
-
-                    }
-                    map[x,y]=intBlock;
-                }
-            }
-
-
-            for (int x = 0; x < MapWidth; x++)
-            {
-                for (int y = 0; y < MapHeight; y++)
-                {
-                    if(x>=0||x<=MapWidth-1||y>=0||y<=MapHeight-1){
-                        tileEntities.Add(new TileEntity(new Vector2f(x*TileSize, y*TileSize), Tile.GetTile(map[x,y])));
-                        //tileEntities.Add(new WallTileEntity(new SFML.System.Vector2f(x*TileSize,y*TileSize)));
-                    }
-                }
+                tileEntities.Add(new TileEntity(tileData.Position*64, Tile.GetTile(tileData.ID)));
             }
         }
 
@@ -97,6 +39,26 @@ namespace Fish_Girlz.World{
         
         public static Vector2f GetPlayerPos(){
             return playerPos;
+        }
+    }
+
+    public struct TileData{
+        public Vector2f Position{get;}
+        public int ID{get;}
+
+        public TileData(Vector2f position, int id){
+            Position=position;
+            ID=id;
+        }
+    }
+
+    public struct MapData{
+        public Vector2f PlayerPos{get;}
+        public List<TileData> TileData{get;}
+
+        public MapData(Vector2f playerPos, List<TileData> tileData){
+            PlayerPos=playerPos;
+            TileData=tileData;
         }
     }
 }

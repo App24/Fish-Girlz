@@ -8,6 +8,9 @@ using SFML.Graphics;
 using SFML.System;
 using Fish_Girlz.Art;
 using Fish_Girlz.Entities.Tiles;
+using Newtonsoft.Json;
+using System.IO;
+using Fish_Girlz.World;
 
 namespace Fish_Girlz.States{
     public class MapCreatorState : State
@@ -15,13 +18,17 @@ namespace Fish_Girlz.States{
         int tileId=1;
 
         UIImage tileImage;
-        UIText tileName;
+        UIText tileName, selectedMode;
 
         Tile selectedTile;
 
         LayeredSprite previewSprite;
 
         Dictionary<Vector2f, TileEntity> tiles=new Dictionary<Vector2f, TileEntity>();
+
+        SelectedEdit selectedEdit=SelectedEdit.Tile;
+
+        LayeredSprite playerPosSprite;
 
         public override void Init()
         {
@@ -33,49 +40,124 @@ namespace Fish_Girlz.States{
             tileName.Text=selectedTile.Name;
             previewSprite=new LayeredSprite();
             sprites.Add(previewSprite);
+
+            selectedMode=AddGUI(new UIText(new FontInfo(AssetManager.GetFont("Arial"), 18), "", Color.Black, new Vector2f(0,70)));
+            selectedMode.OutlineColor=Color.White;
+            selectedMode.OutlineThickness=2;
+
+            playerPosSprite=new LayeredSprite(Utilities.CreateTexture(64,64,Color.Red));
         }
 
         public override void HandleInput()
         {
-            if(InputManager.ScrollDelta<0){
-                tileId--;
-                if(tileId<1) tileId=1;
-                selectedTile=Tile.GetTile(tileId);
-                tileName.Text=selectedTile.Name;
+            Vector2f tilePos=new Vector2f(MathF.Floor((InputManager.MousePosition.X+(DisplayManager.View.Center.X-640))/64)*64,MathF.Floor((InputManager.MousePosition.Y+(DisplayManager.View.Center.Y-360))/64)*64);;
+            if(InputManager.IsMouseButtonPressed(SFML.Window.Mouse.Button.XButton1)){
+                selectedEdit=selectedEdit.Next();
             }
-            if(InputManager.ScrollDelta>0){
-                tileId++;
-                if(tileId>Tile.GetTiles().Count-1) tileId=Tile.GetTiles().Count-1;
-                selectedTile=Tile.GetTile(tileId);
-                tileName.Text=selectedTile.Name;
+            if(InputManager.IsMouseButtonPressed(SFML.Window.Mouse.Button.XButton2)){
+                selectedEdit=selectedEdit.Previous();
             }
-            Vector2f tilePos=new Vector2f(MathF.Floor(InputManager.MousePosition.X/64)*64,MathF.Floor(InputManager.MousePosition.Y/64)*64);;
+            selectedMode.Text=$"Selected Mode: {Enum.GetName(typeof(SelectedEdit), selectedEdit)}";
             previewSprite.Position=tilePos;
-            if(InputManager.IsMouseButtonHeld(SFML.Window.Mouse.Button.Left)){
-                if(tiles.ContainsKey(tilePos)){
-                    TileEntity tileEntity;
-                    tiles.TryGetValue(tilePos, out tileEntity);
-                    if(tileEntity.Tile==selectedTile) return;
-                    tileEntity.ToRemove=true;
+
+            if(selectedEdit==SelectedEdit.Tile){
+                if(InputManager.ScrollDelta<0){
+                    tileId--;
+                    if(tileId<1) tileId=1;
+                    selectedTile=Tile.GetTile(tileId);
+                    tileName.Text=selectedTile.Name;
                 }
-                tiles.AddOrReplace(tilePos, AddTileEntity(new TileEntity(tilePos, selectedTile)));
+                if(InputManager.ScrollDelta>0){
+                    tileId++;
+                    if(tileId>Tile.GetTiles().Count-1) tileId=Tile.GetTiles().Count-1;
+                    selectedTile=Tile.GetTile(tileId);
+                    tileName.Text=selectedTile.Name;
+                }
+                if(InputManager.IsMouseButtonHeld(SFML.Window.Mouse.Button.Left)){
+                    if(tiles.ContainsKey(tilePos)){
+                        TileEntity tileEntity;
+                        tiles.TryGetValue(tilePos, out tileEntity);
+                        tileEntity.ToRemove=true;
+                    }
+                    tiles.AddOrReplace(tilePos, AddTileEntity(new TileEntity(tilePos, selectedTile)));
+                }
+
+                if(InputManager.IsMouseButtonHeld(SFML.Window.Mouse.Button.Right)){
+                    if(tiles.ContainsKey(tilePos)){
+                        TileEntity tileEntity;
+                        tiles.TryGetValue(tilePos, out tileEntity);
+                        tileEntity.ToRemove=true;
+                        tiles.Remove(tilePos);
+                    }
+                }
+            }else if(selectedEdit==SelectedEdit.PlayerPos){
+                if(InputManager.IsMouseButtonPressed(SFML.Window.Mouse.Button.Left)){
+                    playerPosSprite.Position=tilePos;
+                    if(!sprites.Contains(playerPosSprite)) sprites.Add(playerPosSprite);
+                }
+                if(InputManager.IsMouseButtonPressed(SFML.Window.Mouse.Button.Right)){
+                    if(sprites.Contains(playerPosSprite)) sprites.Remove(playerPosSprite);
+                }
             }
 
-            if(InputManager.IsMouseButtonHeld(SFML.Window.Mouse.Button.Right)){
-                if(tiles.ContainsKey(tilePos)){
-                    TileEntity tileEntity;
-                    tiles.TryGetValue(tilePos, out tileEntity);
-                    tileEntity.ToRemove=true;
-                    tiles.Remove(tilePos);
+            if(InputManager.IsKeyHeld(SFML.Window.Keyboard.Key.A)){
+                Camera.Move(new Vector2f(-200*Delta.DeltaTime, 0));
+            }else if(InputManager.IsKeyHeld(SFML.Window.Keyboard.Key.D)){
+                Camera.Move(new Vector2f(200*Delta.DeltaTime, 0));
+            }
+
+            if(InputManager.IsKeyHeld(SFML.Window.Keyboard.Key.W)){
+                Camera.Move(new Vector2f(0, -200*Delta.DeltaTime));
+            }else if(InputManager.IsKeyHeld(SFML.Window.Keyboard.Key.S)){
+                Camera.Move(new Vector2f(0, 200*Delta.DeltaTime));
+            }
+
+            if(InputManager.IsKeyHeld(SFML.Window.Keyboard.Key.LControl)){
+                if(InputManager.IsKeyPressed(SFML.Window.Keyboard.Key.S)){
+                    if(sprites.Contains(playerPosSprite)){
+                        List<TileData> tileDatas=new List<TileData>();
+                        foreach (KeyValuePair<Vector2f, TileEntity> pair in tiles)
+                        {
+                            tileDatas.Add(new TileData(new Vector2f(MathF.Floor(pair.Key.X/64), MathF.Floor(pair.Key.Y/64)), pair.Value.Tile.ID));
+                        }
+                        MapData mapData=new MapData(new Vector2f(MathF.Floor(playerPosSprite.Position.X/64), MathF.Floor(playerPosSprite.Position.Y/64)), tileDatas);
+                        string text=JsonConvert.SerializeObject(mapData, Formatting.Indented);
+                        File.WriteAllText("res/maps/map.json", text);
+                    }
+                }else if(InputManager.IsKeyPressed(SFML.Window.Keyboard.Key.L)){
+                    if(File.Exists("res/maps/map.json")){
+                        MapData mapData=JsonConvert.DeserializeObject<MapData>(File.ReadAllText("res/maps/map.json"));
+                        tiles.Clear();
+                        GetTiles().Clear();
+                        foreach (TileData tileData in mapData.TileData)
+                        {
+                            tiles.Add(tileData.Position*64, AddTileEntity(new TileEntity(tileData.Position*64, Tile.GetTile(tileData.ID))));
+                        }
+                        playerPosSprite.Position=mapData.PlayerPos*64;
+                        if(!sprites.Contains(playerPosSprite))
+                        sprites.Add(playerPosSprite);
+                    }
                 }
+            }
+
+            if(InputManager.IsKeyPressed(SFML.Window.Keyboard.Key.Escape)){
+                StateMachine.AddState(new MainMenuState());
             }
         }
 
         public override void Update()
         {
             tileImage.Texture=selectedTile.Sprite.Texture;
-            previewSprite.Texture=selectedTile.Sprite.Texture;
+            if(selectedEdit==SelectedEdit.Tile){
+                previewSprite.Texture=selectedTile.Sprite.Texture;
+            }else if(selectedEdit==SelectedEdit.PlayerPos){
+                previewSprite.Texture=Utilities.CreateTexture(64,64,new Color(255,0,0));
+            }
             previewSprite.Color=new Color(255,255,255,(byte)(255/1.5f));
         }
+    }
+
+    enum SelectedEdit{
+        Tile, PlayerPos
     }
 }

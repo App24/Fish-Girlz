@@ -2,7 +2,7 @@ using System;
 using SFML.Graphics;
 
 namespace Fish_Girlz.Art{
-    public class LayeredSprite : Sprite {
+    public class LayeredSprite : Sprite, IComparable<LayeredSprite> {
         public int Layer {get;set;}
 
         public LayeredSprite(){}

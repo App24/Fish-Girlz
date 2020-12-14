@@ -108,13 +108,13 @@ namespace Fish_Girlz.Entities
         {
             if (InputManager.IsKeyHeld(SFML.Window.Keyboard.Key.W)||InputManager.AxisMovement(Joystick.Axis.Y)<-50)
             {
-                Speed += new Vector2f(0, Delta.GetDelta() * -speed);
+                Speed += new Vector2f(0, -speed);
                 currentAnimation = walkForward;
                 walking.Item1 = true;
             }
             else if (InputManager.IsKeyHeld(SFML.Window.Keyboard.Key.S)||InputManager.AxisMovement(Joystick.Axis.Y)>50)
             {
-                Speed += new Vector2f(0, Delta.GetDelta() * speed);
+                Speed += new Vector2f(0, speed);
                 currentAnimation = walkBackward;
                 walking.Item1 = true;
             }
@@ -125,13 +125,13 @@ namespace Fish_Girlz.Entities
 
             if (InputManager.IsKeyHeld(SFML.Window.Keyboard.Key.A)||InputManager.AxisMovement(Joystick.Axis.X)<-50)
             {
-                Speed += new Vector2f(Delta.GetDelta() * -speed, 0);
+                Speed += new Vector2f(-speed, 0);
                 currentAnimation = walkLeft;
                 walking.Item2 = true;
             }
             else if (InputManager.IsKeyHeld(SFML.Window.Keyboard.Key.D)||InputManager.AxisMovement(Joystick.Axis.X)>50)
             {
-                Speed += new Vector2f(Delta.GetDelta() * speed, 0);
+                Speed += new Vector2f(speed, 0);
                 currentAnimation = walkRight;
                 walking.Item2 = true;
             }

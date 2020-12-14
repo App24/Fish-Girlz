@@ -17,6 +17,7 @@ namespace Fish_Girlz.Utils{
                 List<Entity> nearbyEntities=entity.GetNearbyEntities(entities);
                 List<TileEntity> nearbyTiles=entity.GetNearbyEntities(tiles);
                 entity.Move();
+                entity.Speed*=Delta.DeltaTime;
                 foreach (Entity nearbyEntity in nearbyEntities)
                 {
                     entity.CheckCollision(nearbyEntity);
