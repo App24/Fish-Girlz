@@ -13,5 +13,9 @@ namespace Fish_Girlz.UI{
         {
             textureComponent=AddComponent(new TextureComponent(texture));
         }
+        public UIImage(Vector2f position) : this(position, null)
+        {
+
+        }
     }
 }

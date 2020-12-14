@@ -120,13 +120,13 @@ namespace Fish_Girlz.Utils
             return spriteSheet;
         }
 
-        public static object GetObject(string name)
+        public static T GetObject<T>(string name)
         {
             object obj;
             bool successful = objects.TryGetValue(name, out obj);
             if(!successful)
                 throw new Exception("Could not find any object by the name of "+name);
-            return obj;
+            return (T)obj;
         }
     }
 }

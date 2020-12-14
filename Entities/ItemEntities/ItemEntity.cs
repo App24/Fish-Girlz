@@ -28,11 +28,9 @@ namespace Fish_Girlz.Entities.Items{
         }
 
         void PickUp(PlayerEntity player){
-            Console.WriteLine(player.Inventory.ToString());
             bool added=player.Inventory.AddItem(item);
             if(added)
                 ToRemove=true;
-            Console.WriteLine(player.Inventory.ToString());
         }
     }
 }

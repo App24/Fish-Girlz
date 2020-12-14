@@ -38,7 +38,7 @@ namespace Fish_Girlz.UI{
             Size=new Vector2u(300,50);
             AddComponent(new TextureComponent(Utilities.CreateTexture(Size.X+5,Size.Y+5, Color.White.Divide(2))));
             AddComponent(new TextureComponent(Utilities.CreateTexture(Size.X, Size.Y, Color.White))).Position=new Vector2f(2.5f,2.5f);
-            textComponent=AddComponent(new TextComponent((FontInfo)AssetManager.GetObject("Input Font"), "", new Vector2f(), Color.Black));
+            textComponent=AddComponent(new TextComponent(AssetManager.GetObject<FontInfo>("Input Font"), "", new Vector2f(), Color.Black));
             clickComponent=AddComponent(new ClickComponent(new Vector4f(position, new Vector2f(Size.X+5, Size.Y+5))));
             cursorComponent=AddComponent(new TextureComponent(Utilities.CreateTexture(3,40, Color.Black)));
             focused=false;

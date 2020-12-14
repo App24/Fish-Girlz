@@ -78,12 +78,12 @@ namespace Fish_Girlz.States{
             return tileEntities;//.Clone();
         }
 
-        public Entity AddEntity(Entity entity){
+        public T AddEntity<T>(T entity) where T: Entity{
             toAddEntities.Add(entity);
             return entity;
         }
 
-        public TileEntity AddTileEntity(TileEntity tileEntity){
+        public T AddTileEntity<T>(T tileEntity) where T : TileEntity{
             toAddTileEntities.Add(tileEntity);
             return tileEntity;
         }

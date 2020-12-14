@@ -6,6 +6,7 @@ using DiscordRPC;
 using DiscordRPC.Events;
 using DiscordRPC.Message;
 using DiscordRPC.Logging;
+using SFML.Window;
 
 namespace Fish_Girlz
 {
@@ -47,6 +48,7 @@ namespace Fish_Girlz
             while(DisplayManager.Window.IsOpen){
                 StateMachine.ProcessStateChanges();
                 Delta.UpdateDelta();
+                Joystick.Update();
 
                 DisplayManager.Window.DispatchEvents();
 

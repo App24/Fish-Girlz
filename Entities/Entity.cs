@@ -16,7 +16,7 @@ namespace Fish_Girlz.Entities{
         public Vector2f Position{get; private set;}
         public Vector2f Speed {get; protected set;}
 
-        public bool ToRemove{get;protected set;}
+        public bool ToRemove{get;set;}
 
         public float Rotation{get;protected set;}
 

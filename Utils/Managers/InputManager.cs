@@ -17,11 +17,17 @@ namespace Fish_Girlz.Utils
         private static bool[] mouseButtonsPressed=new bool[(int)Mouse.Button.ButtonCount];
         private static bool[] mouseButtonsPressedThisFrame=new bool[(int)Mouse.Button.ButtonCount];
 
+        private static bool[] joystickButtonHeld=new bool[Joystick.ButtonCount];
+        private static bool[] joystickButtonPressed=new bool[Joystick.ButtonCount];
+        private static bool[] joystickButtonPressedThisFrame=new bool[Joystick.ButtonCount];
+
         private static string keyPressed="";
 
         private static CharacterVisibility characterVisibility;
 
         public static Vector2f MousePosition{get; private set;}
+
+        public static float ScrollDelta{get;private set;}
 
         public static void InitInputManager(){
             DisplayManager.Window.MouseMoved+=MouseMoved;
@@ -29,6 +35,9 @@ namespace Fish_Girlz.Utils
             DisplayManager.Window.KeyReleased+=KeyReleased;
             DisplayManager.Window.MouseButtonPressed+=MouseButtonPressed;
             DisplayManager.Window.MouseButtonReleased+=MouseButtonReleased;
+            DisplayManager.Window.JoystickButtonPressed+=JoystickButtonPressed;
+            DisplayManager.Window.JoystickButtonReleased+=JoystickButtonReleased;
+            DisplayManager.Window.MouseWheelScrolled+=MouseWheelScrolled;
         }
 
         public static bool IsKeyHeld(Keyboard.Key key)
@@ -55,6 +64,32 @@ namespace Fish_Girlz.Utils
         public static bool IsMouseButtonHeld(Mouse.Button button)
         {
             return mouseButtonsHeld[(int) button];
+        }
+
+        public static float AxisMovement(Joystick.Axis axis){
+            if(!Joystick.IsConnected(0)) return 0;
+            return Joystick.GetAxisPosition(0, axis);
+        }
+
+        public static bool IsJoystickButtonHeld(uint button){
+            return joystickButtonHeld[button];
+        }
+
+        public static bool IsJoystickButtonPressed(uint button){
+            if(joystickButtonPressedThisFrame[button]){
+                return true;
+            }
+            if (joystickButtonHeld[button] && !joystickButtonPressed[button])
+            {
+                joystickButtonPressed[button] = true;
+                joystickButtonPressedThisFrame[button]=true;
+                return true;
+            }
+            else if (!joystickButtonHeld[button])
+            {
+                joystickButtonPressed[button] = false;
+            }
+            return false;
         }
 
         public static bool IsMouseButtonPressed(Mouse.Button button)
@@ -84,6 +119,15 @@ namespace Fish_Girlz.Utils
             {
                 keysPressedThisFrame[i]=false;
             }
+            for (int i = 0; i < joystickButtonPressedThisFrame.Length; i++)
+            {
+                joystickButtonPressedThisFrame[i]=false;
+            }
+            ScrollDelta=0;
+        }
+
+        private static void MouseWheelScrolled(object sender, MouseWheelScrollEventArgs e){
+            ScrollDelta=e.Delta;
         }
 
         private static void MouseButtonPressed(object sender, MouseButtonEventArgs e){
@@ -96,6 +140,14 @@ namespace Fish_Girlz.Utils
 
         private static void MouseMoved(object sender, MouseMoveEventArgs e){
             MousePosition=new Vector2f(e.X,e.Y);
+        }
+
+        private static void JoystickButtonPressed(object sender, JoystickButtonEventArgs e){
+            joystickButtonHeld[e.Button]=true;
+        }
+
+        private static void JoystickButtonReleased(object sender, JoystickButtonEventArgs e){
+            joystickButtonHeld[e.Button]=false;
         }
 
         public static bool Hover(Vector4f bounds){

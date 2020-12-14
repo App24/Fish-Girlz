@@ -7,28 +7,63 @@ using SFML.System;
 
 namespace Fish_Girlz.Inventory{
     public class PlayerInventory {
-        List<Slot> slots=new List<Slot>();
-        int inventorySize;
+        Slot[] slots;
+        uint inventorySize;
 
         UIInventory uIInventory;
 
-        public PlayerInventory(int inventorySize=4){
+        public PlayerInventory(uint inventorySize=4){
             this.inventorySize=inventorySize;
-            uIInventory=new UIInventory(new Vector2f());
+            uIInventory=new UIInventory(new Vector2f(), inventorySize);
             uIInventory.Visible=false;
             StateMachine.ActiveState.AddGUI(uIInventory);
+            slots=new Slot[inventorySize];
+            for (int i = 0; i < inventorySize; i++)
+            {
+                slots[i]=new Slot(null,0);
+            }
         }
 
         public bool AddItem(Item item, uint amount=1){
-            if(slots.Count>=inventorySize)
+            if(IsInventoryFull())
                 return false;
-            Slot slot=slots.FindLast(delegate(Slot _slot){if(_slot.Item==item)return true; return false;});
-            if(slot==null){
+            (Slot slot, int index)=GetSlot(item);
+            if(slot.Item==null){
                 slot=new Slot(item, amount);
             }else{
                 if(!slot.IncreaseAmount(amount)) return false;
             }
-            slots.AddOrReplace(slot);
+            slots[index]=slot;
+            uIInventory.UpdateSlots(slots);
+            return true;
+        }
+
+        (Slot, int) GetSlot(Item item){
+            Slot slot=null;
+            int index=-1;
+            for (int i = 0; i < inventorySize; i++)
+            {
+                if(slots[i].Item==item){
+                    slot=slots[i];
+                    index=i;
+                    break;
+                }
+                if(slots[i].Item==null){
+                    slot=slots[i];
+                    index=i;
+                    break;
+                }
+            }
+            return (slot, index);
+        }
+
+        public bool IsInventoryFull(){ 
+            for (int i = 0; i < inventorySize; i++)
+            {
+                if(slots[i].Item==null){
+                    return false;
+                }
+            }
             return true;
         }
 

@@ -6,6 +6,7 @@ using Fish_Girlz.Utils;
 using Fish_Girlz.States;
 using Fish_Girlz.Entities.Components;
 using SFML.System;
+using SFML.Window;
 using SFML.Graphics;
 
 namespace Fish_Girlz.Entities
@@ -105,13 +106,13 @@ namespace Fish_Girlz.Entities
 
         public override void Move()
         {
-            if (InputManager.IsKeyHeld(SFML.Window.Keyboard.Key.W))
+            if (InputManager.IsKeyHeld(SFML.Window.Keyboard.Key.W)||InputManager.AxisMovement(Joystick.Axis.Y)<-50)
             {
                 Speed += new Vector2f(0, Delta.GetDelta() * -speed);
                 currentAnimation = walkForward;
                 walking.Item1 = true;
             }
-            else if (InputManager.IsKeyHeld(SFML.Window.Keyboard.Key.S))
+            else if (InputManager.IsKeyHeld(SFML.Window.Keyboard.Key.S)||InputManager.AxisMovement(Joystick.Axis.Y)>50)
             {
                 Speed += new Vector2f(0, Delta.GetDelta() * speed);
                 currentAnimation = walkBackward;
@@ -122,13 +123,13 @@ namespace Fish_Girlz.Entities
                 walking.Item1 = false;
             }
 
-            if (InputManager.IsKeyHeld(SFML.Window.Keyboard.Key.A))
+            if (InputManager.IsKeyHeld(SFML.Window.Keyboard.Key.A)||InputManager.AxisMovement(Joystick.Axis.X)<-50)
             {
                 Speed += new Vector2f(Delta.GetDelta() * -speed, 0);
                 currentAnimation = walkLeft;
                 walking.Item2 = true;
             }
-            else if (InputManager.IsKeyHeld(SFML.Window.Keyboard.Key.D))
+            else if (InputManager.IsKeyHeld(SFML.Window.Keyboard.Key.D)||InputManager.AxisMovement(Joystick.Axis.X)>50)
             {
                 Speed += new Vector2f(Delta.GetDelta() * speed, 0);
                 currentAnimation = walkRight;

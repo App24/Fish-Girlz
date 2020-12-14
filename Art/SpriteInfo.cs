@@ -3,9 +3,9 @@ using SFML.Graphics;
 
 namespace Fish_Girlz.Art{
     public class SpriteInfo{
-        public Texture Texture;
-        public IntRect Bounds;
-        public int Layer;
+        public Texture Texture{get;}
+        public IntRect Bounds{get;}
+        public int Layer{get;set;}
 
         public SpriteInfo(Texture texture, IntRect bounds){
             this.Texture=texture;

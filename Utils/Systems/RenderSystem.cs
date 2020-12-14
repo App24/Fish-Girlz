@@ -1,6 +1,7 @@
 using System;
 using Fish_Girlz.Art;
 using Fish_Girlz.UI;
+using Fish_Girlz.Inventory.UI;
 using Fish_Girlz.States;
 using Fish_Girlz.Entities;
 using Fish_Girlz.Entities.Tiles;
@@ -63,6 +64,7 @@ namespace Fish_Girlz.Utils{
                 foreach(GUIComponent guiComponent in guiComponents){
                     if(guiComponent is TextureComponent){
                         TextureComponent textureComponent=(TextureComponent)guiComponent;
+                        if(textureComponent.Texture==null) continue;
                         Sprite sprite=new Sprite(textureComponent.Texture);
                         sprite.Position=gui.Position+textureComponent.Position;
                         sprite.Rotation=textureComponent.Rotation;
@@ -98,6 +100,41 @@ namespace Fish_Girlz.Utils{
                                 }
                             }
                         }
+                        View textView=new View(new Vector2f(textWidth/2, textHeight/2), new Vector2f(textWidth, textHeight));
+                        //Console.WriteLine(textView.Viewport);
+                        textView.Viewport=new FloatRect(x/view.Size.X, y/view.Size.Y, (textWidth)/view.Size.X, (textHeight)/view.Size.Y);
+                        //Console.WriteLine(textView.Viewport);
+                        //textView.Move(text.Position);
+                        DisplayManager.Window.SetView(textView);
+                        //DisplayManager.Window.Draw(new Sprite(new Texture(500,500).CreateTexture(Color.Blue)));
+                        DisplayManager.Window.Draw(text);
+                        DisplayManager.Window.SetView(DisplayManager.Window.DefaultView);
+                    }else if(guiComponent is UISlot){
+                        UISlot slotComponent=(UISlot)guiComponent;
+                        Sprite slotSprite=new Sprite(slotComponent.SlotTexture);
+                        slotSprite.Position=gui.Position+slotComponent.Position;
+                        Vector2f temp=new Vector2f(1,1);
+                        Sprite itemSprite=new Sprite(Utilities.CreateTexture(1,1,new Color(0,0,0,0)));
+                        if(slotComponent.ItemTexture!=null){
+                            itemSprite=new Sprite(slotComponent.ItemTexture);
+                        }
+                        itemSprite.Position=gui.Position+slotComponent.ItemPosition;
+                        if(slotComponent.ItemTexture!=null&&(slotComponent.ItemTexture.Size!=slotComponent.SlotTexture.Size)){
+                            //temp=new Vector2f(slotComponent.MaxSize.X/(float)slotComponent.Texture.Size.X, slotComponent.MaxSize.Y/(float)slotComponent.Texture.Size.Y);
+                            temp=new Vector2f(slotComponent.SlotTexture.Size.X/(float)slotComponent.ItemTexture.Size.X, slotComponent.SlotTexture.Size.Y/(float)slotComponent.ItemTexture.Size.Y);
+                        }
+                        slotSprite.Scale=new Vector2f(1*temp.X, 1*temp.Y);
+                        DisplayManager.Window.Draw(slotSprite);
+                        DisplayManager.Window.Draw(itemSprite);
+
+                        FontInfo fontInfo=slotComponent.FontInfo;
+                        Text text=new Text(slotComponent.TextAmount, fontInfo.Font, fontInfo.Size);
+                        text.Position=gui.Position+slotComponent.Position;
+                        float textWidth=text.GetLocalBounds().Width+10;
+                        float textHeight=text.CharacterSize+10;
+                        float x=text.Position.X;
+                        float y=text.Position.Y;
+                        text.Position=new Vector2f();
                         View textView=new View(new Vector2f(textWidth/2, textHeight/2), new Vector2f(textWidth, textHeight));
                         //Console.WriteLine(textView.Viewport);
                         textView.Viewport=new FloatRect(x/view.Size.X, y/view.Size.Y, (textWidth)/view.Size.X, (textHeight)/view.Size.Y);

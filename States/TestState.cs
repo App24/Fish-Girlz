@@ -34,8 +34,9 @@ namespace Fish_Girlz.States{
             test=new TestEnemy(new Vector2f(256,256), new SpriteInfo(AssetManager.GetTexture("temp"), new IntRect(0,0,64,64)));
             //AddEntity(test);
             AddEntity(new BasicItemEntity(new Vector2f(256,256), new SpriteInfo(Utilities.CreateTexture(64,64, Color.Blue), new IntRect(0,0,64,64)), Item.POTION));
+            AddEntity(new BasicItemEntity(new Vector2f(256*3,256), new SpriteInfo(Utilities.CreateTexture(64,64, Color.Blue), new IntRect(0,0,64,64)), Item.POTION));
             AddEntity(new BasicItemEntity(new Vector2f(256,512), new SpriteInfo(Utilities.CreateTexture(64,64, Color.Red), new IntRect(0,0,64,64)), Item.SWORD));
-            AddEntity(new BasicItemEntity(new Vector2f(512,256), new SpriteInfo(Utilities.CreateTexture(64,64, Color.Red), new IntRect(0,0,64,64)), Item.SWORD));
+            AddEntity(new BasicItemEntity(new Vector2f(512,256), new SpriteInfo(Utilities.CreateTexture(64,64, Color.Cyan), new IntRect(0,0,64,64)), Item.BOW));
 
             dialogBox=new DialogBox();
             promptBox=new PromptBox();
@@ -64,7 +65,7 @@ namespace Fish_Girlz.States{
                 promptBox.HidePrompt();
                 dialogBox.Hide();
             }
-            if(InputManager.IsKeyPressed(SFML.Window.Keyboard.Key.E)){
+            if(InputManager.IsKeyPressed(SFML.Window.Keyboard.Key.E)||InputManager.IsJoystickButtonPressed(0)){
                 player.Inventory.ToggleInventory();
             }
         }

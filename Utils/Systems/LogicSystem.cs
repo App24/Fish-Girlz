@@ -20,6 +20,7 @@ namespace Fish_Girlz.Utils{
             List<GUI> newGuis=new List<GUI>();
             foreach (GUI gui in guis)
             {
+                if(gui.Visible)
                 if(gui is UpdatableGUI){
                     UpdatableGUI updatableGUI=(UpdatableGUI)gui;
                     updatableGUI.Update();
