@@ -31,7 +31,7 @@ namespace Fish_Girlz.Entities
             Sprite.Layer=10000;
             collisionComponent=AddComponent(new CollisionComponent());
             collisionComponent.CollisionBounds=new IntRect(20,14,44,63);
-            Inventory=new PlayerInventory();
+            Inventory=new PlayerInventory(player:this);
         }
 
         private void SetupAnimations()
@@ -102,6 +102,7 @@ namespace Fish_Girlz.Entities
             {
                 Sprite = spriteSheet.GetSpriteInfo(currentAnimation.GetCurrentIntRect());
             }
+            Inventory.Update();
         }
 
         public override void Move()

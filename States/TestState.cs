@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using Fish_Girlz.UI;
 using Fish_Girlz.UI.Components;
 using Fish_Girlz.Entities;
-using Fish_Girlz.Inventory.Items;
 using Fish_Girlz.Entities.Components;
 using Fish_Girlz.Entities.Items;
 using SFML.Graphics;

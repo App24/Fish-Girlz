@@ -14,9 +14,9 @@ namespace Fish_Girlz
     {
         public static string Version="Alpha 1.0.0";
 
-        public static DiscordRpcClient client { get; private set; }
-        private static ulong startTime { get; set;}
-        public static RichPresence RichPresence;
+        //public static DiscordRpcClient client { get; private set; }
+        //private static ulong startTime { get; set;}
+        //public static RichPresence RichPresence;
 
         public static void Main(string[] args)
         {
@@ -24,26 +24,26 @@ namespace Fish_Girlz
             DisplayManager.CreateWindow(1280,720, "Fish Girlz: Mermaid Adventures");
             InputManager.InitInputManager();
             StateMachine.AddState(new MainMenuState());
-            client = new DiscordRpcClient("772930748784967750");
-            client.Logger = new ConsoleLogger() { Level = LogLevel.Error };
-            client.Initialize();
+            //client = new DiscordRpcClient("772930748784967750");
+            //client.Logger = new ConsoleLogger() { Level = LogLevel.Error };
+            //client.Initialize();
 
-            startTime = (ulong)DateTimeOffset.UtcNow.ToUnixTimeMilliseconds();
+            //startTime = (ulong)DateTimeOffset.UtcNow.ToUnixTimeMilliseconds();
 
-            RichPresence = new RichPresence()
-            {
-                Details = Version,
-                Assets = new Assets()
-                {
-                    LargeImageKey = "image"
-                },
-                Timestamps = new Timestamps()
-                {
-                    StartUnixMilliseconds = startTime
-                }
-            };
+            //RichPresence = new RichPresence()
+            //{
+            //    Details = Version,
+            //    Assets = new Assets()
+            //    {
+            //        LargeImageKey = "image"
+            //    },
+            //    Timestamps = new Timestamps()
+            //    {
+            //        StartUnixMilliseconds = startTime
+            //    }
+            //};
 
-            client.SetPresence(RichPresence);
+            //client.SetPresence(RichPresence);
 
             while(DisplayManager.Window.IsOpen){
                 StateMachine.ProcessStateChanges();
@@ -76,8 +76,8 @@ namespace Fish_Girlz
 
             StateMachine.CleanUp();
             AudioSystem.CleanUp();
-            client.Deinitialize();
-            client.Dispose();
+            //client.Deinitialize();
+            //client.Dispose();
         }
     }
 }

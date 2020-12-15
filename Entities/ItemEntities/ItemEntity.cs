@@ -2,7 +2,7 @@ using System;
 using Fish_Girlz.Art;
 using Fish_Girlz.Utils;
 using Fish_Girlz.Entities;
-using Fish_Girlz.Inventory.Items;
+using Fish_Girlz.Items;
 using Fish_Girlz.Entities.Components;
 using SFML.System;
 using Fish_Girlz.States;
@@ -30,8 +30,8 @@ namespace Fish_Girlz.Entities.Items{
         }
 
         void PickUp(PlayerEntity player){
-            bool added=player.Inventory.AddItem(Item);
-            if(added)
+            int added=player.Inventory.AddItem(Item);
+            if(added<=0)
                 ToRemove=true;
         }
 

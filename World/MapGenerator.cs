@@ -9,7 +9,7 @@ using SFML.System;
 using Fish_Girlz.Tiles;
 using Newtonsoft.Json;
 using Fish_Girlz.Entities.Items;
-using Fish_Girlz.Inventory.Items;
+using Fish_Girlz.Items;
 
 namespace Fish_Girlz.World{
     public static class MapGenerator {

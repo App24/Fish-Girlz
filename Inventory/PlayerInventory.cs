@@ -1,9 +1,10 @@
 using System;
 using System.Collections.Generic;
-using Fish_Girlz.Inventory.Items;
+using Fish_Girlz.Items;
 using Fish_Girlz.Utils;
 using Fish_Girlz.Inventory.UI;
 using SFML.System;
+using Fish_Girlz.Entities;
 
 namespace Fish_Girlz.Inventory{
     public class PlayerInventory {
@@ -12,30 +13,40 @@ namespace Fish_Girlz.Inventory{
 
         UIInventory uIInventory;
 
-        public PlayerInventory(uint inventorySize=20){
+        PlayerEntity player;
+
+        public PlayerInventory(PlayerEntity player, uint inventorySize=20){
             this.inventorySize=inventorySize;
             uIInventory=new UIInventory(new Vector2f(Utilities.CenterInWindow(DisplayManager.Width, 32+((inventorySize/2)*64)+((inventorySize/2)*10)), 200), inventorySize);
             uIInventory.Visible=false;
             StateMachine.ActiveState.AddGUI(uIInventory);
             slots=new Slot[inventorySize];
-            for (int i = 0; i < inventorySize; i++)
-            {
-                slots[i]=new Slot(null,0);
-            }
+            this.player=player;
         }
 
-        public bool AddItem(Item item, uint amount=1){
+        public int AddItem(Item item, int amount=1){
             if(IsInventoryFull())
-                return false;
+                return 1;
             (Slot slot, int index)=GetSlot(item);
-            if(slot.Item==null){
+            if(slot==null){
                 slot=new Slot(item, amount);
             }else{
-                if(!slot.IncreaseAmount(amount)) return false;
+                return slot.IncreaseAmount(amount);
             }
             slots[index]=slot;
             uIInventory.UpdateSlots(slots);
-            return true;
+            return 0;
+        }
+
+        public int RemoveItem(Item item, int amount=1){
+            if(IsInventoryEmpty())
+                return 1;
+            (Slot slot, int index)=GetSlot(item);
+            if(slot==null) return 1;
+            if(slot.DecreaseAmount()<=0) slot=null;
+            slots[index]=slot;
+            uIInventory.UpdateSlots(slots);
+            return 0;
         }
 
         (Slot, int) GetSlot(Item item){
@@ -43,24 +54,52 @@ namespace Fish_Girlz.Inventory{
             int index=-1;
             for (int i = 0; i < inventorySize; i++)
             {
-                if(slots[i].Item==item){
+                if(slots[i]!=null&&slots[i].Item==item){
                     slot=slots[i];
                     index=i;
                     break;
                 }
-                if(slots[i].Item==null){
+                if(slots[i]==null&&index<0){
                     slot=slots[i];
                     index=i;
-                    break;
                 }
             }
             return (slot, index);
         }
 
+        public void Update(){
+            if(!uIInventory.Visible)return;
+            for (int i = 0; i < inventorySize; i++)
+            {
+                Slot slot=slots[i];
+                long x=i%(inventorySize/2);
+                float y=MathF.Floor(i/(inventorySize/2));
+                if(slot!=null){
+                    if(InputManager.Hover(new Vector4f(uIInventory.Position+new Vector2f(16+(x*64)+(x*10), 16+(y*64)+(y*10)), new Vector2f(64,64)))){
+                        if(InputManager.IsMouseButtonPressed(SFML.Window.Mouse.Button.Left)){
+                            if(slot.Item.OnUse(player)){
+                                RemoveItem(slot.Item);
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
         public bool IsInventoryFull(){ 
             for (int i = 0; i < inventorySize; i++)
             {
-                if(slots[i].Item==null){
+                if(slots[i]==null){
+                    return false;
+                }
+            }
+            return true;
+        }
+
+        public bool IsInventoryEmpty(){
+            for (int i = 0; i < inventorySize; i++)
+            {
+                if(slots[i]!=null){
                     return false;
                 }
             }

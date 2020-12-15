@@ -11,7 +11,7 @@ using Fish_Girlz.Entities.Tiles;
 using Newtonsoft.Json;
 using System.IO;
 using Fish_Girlz.World;
-using Fish_Girlz.Inventory.Items;
+using Fish_Girlz.Items;
 using Fish_Girlz.Entities.Items;
 
 namespace Fish_Girlz.States{

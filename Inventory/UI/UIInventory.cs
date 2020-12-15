@@ -5,6 +5,7 @@ using Fish_Girlz.UI;
 using Fish_Girlz.UI.Components;
 using SFML.System;
 using SFML.Graphics;
+using Fish_Girlz.Entities;
 
 namespace Fish_Girlz.Inventory.UI{
     public class UIInventory : UpdatableGUI
@@ -28,9 +29,11 @@ namespace Fish_Girlz.Inventory.UI{
 
         public override void Update()
         {
-            foreach (UISlot slot in slots)
+            for (int i = 0; i < slotAmount; i++)
             {
-                slot.Update();
+                if(slots[i]!=null){
+                    slots[i].Update();
+                }
             }
         }
 

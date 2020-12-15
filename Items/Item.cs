@@ -3,23 +3,24 @@ using System.Collections.Generic;
 using SFML.Graphics;
 using Fish_Girlz.Utils;
 using Fish_Girlz.Art;
+using Fish_Girlz.Entities;
 
-namespace Fish_Girlz.Inventory.Items{
+namespace Fish_Girlz.Items{
     public abstract class Item {
         public int ID{get;}
         public string Name{get;}
-        public uint MaxStack{get;}
+        public int MaxStack{get;}
         public SpriteInfo Sprite{get;}
         public IntRect CollisionBounds{get; protected set;}
 
         static List<Item> items=new List<Item>();
 
-        public static PotionItem HEALTH_POTION=new PotionItem("Health", Color.Red);
-        public static BasicItem SWORD=new BasicItem("Sword", new SpriteInfo(Utilities.CreateTexture(64,64,Color.Red), new IntRect(0,0,64,64)),1);
+        public static PotionItem HEALTH_POTION=new PotionItem("Health", Color.Red, PotionType.Heal);
+        public static SwordItem WOODEN_SWORD=new SwordItem("Wooden", Utilities.CreateTexture(64,64,Color.Red), 1);
         public static BasicItem BOW=new BasicItem("Bow", new SpriteInfo(Utilities.CreateTexture(64,64,Color.Cyan), new IntRect(0,0,64,64)),1);
-        public static PotionItem SPEED_POTION=new PotionItem("Speed", Color.Green);
+        public static PotionItem SPEED_POTION=new PotionItem("Speed", Color.Green, PotionType.Speed);
         
-        public Item(string name, SpriteInfo sprite, uint maxStack=64){
+        public Item(string name, SpriteInfo sprite, int maxStack=64){
             ID=items.Count;
             Name=name;
             MaxStack=maxStack;
@@ -35,5 +36,7 @@ namespace Fish_Girlz.Inventory.Items{
         public static List<Item> GetItems(){
             return items.Clone();
         }
+
+        public abstract bool OnUse(PlayerEntity player);
     }
 }

@@ -138,17 +138,22 @@ namespace Fish_Girlz.Utils{
                         slotSprite.Position=gui.Position+slotComponent.Position;
                         Vector2f temp=new Vector2f(1,1);
                         Sprite itemSprite=new Sprite(Utilities.CreateTexture(1,1,new Color(0,0,0,0)));
-                        if(slotComponent.ItemTexture!=null){
-                            itemSprite=new Sprite(slotComponent.ItemTexture);
+                        if(slotComponent.Slot!=null){
+                            itemSprite=new Sprite(slotComponent.Slot.Item.Sprite.Texture);
                         }
                         itemSprite.Position=slotSprite.Position;
-                        if(slotComponent.ItemTexture!=null&&(slotComponent.ItemTexture.Size!=slotComponent.SlotTexture.Size)){
+                        if(slotComponent.Slot!=null&&(slotComponent.Slot.Item.Sprite.Texture.Size!=slotComponent.SlotTexture.Size)){
                             //temp=new Vector2f(slotComponent.MaxSize.X/(float)slotComponent.Texture.Size.X, slotComponent.MaxSize.Y/(float)slotComponent.Texture.Size.Y);
-                            temp=new Vector2f(slotComponent.SlotTexture.Size.X/(float)slotComponent.ItemTexture.Size.X, slotComponent.SlotTexture.Size.Y/(float)slotComponent.ItemTexture.Size.Y);
+                            temp=new Vector2f(slotComponent.SlotTexture.Size.X/(float)slotComponent.Slot.Item.Sprite.Texture.Size.X, slotComponent.SlotTexture.Size.Y/(float)slotComponent.Slot.Item.Sprite.Texture.Size.Y);
                         }
                         slotSprite.Scale=new Vector2f(1*temp.X, 1*temp.Y);
                         DisplayManager.Window.Draw(slotSprite);
                         DisplayManager.Window.Draw(itemSprite);
+                        if(slotComponent.Slot!=null){
+                            FontInfo fontInfo=slotComponent.FontInfo;
+                            if(slotComponent.Slot.Amount>0)
+                            DrawText(slotComponent.Slot.Amount.ToString(), fontInfo, gui.Position+slotComponent.Position, view);
+                        }
                     }
                 }
             }
@@ -158,10 +163,10 @@ namespace Fish_Girlz.Utils{
                 foreach(GUIComponent guiComponent in guiComponents){
                     if(guiComponent is UISlot){
                         UISlot slotComponent=(UISlot)guiComponent;
+                        if(slotComponent.Slot==null)continue;
                         FontInfo fontInfo=slotComponent.FontInfo;
-                        DrawText(slotComponent.TextAmount, fontInfo, gui.Position+slotComponent.Position, view);
                         if(slotComponent.ShowItemName)
-                        DrawText(slotComponent.ItemText, fontInfo, InputManager.MousePosition+new Vector2f(0,-fontInfo.Size), view);
+                        DrawText(slotComponent.Slot.Item.Name, fontInfo, InputManager.MousePosition+new Vector2f(0,-fontInfo.Size), view);
                     }
                 }
             }

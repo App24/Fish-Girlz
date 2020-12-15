@@ -10,4 +10,7 @@
 	"dialog.test1": "Hello, I'm [speaker]",
 	"dialog.test2": "My name is [speaker]",
 	"dialog.test3": "And mine is [speaker]",
+
+	"item.potion": "{0} Potion",
+	"item.sword": "{0} Sword",
 }
