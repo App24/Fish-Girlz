@@ -11,7 +11,7 @@ namespace Fish_Girlz.Inventory{
         Slot[] slots;
         uint inventorySize;
 
-        Slot weaponSlot;
+        Slot ringSlot, necklaceSlot;
         Slot helmetSlot, chestSlot, leggingsSlot, bootsSlot;
 
         UIInventory uIInventory;
@@ -20,12 +20,14 @@ namespace Fish_Girlz.Inventory{
 
         public PlayerInventory(PlayerEntity player, uint inventorySize=20){
             this.inventorySize=inventorySize;
-            uIInventory=new UIInventory(new Vector2f(Utilities.CenterInWindow(DisplayManager.Width, 32+((inventorySize/2)*64)+((inventorySize/2)*10)), 200), inventorySize);
+            uIInventory=new UIInventory(new Vector2f(Utilities.CenterInWindow(DisplayManager.Width, 32+((inventorySize/2)*64)+((inventorySize/2)*10)+192), 200), inventorySize);
             uIInventory.Visible=false;
             StateMachine.ActiveState.AddGUI(uIInventory);
             slots=new Slot[inventorySize];
             this.player=player;
-            weaponSlot=new Slot(null,0);
+            ringSlot=new Slot(null,0);
+            necklaceSlot=new Slot(null, 0);
+            
             helmetSlot=new Slot(null,0);
             chestSlot=new Slot(null,0);
             leggingsSlot=new Slot(null, 0);
@@ -98,14 +100,23 @@ namespace Fish_Girlz.Inventory{
                     }
                 }
             }
-            if(ClickSlot(uIInventory.WeaponSlot)){
-                if(weaponSlot.Item!=null){
-                    if(AddItem(weaponSlot.Item)<=0){
-                        weaponSlot.SetItem(null);
-                        uIInventory.UpdateWeaponSlot(weaponSlot);
+            if(ClickSlot(uIInventory.RingSlot)){
+                if(ringSlot.Item!=null){
+                    if(AddItem(ringSlot.Item)<=0){
+                        ringSlot.SetItem(null);
+                        uIInventory.UpdateRingSlot(ringSlot);
                     }
                 }
             }
+            if(ClickSlot(uIInventory.NecklaceSlot)){
+                if(necklaceSlot.Item!=null){
+                    if(AddItem(necklaceSlot.Item)<=0){
+                        necklaceSlot.SetItem(null);
+                        uIInventory.UpdateNecklaceSlot(necklaceSlot);
+                    }
+                }
+            }
+
             if(ClickSlot(uIInventory.HelmetSlot)){
                 if(helmetSlot.Item!=null){
                     if(AddItem(helmetSlot.Item)<=0){
@@ -160,10 +171,17 @@ namespace Fish_Girlz.Inventory{
             return true;
         }
 
-        public bool SetWeapon(WeaponItem weaponItem){
-            if(weaponSlot.Item!=null) return false;
-            weaponSlot.SetItem(weaponItem);
-            uIInventory.UpdateWeaponSlot(weaponSlot);
+        public bool SetRing(RingItem ringItem){
+            if(ringSlot.Item!=null) return false;
+            ringSlot.SetItem(ringItem);
+            uIInventory.UpdateRingSlot(ringSlot);
+            return true;
+        }
+
+        public bool SetNecklace(NecklaceItem necklaceItem){
+            if(necklaceSlot.Item!=null) return false;
+            necklaceSlot.SetItem(necklaceItem);
+            uIInventory.UpdateNecklaceSlot(necklaceSlot);
             return true;
         }
 

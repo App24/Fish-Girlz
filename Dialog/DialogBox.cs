@@ -11,7 +11,7 @@ namespace Fish_Girlz.Dialog{
         UIDialogBox dialogBox;
         List<DialogInfo> dialogs=new List<DialogInfo>();
         int index=0;
-        bool writing;
+        //bool writing;
         bool ignore;
 
         public DialogBox(){

@@ -1,0 +1,11 @@
+{
+  "Type": "Chestplate",
+  "ItemData": [
+    {
+      "Name": "defense",
+      "Value": 8
+    }
+  ],
+  "Name": "item.armor.chestplate.normal",
+  "TextureName": "armor/normal/chestplate.png"
+}

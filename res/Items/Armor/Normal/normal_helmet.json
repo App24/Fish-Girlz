@@ -1,0 +1,11 @@
+{
+  "Type": "Helmet",
+  "ItemData": [
+    {
+      "Name": "defense",
+      "Value": 3
+    }
+  ],
+  "Name": "item.armor.helmet.normal",
+  "TextureName": "armor/normal/helmet.png"
+}

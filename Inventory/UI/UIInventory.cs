@@ -13,25 +13,27 @@ namespace Fish_Girlz.Inventory.UI{
         List<UISlot> slots=new List<UISlot>();
         uint slotAmount;
 
-        UISlot weaponSlot;
+        UISlot ringSlot, necklaceSlot;
         UISlot helmetSlot, chestSlot, leggingsSlot, bootsSlot;
 
         public UIInventory(Vector2f position, uint slotAmount) : base(position)
         {
-            AddComponent(new TextureComponent(Utilities.CreateTexture(32+((slotAmount/2)*64)+((slotAmount/2)*10)+128,128+(2*64)+(2*10),Color.Green)));
+            AddComponent(new TextureComponent(Utilities.CreateTexture(32+((slotAmount/2)*64)+((slotAmount/2)*10)+192,256+(2*64)+(2*10),Color.Green)));
             for (int y = 0; y < 2; y++)
             {
                 for (int x = 0; x < slotAmount/2; x++)
                 {
-                    slots.Add(AddComponent(new UISlot(new Vector2f(16+(x*64)+(x*10), 112+(y*64)+(y*10)))));
+                    slots.Add(AddComponent(new UISlot(new Vector2f(16+(x*64)+(x*10), 16+(2*64)+(2*10)+(y*64)+(y*10)))));
                     //slots.Add(new UISlot(new Vector2f(128+(x*64)+(x*10), 128+(y*64)+(y*10)), this));
                 }
             }
-            weaponSlot=AddComponent(new UISlot(new Vector2f(32+((slotAmount/2)*64)+((slotAmount/2)*10),112+32)));
-            helmetSlot=AddComponent(new UISlot(new Vector2f(16,16)));
-            chestSlot=AddComponent(new UISlot(new Vector2f(16+64+10, 16)));
-            leggingsSlot=AddComponent(new UISlot(new Vector2f(16+(64*2)+(10*2), 16)));
-            bootsSlot=AddComponent(new UISlot(new Vector2f(16+(64*3)+(10*3), 16)));
+            ringSlot=AddComponent(new UISlot(new Vector2f(32+((slotAmount/2)*64)+((slotAmount/2)*10),16+(2*64)+(2*10))));
+            necklaceSlot=AddComponent(new UISlot(new Vector2f(32+((slotAmount/2)*64)+((slotAmount/2)*10),16+(1*64)+(1*10))));
+            
+            helmetSlot=AddComponent(new UISlot(new Vector2f(32+((slotAmount/2)*64)+((slotAmount/2)*10)+74,16)));
+            chestSlot=AddComponent(new UISlot(new Vector2f(32+((slotAmount/2)*64)+((slotAmount/2)*10)+74, 16+(1*64)+(1*10))));
+            leggingsSlot=AddComponent(new UISlot(new Vector2f(32+((slotAmount/2)*64)+((slotAmount/2)*10)+74, 16+(2*64)+(2*10))));
+            bootsSlot=AddComponent(new UISlot(new Vector2f(32+((slotAmount/2)*64)+((slotAmount/2)*10)+74, 16+(3*64)+(3*10))));
             this.slotAmount=slotAmount;
         }
 
@@ -43,15 +45,21 @@ namespace Fish_Girlz.Inventory.UI{
                     slots[i].Update();
                 }
             }
-            weaponSlot.Update();
+            ringSlot.Update();
+            necklaceSlot.Update();
+
             helmetSlot.Update();
             chestSlot.Update();
             leggingsSlot.Update();
             bootsSlot.Update();
         }
 
-        public void UpdateWeaponSlot(Slot weaponSlot){
-            this.weaponSlot.UpdateSlot(weaponSlot);
+        public void UpdateRingSlot(Slot ringSlot){
+            this.ringSlot.UpdateSlot(ringSlot);
+        }
+
+        public void UpdateNecklaceSlot(Slot necklaceSlot){
+            this.necklaceSlot.UpdateSlot(necklaceSlot);
         }
 
         public void UpdateHelmetSlot(Slot helmetSlot){
@@ -79,7 +87,9 @@ namespace Fish_Girlz.Inventory.UI{
 
         public List<UISlot> Slots=>slots.Clone();
 
-        public UISlot WeaponSlot=>weaponSlot;
+        public UISlot RingSlot=>ringSlot;
+        public UISlot NecklaceSlot=>necklaceSlot;
+
         public UISlot HelmetSlot=>helmetSlot;
         public UISlot ChestSlot=>chestSlot;
         public UISlot LeggingsSlot=>leggingsSlot;

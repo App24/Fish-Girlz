@@ -72,6 +72,98 @@ namespace Fish_Girlz.Items{
                         }
                         new PotionItem(id, loadItemData.Name, texture, potionColor, potionType);
                         break;
+                    case ItemType.Helmet:{
+                        float defense=0;
+                        foreach (ItemTypeData item in itemData)
+                        {
+                            switch (item.Name.ToLower())
+                            {
+                                case "defense":
+                                    defense=item.GetValue<float>();
+                                    break;
+                            }
+                        }
+                        new HelmetArmorItem(id, loadItemData.Name, texture, defense);
+                        }
+                        break;
+                    case ItemType.Chestplate:{
+                        float defense=0;
+                        foreach (ItemTypeData item in itemData)
+                        {
+                            switch (item.Name.ToLower())
+                            {
+                                case "defense":
+                                    defense=item.GetValue<float>();
+                                    break;
+                            }
+                        }
+                        new ChestPlateArmorItem(id, loadItemData.Name, texture, defense);
+                        }
+                        break;
+                    case ItemType.Leggings:{
+                        float defense=0;
+                        foreach (ItemTypeData item in itemData)
+                        {
+                            switch (item.Name.ToLower())
+                            {
+                                case "defense":
+                                    defense=item.GetValue<float>();
+                                    break;
+                            }
+                        }
+                        new LeggingsArmorItem(id, loadItemData.Name, texture, defense);
+                        }
+                        break;
+                    case ItemType.Boots:{
+                        float defense=0;
+                        foreach (ItemTypeData item in itemData)
+                        {
+                            switch (item.Name.ToLower())
+                            {
+                                case "defense":
+                                    defense=item.GetValue<float>();
+                                    break;
+                            }
+                        }
+                        new BootsArmorItem(id, loadItemData.Name, texture, defense);
+                        }
+                        break;
+                    case ItemType.Ring:{
+                        StatModifier stat=StatModifier.None;
+                        int amount=0;
+                        foreach (ItemTypeData item in itemData)
+                        {
+                            switch (item.Name.ToLower())
+                            {
+                                case "stat":
+                                    stat=(StatModifier)Enum.Parse(typeof(StatModifier), item.GetValue<string>());
+                                    break;
+                                case "amount":
+                                    amount=item.GetValue<int>();
+                                    break;
+                            }
+                        }
+                        new RingItem(id, loadItemData.Name, texture, stat, amount);
+                        }
+                        break;
+                    case ItemType.Necklace:{
+                        StatModifier stat=StatModifier.None;
+                        int amount=0;
+                        foreach (ItemTypeData item in itemData)
+                        {
+                            switch (item.Name.ToLower())
+                            {
+                                case "stat":
+                                    stat=(StatModifier)Enum.Parse(typeof(StatModifier), item.GetValue<string>());
+                                    break;
+                                case "amount":
+                                    amount=item.GetValue<int>();
+                                    break;
+                            }
+                        }
+                        new NecklaceItem(id, loadItemData.Name, texture, stat, amount);
+                        }
+                        break;
                     case ItemType.Sword:
                         int damage=0;
                         foreach (ItemTypeData item in itemData)
@@ -120,12 +212,15 @@ namespace Fish_Girlz.Items{
             try{
                 return ((JObject)Convert.ChangeType(Value, typeof(JObject))).ToObject<T>();
             }catch{
-                return (T)Convert.ChangeType((string)Value, typeof(T));
+                return (T)Convert.ChangeType(Value, typeof(T));
             }
         }
     }
  
     enum ItemType{
-        Potion, Sword
+        Potion, Sword,
+        //Armor
+        Helmet, Chestplate, Leggings, Boots,
+        Ring, Necklace
     }
 }

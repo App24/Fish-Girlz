@@ -17,7 +17,42 @@
         "X": 9.0,
         "Y": 5.0
       },
-      "ID": "normal_sword"
+      "ID": "normal_helmet"
+    },
+    {
+      "Position": {
+        "X": 10.0,
+        "Y": 5.0
+      },
+      "ID": "normal_chestplate"
+    },
+    {
+      "Position": {
+        "X": 11.0,
+        "Y": 5.0
+      },
+      "ID": "normal_leggings"
+    },
+    {
+      "Position": {
+        "X": 12.0,
+        "Y": 5.0
+      },
+      "ID": "normal_boots"
+    },
+    {
+      "Position": {
+        "X": 13.0,
+        "Y": 5.0
+      },
+      "ID": "moon_ring"
+    },
+    {
+      "Position": {
+        "X": 14.0,
+        "Y": 5.0
+      },
+      "ID": "moon_necklace"
     }
   ]
 }

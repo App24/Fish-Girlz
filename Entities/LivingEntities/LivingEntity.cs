@@ -9,10 +9,13 @@ namespace Fish_Girlz.Entities{
         public int MaxHealth {get; protected set;}
         public int Health {get; protected set;}
 
+        public EntityStats Stats{get;protected set;}
+
         public LivingEntity(Vector2f position, SpriteInfo sprite, int maxHealth) : base(position, sprite)
         {
             MaxHealth=maxHealth;
             Health=maxHealth;
+            Stats=new EntityStats(2,2,2,2,2,2,2);
         }
     
         public void Damage(int amount){

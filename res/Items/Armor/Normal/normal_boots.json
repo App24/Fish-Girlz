@@ -1,0 +1,11 @@
+{
+  "Type": "Boots",
+  "ItemData": [
+    {
+      "Name": "defense",
+      "Value": 2
+    }
+  ],
+  "Name": "item.armor.boots.normal",
+  "TextureName": "armor/normal/boots.png"
+}

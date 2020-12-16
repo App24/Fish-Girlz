@@ -13,5 +13,12 @@
 	
 	"item.potion.health": "Health Potion",
 	
-	"item.weapon.sword.normal": "Normal Sword"
+	"item.ring.moon": "Moon Ring",
+	
+	"item.necklace.moon": "Moon Necklace",
+	
+	"item.armor.helmet.normal": "Normal Helmet",
+	"item.armor.chestplate.normal": "Normal Chestplate",
+	"item.armor.leggings.normal": "Normal Leggings",
+	"item.armor.boots.normal": "Normal Boots",
 }

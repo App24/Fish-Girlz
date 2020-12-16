@@ -5,6 +5,7 @@ using SFML.Graphics;
 using Fish_Girlz.Localisation;
 
 namespace Fish_Girlz.Items{
+    [Obsolete]
     public class SwordItem : WeaponItem
     {
 
