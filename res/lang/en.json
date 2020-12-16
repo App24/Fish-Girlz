@@ -10,14 +10,8 @@
 	"dialog.test1": "Hello, I'm [speaker]",
 	"dialog.test2": "My name is [speaker]",
 	"dialog.test3": "And mine is [speaker]",
-
-	"item.potion": "{0} Potion",
-	"item.sword": "{0} Sword",
-	"item.bow": "{0} Bow",
-
-	"item.armor.helmet": "{0} Helmet",
-	"item.armor.chest": "{0} Chestplate",
-	"item.armor.leggings": "{0} Leggings",
-	"item.armor.gloves": "{0} Gloves",
-	"item.armor.boots": "{0} Boots",
+	
+	"item.potion.health": "Health Potion",
+	
+	"item.weapon.sword.normal": "Normal Sword"
 }

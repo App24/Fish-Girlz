@@ -6,7 +6,7 @@ using SFML.Graphics;
 namespace Fish_Girlz.Items{
     public class BootsArmorItem : ArmorItem
     {
-        public BootsArmorItem(string name, Texture texture, float defense) : base(Language.GetCurrentLanguage().GetTranslation("item.armor.boots", name), texture, defense)
+        public BootsArmorItem(string id, string name, Texture texture, float defense) : base(id, name, texture, defense)
         {
         }
 

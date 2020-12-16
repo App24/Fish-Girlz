@@ -8,7 +8,7 @@ namespace Fish_Girlz.Items{
     {
         public float Defense{get;}
 
-        public ArmorItem(string name, Texture texture, float defense) : base(name, new SpriteInfo(texture, new IntRect(0,0,64,64)), 1)
+        public ArmorItem(string id, string name, Texture texture, float defense) : base(id, name, new SpriteInfo(texture, new IntRect(0,0,64,64)), 1)
         {
             Defense=defense;
         }

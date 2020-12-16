@@ -1,87 +1,23 @@
 {
   "PlayerPos": {
-    "X": 2.0,
-    "Y": 2.0
+    "X": 3.0,
+    "Y": 3.0
   },
-  "TilesData": [
-    {
-      "Position": {
-        "X": 6.0,
-        "Y": 3.0
-      },
-      "ID": 1
-    },
-    {
-      "Position": {
-        "X": 7.0,
-        "Y": 3.0
-      },
-      "ID": 2
-    },
-    {
-      "Position": {
-        "X": 8.0,
-        "Y": 3.0
-      },
-      "ID": 3
-    }
-  ],
+  "TilesData": [],
   "ItemsData": [
     {
       "Position": {
-        "X": 6.0,
-        "Y": 6.0
-      },
-      "ID": 0
-    },
-    {
-      "Position": {
-        "X": 7.0,
-        "Y": 6.0
-      },
-      "ID": 1
-    },
-    {
-      "Position": {
         "X": 8.0,
-        "Y": 6.0
+        "Y": 5.0
       },
-      "ID": 2
+      "ID": "health_potion"
     },
     {
       "Position": {
         "X": 9.0,
-        "Y": 6.0
+        "Y": 5.0
       },
-      "ID": 3
-    },
-    {
-      "Position": {
-        "X": 10.0,
-        "Y": 6.0
-      },
-      "ID": 4
-    },
-    {
-      "Position": {
-        "X": 11.0,
-        "Y": 6.0
-      },
-      "ID": 5
-    },
-    {
-      "Position": {
-        "X": 12.0,
-        "Y": 6.0
-      },
-      "ID": 6
-    },
-    {
-      "Position": {
-        "X": 13.0,
-        "Y": 6.0
-      },
-      "ID": 7
+      "ID": "normal_sword"
     }
   ]
 }

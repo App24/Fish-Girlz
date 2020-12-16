@@ -33,11 +33,15 @@ namespace Fish_Girlz.World{
             itemEntities.Clear();
             foreach (TileData tileData in mapData.TilesData)
             {
-                tileEntities.Add(new TileEntity(tileData.Position*64, Tile.GetTile(tileData.ID)));
+                Tile tile=Tile.GetTile(tileData.ID);
+                if(tile==null)continue;
+                tileEntities.Add(new TileEntity(tileData.Position*64, tile));
             }
             foreach (ItemData itemData in mapData.ItemsData)
             {
-                itemEntities.Add(new ItemEntity(itemData.Position*64, Item.GetItem(itemData.ID)));
+                Item item=Item.GetItem(itemData.ID);
+                if(item==null)continue;
+                itemEntities.Add(new ItemEntity(itemData.Position*64, item));
             }
         }
 
@@ -66,9 +70,9 @@ namespace Fish_Girlz.World{
 
     public struct ItemData{
         public Vector2f Position{get;}
-        public int ID{get;}
+        public string ID{get;}
 
-        public ItemData(Vector2f position, int id){
+        public ItemData(Vector2f position, string id){
             Position=position;
             ID=id;
         }

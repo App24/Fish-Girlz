@@ -92,9 +92,9 @@ namespace Fish_Girlz.Utils{
             return texture;
         }
 
-        public static string GetFileNameWithoutExtension(this string filePath){
+        /*public static string GetFileNameWithoutExtension(this string filePath){
             return Path.GetFileNameWithoutExtension(filePath);
-        }
+        }*/
 
         public static double Distance(this Vector2f v1, Vector2f v2){
             Vector2f dif=v1-v2;

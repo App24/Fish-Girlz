@@ -7,7 +7,7 @@ using Fish_Girlz.Localisation;
 namespace Fish_Girlz.Items{
     public class BowItem : WeaponItem
     {
-        public BowItem(string name, Texture texture, int damage) : base(Language.GetCurrentLanguage().GetTranslation("item.bow", name), texture, damage)
+        public BowItem(string id, string name, Texture texture, int damage) : base(id, name, texture, damage)
         {
         }
     }

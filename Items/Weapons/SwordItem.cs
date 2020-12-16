@@ -8,7 +8,7 @@ namespace Fish_Girlz.Items{
     public class SwordItem : WeaponItem
     {
 
-        public SwordItem(string name, Texture texture, int damage) : base(Language.GetCurrentLanguage().GetTranslation("item.sword", name), texture, damage)
+        public SwordItem(string id, string name, Texture texture, int damage) : base(id, name, texture, damage)
         {
         }
     }

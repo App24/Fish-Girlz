@@ -15,8 +15,6 @@ namespace Fish_Girlz.Utils
             AssetManager.LoadTexture("astra portrait", "res/textures/Characters/Astra/portrait.png");
             AssetManager.LoadTexture("laurely portrait", "res/textures/Characters/Laurely/portrait.png");
 
-            AssetManager.LoadTexture("potion", "res/textures/Items/potion.png");
-
             AssetManager.LoadTexture("temp", "res/textures/temp player.png");
             AssetManager.LoadSoundBuffer("Button Click", "res/audio/button_click.wav");
             AssetManager.LoadFont("Arial", "res/fonts/arial.ttf");

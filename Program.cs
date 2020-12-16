@@ -7,6 +7,7 @@ using DiscordRPC.Events;
 using DiscordRPC.Message;
 using DiscordRPC.Logging;
 using SFML.Window;
+using Fish_Girlz.Items;
 
 namespace Fish_Girlz
 {
@@ -23,6 +24,7 @@ namespace Fish_Girlz
             AssetLoader.LoadAssets();
             DisplayManager.CreateWindow(1280,720, "Fish Girlz: Mermaid Adventures");
             InputManager.InitInputManager();
+            ItemLoader.LoadItems();
             StateMachine.AddState(new MainMenuState());
             //client = new DiscordRpcClient("772930748784967750");
             //client.Logger = new ConsoleLogger() { Level = LogLevel.Error };

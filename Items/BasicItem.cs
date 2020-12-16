@@ -6,7 +6,7 @@ using SFML.Graphics;
 namespace Fish_Girlz.Items{
     public class BasicItem : Item
     {
-        public BasicItem(string name, SpriteInfo sprite, int maxStack=64) : base(name, sprite, maxStack)
+        public BasicItem(string id, string name, SpriteInfo sprite, int maxStack=64) : base(id, name, sprite, maxStack)
         {
         }
 

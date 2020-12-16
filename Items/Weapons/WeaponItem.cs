@@ -8,7 +8,7 @@ namespace Fish_Girlz.Items{
     {
         public int Damage{get;}
 
-        public WeaponItem(string name, Texture texture, int damage) : base(name, new SpriteInfo(texture, new IntRect(0,0,64,64)), 1)
+        public WeaponItem(string id, string name, Texture texture, int damage) : base(id, name, new SpriteInfo(texture, new IntRect(0,0,64,64)), 1)
         {
             Damage=damage;
         }

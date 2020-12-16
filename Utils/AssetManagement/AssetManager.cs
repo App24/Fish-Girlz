@@ -20,8 +20,9 @@ namespace Fish_Girlz.Utils
         {
             try
             {
+                if(textures.ContainsKey(name)) return;
                 Texture texture = new Texture(filePath);
-                LoadTexture(name, texture);
+                textures.Add(name, texture);
                 //Collision.CreateBitmask(texture);
             }
             catch (LoadingFailedException)
@@ -30,14 +31,11 @@ namespace Fish_Girlz.Utils
             }
         }
 
-        public static void LoadTexture(string name, Texture texture){
-            textures.Add(name, texture);
-        }
-
         public static void LoadSpriteSheet(string name, string filePath, int spriteWidth, int spriteHeight)
         {
             try
             {
+                if(spriteSheets.ContainsKey(name)) return;
                 Texture texture = new Texture(filePath);
                 SpriteSheet spriteSheet = new SpriteSheet(texture, spriteWidth, spriteHeight);
                 spriteSheets.Add(name, spriteSheet);
@@ -53,6 +51,7 @@ namespace Fish_Girlz.Utils
         {
             try
             {
+                if(fonts.ContainsKey(name)) return;
                 Font font = new Font(filePath);
                 fonts.Add(name, font);
                 //File.Delete(Utilities.GetFileInTemp(name+".ttf"));
@@ -64,6 +63,7 @@ namespace Fish_Girlz.Utils
         }
 
         public static void LoadObject(string name, object value){
+            if(objects.ContainsKey(name)) return;
             objects.Add(name, value);
         }
 

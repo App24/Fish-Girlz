@@ -4,10 +4,11 @@ using SFML.Graphics;
 using Fish_Girlz.Utils;
 using Fish_Girlz.Art;
 using Fish_Girlz.Entities;
+using Fish_Girlz.Localisation;
 
 namespace Fish_Girlz.Items{
     public abstract class Item {
-        public int ID{get;}
+        public string ID{get;}
         public string Name{get;}
         public int MaxStack{get;}
         public SpriteInfo Sprite{get;}
@@ -15,7 +16,7 @@ namespace Fish_Girlz.Items{
 
         static List<Item> items=new List<Item>();
 
-        #region Item Inits
+        /*#region Item Inits
         public static PotionItem HEALTH_POTION=new PotionItem("Health", Color.Red, PotionType.Heal);
         public static SwordItem WOODEN_SWORD=new SwordItem("Wooden", Utilities.CreateTexture(64,64,Color.Red), 1);
         public static BowItem NORMAL_BOW=new BowItem("Normal", Utilities.CreateTexture(64,64,Color.Cyan), 1);
@@ -24,18 +25,18 @@ namespace Fish_Girlz.Items{
         public static ChestPlateArmorItem NORMAL_CHESTPLATE=new ChestPlateArmorItem("Normal", Utilities.CreateTexture(64,64,Color.Yellow), 10);
         public static LeggingsArmorItem NORMAL_LEGGINGS=new LeggingsArmorItem("Normal", Utilities.CreateTexture(64,64,Color.Blue), 5);
         public static BootsArmorItem NORMAL_BOOTS=new BootsArmorItem("Normal", Utilities.CreateTexture(64,64,Color.Green), 3);
-        #endregion
+        #endregion*/
 
-        public Item(string name, SpriteInfo sprite, int maxStack=64){
-            ID=items.Count;
-            Name=name;
+        public Item(string id, string name, SpriteInfo sprite, int maxStack=64){
+            ID=id;
+            Name=Language.GetCurrentLanguage().GetTranslation(name);
             MaxStack=maxStack;
             Sprite=sprite;
             CollisionBounds=new IntRect(0,0,sprite.Bounds.Width, sprite.Bounds.Height);
             items.Add(this);
         }
 
-        public static Item GetItem(int id){
+        public static Item GetItem(string id){
             return items.Find(delegate(Item item){if(item.ID==id)return true; return false;});
         }
 

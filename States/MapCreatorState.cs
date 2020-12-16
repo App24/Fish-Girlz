@@ -43,7 +43,7 @@ namespace Fish_Girlz.States{
             tileName.OutlineColor=SFML.Graphics.Color.White;
             tileName.OutlineThickness=2;
             selectedTile=Tile.GetTile(tileId);
-            selectedItem=Item.GetItem(itemId);
+            selectedItem=Item.GetItem(Item.GetItems()[itemId].ID);
             tileName.Text=selectedTile.Name;
             previewSprite=new LayeredSprite();
             sprites.Add(previewSprite);
@@ -114,13 +114,13 @@ namespace Fish_Girlz.States{
                     if(InputManager.ScrollDelta<0){
                         itemId--;
                         if(itemId<0) itemId=Item.GetItems().Count-1;
-                        selectedItem=Item.GetItem(itemId);
+                        selectedItem=Item.GetItem(Item.GetItems()[itemId].ID);
                         tileName.Text=selectedItem.Name;
                     }
                     if(InputManager.ScrollDelta>0){
                         itemId++;
                         if(itemId>Item.GetItems().Count-1) itemId=0;
-                        selectedItem=Item.GetItem(itemId);
+                        selectedItem=Item.GetItem(Item.GetItems()[itemId].ID);
                         tileName.Text=selectedItem.Name;
                     }
 
@@ -182,11 +182,15 @@ namespace Fish_Girlz.States{
                         items.Clear();
                         foreach (TileData tileData in mapData.TilesData)
                         {
-                            tiles.Add(tileData.Position*64, AddTileEntity(new TileEntity(tileData.Position*64, Tile.GetTile(tileData.ID))));
+                            Tile tile=Tile.GetTile(tileData.ID);
+                            if(tile==null)continue;
+                            tiles.Add(tileData.Position*64, AddTileEntity(new TileEntity(tileData.Position*64, tile)));
                         }
                         foreach (ItemData itemData in mapData.ItemsData)
                         {
-                            items.Add(itemData.Position*64, AddItem(new ItemEntity(itemData.Position*64, Item.GetItem(itemData.ID))));
+                            Item item=Item.GetItem(itemData.ID);
+                            if(item==null)continue;
+                            items.Add(itemData.Position*64, AddItem(new ItemEntity(itemData.Position*64, item)));
                         }
                         playerPosSprite.Position=mapData.PlayerPos*64;
                         if(!sprites.Contains(playerPosSprite))

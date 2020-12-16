@@ -1,0 +1,11 @@
+{
+  "Type": "Sword",
+  "ItemData": [
+    {
+      "Name": "damage",
+      "Value": "1"
+    }
+  ],
+  "Name": "item.weapon.sword.normal",
+  "TextureName": "weapons/sword.png"
+}

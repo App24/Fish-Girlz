@@ -17,9 +17,9 @@ namespace Fish_Girlz.Utils{
         public static void Render(){
             State currentState=StateMachine.ActiveState;
             RenderTiles(currentState.GetTileEntities());
-            RenderSprites(currentState.GetSprites());
             RenderItems(currentState.GetItems());
             RenderEntities(currentState.GetEntities());
+            RenderSprites(currentState.GetSprites());
             RenderGUI(currentState.GetGUIs());
         }
 
