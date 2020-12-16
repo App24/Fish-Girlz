@@ -22,6 +22,8 @@ namespace Fish_Girlz.Items{
         public static PotionItem SPEED_POTION=new PotionItem("Speed", Color.Green, PotionType.Speed);
         public static HelmetArmorItem NORMAL_HEMET=new HelmetArmorItem("Normal", Utilities.CreateTexture(64,64,Color.Magenta), 5);
         public static ChestPlateArmorItem NORMAL_CHESTPLATE=new ChestPlateArmorItem("Normal", Utilities.CreateTexture(64,64,Color.Yellow), 10);
+        public static LeggingsArmorItem NORMAL_LEGGINGS=new LeggingsArmorItem("Normal", Utilities.CreateTexture(64,64,Color.Blue), 5);
+        public static BootsArmorItem NORMAL_BOOTS=new BootsArmorItem("Normal", Utilities.CreateTexture(64,64,Color.Green), 3);
         #endregion
 
         public Item(string name, SpriteInfo sprite, int maxStack=64){

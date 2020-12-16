@@ -14,7 +14,7 @@ namespace Fish_Girlz.Inventory.UI{
         uint slotAmount;
 
         UISlot weaponSlot;
-        UISlot helmetSlot, chestSlot;
+        UISlot helmetSlot, chestSlot, leggingsSlot, bootsSlot;
 
         public UIInventory(Vector2f position, uint slotAmount) : base(position)
         {
@@ -30,6 +30,8 @@ namespace Fish_Girlz.Inventory.UI{
             weaponSlot=AddComponent(new UISlot(new Vector2f(32+((slotAmount/2)*64)+((slotAmount/2)*10),112+32)));
             helmetSlot=AddComponent(new UISlot(new Vector2f(16,16)));
             chestSlot=AddComponent(new UISlot(new Vector2f(16+64+10, 16)));
+            leggingsSlot=AddComponent(new UISlot(new Vector2f(16+(64*2)+(10*2), 16)));
+            bootsSlot=AddComponent(new UISlot(new Vector2f(16+(64*3)+(10*3), 16)));
             this.slotAmount=slotAmount;
         }
 
@@ -44,6 +46,8 @@ namespace Fish_Girlz.Inventory.UI{
             weaponSlot.Update();
             helmetSlot.Update();
             chestSlot.Update();
+            leggingsSlot.Update();
+            bootsSlot.Update();
         }
 
         public void UpdateWeaponSlot(Slot weaponSlot){
@@ -58,6 +62,14 @@ namespace Fish_Girlz.Inventory.UI{
             this.chestSlot.UpdateSlot(chestSlot);
         }
 
+        public void UpdateLeggingsSlot(Slot leggingsSlot){
+            this.leggingsSlot.UpdateSlot(leggingsSlot);
+        }
+
+        public void UpdateBootsSlot(Slot bootsSlot){
+            this.bootsSlot.UpdateSlot(bootsSlot);
+        }
+
         public void UpdateSlots(Slot[] slots){
             for (int i = 0; i < slotAmount; i++)
             {
@@ -70,5 +82,7 @@ namespace Fish_Girlz.Inventory.UI{
         public UISlot WeaponSlot=>weaponSlot;
         public UISlot HelmetSlot=>helmetSlot;
         public UISlot ChestSlot=>chestSlot;
+        public UISlot LeggingsSlot=>leggingsSlot;
+        public UISlot BootsSlot=>bootsSlot;
     }
 }

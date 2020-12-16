@@ -12,7 +12,7 @@ namespace Fish_Girlz.Inventory{
         uint inventorySize;
 
         Slot weaponSlot;
-        Slot helmetSlot, chestSlot;
+        Slot helmetSlot, chestSlot, leggingsSlot, bootsSlot;
 
         UIInventory uIInventory;
 
@@ -28,6 +28,8 @@ namespace Fish_Girlz.Inventory{
             weaponSlot=new Slot(null,0);
             helmetSlot=new Slot(null,0);
             chestSlot=new Slot(null,0);
+            leggingsSlot=new Slot(null, 0);
+            bootsSlot=new Slot(null, 0);
         }
 
         public int AddItem(Item item, int amount=1){
@@ -120,6 +122,22 @@ namespace Fish_Girlz.Inventory{
                     }
                 }
             }
+            if(ClickSlot(uIInventory.LeggingsSlot)){
+                if(leggingsSlot.Item!=null){
+                    if(AddItem(leggingsSlot.Item)<=0){
+                        leggingsSlot.SetItem(null);
+                        uIInventory.UpdateLeggingsSlot(leggingsSlot);
+                    }
+                }
+            }
+            if(ClickSlot(uIInventory.BootsSlot)){
+                if(bootsSlot.Item!=null){
+                    if(AddItem(bootsSlot.Item)<=0){
+                        bootsSlot.SetItem(null);
+                        uIInventory.UpdateBootsSlot(bootsSlot);
+                    }
+                }
+            }
         }
 
         public bool IsInventoryFull(){ 
@@ -160,6 +178,20 @@ namespace Fish_Girlz.Inventory{
             if(chestSlot.Item!=null) return false;
             chestSlot.SetItem(chestPlateArmorItem);
             uIInventory.UpdateChestSlot(chestSlot);
+            return true;
+        }
+
+        public bool SetLeggings(LeggingsArmorItem leggingsArmorItem){
+            if(leggingsSlot.Item!=null) return false;
+            leggingsSlot.SetItem(leggingsArmorItem);
+            uIInventory.UpdateLeggingsSlot(leggingsSlot);
+            return true;
+        }
+
+        public bool SetBoots(BootsArmorItem bootsArmorItem){
+            if(bootsSlot.Item!=null) return false;
+            bootsSlot.SetItem(bootsArmorItem);
+            uIInventory.UpdateBootsSlot(bootsSlot);
             return true;
         }
 

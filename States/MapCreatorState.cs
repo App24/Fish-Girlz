@@ -71,13 +71,13 @@ namespace Fish_Girlz.States{
                 case SelectedEdit.Tile:
                     if(InputManager.ScrollDelta<0){
                         tileId--;
-                        if(tileId<1) tileId=1;
+                        if(tileId<1) tileId=Tile.GetTiles().Count-1;
                         selectedTile=Tile.GetTile(tileId);
                         tileName.Text=selectedTile.Name;
                     }
                     if(InputManager.ScrollDelta>0){
                         tileId++;
-                        if(tileId>Tile.GetTiles().Count-1) tileId=Tile.GetTiles().Count-1;
+                        if(tileId>Tile.GetTiles().Count-1) tileId=1;
                         selectedTile=Tile.GetTile(tileId);
                         tileName.Text=selectedTile.Name;
                     }
@@ -113,13 +113,13 @@ namespace Fish_Girlz.States{
                 case SelectedEdit.Item:
                     if(InputManager.ScrollDelta<0){
                         itemId--;
-                        if(itemId<0) itemId=0;
+                        if(itemId<0) itemId=Item.GetItems().Count-1;
                         selectedItem=Item.GetItem(itemId);
                         tileName.Text=selectedItem.Name;
                     }
                     if(InputManager.ScrollDelta>0){
                         itemId++;
-                        if(itemId>Item.GetItems().Count-1) itemId=Item.GetItems().Count-1;
+                        if(itemId>Item.GetItems().Count-1) itemId=0;
                         selectedItem=Item.GetItem(itemId);
                         tileName.Text=selectedItem.Name;
                     }
