@@ -11,6 +11,11 @@ namespace Fish_Girlz.Inventory{
             Amount=amount;
         }
 
+        public void SetItem(Item item){
+            Item=item;
+            Amount=item==null?0:1;
+        }
+
         public override string ToString(){
             return $"{Item.Name}: {Amount}";
         }

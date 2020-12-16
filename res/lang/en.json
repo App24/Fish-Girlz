@@ -13,4 +13,11 @@
 
 	"item.potion": "{0} Potion",
 	"item.sword": "{0} Sword",
+	"item.bow": "{0} Bow",
+
+	"item.armor.helmet": "{0} Helmet",
+	"item.armor.chest": "{0} Chestplate",
+	"item.armor.leggings": "{0} Leggings",
+	"item.armor.gloves": "{0} Gloves",
+	"item.armor.boots": "{0} Boots",
 }

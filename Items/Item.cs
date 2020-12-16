@@ -15,11 +15,15 @@ namespace Fish_Girlz.Items{
 
         static List<Item> items=new List<Item>();
 
+        #region Item Inits
         public static PotionItem HEALTH_POTION=new PotionItem("Health", Color.Red, PotionType.Heal);
         public static SwordItem WOODEN_SWORD=new SwordItem("Wooden", Utilities.CreateTexture(64,64,Color.Red), 1);
-        public static BasicItem BOW=new BasicItem("Bow", new SpriteInfo(Utilities.CreateTexture(64,64,Color.Cyan), new IntRect(0,0,64,64)),1);
+        public static BowItem NORMAL_BOW=new BowItem("Normal", Utilities.CreateTexture(64,64,Color.Cyan), 1);
         public static PotionItem SPEED_POTION=new PotionItem("Speed", Color.Green, PotionType.Speed);
-        
+        public static HelmetArmorItem NORMAL_HEMET=new HelmetArmorItem("Normal", Utilities.CreateTexture(64,64,Color.Magenta), 5);
+        public static ChestPlateArmorItem NORMAL_CHESTPLATE=new ChestPlateArmorItem("Normal", Utilities.CreateTexture(64,64,Color.Yellow), 10);
+        #endregion
+
         public Item(string name, SpriteInfo sprite, int maxStack=64){
             ID=items.Count;
             Name=name;

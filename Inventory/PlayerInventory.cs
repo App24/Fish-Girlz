@@ -11,6 +11,9 @@ namespace Fish_Girlz.Inventory{
         Slot[] slots;
         uint inventorySize;
 
+        Slot weaponSlot;
+        Slot helmetSlot, chestSlot;
+
         UIInventory uIInventory;
 
         PlayerEntity player;
@@ -22,6 +25,9 @@ namespace Fish_Girlz.Inventory{
             StateMachine.ActiveState.AddGUI(uIInventory);
             slots=new Slot[inventorySize];
             this.player=player;
+            weaponSlot=new Slot(null,0);
+            helmetSlot=new Slot(null,0);
+            chestSlot=new Slot(null,0);
         }
 
         public int AddItem(Item item, int amount=1){
@@ -67,20 +73,50 @@ namespace Fish_Girlz.Inventory{
             return (slot, index);
         }
 
+        bool ClickSlot(UISlot slot){
+            if(InputManager.Hover(new Vector4f(slot.Position+slot.ParentGUI.Position, new Vector2f(64,64)))){
+                if(InputManager.IsMouseButtonPressed(SFML.Window.Mouse.Button.Left)){
+                    return true;
+                }
+            }
+            return false;
+        }
+
         public void Update(){
             if(!uIInventory.Visible)return;
             for (int i = 0; i < inventorySize; i++)
             {
                 Slot slot=slots[i];
-                long x=i%(inventorySize/2);
-                float y=MathF.Floor(i/(inventorySize/2));
+                UISlot uISlot=uIInventory.Slots[i];
                 if(slot!=null){
-                    if(InputManager.Hover(new Vector4f(uIInventory.Position+new Vector2f(16+(x*64)+(x*10), 16+(y*64)+(y*10)), new Vector2f(64,64)))){
-                        if(InputManager.IsMouseButtonPressed(SFML.Window.Mouse.Button.Left)){
-                            if(slot.Item.OnUse(player)){
-                                RemoveItem(slot.Item);
-                            }
+                    if(ClickSlot(uISlot)){
+                        if(slot.Item.OnUse(player)){
+                            RemoveItem(slot.Item);
                         }
+                    }
+                }
+            }
+            if(ClickSlot(uIInventory.WeaponSlot)){
+                if(weaponSlot.Item!=null){
+                    if(AddItem(weaponSlot.Item)<=0){
+                        weaponSlot.SetItem(null);
+                        uIInventory.UpdateWeaponSlot(weaponSlot);
+                    }
+                }
+            }
+            if(ClickSlot(uIInventory.HelmetSlot)){
+                if(helmetSlot.Item!=null){
+                    if(AddItem(helmetSlot.Item)<=0){
+                        helmetSlot.SetItem(null);
+                        uIInventory.UpdateHelmetSlot(helmetSlot);
+                    }
+                }
+            }
+            if(ClickSlot(uIInventory.ChestSlot)){
+                if(chestSlot.Item!=null){
+                    if(AddItem(chestSlot.Item)<=0){
+                        chestSlot.SetItem(null);
+                        uIInventory.UpdateChestSlot(chestSlot);
                     }
                 }
             }
@@ -103,6 +139,27 @@ namespace Fish_Girlz.Inventory{
                     return false;
                 }
             }
+            return true;
+        }
+
+        public bool SetWeapon(WeaponItem weaponItem){
+            if(weaponSlot.Item!=null) return false;
+            weaponSlot.SetItem(weaponItem);
+            uIInventory.UpdateWeaponSlot(weaponSlot);
+            return true;
+        }
+
+        public bool SetHelmet(HelmetArmorItem helmetArmorItem){
+            if(helmetSlot.Item!=null) return false;
+            helmetSlot.SetItem(helmetArmorItem);
+            uIInventory.UpdateHelmetSlot(helmetSlot);
+            return true;
+        }
+
+        public bool SetChestplate(ChestPlateArmorItem chestPlateArmorItem){
+            if(chestSlot.Item!=null) return false;
+            chestSlot.SetItem(chestPlateArmorItem);
+            uIInventory.UpdateChestSlot(chestSlot);
             return true;
         }
 
