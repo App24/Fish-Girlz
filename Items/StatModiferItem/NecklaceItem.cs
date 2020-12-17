@@ -11,7 +11,7 @@ namespace Fish_Girlz.Items{
 
         public override bool OnUse(PlayerEntity player)
         {
-            return player.Inventory.SetNecklace(this);
+            return player.Inventory.SetItem(this, Inventory.ItemSlot.Necklace);
         }
     }
 }

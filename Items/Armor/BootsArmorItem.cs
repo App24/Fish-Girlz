@@ -12,8 +12,7 @@ namespace Fish_Girlz.Items{
 
         public override bool OnUse(PlayerEntity player)
         {
-            if(!player.Inventory.SetBoots(this)) return false;
-            return true;
+            return player.Inventory.SetItem(this, Inventory.ItemSlot.Boots);
         }
     }
 }

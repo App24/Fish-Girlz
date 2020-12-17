@@ -14,7 +14,7 @@ namespace Fish_Girlz.Inventory.UI{
         uint slotAmount;
 
         UISlot ringSlot, necklaceSlot;
-        UISlot helmetSlot, chestSlot, leggingsSlot, bootsSlot;
+        UISlot helmetSlot, chestplateSlot, leggingsSlot, bootsSlot;
 
         public UIInventory(Vector2f position, uint slotAmount) : base(position)
         {
@@ -31,7 +31,7 @@ namespace Fish_Girlz.Inventory.UI{
             necklaceSlot=AddComponent(new UISlot(new Vector2f(32+((slotAmount/2)*64)+((slotAmount/2)*10),16+(1*64)+(1*10))));
             
             helmetSlot=AddComponent(new UISlot(new Vector2f(32+((slotAmount/2)*64)+((slotAmount/2)*10)+74,16)));
-            chestSlot=AddComponent(new UISlot(new Vector2f(32+((slotAmount/2)*64)+((slotAmount/2)*10)+74, 16+(1*64)+(1*10))));
+            chestplateSlot=AddComponent(new UISlot(new Vector2f(32+((slotAmount/2)*64)+((slotAmount/2)*10)+74, 16+(1*64)+(1*10))));
             leggingsSlot=AddComponent(new UISlot(new Vector2f(32+((slotAmount/2)*64)+((slotAmount/2)*10)+74, 16+(2*64)+(2*10))));
             bootsSlot=AddComponent(new UISlot(new Vector2f(32+((slotAmount/2)*64)+((slotAmount/2)*10)+74, 16+(3*64)+(3*10))));
             this.slotAmount=slotAmount;
@@ -49,7 +49,7 @@ namespace Fish_Girlz.Inventory.UI{
             necklaceSlot.Update();
 
             helmetSlot.Update();
-            chestSlot.Update();
+            chestplateSlot.Update();
             leggingsSlot.Update();
             bootsSlot.Update();
         }
@@ -67,7 +67,7 @@ namespace Fish_Girlz.Inventory.UI{
         }
 
         public void UpdateChestSlot(Slot chestSlot){
-            this.chestSlot.UpdateSlot(chestSlot);
+            this.chestplateSlot.UpdateSlot(chestSlot);
         }
 
         public void UpdateLeggingsSlot(Slot leggingsSlot){
@@ -91,7 +91,7 @@ namespace Fish_Girlz.Inventory.UI{
         public UISlot NecklaceSlot=>necklaceSlot;
 
         public UISlot HelmetSlot=>helmetSlot;
-        public UISlot ChestSlot=>chestSlot;
+        public UISlot ChestplateSlot=>chestplateSlot;
         public UISlot LeggingsSlot=>leggingsSlot;
         public UISlot BootsSlot=>bootsSlot;
     }

@@ -18,8 +18,8 @@ namespace Fish_Girlz.Items{
             File.WriteAllText("test.json", text);
             LoadItemData data=JsonConvert.DeserializeObject<LoadItemData>(File.ReadAllText("test.json"));
             Console.WriteLine(data.Type);*/
-            if(Directory.Exists("res/Items")){
-                ProcessDirectory("res/Items");
+            if(Directory.Exists($"res/Items")){
+                ProcessDirectory($"res/Items");
             }
         }
 
@@ -52,6 +52,7 @@ namespace Fish_Girlz.Items{
                     case ItemType.Potion:
                         Color potionColor=new Color(0,0,0,0);
                         PotionType potionType=PotionType.None;
+                        Dictionary<string, object> valuePairs=new Dictionary<string, object>();
                         foreach (ItemTypeData item in itemData)
                         {
                             switch (item.Name.ToLower())
@@ -66,11 +67,12 @@ namespace Fish_Girlz.Items{
                                         potionType=PotionType.None;
                                     }
                                     break;
-                                case "healAmount":
+                                default:
+                                    valuePairs.Add(item.Name.ToLower(), item.GetValue<int>());
                                     break;
                             }
                         }
-                        new PotionItem(id, loadItemData.Name, texture, potionColor, potionType);
+                        new PotionItem(id, loadItemData.Name, texture, potionColor, potionType, valuePairs);
                         break;
                     case ItemType.Helmet:{
                         float defense=0;
@@ -181,46 +183,46 @@ namespace Fish_Girlz.Items{
                         new BasicItem(id, loadItemData.Name, new Art.SpriteInfo(AssetManager.GetTexture(loadItemData.TextureName), new IntRect(0,0,64,64)));
                         break;
                 }
-            }   
-        }
-    }
-
-    class LoadItemData{
-        public ItemType Type{get;}
-        public List<ItemTypeData> ItemData{get;}
-        public string Name{get;}
-        public string TextureName{get;}
-
-        public LoadItemData(ItemType type, string name, string textureName, List<ItemTypeData> itemData=null){
-            Type=type;
-            Name=name;
-            TextureName=textureName;
-            ItemData=itemData;
-        }
-    }
-
-    struct ItemTypeData{
-        public string Name{get;}
-        public object Value{get;}
-
-        public ItemTypeData(string name, object value){
-            Name=name;
-            Value=value;
-        }
-
-        public T GetValue<T>(){
-            try{
-                return ((JObject)Convert.ChangeType(Value, typeof(JObject))).ToObject<T>();
-            }catch{
-                return (T)Convert.ChangeType(Value, typeof(T));
             }
         }
-    }
- 
-    enum ItemType{
-        Potion, Sword,
-        //Armor
-        Helmet, Chestplate, Leggings, Boots,
-        Ring, Necklace
+
+        class LoadItemData{
+            public ItemType Type{get;}
+            public List<ItemTypeData> ItemData{get;}
+            public string Name{get;}
+            public string TextureName{get;}
+
+            public LoadItemData(ItemType type, string name, string textureName, List<ItemTypeData> itemData=null){
+                Type=type;
+                Name=name;
+                TextureName=textureName;
+                ItemData=itemData;
+            }
+        }
+
+        struct ItemTypeData{
+            public string Name{get;}
+            public object Value{get;}
+
+            public ItemTypeData(string name, object value){
+                Name=name;
+                Value=value;
+            }
+
+            public T GetValue<T>(){
+                try{
+                    return ((JObject)Convert.ChangeType(Value, typeof(JObject))).ToObject<T>();
+                }catch{
+                    return (T)Convert.ChangeType(Value, typeof(T));
+                }
+            }
+        }
+    
+        enum ItemType{
+            Potion, Sword,
+            //Armor
+            Helmet, Chestplate, Leggings, Boots,
+            Ring, Necklace
+        }
     }
 }

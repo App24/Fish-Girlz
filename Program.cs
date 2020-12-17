@@ -78,6 +78,7 @@ namespace Fish_Girlz
 
             StateMachine.CleanUp();
             AudioSystem.CleanUp();
+            AssetManager.CleanUp();
             //client.Deinitialize();
             //client.Dispose();
         }

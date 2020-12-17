@@ -124,5 +124,24 @@ namespace Fish_Girlz.Utils
                 throw new Exception("Could not find any object by the name of "+name);
             return (T)obj;
         }
+
+        public static void CleanUp(){
+            foreach (KeyValuePair<string, Texture> item in textures)
+            {
+                item.Value.Dispose();
+            }
+            foreach (KeyValuePair<string, SpriteSheet> item in spriteSheets)
+            {
+                item.Value.Texture.Dispose();
+            }
+            foreach (KeyValuePair<string, Font> item in fonts)
+            {
+                item.Value.Dispose();
+            }
+            foreach (KeyValuePair<string, SoundBuffer> item in soundBuffers)
+            {
+                item.Value.Dispose();
+            }
+        }
     }
 }

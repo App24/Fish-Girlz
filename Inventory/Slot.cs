@@ -5,15 +5,24 @@ namespace Fish_Girlz.Inventory{
     public class Slot {
         public int Amount{get;private set;}
         public Item Item{get;private set;}
+        public Type AllowedItemType{get;}
 
-        public Slot(Item item, int amount){
-            Item=item;
-            Amount=amount;
+        public Slot(Item item, int amount):this(item, amount, typeof(Item)){
         }
 
-        public void SetItem(Item item){
+        public Slot(Item item, int amount, Type allowedItemType){
             Item=item;
-            Amount=item==null?0:1;
+            Amount=amount;
+            AllowedItemType=allowedItemType;
+        }
+
+        public bool SetItem(Item item){
+            if(item==null||(item.GetType()==AllowedItemType)){
+                Item=item;
+                Amount=item==null?0:1;
+                return true;
+            }
+            return false;
         }
 
         public override string ToString(){
