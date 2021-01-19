@@ -10,17 +10,17 @@ namespace Fish_Girlz.Prompt{
         public PromptBox(){
             prompt=new UIPrompt(new Vector2f());
             StateMachine.ActiveState.AddGUI(prompt);
-            prompt.Visible=false;
+            HidePrompt();
         }
 
         public void ShowPrompt(string key){
-            prompt.Visible=true;
+            prompt.SetVisible(true);
             prompt.SetText(key);
-            prompt.Position=new Vector2f(Utilities.CenterInWindow(DisplayManager.Width, prompt.Width), 100);
+            prompt.Position=new Vector2f(Utilities.CenterInWindow(WindowSize.HEIGHT, prompt.Width), 100);
         }
 
         public void HidePrompt(){
-            prompt.Visible=false;
+            prompt.SetVisible(false);
         }
     }
 }

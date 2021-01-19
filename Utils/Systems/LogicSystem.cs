@@ -33,6 +33,7 @@ namespace Fish_Girlz.Utils{
 
         static void UpdateGUI(State currentState){
             List<GUI> guis=currentState.GetGUIs();
+            guis.Reverse();
             List<GUI> newGuis=new List<GUI>();
             foreach (GUI gui in guis)
             {
@@ -44,6 +45,7 @@ namespace Fish_Girlz.Utils{
                 if(!gui.ToRemove)
                     newGuis.Add(gui);
             }
+            newGuis.Reverse();
             guis.Clear();
             guis.AddRange(newGuis);
         }

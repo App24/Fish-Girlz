@@ -100,6 +100,7 @@ namespace Fish_Girlz.Utils{
                         DisplayManager.Window.Draw(sprite);
                     }else if(guiComponent is TextComponent){
                         TextComponent textComponent=(TextComponent) guiComponent;
+                        if(string.IsNullOrEmpty(textComponent.Text)) continue;
                         FontInfo fontInfo=textComponent.FontInfo;
                         Text text=new Text(textComponent.Text, fontInfo.Font, fontInfo.Size);
                         text.Position=gui.Position+textComponent.Position;

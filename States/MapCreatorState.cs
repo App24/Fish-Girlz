@@ -35,6 +35,12 @@ namespace Fish_Girlz.States{
         SelectedEdit selectedEdit=SelectedEdit.Tile;
 
         LayeredSprite playerPosSprite;
+    
+        GUIGroup saveGroup, loadGroup;
+
+        UITextField saveNameField, loadNameField;
+
+        string mapName;
 
         public override void Init()
         {
@@ -53,6 +59,25 @@ namespace Fish_Girlz.States{
             selectedMode.OutlineThickness=2;
 
             playerPosSprite=new LayeredSprite(Utilities.CreateTexture(64,64,Color.Red));
+
+            saveGroup=new GUIGroup();
+            saveGroup.Position=new Vector2f(Utilities.CenterInWindow(WindowSize.WIDTH, 400),Utilities.CenterInWindow(WindowSize.HEIGHT, 120));
+            saveGroup.AddGUI(new UIImage(new Vector2f(), Utilities.CreateTexture(400,120, new Color(255/3,255/3,255/3))));
+            saveNameField=saveGroup.AddGUI(new UITextField(new Vector2f(10,10), new Vector2u(355,50)));
+            saveGroup.AddGUI(new UIButton(new Vector2u(160,40), new Vector2f(10,70), "Save", new FontInfo(AssetManager.GetFont("Arial"), 18))).OnClick+=SaveClick;
+            saveGroup.AddGUI(new UIButton(new Vector2u(20,20), new Vector2f(400-5-20, 5), "", new FontInfo(null,0), Color.Red, Color.Red)).OnClick+=new EventHandler((sender,e)=>{saveGroup.SetVisible(false);});
+            saveGroup.AddGUIs(this);
+            saveGroup.SetVisible(false);
+            
+            loadGroup=new GUIGroup();
+            loadGroup.Position=new Vector2f(Utilities.CenterInWindow(WindowSize.WIDTH, 400),Utilities.CenterInWindow(WindowSize.HEIGHT, 120));
+            loadGroup.AddGUI(new UIImage(new Vector2f(), Utilities.CreateTexture(400,120, new Color(255/3,255/3,255/3))));
+            loadNameField=loadGroup.AddGUI(new UITextField(new Vector2f(10,10), new Vector2u(355,50)));
+            loadNameField.SetText("map");
+            loadGroup.AddGUI(new UIButton(new Vector2u(160,40), new Vector2f(10,70), "Load", new FontInfo(AssetManager.GetFont("Arial"), 18))).OnClick+=LoadClick;
+            loadGroup.AddGUI(new UIButton(new Vector2u(20,20), new Vector2f(400-5-20, 5), "", new FontInfo(null,0), Color.Red, Color.Red)).OnClick+=new EventHandler((sender,e)=>{loadGroup.SetVisible(false);});
+            loadGroup.AddGUIs(this);
+            loadGroup.SetVisible(false);
         }
 
         public override void HandleInput()
@@ -159,44 +184,10 @@ namespace Fish_Girlz.States{
             if(InputManager.IsKeyHeld(SFML.Window.Keyboard.Key.LControl)){
                 if(InputManager.IsKeyPressed(SFML.Window.Keyboard.Key.S)){
                     if(sprites.Contains(playerPosSprite)){
-                        List<TileData> tileDatas=new List<TileData>();
-                        foreach (KeyValuePair<Vector2f, TileEntity> pair in tiles)
-                        {
-                            tileDatas.Add(new TileData(new Vector2f(MathF.Floor(pair.Key.X/64), MathF.Floor(pair.Key.Y/64)), pair.Value.Tile.ID));
-                        }
-                        List<ItemData> itemDatas=new List<ItemData>();
-                        foreach (KeyValuePair<Vector2f, ItemEntity> pair in items)
-                        {
-                            itemDatas.Add(new ItemData(new Vector2f(MathF.Floor(pair.Key.X/64), MathF.Floor(pair.Key.Y/64)), pair.Value.Item.ID));
-                        }
-                        MapData mapData=new MapData(new Vector2f(MathF.Floor(playerPosSprite.Position.X/64), MathF.Floor(playerPosSprite.Position.Y/64)), tileDatas, itemDatas);
-                        string text=JsonConvert.SerializeObject(mapData, Formatting.Indented);
-                        File.WriteAllText("res/maps/map.json", text);
-                        //AddGUI(new UITextField(new Vector2f(400,400)));
+                        saveGroup.SetVisible(true);
                     }
                 }else if(InputManager.IsKeyPressed(SFML.Window.Keyboard.Key.L)){
-                    if(File.Exists("res/maps/map.json")){
-                        MapData mapData=JsonConvert.DeserializeObject<MapData>(File.ReadAllText("res/maps/map.json"));
-                        tiles.Clear();
-                        GetTileEntities().Clear();
-                        GetItems().Clear();
-                        items.Clear();
-                        foreach (TileData tileData in mapData.TilesData)
-                        {
-                            Tile tile=Tile.GetTile(tileData.ID);
-                            if(tile==null)continue;
-                            tiles.Add(tileData.Position*64, AddTileEntity(new TileEntity(tileData.Position*64, tile)));
-                        }
-                        foreach (ItemData itemData in mapData.ItemsData)
-                        {
-                            Item item=Item.GetItem(itemData.ID);
-                            if(item==null)continue;
-                            items.Add(itemData.Position*64, AddItem(new ItemEntity(itemData.Position*64, item)));
-                        }
-                        playerPosSprite.Position=mapData.PlayerPos*64;
-                        if(!sprites.Contains(playerPosSprite))
-                        sprites.Add(playerPosSprite);
-                    }
+                    loadGroup.SetVisible(true);
                 }
             }
 
@@ -221,6 +212,74 @@ namespace Fish_Girlz.States{
                     break;
             }
             previewSprite.Color=new Color(255,255,255,(byte)(255/1.5f));
+        }
+
+        void SaveClick(object sender, EventArgs e){
+            if(!string.IsNullOrEmpty(saveNameField.Text)){
+                string text=saveNameField.Text;
+                foreach (var item in Path.GetInvalidFileNameChars())
+                {
+                    text=text.Replace(item.ToString(), "");
+                }
+                Save(text);
+                saveGroup.SetVisible(false);
+            }
+        }
+
+        void LoadClick(object sender, EventArgs e){
+            if(!string.IsNullOrEmpty(loadNameField.Text)){
+                string text=loadNameField.Text;
+                foreach (var item in Path.GetInvalidFileNameChars())
+                {
+                    text=text.Replace(item.ToString(), "");
+                }
+                Load(text);
+                mapName=text;
+                saveNameField.SetText(mapName);
+                loadGroup.SetVisible(false);
+            }
+        }
+
+        void Save(string mapName="map"){
+            List<TileData> tileDatas=new List<TileData>();
+            foreach (KeyValuePair<Vector2f, TileEntity> pair in tiles)
+            {
+                tileDatas.Add(new TileData(new Vector2f(MathF.Floor(pair.Key.X/64), MathF.Floor(pair.Key.Y/64)), pair.Value.Tile.ID));
+            }
+            List<ItemData> itemDatas=new List<ItemData>();
+            foreach (KeyValuePair<Vector2f, ItemEntity> pair in items)
+            {
+                itemDatas.Add(new ItemData(new Vector2f(MathF.Floor(pair.Key.X/64), MathF.Floor(pair.Key.Y/64)), pair.Value.Item.ID));
+            }
+            MapData mapData=new MapData(new Vector2f(MathF.Floor(playerPosSprite.Position.X/64), MathF.Floor(playerPosSprite.Position.Y/64)), tileDatas, itemDatas);
+            string text=JsonConvert.SerializeObject(mapData, Formatting.Indented);
+            File.WriteAllText($"res/maps/{mapName}.json", text);
+            Console.WriteLine("Saved!");
+        }
+
+        void Load(string mapName="map"){
+            if(File.Exists($"res/maps/{mapName}.json")){
+                MapData mapData=JsonConvert.DeserializeObject<MapData>(File.ReadAllText($"res/maps/{mapName}.json"));
+                tiles.Clear();
+                GetTileEntities().Clear();
+                GetItems().Clear();
+                items.Clear();
+                foreach (TileData tileData in mapData.TilesData)
+                {
+                    Tile tile=Tile.GetTile(tileData.ID);
+                    if(tile==null)continue;
+                    tiles.Add(tileData.Position*64, AddTileEntity(new TileEntity(tileData.Position*64, tile)));
+                }
+                foreach (ItemData itemData in mapData.ItemsData)
+                {
+                    Item item=Item.GetItem(itemData.ID);
+                    if(item==null)continue;
+                    items.Add(itemData.Position*64, AddItem(new ItemEntity(itemData.Position*64, item)));
+                }
+                playerPosSprite.Position=mapData.PlayerPos*64;
+                if(!sprites.Contains(playerPosSprite))
+                sprites.Add(playerPosSprite);
+            }
         }
     }
 

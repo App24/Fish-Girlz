@@ -4,14 +4,9 @@ using SFML.System;
 
 namespace Fish_Girlz.UI.Components{
     public class ClickComponent : GUIComponent{
-        private Vector4f bounds;
-
-        public ClickComponent(Vector4f bounds){
-            this.bounds=bounds;
-        }
         
-        public bool OnClick(){
-            if(onHover()){
+        public bool OnClick(Vector4f bounds){
+            if(onHover(bounds)){
                 if(InputManager.IsMouseButtonPressed(SFML.Window.Mouse.Button.Left)){
                     InputManager.ClickedUI(SFML.Window.Mouse.Button.Left);
                     return true;
@@ -20,7 +15,7 @@ namespace Fish_Girlz.UI.Components{
             return false;
         }
 
-        public bool onHover(){
+        public bool onHover(Vector4f bounds){
             return InputManager.Hover(bounds);
         }
     }

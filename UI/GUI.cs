@@ -6,9 +6,11 @@ using SFML.System;
 
 namespace Fish_Girlz.UI{
     public abstract class GUI : IComparable<GUI> {
-        public Vector2f Position{get; set;}
+        public Vector2f Position{get{return _position+Offset;} set{_position=value;}}
+        private Vector2f _position;
         public bool ToRemove {get; set;}
-        public bool Visible{get;set;}
+        public bool Visible{get;private set;}
+        public Vector2f Offset{private get; set;}
 
         public int Layer{get;set;}
 
@@ -27,6 +29,10 @@ namespace Fish_Girlz.UI{
 
         public List<GUIComponent> GetGUIComponents(){
             return components;
+        }
+
+        public virtual void SetVisible(bool value){
+            Visible=value;
         }
 
         public int CompareTo(GUI gui){

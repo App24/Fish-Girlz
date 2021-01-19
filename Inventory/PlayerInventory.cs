@@ -20,8 +20,8 @@ namespace Fish_Girlz.Inventory{
 
         public PlayerInventory(PlayerEntity player, uint inventorySize=20){
             this.inventorySize=inventorySize;
-            uIInventory=new UIInventory(new Vector2f(Utilities.CenterInWindow(DisplayManager.Width, 32+((inventorySize/2)*64)+((inventorySize/2)*10)+192), 200), inventorySize);
-            uIInventory.Visible=false;
+            uIInventory=new UIInventory(new Vector2f(Utilities.CenterInWindow(WindowSize.WIDTH, 32+((inventorySize/2)*64)+((inventorySize/2)*10)+192), 200), inventorySize);
+            uIInventory.SetVisible(false);
             StateMachine.ActiveState.AddGUI(uIInventory);
             slots=new Slot[inventorySize];
             this.player=player;
@@ -208,15 +208,15 @@ namespace Fish_Girlz.Inventory{
         }
 
         public void ToggleInventory(){
-            uIInventory.Visible=!uIInventory.Visible;
+            uIInventory.SetVisible(!uIInventory.Visible);
         }
 
         public void ShowInventory(){
-            uIInventory.Visible=true;
+            uIInventory.SetVisible(true);
         }
 
         public void HideInventory(){
-            uIInventory.Visible=false;
+            uIInventory.SetVisible(false);
         }
     }
 

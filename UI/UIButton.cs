@@ -9,7 +9,7 @@ using Fish_Girlz.UI.Components;
 namespace Fish_Girlz.UI{
     public class UIButton : UpdatableGUI {
         private ClickComponent clickComponent;
-        private TextureComponent imageComponent;
+        private TextureComponent textureComponent;
         private ButtonInformation buttonInformation;
         private Sound clickSound;
 
@@ -31,8 +31,8 @@ namespace Fish_Girlz.UI{
             Texture texture=Utilities.CreateTexture(size.X,size.Y, normalColor);
             Texture hoverTexture=Utilities.CreateTexture(size.X,size.Y, hoverColor);
             buttonInformation=new ButtonInformation(texture, hoverTexture);
-            clickComponent=AddComponent(new ClickComponent(new Vector4f(position, (Vector2f)texture.Size)));
-            imageComponent=AddComponent(new TextureComponent(texture));
+            clickComponent=AddComponent(new ClickComponent());
+            textureComponent=AddComponent(new TextureComponent(texture));
             textComponent=AddComponent(new TextComponent(fontInfo, text, Color.Black));
             textComponent.Position=new Vector2f((size.X-textComponent.Bounds.Width)/2f,fontInfo.Size/2f-2);
             clickSound=new Sound(AssetManager.GetSoundBuffer("Button Click"));
@@ -43,12 +43,12 @@ namespace Fish_Girlz.UI{
         }
 
         public override void Update(){
-            if(clickComponent.onHover()){
-                imageComponent.Texture=buttonInformation.hoverTexture;
+            if(clickComponent.onHover(new Vector4f(Position, (Vector2f)textureComponent.Texture.Size))){
+                textureComponent.Texture=buttonInformation.hoverTexture;
             }else{
-                imageComponent.Texture=buttonInformation.normalTexture;
+                textureComponent.Texture=buttonInformation.normalTexture;
             }
-            if(clickComponent.OnClick()){
+            if(clickComponent.OnClick(new Vector4f(Position, (Vector2f)textureComponent.Texture.Size))){
                 clickSound.Play();
                 OnClick?.Invoke(this, new EventArgs());
             }

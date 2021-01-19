@@ -24,8 +24,8 @@ namespace Fish_Girlz.States{
 
         public override void Init()
         {
-            play=new UIButton(new Vector2u(160, 64), new Vector2f(Utilities.CenterInWindow(DisplayManager.Width, 160), Utilities.CenterInWindow(DisplayManager.Height, 60)-40), Language.GetCurrentLanguage().GetTranslation("button.start"), AssetManager.GetObject<FontInfo>("Button Font"));
-            quit=new UIButton(new Vector2u(160, 64), new Vector2f(Utilities.CenterInWindow(DisplayManager.Width, 160), Utilities.CenterInWindow(DisplayManager.Height, 60)+40), Language.GetCurrentLanguage().GetTranslation("button.quit"), AssetManager.GetObject<FontInfo>("Button Font"));
+            play=new UIButton(new Vector2u(160, 64), new Vector2f(Utilities.CenterInWindow(WindowSize.WIDTH, 160), Utilities.CenterInWindow(WindowSize.HEIGHT, 60)-40), Language.GetCurrentLanguage().GetTranslation("button.start"), AssetManager.GetObject<FontInfo>("Button Font"));
+            quit=new UIButton(new Vector2u(160, 64), new Vector2f(Utilities.CenterInWindow(WindowSize.WIDTH, 160), Utilities.CenterInWindow(WindowSize.HEIGHT, 60)+40), Language.GetCurrentLanguage().GetTranslation("button.quit"), AssetManager.GetObject<FontInfo>("Button Font"));
             AddGUI(play);
             AddGUI(quit);
             version = new UIText(new FontInfo(AssetManager.GetFont("Arial"), 24), Language.GetCurrentLanguage().GetTranslation("text.version", Program.Version), Color.White, new Vector2f(6, DisplayManager.Height-30));
@@ -34,10 +34,10 @@ namespace Fish_Girlz.States{
             quit.OnClick+=new EventHandler((sender, e)=>{DisplayManager.Window.Close();});
 
             #if(DEV||DEBUG)
-                uiTestButton=new UIButton(new Vector2u(160,64), new Vector2f(Utilities.CenterInWindow(DisplayManager.Width, 160), 0), "UI Test", AssetManager.GetObject<FontInfo>("Button Font"));
+                uiTestButton=new UIButton(new Vector2u(160,64), new Vector2f(Utilities.CenterInWindow(WindowSize.WIDTH, 160), 0), "UI Test", AssetManager.GetObject<FontInfo>("Button Font"));
                 uiTestButton.OnClick+=new EventHandler((sender, e)=>{StateMachine.AddState(new UITestState());});
                 AddGUI(uiTestButton);
-                testButton=new UIButton(new Vector2u(160,64), new Vector2f(Utilities.CenterInWindow(DisplayManager.Width, 160), 70), "Test Scene", AssetManager.GetObject<FontInfo>("Button Font"));
+                testButton=new UIButton(new Vector2u(160,64), new Vector2f(Utilities.CenterInWindow(WindowSize.WIDTH, 160), 70), "Test Scene", AssetManager.GetObject<FontInfo>("Button Font"));
                 testButton.OnClick+=new EventHandler((sender, e)=>{StateMachine.AddState(new TestState());});
                 AddGUI(testButton);
             #endif

@@ -33,13 +33,13 @@ namespace Fish_Girlz.UI{
             return Math.Clamp(CursorPosition, 0, Size.X-10);
         }}
 
-        public UITextField(Vector2f position) : base(position)
+        public UITextField(Vector2f position, Vector2u size) : base(position)
         {
-            Size=new Vector2u(300,50);
+            Size=size;
             AddComponent(new TextureComponent(Utilities.CreateTexture(Size.X+5,Size.Y+5, Color.White.Divide(2))));
             AddComponent(new TextureComponent(Utilities.CreateTexture(Size.X, Size.Y, Color.White))).Position=new Vector2f(2.5f,2.5f);
             textComponent=AddComponent(new TextComponent(AssetManager.GetObject<FontInfo>("Input Font"), "", new Vector2f(), Color.Black));
-            clickComponent=AddComponent(new ClickComponent(new Vector4f(position, new Vector2f(Size.X+5, Size.Y+5))));
+            clickComponent=AddComponent(new ClickComponent());
             cursorComponent=AddComponent(new TextureComponent(Utilities.CreateTexture(3,40, Color.Black)));
             Focused=false;
             Text="";
@@ -47,19 +47,42 @@ namespace Fish_Girlz.UI{
             blinkClock=new Clock();
         }
 
+        public void Focus(){
+            Focused=true;
+            InputManager.SetTyping(true);
+        }
+
+        public void Unfocus(){
+            Focused=false;
+            InputManager.SetTyping(false);
+        }
+
+        public void SetText(string text){
+            Text=text;
+            textComponent.Text=Text;
+            CursorIndex=Text.Length;
+        }
+
+        public override void SetVisible(bool value)
+        {
+            base.SetVisible(value);
+            if(!value)
+            Unfocus();
+        }
+
         public override void Update()
         {
-            if(clickComponent.onHover()){
+            if(clickComponent.onHover(new Vector4f(Position, new Vector2f(Size.X+5, Size.Y+5)))){
                 DisplayManager.Window.SetMouseCursor(new Cursor(Cursor.CursorType.Text));
             }else{
                 DisplayManager.Window.SetMouseCursor(new Cursor(Cursor.CursorType.Arrow));
             }
-            if(clickComponent.OnClick()){
-                InputManager.ClickedUI(SFML.Window.Mouse.Button.Left);
-                Focused=true;
-            }else if(!clickComponent.onHover()){
-                if(InputManager.IsMouseButtonPressed(Mouse.Button.Left))
-                Focused=false;
+            if(clickComponent.OnClick(new Vector4f(Position, new Vector2f(Size.X+5, Size.Y+5)))){
+                Focus();
+            }else if(!clickComponent.onHover(new Vector4f(Position, new Vector2f(Size.X+5, Size.Y+5)))){
+                if(InputManager.IsMouseButtonPressedNoUI(Mouse.Button.Left)){
+                    Unfocus();
+                }
             }
             if(Focused){
                 if(blinkClock.ElapsedTime.AsMilliseconds()>=500){

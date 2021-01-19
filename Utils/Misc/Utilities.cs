@@ -20,13 +20,31 @@ namespace Fish_Girlz.Utils{
             return CreateTexture(size.X, size.Y, color);
         }
 
-        public static float CenterInWindow(float windowSize, float size){
-            return (windowSize-size)/2f;
+        // public static float CenterInWindow(float windowSize, float size){
+        //     return (windowSize-size)/2f;
+        // }
+
+        public static float CenterInWindow(WindowSize windowSize, float size){
+            uint wSize=(uint)Math.Abs(Math.Ceiling(size));
+            switch (windowSize)
+            {
+                case WindowSize.WIDTH:
+                    wSize=DisplayManager.Width;
+                    break;
+                case WindowSize.HEIGHT:
+                    wSize=DisplayManager.Height;
+                    break;
+            }
+            return (wSize-size)/2f;
         }
 
         public static string GetFileInTemp(string fileName){
             return Path.Combine(TempFolder, fileName);
         }
+    }
+
+    public enum WindowSize{
+        WIDTH, HEIGHT
     }
 
     public static class Extensions{

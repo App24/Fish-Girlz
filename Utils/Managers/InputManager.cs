@@ -3,6 +3,7 @@ using System.Runtime.InteropServices;
 using SFML.System;
 using SFML.Window;
 using SFML.Graphics;
+using Fish_Girlz.UI;
 
 namespace Fish_Girlz.Utils
 {
@@ -11,6 +12,7 @@ namespace Fish_Girlz.Utils
         private static bool[] keysHeld = new bool[(int)Keyboard.Key.KeyCount];
         private static bool[] keysPressed = new bool[(int)Keyboard.Key.KeyCount];
         private static bool[] keysPressedThisFrame = new bool[(int)Keyboard.Key.KeyCount];
+        private static bool typing=false;
 
 
         private static bool[] mouseButtonsHeld=new bool[(int)Mouse.Button.ButtonCount];
@@ -41,13 +43,16 @@ namespace Fish_Girlz.Utils
             DisplayManager.Window.MouseWheelScrolled+=MouseWheelScrolled;
         }
 
+        #region Key
         public static bool IsKeyHeld(Keyboard.Key key)
         {
+            if(typing) return false;
             return keysHeld[(int)key];
         }
 
         public static bool IsKeyPressed(Keyboard.Key key)
         {
+            if(typing) return false;
             if(keysPressedThisFrame[(int)key])
                 return true;
             if (keysHeld[(int)key] && !keysPressed[(int)key])
@@ -62,11 +67,41 @@ namespace Fish_Girlz.Utils
             return false;
         }
 
+        public static void SetTyping(bool value){
+            typing=value;
+        }
+        #endregion
+
+        #region Mouse
         public static bool IsMouseButtonHeld(Mouse.Button button)
         {
             if(clickedUI[(int)button]) return false;
             return mouseButtonsHeld[(int) button];
         }
+
+        public static bool IsMouseButtonPressedNoUI(Mouse.Button button){
+            if(mouseButtonsPressedThisFrame[(int)button]){
+                return true;
+            }
+            if (mouseButtonsHeld[(int) button] && !mouseButtonsPressed[(int)button])
+            {
+                mouseButtonsPressed[(int)button] = true;
+                mouseButtonsPressedThisFrame[(int)button]=true;
+                return true;
+            }
+            else if (!mouseButtonsHeld[(int) button])
+            {
+                mouseButtonsPressed[(int)button] = false;
+            }
+            return false;
+        }
+
+        public static bool IsMouseButtonPressed(Mouse.Button button)
+        {
+            if(clickedUI[(int)button]) return false;
+            return IsMouseButtonPressedNoUI(button);
+        }
+        #endregion
 
         public static float AxisMovement(Joystick.Axis axis){
             if(!Joystick.IsConnected(0)) return 0;
@@ -94,25 +129,6 @@ namespace Fish_Girlz.Utils
             return false;
         }
 
-        public static bool IsMouseButtonPressed(Mouse.Button button)
-        {
-            if(clickedUI[(int)button]) return false;
-            if(mouseButtonsPressedThisFrame[(int)button]){
-                return true;
-            }
-            if (mouseButtonsHeld[(int) button] && !mouseButtonsPressed[(int)button])
-            {
-                mouseButtonsPressed[(int)button] = true;
-                mouseButtonsPressedThisFrame[(int)button]=true;
-                return true;
-            }
-            else if (!mouseButtonsHeld[(int) button])
-            {
-                mouseButtonsPressed[(int)button] = false;
-            }
-            return false;
-        }
-
         public static void ClickedUI(Mouse.Button button){
             clickedUI[(int)button]=true;
         }
@@ -121,7 +137,6 @@ namespace Fish_Girlz.Utils
             for (int i = 0; i < mouseButtonsPressedThisFrame.Length; i++)
             {
                 mouseButtonsPressedThisFrame[i]=false;
-                clickedUI[i]=false;
             }
             for (int i = 0; i < keysPressedThisFrame.Length; i++)
             {
@@ -144,6 +159,7 @@ namespace Fish_Girlz.Utils
 
         private static void MouseButtonReleased(object sender, MouseButtonEventArgs e){
             mouseButtonsHeld[(int)e.Button]=false;
+            clickedUI[(int)e.Button]=false;
         }
 
         private static void MouseMoved(object sender, MouseMoveEventArgs e){

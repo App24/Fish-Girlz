@@ -17,7 +17,7 @@ namespace Fish_Girlz.Dialog{
         public DialogBox(){
             dialogBox=new UIDialogBox(new Vector2f(0,475));
             StateMachine.ActiveState.AddGUI(dialogBox);
-            dialogBox.Visible=false;
+            dialogBox.SetVisible(false);
         }
 
         public void SetDialogs(List<DialogInfo> dialogs){
@@ -27,7 +27,7 @@ namespace Fish_Girlz.Dialog{
 
         public void Show(){
             if(dialogs.Count>0){
-                dialogBox.Visible=true;
+                dialogBox.SetVisible(true);
                 ignore=true;
             }
         }
@@ -53,7 +53,7 @@ namespace Fish_Girlz.Dialog{
         public void Hide(){
             if(!dialogBox.Visible)
                 return;
-            dialogBox.Visible=false;
+            dialogBox.SetVisible(false);
         }
 
         public bool Visible=>dialogBox.Visible;
