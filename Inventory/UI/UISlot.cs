@@ -6,6 +6,7 @@ using Fish_Girlz.UI.Components;
 using SFML.System;
 using SFML.Graphics;
 using Fish_Girlz.Entities;
+using Fish_Girlz.Systems;
 
 namespace Fish_Girlz.Inventory.UI{
     public class UISlot : GUIComponent {

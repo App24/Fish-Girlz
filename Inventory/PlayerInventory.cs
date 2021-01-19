@@ -5,6 +5,7 @@ using Fish_Girlz.Utils;
 using Fish_Girlz.Inventory.UI;
 using SFML.System;
 using Fish_Girlz.Entities;
+using Fish_Girlz.Systems;
 
 namespace Fish_Girlz.Inventory{
     public class PlayerInventory {

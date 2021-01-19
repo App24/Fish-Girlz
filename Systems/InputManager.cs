@@ -5,7 +5,7 @@ using SFML.Window;
 using SFML.Graphics;
 using Fish_Girlz.UI;
 
-namespace Fish_Girlz.Utils
+namespace Fish_Girlz.Systems
 {
     public static class InputManager
     {
@@ -41,6 +41,7 @@ namespace Fish_Girlz.Utils
             DisplayManager.Window.JoystickButtonPressed+=JoystickButtonPressed;
             DisplayManager.Window.JoystickButtonReleased+=JoystickButtonReleased;
             DisplayManager.Window.MouseWheelScrolled+=MouseWheelScrolled;
+            Logger.Log("Input System Intialised!");
         }
 
         #region Key

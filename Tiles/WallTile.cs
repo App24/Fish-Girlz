@@ -1,6 +1,6 @@
 using System;
 using Fish_Girlz.Art;
-using Fish_Girlz.Utils;
+using Fish_Girlz.Systems;
 
 namespace Fish_Girlz.Tiles{
     public class WallTile : Tile

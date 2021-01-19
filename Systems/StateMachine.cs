@@ -3,7 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Runtime.CompilerServices;
 
-namespace Fish_Girlz.Utils{
+namespace Fish_Girlz.Systems{
     public static class StateMachine {
         private static bool isAdding, isReplacing, isRemoving;
         private static Stack<State> states=new Stack<State>();
@@ -30,10 +30,13 @@ namespace Fish_Girlz.Utils{
             {
                 ActiveState.Remove();
                 
+                Logger.Log($"Removed State {ActiveState}", Logger.LogLevel.Debug);
                 states.Pop();
 
-                if (!IsEmpty)
+                if (!IsEmpty){
+                    Logger.Log($"Resumed State {ActiveState}", Logger.LogLevel.Debug);
                     ActiveState.Resume();
+                }
                 isRemoving = false;
             }
 
@@ -41,12 +44,17 @@ namespace Fish_Girlz.Utils{
             {
                 if (!IsEmpty)
                 {
-                    if (isReplacing)
+                    if (isReplacing){
+                        Logger.Log($"Removed State {ActiveState}", Logger.LogLevel.Debug);
                         states.Pop();
-                    else
+                    }
+                    else{
+                        Logger.Log($"Paused State {ActiveState}", Logger.LogLevel.Debug);
                         ActiveState.Pause();
+                    }
                 }
 
+                Logger.Log($"Switching To State {newState}", Logger.LogLevel.Debug);
                 states.Push(newState);
                 ActiveState.InitState();
                 ActiveState.Init();
@@ -59,6 +67,7 @@ namespace Fish_Girlz.Utils{
                 isRemoving=true;
                 ProcessStateChanges();
             }
+            Logger.Log("Cleaned All States!");
         }
     }
 }

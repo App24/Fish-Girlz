@@ -2,6 +2,7 @@ using System;
 using SFML.Graphics;
 using SFML.System;
 using Fish_Girlz.Entities;
+using Fish_Girlz.Systems;
 
 namespace Fish_Girlz.Utils{
     public static class Camera {

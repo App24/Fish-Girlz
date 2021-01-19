@@ -12,6 +12,7 @@ using Fish_Girlz.World;
 using Fish_Girlz.Art;
 using Fish_Girlz.Dialog;
 using Fish_Girlz.Prompt;
+using Fish_Girlz.Systems;
 
 namespace Fish_Girlz.States{
     public class TestState : State

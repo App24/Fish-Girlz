@@ -4,6 +4,7 @@ using SFML.Graphics;
 using Fish_Girlz.Utils;
 using Fish_Girlz.UI;
 using Fish_Girlz.UI.Components;
+using Fish_Girlz.Systems;
 
 namespace Fish_Girlz.Dialog.UI{
     public class UIDialogBox : GUI

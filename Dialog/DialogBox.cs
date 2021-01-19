@@ -5,6 +5,7 @@ using Fish_Girlz.Utils;
 using Fish_Girlz.Misc;
 using SFML.System;
 using SFML.Graphics;
+using Fish_Girlz.Systems;
 
 namespace Fish_Girlz.Dialog{
     public class DialogBox {

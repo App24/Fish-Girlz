@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using SFML.Graphics;
 using Fish_Girlz.UI.Components;
+using Fish_Girlz.Systems;
 
 namespace Fish_Girlz.Utils
 {
@@ -31,6 +32,8 @@ namespace Fish_Girlz.Utils
             AssetManager.LoadTexture("DialogBoxLeft", "res/textures/UI/Dialog Box/Left.png");
             AssetManager.LoadTexture("DialogBoxRight", "res/textures/UI/Dialog Box/Right.png");
             AssetManager.LoadTexture("DialogBoxCenter", "res/textures/UI/Dialog Box/Center.png");
+
+            Logger.Log("Assets Loaded!");
         }
     }
 }

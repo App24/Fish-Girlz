@@ -7,7 +7,7 @@ using Fish_Girlz.Entities.Components;
 using Fish_Girlz.UI;
 using Fish_Girlz.Entities.Items;
 
-namespace Fish_Girlz.Utils{
+namespace Fish_Girlz.Systems{
     public static class LogicSystem {
         public static void Update(){
             State currentState=StateMachine.ActiveState;

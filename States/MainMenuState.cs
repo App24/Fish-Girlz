@@ -4,6 +4,7 @@ using Fish_Girlz.UI;
 using Fish_Girlz.UI.Components;
 using Fish_Girlz.Utils;
 using Fish_Girlz.Art;
+using Fish_Girlz.Systems;
 using SFML.System;
 using SFML.Graphics;
 using SFML.Window;
@@ -31,7 +32,7 @@ namespace Fish_Girlz.States{
             version = new UIText(new FontInfo(AssetManager.GetFont("Arial"), 24), Language.GetCurrentLanguage().GetTranslation("text.version", Program.Version), Color.White, new Vector2f(6, DisplayManager.Height-30));
             AddGUI(version);
             //play.OnClick+=new EventHandler((sender, e)=>{StateMachine.AddState(new GameState());});
-            quit.OnClick+=new EventHandler((sender, e)=>{DisplayManager.Window.Close();});
+            quit.OnClick+=new EventHandler((sender, e)=>{DisplayManager.Close();});
 
             #if(DEV||DEBUG)
                 uiTestButton=new UIButton(new Vector2u(160,64), new Vector2f(Utilities.CenterInWindow(WindowSize.WIDTH, 160), 0), "UI Test", AssetManager.GetObject<FontInfo>("Button Font"));

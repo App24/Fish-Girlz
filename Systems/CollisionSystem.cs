@@ -4,8 +4,9 @@ using Fish_Girlz.Entities;
 using Fish_Girlz.States;
 using Fish_Girlz.Entities.Tiles;
 using Fish_Girlz.Entities.Items;
+using Fish_Girlz.Utils;
 
-namespace Fish_Girlz.Utils{
+namespace Fish_Girlz.Systems{
     public static class CollisionSystem {
         public static void CheckCollisions(){
             State currentState=StateMachine.ActiveState;

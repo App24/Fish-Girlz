@@ -7,6 +7,7 @@ using Fish_Girlz.Battle;
 using SFML.System;
 using System.Collections;
 using Fish_Girlz.Entities.Components;
+using Fish_Girlz.Systems;
 
 namespace Fish_Girlz.Entities{
     public abstract class EnemyEntity : LivingEntity

@@ -11,8 +11,9 @@ using SFML.Graphics;
 using System.Collections.Generic;
 using SFML.System;
 using Fish_Girlz.Entities.Items;
+using Fish_Girlz.Utils;
 
-namespace Fish_Girlz.Utils{
+namespace Fish_Girlz.Systems{
     public static class RenderSystem {
         public static void Render(){
             State currentState=StateMachine.ActiveState;

@@ -3,8 +3,9 @@ using System.Collections.Generic;
 using SFML.System;
 using SFML.Window;
 using SFML.Graphics;
+using Fish_Girlz.Audio;
 
-namespace Fish_Girlz.Utils{
+namespace Fish_Girlz.Systems{
     public static class DisplayManager {
         public static RenderWindow Window {get; private set;}
 
@@ -14,11 +15,12 @@ namespace Fish_Girlz.Utils{
             Window.Position=new Vector2i((int)(desktop.Width-Width)/2, (int)(desktop.Height-Height-30)/2);
             View view=new View(new Vector2f(width/2, height/2), new Vector2f(width, height));
             Window.SetView(view);
-            Window.Closed+=new EventHandler((object sender, EventArgs e)=>{Window.Close();});
-            Window.SetFramerateLimit(60);
+            Window.Closed+=new EventHandler((sender, e)=>{DisplayManager.Close();});
+            Window.SetVerticalSyncEnabled(true);
             List<byte> pixels=new List<byte>();
             CreateIcon(ref pixels);
             Window.SetIcon(32, 32, pixels.ToArray());
+            Logger.Log("Display Created!", Logger.LogLevel.Info);
         }
 
         private static void CreateIcon(ref List<byte> pixels){
@@ -90,5 +92,13 @@ namespace Fish_Girlz.Utils{
         public static uint Height => Window.Size.Y;
 
         public static View View{get{return Window.GetView();}}
+
+        public static void Close(){
+            AudioSystem.CleanUp();
+            AssetManager.CleanUp();
+            StateMachine.CleanUp();
+            Logger.CleanUp();
+            Window.Close();
+        }
     }
 }

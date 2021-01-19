@@ -1,6 +1,6 @@
 using System;
 using Fish_Girlz.Entities;
-using Fish_Girlz.Utils;
+using Fish_Girlz.Systems;
 using Fish_Girlz.States;
 
 namespace Fish_Girlz.Battle{

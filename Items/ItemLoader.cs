@@ -6,20 +6,17 @@ using System.IO;
 using SFML.Graphics;
 using Fish_Girlz.Utils;
 using Newtonsoft.Json.Linq;
+using Fish_Girlz.Systems;
 
 namespace Fish_Girlz.Items{
     public static class ItemLoader {
+
+        public static bool Loaded{get;private set;}
+
         public static void LoadItems(){
-            /*ItemTypeData color=new ItemTypeData("color", SFML.Graphics.Color.Red);
-            ItemTypeData potionType=new ItemTypeData("potionType", PotionType.Heal);
-            ItemTypeData healAmount=new ItemTypeData("healAmount", 3);
-            LoadItemData data=new LoadItemData(ItemType.Potion, "t", "t", "potion.png", new List<ItemTypeData>(new ItemTypeData[]{color, potionType, healAmount}));
-            string text=JsonConvert.SerializeObject(data, Formatting.Indented, new StringEnumConverter());
-            File.WriteAllText("test.json", text);
-            LoadItemData data=JsonConvert.DeserializeObject<LoadItemData>(File.ReadAllText("test.json"));
-            Console.WriteLine(data.Type);*/
             if(Directory.Exists($"res/Items")){
                 ProcessDirectory($"res/Items");
+                Loaded=true;
             }
         }
 

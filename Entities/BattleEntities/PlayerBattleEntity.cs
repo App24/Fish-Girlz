@@ -4,6 +4,7 @@ using Fish_Girlz.Utils;
 using SFML.System;
 using SFML.Graphics;
 using Fish_Girlz.States;
+using Fish_Girlz.Systems;
 
 namespace Fish_Girlz.Entities{
     public class PlayerBattleEntity : BattleEntity

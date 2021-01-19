@@ -8,6 +8,7 @@ using Fish_Girlz.Entities.Components;
 using SFML.System;
 using SFML.Window;
 using SFML.Graphics;
+using Fish_Girlz.Systems;
 
 namespace Fish_Girlz.Entities
 {

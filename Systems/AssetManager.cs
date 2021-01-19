@@ -6,7 +6,7 @@ using SFML.Audio;
 using SFML.Graphics;
 using System.IO;
 
-namespace Fish_Girlz.Utils
+namespace Fish_Girlz.Systems
 {
     public static class AssetManager
     {
@@ -20,14 +20,19 @@ namespace Fish_Girlz.Utils
         {
             try
             {
-                if(textures.ContainsKey(name)) return;
+                Logger.Log($"Loading Texture: {name}, File: {filePath}");
+                if(textures.ContainsKey(name.ToLower())){
+                    Logger.Log($"Texture Already Loaded: {name}", Logger.LogLevel.Warn);
+                    return;
+                }
                 Texture texture = new Texture(filePath);
-                textures.Add(name, texture);
+                textures.Add(name.ToLower(), texture);
                 //Collision.CreateBitmask(texture);
             }
-            catch (LoadingFailedException)
+            catch (LoadingFailedException e)
             {
-                Console.WriteLine("Couldn't load texture: " + filePath);
+                Logger.Log($"Failed To Load Texture From File \"{filePath}\"", Logger.LogLevel.Error);
+                throw e;
             }
         }
 
@@ -35,15 +40,19 @@ namespace Fish_Girlz.Utils
         {
             try
             {
-                if(spriteSheets.ContainsKey(name)) return;
+                Logger.Log($"Loading Spritesheet: {name}, File: {filePath}");
+                if(spriteSheets.ContainsKey(name.ToLower())){
+                    Logger.Log($"Spritesheet Already Loaded: {name}", Logger.LogLevel.Warn);
+                    return;
+                }
                 Texture texture = new Texture(filePath);
                 SpriteSheet spriteSheet = new SpriteSheet(texture, spriteWidth, spriteHeight);
-                spriteSheets.Add(name, spriteSheet);
-                //Collision.CreateBitmask(texture);
+                spriteSheets.Add(name.ToLower(), spriteSheet);
             }
-            catch (LoadingFailedException)
+            catch (LoadingFailedException e)
             {
-                Console.WriteLine("Couldn't load texture: " + filePath);
+                Logger.Log($"Failed To Load Spritesheet From File \"{filePath}\"", Logger.LogLevel.Error);
+                throw e;
             }
         }
 
@@ -51,14 +60,36 @@ namespace Fish_Girlz.Utils
         {
             try
             {
-                if(fonts.ContainsKey(name)) return;
-                Font font = new Font(filePath);
-                fonts.Add(name, font);
-                //File.Delete(Utilities.GetFileInTemp(name+".ttf"));
+                Logger.Log($"Loading Font: {name}, File: {filePath}");
+                if(fonts.ContainsKey(name.ToLower())){
+                    Logger.Log($"Font Already Loaded: {name}", Logger.LogLevel.Warn);
+                    return;
+                }
+                fonts.Add(name.ToLower(), new Font(filePath));
             }
-            catch (LoadingFailedException)
+            catch (LoadingFailedException e)
             {
-                Console.WriteLine("Couldn't load font: " + filePath);
+                Logger.Log($"Failed To Load Font From File \"{filePath}\"", Logger.LogLevel.Error);
+                throw e;
+            }
+        }
+
+        public static void LoadSoundBuffer(string name, string filePath)
+        {
+            try
+            {
+                Logger.Log($"Loading Sound Buffer: {name}, File: {filePath}");
+                if(fonts.ContainsKey(name.ToLower())){
+                    Logger.Log($"Sound Buffer Already Loaded: {name}", Logger.LogLevel.Warn);
+                    return;
+                }
+                SoundBuffer soundBuffer = new SoundBuffer(filePath);
+                soundBuffers.Add(name.ToLower(), soundBuffer);
+            }
+            catch (LoadingFailedException e)
+            {
+                Logger.Log($"Failed To Load Sound Buffer From File \"{filePath}\"", Logger.LogLevel.Error);
+                throw e;
             }
         }
 
@@ -67,52 +98,39 @@ namespace Fish_Girlz.Utils
             objects.Add(name, value);
         }
 
-        public static void LoadSoundBuffer(string name, string filePath)
-        {
-            try
-            {
-                SoundBuffer soundBuffer = new SoundBuffer(filePath);
-                soundBuffers.Add(name, soundBuffer);
-            }
-            catch (LoadingFailedException)
-            {
-                Console.WriteLine("Couldn't load sound buffer: " + filePath);
-            }
-        }
-
         public static Texture GetTexture(string name)
         {
             Texture tex;
-            bool successful = textures.TryGetValue(name, out tex);
+            bool successful = textures.TryGetValue(name.ToLower(), out tex);
             if(!successful)
-                throw new Exception("Could not find any texture by the name of "+name);
+                throw new NoAssetException("Texture", name);
             return tex;
         }
 
         public static Font GetFont(string name)
         {
             Font font;
-            bool successful = fonts.TryGetValue(name, out font);
+            bool successful = fonts.TryGetValue(name.ToLower(), out font);
             if(!successful)
-                throw new Exception("Could not find any font by the name of "+name);
+                throw new NoAssetException("Font", name);
             return font;
         }
 
         public static SoundBuffer GetSoundBuffer(string name)
         {
             SoundBuffer soundBuffer;
-            bool successful = soundBuffers.TryGetValue(name, out soundBuffer);
+            bool successful = soundBuffers.TryGetValue(name.ToLower(), out soundBuffer);
             if(!successful)
-                throw new Exception("Could not find any sound buffer by the name of "+name);
+                throw new NoAssetException("Sound Buffer", name);
             return soundBuffer;
         }
 
         public static SpriteSheet GetSpriteSheet(string name)
         {
             SpriteSheet spriteSheet;
-            bool successful = spriteSheets.TryGetValue(name, out spriteSheet);
+            bool successful = spriteSheets.TryGetValue(name.ToLower(), out spriteSheet);
             if(!successful)
-                throw new Exception("Could not find any spreadsheet by the name of "+name);
+                throw new NoAssetException("Spritesheet", name);
             return spriteSheet;
         }
 
@@ -142,6 +160,13 @@ namespace Fish_Girlz.Utils
             {
                 item.Value.Dispose();
             }
+            Logger.Log("Assets Cleaned!");
+        }
+    }
+
+    class NoAssetException : Exception{
+        public NoAssetException(string assetType, string assetName) : base($"Could Not Find Any {assetType} By The Name Of \"{assetName}\""){
+            Logger.Log($"Could Not Find Any {assetType} By The Name Of \"{assetName}\"", Logger.LogLevel.Error);
         }
     }
 }

@@ -8,6 +8,8 @@ using DiscordRPC.Message;
 using DiscordRPC.Logging;
 using SFML.Window;
 using Fish_Girlz.Items;
+using Fish_Girlz.Entities;
+using Fish_Girlz.Systems;
 
 namespace Fish_Girlz
 {
@@ -21,6 +23,7 @@ namespace Fish_Girlz
 
         public static void Main(string[] args)
         {
+            Logger.InitLogger();
             AssetLoader.LoadAssets();
             DisplayManager.CreateWindow(1280,720, "Fish Girlz: Mermaid Adventures");
             InputManager.InitInputManager();
@@ -47,6 +50,11 @@ namespace Fish_Girlz
 
             //client.SetPresence(RichPresence);
 
+            if(!ItemLoader.Loaded){
+                Logger.Log("Failed to load items or entities", Logger.LogLevel.Error);
+                throw new Exception("Failed to load items or entities");
+            }
+
             while(DisplayManager.Window.IsOpen){
                 StateMachine.ProcessStateChanges();
                 Delta.UpdateDelta();
@@ -55,17 +63,12 @@ namespace Fish_Girlz
                 DisplayManager.Window.DispatchEvents();
 
                 if(InputManager.IsKeyHeld(SFML.Window.Keyboard.Key.LAlt)&&InputManager.IsKeyHeld(SFML.Window.Keyboard.Key.F4)){
-                    DisplayManager.Window.Close();
+                    DisplayManager.Close();
                 }
 
                 if (!StateMachine.IsEmpty)
                 {
-                    StateMachine.ActiveState.StateLogic();
-                    LogicSystem.Update();
-                    CollisionSystem.CheckCollisions();
-                    
-                    StateMachine.ActiveState.Update();
-                    StateMachine.ActiveState.HandleInput();
+                    Update();
                 }
 
                 DisplayManager.Window.Clear();
@@ -76,11 +79,20 @@ namespace Fish_Girlz
                 InputManager.ResetInputManager();
             }
 
-            StateMachine.CleanUp();
-            AudioSystem.CleanUp();
-            AssetManager.CleanUp();
+            
             //client.Deinitialize();
             //client.Dispose();
+            DisplayManager.Window.Dispose();
+        }
+
+        static void Update(){
+            StateMachine.ActiveState.StateLogic();
+            LogicSystem.Update();
+            if(StateMachine.IsEmpty) return;
+            CollisionSystem.CheckCollisions();
+            
+            StateMachine.ActiveState.Update();
+            StateMachine.ActiveState.HandleInput();
         }
     }
 }

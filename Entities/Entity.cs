@@ -8,6 +8,7 @@ using Fish_Girlz.Effects;
 using SFML.System;
 using SFML.Graphics;
 using Fish_Girlz.Entities.Components;
+using Fish_Girlz.Entities.Items;
 
 namespace Fish_Girlz.Entities{
     public abstract class Entity : IComparable<Entity> {
