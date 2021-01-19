@@ -16,6 +16,7 @@ namespace Fish_Girlz.Utils
         private static bool[] mouseButtonsHeld=new bool[(int)Mouse.Button.ButtonCount];
         private static bool[] mouseButtonsPressed=new bool[(int)Mouse.Button.ButtonCount];
         private static bool[] mouseButtonsPressedThisFrame=new bool[(int)Mouse.Button.ButtonCount];
+        private static bool[] clickedUI=new bool[(int)Mouse.Button.ButtonCount];
 
         private static bool[] joystickButtonHeld=new bool[Joystick.ButtonCount];
         private static bool[] joystickButtonPressed=new bool[Joystick.ButtonCount];
@@ -63,6 +64,7 @@ namespace Fish_Girlz.Utils
 
         public static bool IsMouseButtonHeld(Mouse.Button button)
         {
+            if(clickedUI[(int)button]) return false;
             return mouseButtonsHeld[(int) button];
         }
 
@@ -94,6 +96,7 @@ namespace Fish_Girlz.Utils
 
         public static bool IsMouseButtonPressed(Mouse.Button button)
         {
+            if(clickedUI[(int)button]) return false;
             if(mouseButtonsPressedThisFrame[(int)button]){
                 return true;
             }
@@ -110,10 +113,15 @@ namespace Fish_Girlz.Utils
             return false;
         }
 
+        public static void ClickedUI(Mouse.Button button){
+            clickedUI[(int)button]=true;
+        }
+
         public static void ResetInputManager(){
             for (int i = 0; i < mouseButtonsPressedThisFrame.Length; i++)
             {
                 mouseButtonsPressedThisFrame[i]=false;
+                clickedUI[i]=false;
             }
             for (int i = 0; i < keysPressedThisFrame.Length; i++)
             {

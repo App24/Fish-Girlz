@@ -85,6 +85,7 @@ namespace Fish_Girlz.Utils{
                 if(!gui.Visible) continue;
                 List<GUIComponent> guiComponents=gui.GetGUIComponents();
                 foreach(GUIComponent guiComponent in guiComponents){
+                    if(!guiComponent.Visible) continue;
                     if(guiComponent is TextureComponent){
                         TextureComponent textureComponent=(TextureComponent)guiComponent;
                         if(textureComponent.Texture==null) continue;

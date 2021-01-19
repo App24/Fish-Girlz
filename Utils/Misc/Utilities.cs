@@ -15,6 +15,10 @@ namespace Fish_Girlz.Utils{
                 return new Texture(1,1).CreateTexture(new Color(0,0,0,0));
             return new Texture(width, height).CreateTexture(color);
         }
+        
+        public static Texture CreateTexture(Vector2u size, Color color){
+            return CreateTexture(size.X, size.Y, color);
+        }
 
         public static float CenterInWindow(float windowSize, float size){
             return (windowSize-size)/2f;

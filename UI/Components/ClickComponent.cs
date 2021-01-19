@@ -13,6 +13,7 @@ namespace Fish_Girlz.UI.Components{
         public bool OnClick(){
             if(onHover()){
                 if(InputManager.IsMouseButtonPressed(SFML.Window.Mouse.Button.Left)){
+                    InputManager.ClickedUI(SFML.Window.Mouse.Button.Left);
                     return true;
                 }
             }

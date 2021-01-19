@@ -172,6 +172,7 @@ namespace Fish_Girlz.States{
                         MapData mapData=new MapData(new Vector2f(MathF.Floor(playerPosSprite.Position.X/64), MathF.Floor(playerPosSprite.Position.Y/64)), tileDatas, itemDatas);
                         string text=JsonConvert.SerializeObject(mapData, Formatting.Indented);
                         File.WriteAllText("res/maps/map.json", text);
+                        //AddGUI(new UITextField(new Vector2f(400,400)));
                     }
                 }else if(InputManager.IsKeyPressed(SFML.Window.Keyboard.Key.L)){
                     if(File.Exists("res/maps/map.json")){

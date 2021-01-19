@@ -10,12 +10,15 @@ namespace Fish_Girlz.States{
     public class UITestState : State
     {
         private UITextField testTextField;
+        private UICheckbox checkbox;
         private DialogBox dialogBox;
 
         public override void Init()
         {
             testTextField=new UITextField(new Vector2f(400,400));
             AddGUI(testTextField);
+            checkbox=new UICheckbox(new Vector2u(50,50), new Vector2f(0,0));
+            AddGUI(checkbox);
             dialogBox=new DialogBox();
             List<DialogInfo> dialogInfos=new List<DialogInfo>();
             dialogInfos.Add(new DialogInfo(CharacterInfo.DOMINIQUE, "dialog.test1", true));

@@ -53,6 +53,13 @@
         "Y": 5.0
       },
       "ID": "moon_necklace"
+    },
+    {
+      "Position": {
+        "X": 15.0,
+        "Y": 5.0
+      },
+      "ID": "mana_potion"
     }
   ]
 }

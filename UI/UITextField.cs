@@ -55,6 +55,7 @@ namespace Fish_Girlz.UI{
                 DisplayManager.Window.SetMouseCursor(new Cursor(Cursor.CursorType.Arrow));
             }
             if(clickComponent.OnClick()){
+                InputManager.ClickedUI(SFML.Window.Mouse.Button.Left);
                 Focused=true;
             }else if(!clickComponent.onHover()){
                 if(InputManager.IsMouseButtonPressed(Mouse.Button.Left))
