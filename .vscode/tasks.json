@@ -7,23 +7,9 @@
             "type": "process",
             "args": [
                 "build",
-                "${workspaceFolder}/Fish Girlz.csproj",
+                "${workspaceFolder}/Game/Fish Girlz.csproj",
                 "/property:GenerateFullPaths=true",
                 "/consoleloggerparameters:NoSummary"
-            ],
-            "problemMatcher": "$msCompile"
-        },
-        {
-            "label": "build Development",
-            "command": "dotnet",
-            "type": "process",
-            "args": [
-                "build",
-                "${workspaceFolder}/Fish Girlz.csproj",
-                "/property:GenerateFullPaths=true",
-                "/consoleloggerparameters:NoSummary",
-                "-c",
-                "Development"
             ],
             "problemMatcher": "$msCompile"
         },
@@ -33,13 +19,241 @@
             "type": "process",
             "args": [
                 "build",
-                "${workspaceFolder}/Fish Girlz.csproj",
+                "${workspaceFolder}/Game/Fish Girlz.csproj",
                 "/property:GenerateFullPaths=true",
                 "/consoleloggerparameters:NoSummary",
                 "-c",
                 "Release",
             ],
             "problemMatcher": "$msCompile"
+        },
+        {
+            "label": "build Art",
+            "command": "dotnet",
+            "type": "process",
+            "args": [
+                "build",
+                "${workspaceFolder}/Utils/Art/Art.csproj",
+                "/property:GenerateFullPaths=true",
+                "/consoleloggerparameters:NoSummary",
+                "-c",
+                "Release",
+            ],
+            "problemMatcher": "$msCompile"
+        },
+        {
+            "label": "build Audio",
+            "command": "dotnet",
+            "type": "process",
+            "args": [
+                "build",
+                "${workspaceFolder}/Utils/Audio/Audio.csproj",
+                "/property:GenerateFullPaths=true",
+                "/consoleloggerparameters:NoSummary",
+                "-c",
+                "Release",
+            ],
+            "problemMatcher": "$msCompile"
+        },
+        {
+            "label": "build Battle",
+            "command": "dotnet",
+            "type": "process",
+            "args": [
+                "build",
+                "${workspaceFolder}/Utils/Battle/Battle.csproj",
+                "/property:GenerateFullPaths=true",
+                "/consoleloggerparameters:NoSummary",
+                "-c",
+                "Release",
+            ],
+            "problemMatcher": "$msCompile"
+        },
+        {
+            "label": "build Dialog",
+            "command": "dotnet",
+            "type": "process",
+            "args": [
+                "build",
+                "${workspaceFolder}/Utils/Dialog/Dialog.csproj",
+                "/property:GenerateFullPaths=true",
+                "/consoleloggerparameters:NoSummary",
+                "-c",
+                "Release",
+            ],
+            "problemMatcher": "$msCompile"
+        },
+        {
+            "label": "build Entities",
+            "command": "dotnet",
+            "type": "process",
+            "args": [
+                "build",
+                "${workspaceFolder}/Utils/Entities/Entities.csproj",
+                "/property:GenerateFullPaths=true",
+                "/consoleloggerparameters:NoSummary",
+                "-c",
+                "Release",
+            ],
+            "problemMatcher": "$msCompile"
+        },
+        {
+            "label": "build Inventory",
+            "command": "dotnet",
+            "type": "process",
+            "args": [
+                "build",
+                "${workspaceFolder}/Utils/Inventory/Inventory.csproj",
+                "/property:GenerateFullPaths=true",
+                "/consoleloggerparameters:NoSummary",
+                "-c",
+                "Release",
+            ],
+            "problemMatcher": "$msCompile"
+        },
+        {
+            "label": "build Items",
+            "command": "dotnet",
+            "type": "process",
+            "args": [
+                "build",
+                "${workspaceFolder}/Utils/Items/Items.csproj",
+                "/property:GenerateFullPaths=true",
+                "/consoleloggerparameters:NoSummary",
+                "-c",
+                "Release",
+            ],
+            "problemMatcher": "$msCompile"
+        },
+        {
+            "label": "build Localisation",
+            "command": "dotnet",
+            "type": "process",
+            "args": [
+                "build",
+                "${workspaceFolder}/Utils/Localisation/Localisation.csproj",
+                "/property:GenerateFullPaths=true",
+                "/consoleloggerparameters:NoSummary",
+                "-c",
+                "Release",
+            ],
+            "problemMatcher": "$msCompile"
+        },
+        {
+            "label": "build Prompt",
+            "command": "dotnet",
+            "type": "process",
+            "args": [
+                "build",
+                "${workspaceFolder}/Utils/Prompt/Prompt.csproj",
+                "/property:GenerateFullPaths=true",
+                "/consoleloggerparameters:NoSummary",
+                "-c",
+                "Release",
+            ],
+            "problemMatcher": "$msCompile"
+        },
+        {
+            "label": "build Render",
+            "command": "dotnet",
+            "type": "process",
+            "args": [
+                "build",
+                "${workspaceFolder}/Utils/Render/Render.csproj",
+                "/property:GenerateFullPaths=true",
+                "/consoleloggerparameters:NoSummary",
+                "-c",
+                "Release",
+            ],
+            "problemMatcher": "$msCompile"
+        },
+        {
+            "label": "build States",
+            "command": "dotnet",
+            "type": "process",
+            "args": [
+                "build",
+                "${workspaceFolder}/Utils/States/States.csproj",
+                "/property:GenerateFullPaths=true",
+                "/consoleloggerparameters:NoSummary",
+                "-c",
+                "Release",
+            ],
+            "problemMatcher": "$msCompile"
+        },
+        {
+            "label": "build Systems",
+            "command": "dotnet",
+            "type": "process",
+            "args": [
+                "build",
+                "${workspaceFolder}/Utils/Systems/Systems.csproj",
+                "/property:GenerateFullPaths=true",
+                "/consoleloggerparameters:NoSummary",
+                "-c",
+                "Release",
+            ],
+            "problemMatcher": "$msCompile"
+        },
+        {
+            "label": "build Tiles",
+            "command": "dotnet",
+            "type": "process",
+            "args": [
+                "build",
+                "${workspaceFolder}/Utils/Tiles/Tiles.csproj",
+                "/property:GenerateFullPaths=true",
+                "/consoleloggerparameters:NoSummary",
+                "-c",
+                "Release",
+            ],
+            "problemMatcher": "$msCompile"
+        },
+        {
+            "label": "build UI",
+            "command": "dotnet",
+            "type": "process",
+            "args": [
+                "build",
+                "${workspaceFolder}/Utils/UI/UI.csproj",
+                "/property:GenerateFullPaths=true",
+                "/consoleloggerparameters:NoSummary",
+                "-c",
+                "Release",
+            ],
+            "problemMatcher": "$msCompile"
+        },
+        {
+            "label": "build Utils",
+            "command": "dotnet",
+            "type": "process",
+            "args": [
+                "build",
+                "${workspaceFolder}/Utils/Utils/Utils.csproj",
+                "/property:GenerateFullPaths=true",
+                "/consoleloggerparameters:NoSummary",
+                "-c",
+                "Release",
+            ],
+            "problemMatcher": "$msCompile"
+        },
+        {
+            "label": "build World",
+            "command": "dotnet",
+            "type": "process",
+            "args": [
+                "build",
+                "${workspaceFolder}/Utils/World/World.csproj",
+                "/property:GenerateFullPaths=true",
+                "/consoleloggerparameters:NoSummary",
+                "-c",
+                "Release",
+            ],
+            "problemMatcher": "$msCompile"
+        },
+        {
+          "label": "build Libraries",
+          "dependsOn": ["build Art", "build Audio", "build Battle", "build Dialog", "build Entities", "build Inventory", "build Items", "build Localisation", "build Prompt", "build Render", "build States", "build Systems", "build Tiles", "build UI", "build Utils", "build World"]
         },
         {
             "label": "publish",

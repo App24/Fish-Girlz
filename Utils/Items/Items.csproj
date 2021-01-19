@@ -1,0 +1,22 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+  </PropertyGroup>
+  <ItemGroup>
+    <PackageReference Include="SFML.Net" Version="2.5.0"/>
+    <Reference Include="Art">
+      <HintPath>..\Art\bin\Release\netstandard2.0\Art.dll</HintPath>
+    </Reference>
+    <Reference Include="Utils">
+      <HintPath>..\Utils\bin\Release\netstandard2.0\Utils.dll</HintPath>
+    </Reference>
+    <Reference Include="Inventory">
+      <HintPath>..\Inventory\bin\Release\netstandard2.0\Inventory.dll</HintPath>
+    </Reference>
+    <Reference Include="Entities">
+      <HintPath>..\Entities\bin\Release\netstandard2.0\Entities.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+
+</Project>

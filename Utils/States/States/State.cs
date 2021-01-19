@@ -1,0 +1,93 @@
+using System;
+using Fish_Girlz.Art;
+using Fish_Girlz.UI;
+using Fish_Girlz.Entities;
+using Fish_Girlz.Entities.Tiles;
+using System.Collections.Generic;
+using Fish_Girlz.UI.Components;
+using Fish_Girlz.Utils;
+using SFML.Graphics;
+using SFML.System;
+using Fish_Girlz.Entities.Items;
+using Fish_Girlz.Systems;
+
+namespace Fish_Girlz.States{
+    public abstract class State {
+        protected List<LayeredSprite> sprites=new List<LayeredSprite>();
+        private List<GUI> guis=new List<GUI>();
+        private List<Entity> entities=new List<Entity>();
+        protected List<TileEntity> tileEntities=new List<TileEntity>();
+        protected List<ItemEntity> itemEntities=new List<ItemEntity>();
+
+        private List<Entity> toAddEntities=new List<Entity>();
+        private List<TileEntity> toAddTileEntities=new List<TileEntity>();
+        private List<GUI> toAddGuis=new List<GUI>();
+        private List<ItemEntity> toAddItems=new List<ItemEntity>();
+
+        public abstract void Init();
+        public abstract void HandleInput();
+        public abstract void Update();
+        public virtual void Pause(){
+            
+        }
+        public virtual void Resume(){
+            
+        }
+        public virtual void Remove(){
+            
+        }
+        public void StateLogic(){
+            entities.AddRange(toAddEntities);
+            toAddEntities.Clear();
+
+            tileEntities.AddRange(toAddTileEntities);
+            toAddTileEntities.Clear();
+
+            guis.AddRange(toAddGuis);
+            toAddGuis.Clear();
+
+            itemEntities.AddRange(toAddItems);
+            toAddItems.Clear();
+        }
+
+        public List<LayeredSprite> GetSprites(){
+            return sprites;//.Clone();
+        }
+
+        public List<GUI> GetGUIs(){
+            return guis;//.Clone();
+        }
+
+        public List<Entity> GetEntities(){
+            return entities;//.Clone();
+        }
+
+        public List<TileEntity> GetTileEntities(){
+            return tileEntities;//.Clone();
+        }
+
+        public List<ItemEntity> GetItems(){
+            return itemEntities;
+        }
+
+        public T AddEntity<T>(T entity) where T: Entity{
+            toAddEntities.Add(entity);
+            return entity;
+        }
+
+        public T AddTileEntity<T>(T tileEntity) where T : TileEntity{
+            toAddTileEntities.Add(tileEntity);
+            return tileEntity;
+        }
+
+        public T AddGUI<T>(T gui) where T:GUI{
+            toAddGuis.Add(gui);
+            return gui;
+        }
+
+        public T AddItem<T>(T item) where T : ItemEntity{
+            toAddItems.Add(item);
+            return item;
+        }
+    }
+}
