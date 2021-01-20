@@ -28,12 +28,40 @@
             "problemMatcher": "$msCompile"
         },
         {
+            "label": "build API",
+            "command": "dotnet",
+            "type": "process",
+            "args": [
+                "build",
+                "${workspaceFolder}/Modules/API/API.csproj",
+                "/property:GenerateFullPaths=true",
+                "/consoleloggerparameters:NoSummary",
+                "-c",
+                "Release",
+            ],
+            "problemMatcher": "$msCompile"
+        },
+        {
+            "label": "build APILoader",
+            "command": "dotnet",
+            "type": "process",
+            "args": [
+                "build",
+                "${workspaceFolder}/Modules/APILoader/APILoader.csproj",
+                "/property:GenerateFullPaths=true",
+                "/consoleloggerparameters:NoSummary",
+                "-c",
+                "Release",
+            ],
+            "problemMatcher": "$msCompile"
+        },
+        {
             "label": "build Art",
             "command": "dotnet",
             "type": "process",
             "args": [
                 "build",
-                "${workspaceFolder}/Utils/Art/Art.csproj",
+                "${workspaceFolder}/Modules/Art/Art.csproj",
                 "/property:GenerateFullPaths=true",
                 "/consoleloggerparameters:NoSummary",
                 "-c",
@@ -47,7 +75,7 @@
             "type": "process",
             "args": [
                 "build",
-                "${workspaceFolder}/Utils/Audio/Audio.csproj",
+                "${workspaceFolder}/Modules/Audio/Audio.csproj",
                 "/property:GenerateFullPaths=true",
                 "/consoleloggerparameters:NoSummary",
                 "-c",
@@ -61,7 +89,7 @@
             "type": "process",
             "args": [
                 "build",
-                "${workspaceFolder}/Utils/Battle/Battle.csproj",
+                "${workspaceFolder}/Modules/Battle/Battle.csproj",
                 "/property:GenerateFullPaths=true",
                 "/consoleloggerparameters:NoSummary",
                 "-c",
@@ -75,7 +103,7 @@
             "type": "process",
             "args": [
                 "build",
-                "${workspaceFolder}/Utils/Dialog/Dialog.csproj",
+                "${workspaceFolder}/Modules/Dialog/Dialog.csproj",
                 "/property:GenerateFullPaths=true",
                 "/consoleloggerparameters:NoSummary",
                 "-c",
@@ -89,7 +117,7 @@
             "type": "process",
             "args": [
                 "build",
-                "${workspaceFolder}/Utils/Entities/Entities.csproj",
+                "${workspaceFolder}/Modules/Entities/Entities.csproj",
                 "/property:GenerateFullPaths=true",
                 "/consoleloggerparameters:NoSummary",
                 "-c",
@@ -103,7 +131,7 @@
             "type": "process",
             "args": [
                 "build",
-                "${workspaceFolder}/Utils/Inventory/Inventory.csproj",
+                "${workspaceFolder}/Modules/Inventory/Inventory.csproj",
                 "/property:GenerateFullPaths=true",
                 "/consoleloggerparameters:NoSummary",
                 "-c",
@@ -117,7 +145,7 @@
             "type": "process",
             "args": [
                 "build",
-                "${workspaceFolder}/Utils/Items/Items.csproj",
+                "${workspaceFolder}/Modules/Items/Items.csproj",
                 "/property:GenerateFullPaths=true",
                 "/consoleloggerparameters:NoSummary",
                 "-c",
@@ -131,7 +159,7 @@
             "type": "process",
             "args": [
                 "build",
-                "${workspaceFolder}/Utils/Localisation/Localisation.csproj",
+                "${workspaceFolder}/Modules/Localisation/Localisation.csproj",
                 "/property:GenerateFullPaths=true",
                 "/consoleloggerparameters:NoSummary",
                 "-c",
@@ -145,7 +173,7 @@
             "type": "process",
             "args": [
                 "build",
-                "${workspaceFolder}/Utils/Prompt/Prompt.csproj",
+                "${workspaceFolder}/Modules/Prompt/Prompt.csproj",
                 "/property:GenerateFullPaths=true",
                 "/consoleloggerparameters:NoSummary",
                 "-c",
@@ -159,7 +187,7 @@
             "type": "process",
             "args": [
                 "build",
-                "${workspaceFolder}/Utils/Render/Render.csproj",
+                "${workspaceFolder}/Modules/Render/Render.csproj",
                 "/property:GenerateFullPaths=true",
                 "/consoleloggerparameters:NoSummary",
                 "-c",
@@ -173,7 +201,7 @@
             "type": "process",
             "args": [
                 "build",
-                "${workspaceFolder}/Utils/States/States.csproj",
+                "${workspaceFolder}/Modules/States/States.csproj",
                 "/property:GenerateFullPaths=true",
                 "/consoleloggerparameters:NoSummary",
                 "-c",
@@ -187,7 +215,7 @@
             "type": "process",
             "args": [
                 "build",
-                "${workspaceFolder}/Utils/Systems/Systems.csproj",
+                "${workspaceFolder}/Modules/Systems/Systems.csproj",
                 "/property:GenerateFullPaths=true",
                 "/consoleloggerparameters:NoSummary",
                 "-c",
@@ -201,7 +229,7 @@
             "type": "process",
             "args": [
                 "build",
-                "${workspaceFolder}/Utils/Tiles/Tiles.csproj",
+                "${workspaceFolder}/Modules/Tiles/Tiles.csproj",
                 "/property:GenerateFullPaths=true",
                 "/consoleloggerparameters:NoSummary",
                 "-c",
@@ -215,7 +243,7 @@
             "type": "process",
             "args": [
                 "build",
-                "${workspaceFolder}/Utils/UI/UI.csproj",
+                "${workspaceFolder}/Modules/UI/UI.csproj",
                 "/property:GenerateFullPaths=true",
                 "/consoleloggerparameters:NoSummary",
                 "-c",
@@ -229,7 +257,7 @@
             "type": "process",
             "args": [
                 "build",
-                "${workspaceFolder}/Utils/Utils/Utils.csproj",
+                "${workspaceFolder}/Modules/Utils/Utils.csproj",
                 "/property:GenerateFullPaths=true",
                 "/consoleloggerparameters:NoSummary",
                 "-c",
@@ -243,7 +271,7 @@
             "type": "process",
             "args": [
                 "build",
-                "${workspaceFolder}/Utils/World/World.csproj",
+                "${workspaceFolder}/Modules/World/World.csproj",
                 "/property:GenerateFullPaths=true",
                 "/consoleloggerparameters:NoSummary",
                 "-c",
@@ -253,7 +281,7 @@
         },
         {
           "label": "build Libraries",
-          "dependsOn": ["build Art", "build Audio", "build Battle", "build Dialog", "build Entities", "build Inventory", "build Items", "build Localisation", "build Prompt", "build Render", "build States", "build Systems", "build Tiles", "build UI", "build Utils", "build World"]
+          "dependsOn": ["build API", "build APILoader", "build Art", "build Audio", "build Battle", "build Dialog", "build Entities", "build Inventory", "build Items", "build Localisation", "build Prompt", "build Render", "build States", "build Systems", "build Tiles", "build UI", "build Utils", "build World"]
         },
         {
             "label": "publish",

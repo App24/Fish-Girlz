@@ -1,0 +1,19 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+  </PropertyGroup>
+  <ItemGroup>
+    <PackageReference Include="Newtonsoft.Json" Version="12.0.3"/>
+    <Reference Include="Systems">
+      <HintPath>..\Systems\bin\Release\netstandard2.0\Systems.dll</HintPath>
+    </Reference>
+    <Reference Include="Utils">
+      <HintPath>..\Utils\bin\Release\netstandard2.0\Utils.dll</HintPath>
+    </Reference>
+    <Reference Include="API">
+      <HintPath>..\API\bin\Release\netstandard2.0\API.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+
+</Project>

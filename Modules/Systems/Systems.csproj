@@ -16,5 +16,8 @@
     <Reference Include="Utils">
       <HintPath>..\Utils\bin\Release\netstandard2.0\Utils.dll</HintPath>
     </Reference>
+    <Reference Include="APILoader">
+      <HintPath>..\APILoader\bin\Release\netstandard2.0\APILoader.dll</HintPath>
+    </Reference>
   </ItemGroup>
 </Project>

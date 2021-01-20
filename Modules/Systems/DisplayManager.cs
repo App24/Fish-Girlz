@@ -4,6 +4,7 @@ using SFML.System;
 using SFML.Window;
 using SFML.Graphics;
 using Fish_Girlz.Audio;
+using Fish_Girlz.API;
 
 namespace Fish_Girlz.Systems{
     public static class DisplayManager {
@@ -94,6 +95,7 @@ namespace Fish_Girlz.Systems{
         public static View View{get{return Window.GetView();}}
 
         public static void Close(){
+            PluginLoader.UnloadPlugins();
             AudioSystem.CleanUp();
             AssetManager.CleanUp();
             StateMachine.CleanUp();

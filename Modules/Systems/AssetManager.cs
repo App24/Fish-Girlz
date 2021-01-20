@@ -6,10 +6,18 @@ using SFML.Audio;
 using SFML.Graphics;
 using Fish_Girlz.Utils;
 using System.IO;
+using System.Runtime.CompilerServices;
 
+[assembly: InternalsVisibleTo("Fish Girlz")]
+[assembly: InternalsVisibleTo("API")]
+[assembly: InternalsVisibleTo("Dialog")]
+[assembly: InternalsVisibleTo("Entities")]
+[assembly: InternalsVisibleTo("Inventory")]
+[assembly: InternalsVisibleTo("Prompt")]
+[assembly: InternalsVisibleTo("UI")]
 namespace Fish_Girlz.Systems
 {
-    public static class AssetManager
+    internal static class AssetManager
     {
         private static Dictionary<string, Texture> textures = new Dictionary<string, Texture>();
         private static Dictionary<string, Font> fonts = new Dictionary<string, Font>();
@@ -17,14 +25,12 @@ namespace Fish_Girlz.Systems
         private static Dictionary<string, SpriteSheet> spriteSheets = new Dictionary<string, SpriteSheet>();
         private static Dictionary<string, object> objects = new Dictionary<string, object>();
 
-        public static void LoadTexture(string name, string fileName)
+        internal static void LoadTexture(string name, string fileName)
         {
             string filePath=Path.Combine(Utilities.ExecutingFolder, fileName);
             try
             {
-                Logger.Log($"Loading Texture: {name}, File: {filePath}");
                 if(textures.ContainsKey(name.ToLower())){
-                    Logger.Log($"Texture Already Loaded: {name}", Logger.LogLevel.Warn);
                     return;
                 }
                 Texture texture = new Texture(filePath);
@@ -38,14 +44,12 @@ namespace Fish_Girlz.Systems
             }
         }
 
-        public static void LoadSpriteSheet(string name, string fileName, int spriteWidth, int spriteHeight)
+        internal static void LoadSpriteSheet(string name, string fileName, int spriteWidth, int spriteHeight)
         {
             string filePath=Path.Combine(Utilities.ExecutingFolder, fileName);
             try
             {
-                Logger.Log($"Loading Spritesheet: {name}, File: {filePath}");
                 if(spriteSheets.ContainsKey(name.ToLower())){
-                    Logger.Log($"Spritesheet Already Loaded: {name}", Logger.LogLevel.Warn);
                     return;
                 }
                 Texture texture = new Texture(filePath);
@@ -59,14 +63,12 @@ namespace Fish_Girlz.Systems
             }
         }
 
-        public static void LoadFont(string name, string fileName)
+        internal static void LoadFont(string name, string fileName)
         {
             string filePath=Path.Combine(Utilities.ExecutingFolder, fileName);
             try
             {
-                Logger.Log($"Loading Font: {name}, File: {filePath}");
                 if(fonts.ContainsKey(name.ToLower())){
-                    Logger.Log($"Font Already Loaded: {name}", Logger.LogLevel.Warn);
                     return;
                 }
                 fonts.Add(name.ToLower(), new Font(filePath));
@@ -78,14 +80,12 @@ namespace Fish_Girlz.Systems
             }
         }
 
-        public static void LoadSoundBuffer(string name, string fileName)
+        internal static void LoadSoundBuffer(string name, string fileName)
         {
             string filePath=Path.Combine(Utilities.ExecutingFolder, fileName);
             try
             {
-                Logger.Log($"Loading Sound Buffer: {name}, File: {filePath}");
                 if(fonts.ContainsKey(name.ToLower())){
-                    Logger.Log($"Sound Buffer Already Loaded: {name}", Logger.LogLevel.Warn);
                     return;
                 }
                 SoundBuffer soundBuffer = new SoundBuffer(filePath);
@@ -98,12 +98,12 @@ namespace Fish_Girlz.Systems
             }
         }
 
-        public static void LoadObject(string name, object value){
+        internal static void LoadObject(string name, object value){
             if(objects.ContainsKey(name)) return;
             objects.Add(name, value);
         }
 
-        public static Texture GetTexture(string name)
+        internal static Texture GetTexture(string name)
         {
             Texture tex;
             bool successful = textures.TryGetValue(name.ToLower(), out tex);
@@ -112,7 +112,7 @@ namespace Fish_Girlz.Systems
             return tex;
         }
 
-        public static Font GetFont(string name)
+        internal static Font GetFont(string name)
         {
             Font font;
             bool successful = fonts.TryGetValue(name.ToLower(), out font);
@@ -121,7 +121,7 @@ namespace Fish_Girlz.Systems
             return font;
         }
 
-        public static SoundBuffer GetSoundBuffer(string name)
+        internal static SoundBuffer GetSoundBuffer(string name)
         {
             SoundBuffer soundBuffer;
             bool successful = soundBuffers.TryGetValue(name.ToLower(), out soundBuffer);
@@ -130,7 +130,7 @@ namespace Fish_Girlz.Systems
             return soundBuffer;
         }
 
-        public static SpriteSheet GetSpriteSheet(string name)
+        internal static SpriteSheet GetSpriteSheet(string name)
         {
             SpriteSheet spriteSheet;
             bool successful = spriteSheets.TryGetValue(name.ToLower(), out spriteSheet);
@@ -139,7 +139,7 @@ namespace Fish_Girlz.Systems
             return spriteSheet;
         }
 
-        public static T GetObject<T>(string name)
+        internal static T GetObject<T>(string name)
         {
             object obj;
             bool successful = objects.TryGetValue(name, out obj);
@@ -148,7 +148,7 @@ namespace Fish_Girlz.Systems
             return (T)obj;
         }
 
-        public static void CleanUp(){
+        internal static void CleanUp(){
             foreach (KeyValuePair<string, Texture> item in textures)
             {
                 item.Value.Dispose();
@@ -170,7 +170,7 @@ namespace Fish_Girlz.Systems
     }
 
     class NoAssetException : Exception{
-        public NoAssetException(string assetType, string assetName) : base($"Could Not Find Any {assetType} By The Name Of \"{assetName}\""){
+        internal NoAssetException(string assetType, string assetName) : base($"Could Not Find Any {assetType} By The Name Of \"{assetName}\""){
             Logger.Log($"Could Not Find Any {assetType} By The Name Of \"{assetName}\"", Logger.LogLevel.Error);
         }
     }

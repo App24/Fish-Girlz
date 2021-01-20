@@ -2,14 +2,11 @@
 using Fish_Girlz.Utils;
 using Fish_Girlz.States;
 using Fish_Girlz.Audio;
-using DiscordRPC;
-using DiscordRPC.Events;
-using DiscordRPC.Message;
-using DiscordRPC.Logging;
 using SFML.Window;
 using Fish_Girlz.Items;
 using Fish_Girlz.Entities;
 using Fish_Girlz.Systems;
+using Fish_Girlz.API;
 
 namespace Fish_Girlz
 {
@@ -17,39 +14,27 @@ namespace Fish_Girlz
     {
         public static string Version="Alpha 1.0.0";
 
-        //public static DiscordRpcClient client { get; private set; }
-        //private static ulong startTime { get; set;}
-        //public static RichPresence RichPresence;
-
         public static void Main(string[] args)
         {
+            #if DEBUG
+                Logger.Debug=true;
+            #endif
+            PluginLoader.AddPlugin(new Plugin(new Fish_Girlz.API.Core.CoreAPIPlugin(), new Mod("Core", "core", "App24", new API.Version(1,0,0)), Utilities.ExecutingFolder));
             Logger.InitLogger();
+
+            PluginLoader.LoadPlugins();
+
             AssetLoader.LoadAssets();
+            PluginLoader.LoadAssets();
+
             DisplayManager.CreateWindow(1280,720, "Fish Girlz: Mermaid Adventures");
+
             InputManager.InitInputManager();
+
             Tiles.TileLoader.LoadTiles();
             ItemLoader.LoadItems();
+            
             StateMachine.AddState(new MainMenuState());
-            //client = new DiscordRpcClient("772930748784967750");
-            //client.Logger = new ConsoleLogger() { Level = LogLevel.Error };
-            //client.Initialize();
-
-            //startTime = (ulong)DateTimeOffset.UtcNow.ToUnixTimeMilliseconds();
-
-            //RichPresence = new RichPresence()
-            //{
-            //    Details = Version,
-            //    Assets = new Assets()
-            //    {
-            //        LargeImageKey = "image"
-            //    },
-            //    Timestamps = new Timestamps()
-            //    {
-            //        StartUnixMilliseconds = startTime
-            //    }
-            //};
-
-            //client.SetPresence(RichPresence);
 
             if(!ItemLoader.Loaded){
                 Logger.Log("Failed to load items or entities", Logger.LogLevel.Error);
@@ -80,9 +65,6 @@ namespace Fish_Girlz
                 InputManager.ResetInputManager();
             }
 
-            
-            //client.Deinitialize();
-            //client.Dispose();
             DisplayManager.Window.Dispose();
         }
 

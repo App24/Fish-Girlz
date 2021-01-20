@@ -1,6 +1,7 @@
 using System;
 using System.IO;
 using Fish_Girlz.Utils;
+using System.Runtime.CompilerServices;
 
 namespace Fish_Girlz.Systems{
     public static class Logger {
@@ -8,6 +9,8 @@ namespace Fish_Girlz.Systems{
         private const string LOG_NAME="log_{0}.txt";
 
         private static string logFolder;
+
+        public static bool Debug{get;set;}
 
         static FileStream ostrm;
         static StreamWriter writer;
@@ -45,9 +48,7 @@ namespace Fish_Girlz.Systems{
         }
         
         public static string Log(object message, LogLevel logLevel=LogLevel.Info){
-            #if !DEBUG
-                if(logLevel==LogLevel.Debug) return "";
-            #endif
+            if(logLevel==LogLevel.Debug&&!Debug) return "";
             string prefix=$"[{logLevel.ToString()}: {DateTime.Now.ToString("HH:mm:ss")}] ";
             string _message=$"{prefix}{message}";
             Log(_message);

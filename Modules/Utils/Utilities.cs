@@ -23,7 +23,7 @@ namespace Fish_Girlz.Utils{
         }
 
         public static string ExecutingFolder{get{
-            return Path.GetDirectoryName(Assembly.GetEntryAssembly().Location);
+            return Assembly.GetEntryAssembly().GetDirectory();
         }}
 
         // public static float CenterInWindow(float windowSize, float size){
@@ -42,6 +42,10 @@ namespace Fish_Girlz.Utils{
                     break;
             }
             return (wSize-size)/2f;
+        }
+
+        public static string GetDirectory(this Assembly assembly){
+            return Path.GetDirectoryName(assembly.Location);
         }
 
         public static string GetFileInTemp(string fileName){
