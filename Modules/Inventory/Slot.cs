@@ -18,7 +18,7 @@ namespace Fish_Girlz.Inventory{
         }
 
         public bool SetItem(Item item){
-            if(item==null||(item.GetType()==AllowedItemType)){
+            if(item==null||(item.GetType().IsSubclassOf(AllowedItemType))){
                 Item=item;
                 Amount=item==null?0:1;
                 return true;

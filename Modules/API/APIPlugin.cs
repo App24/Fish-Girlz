@@ -1,10 +1,15 @@
 using System;
+using System.Runtime.CompilerServices;
 
+[assembly: InternalsVisibleTo("APILoader")]
 namespace Fish_Girlz.API{
     public abstract class APIPlugin {
 
+        internal string ID{get;set;}
+        internal string Directory{get;set;}
+
         public abstract void OnLoad();
-        public abstract void LoadAssets(AssetManager assetManager);
+        public abstract void LoadItems(ItemLoader itemLoader);
         public abstract void OnUnload();
     }
 }

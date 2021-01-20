@@ -29,6 +29,9 @@
     <Reference Include="Items">
       <HintPath>..\Items\bin\Release\netstandard2.0\Items.dll</HintPath>
     </Reference>
+    <Reference Include="Localisation">
+      <HintPath>..\Localisation\bin\Release\netstandard2.0\Localisation.dll</HintPath>
+    </Reference>
   </ItemGroup>
 
 </Project>

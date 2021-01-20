@@ -171,33 +171,27 @@ namespace Fish_Girlz.Inventory{
             switch (itemSlot)
             {
                 case ItemSlot.Ring:
-                    if(item==null||ringSlot.Item!=null) return false;
-                    ringSlot.SetItem(item);
+                    if(!ringSlot.SetItem(item)) return false;
                     uIInventory.UpdateRingSlot(ringSlot);
                     return true;
                 case ItemSlot.Necklace:
-                    if(item==null||necklaceSlot.Item!=null) return false;
-                    necklaceSlot.SetItem(item);
+                    if(!necklaceSlot.SetItem(item)) return false;
                     uIInventory.UpdateNecklaceSlot(necklaceSlot);
                     return true;
                 case ItemSlot.Helmet:
-                    if(item==null||helmetSlot.Item!=null) return false;
-                    helmetSlot.SetItem(item);
+                    if(!helmetSlot.SetItem(item)) return false;
                     uIInventory.UpdateHelmetSlot(helmetSlot);
                     return true;
                 case ItemSlot.Chestplate:
-                    if(item==null||chestplateSlot.Item!=null) return false;
-                    chestplateSlot.SetItem(item);
+                    if(!chestplateSlot.SetItem(item)) return false;
                     uIInventory.UpdateChestSlot(chestplateSlot);
                     return true;
                 case ItemSlot.Leggings:
-                    if(item==null||leggingsSlot.Item!=null) return false;
-                    leggingsSlot.SetItem(item);
+                    if(!leggingsSlot.SetItem(item)) return false;
                     uIInventory.UpdateLeggingsSlot(leggingsSlot);
                     return true;
                 case ItemSlot.Boots:
-                    if(item==null||bootsSlot.Item!=null) return false;
-                    bootsSlot.SetItem(item);
+                    if(!bootsSlot.SetItem(item)) return false;
                     uIInventory.UpdateBootsSlot(bootsSlot);
                     return true;
             }

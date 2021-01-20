@@ -27,7 +27,7 @@ namespace Fish_Girlz.States{
         {
             text=new UIText(new FontInfo(AssetManager.GetFont("Arial"), 16), "Health: ",Color.White,new Vector2f(0,0));
             AddGUI(text);
-            MapGenerator.InitMap();
+            MapGenerator.InitMap("map2");
             player=new PlayerEntity(MapGenerator.GetPlayerPos());
             AddEntity(player);
             tileEntities=MapGenerator.GetTileEntities();

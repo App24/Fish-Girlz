@@ -4,11 +4,18 @@
     <TargetFramework>netstandard2.0</TargetFramework>
   </PropertyGroup>
   <ItemGroup>
+    <PackageReference Include="SFML.Net" Version="2.5.0"/>
     <Reference Include="Systems">
       <HintPath>..\Systems\bin\Release\netstandard2.0\Systems.dll</HintPath>
     </Reference>
     <Reference Include="Utils">
       <HintPath>..\Utils\bin\Release\netstandard2.0\Utils.dll</HintPath>
+    </Reference>
+    <Reference Include="Items">
+      <HintPath>..\Items\bin\Release\netstandard2.0\Items.dll</HintPath>
+    </Reference>
+    <Reference Include="Art">
+      <HintPath>..\Art\bin\Release\netstandard2.0\Art.dll</HintPath>
     </Reference>
   </ItemGroup>
 

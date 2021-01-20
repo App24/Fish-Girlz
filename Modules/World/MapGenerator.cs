@@ -10,6 +10,7 @@ using Fish_Girlz.Tiles;
 using Newtonsoft.Json;
 using Fish_Girlz.Entities.Items;
 using Fish_Girlz.Items;
+using Fish_Girlz.Utils;
 
 namespace Fish_Girlz.World{
     public static class MapGenerator {
@@ -20,14 +21,13 @@ namespace Fish_Girlz.World{
         public static int MapWidth=24;
         public static int MapHeight=24;
 
-        private static string MapFile="res/maps/map.json";
-
         private static Vector2f playerPos;
 
-        public static void InitMap(){
-            if(!File.Exists(MapFile)){ return; }
+        public static void InitMap(string map="map"){
+            string mapFile=Path.Combine(Utilities.ExecutingFolder, "res/maps", $"{map}.json");
+            if(!File.Exists(mapFile)){ return; }
 
-            MapData mapData=JsonConvert.DeserializeObject<MapData>(File.ReadAllText(MapFile));
+            MapData mapData=JsonConvert.DeserializeObject<MapData>(File.ReadAllText(mapFile));
             playerPos=mapData.PlayerPos*64;
             tileEntities.Clear();
             itemEntities.Clear();

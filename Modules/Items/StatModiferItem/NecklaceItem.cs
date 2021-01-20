@@ -3,7 +3,7 @@ using Fish_Girlz.Entities;
 using SFML.Graphics;
 
 namespace Fish_Girlz.Items{
-    public class NecklaceItem : StatModifierItem
+    public abstract class NecklaceItem : StatModifierItem
     {
         public NecklaceItem(string id, string name, Texture texture, StatModifier statModifier, int amount) : base(id, name, texture, statModifier, amount)
         {

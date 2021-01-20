@@ -1,10 +1,10 @@
 <Project Sdk="Microsoft.NET.Sdk">
-
   <PropertyGroup>
     <TargetFramework>netstandard2.0</TargetFramework>
   </PropertyGroup>
   <ItemGroup>
     <PackageReference Include="Newtonsoft.Json" Version="12.0.3"/>
+    <PackageReference Include="Microsoft.CSharp" Version="4.7.0"/>
     <Reference Include="Systems">
       <HintPath>..\Systems\bin\Release\netstandard2.0\Systems.dll</HintPath>
     </Reference>
@@ -15,5 +15,4 @@
       <HintPath>..\API\bin\Release\netstandard2.0\API.dll</HintPath>
     </Reference>
   </ItemGroup>
-
 </Project>

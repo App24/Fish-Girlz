@@ -15,10 +15,10 @@ namespace Fish_Girlz.States{
 
         public override void Init()
         {
-            pausedText=new UIText(AssetManager.GetObject<FontInfo>("Title Font"), LocalisationLoader.GetCurrentLanguage().GetTranslation("text.paused"), Color.White, new Vector2f(DisplayManager.Width/2-68, 200));
-            continueButton=new UIButton(new Vector2u(160, 64), new Vector2f(Utilities.CenterInWindow(WindowSize.WIDTH, 160), Utilities.CenterInWindow(WindowSize.HEIGHT, 64)-70), LocalisationLoader.GetCurrentLanguage().GetTranslation("button.continue"), AssetManager.GetObject<FontInfo>("Button Font"));
-            menu=new UIButton(new Vector2u(160, 64), new Vector2f(Utilities.CenterInWindow(WindowSize.WIDTH, 160), Utilities.CenterInWindow(WindowSize.HEIGHT, 64)), LocalisationLoader.GetCurrentLanguage().GetTranslation("button.menu"), AssetManager.GetObject<FontInfo>("Button Font"));
-            quit=new UIButton(new Vector2u(160, 64), new Vector2f(Utilities.CenterInWindow(WindowSize.WIDTH, 160), Utilities.CenterInWindow(WindowSize.HEIGHT, 64)+70), LocalisationLoader.GetCurrentLanguage().GetTranslation("button.quit"), AssetManager.GetObject<FontInfo>("Button Font"));
+            pausedText=new UIText(AssetManager.GetObject<FontInfo>("Title Font"), Language.GetDefault().GetTranslation("text.paused"), Color.White, new Vector2f(DisplayManager.Width/2-68, 200));
+            continueButton=new UIButton(new Vector2u(160, 64), new Vector2f(Utilities.CenterInWindow(WindowSize.WIDTH, 160), Utilities.CenterInWindow(WindowSize.HEIGHT, 64)-70), Language.GetDefault().GetTranslation("button.continue"), AssetManager.GetObject<FontInfo>("Button Font"));
+            menu=new UIButton(new Vector2u(160, 64), new Vector2f(Utilities.CenterInWindow(WindowSize.WIDTH, 160), Utilities.CenterInWindow(WindowSize.HEIGHT, 64)), Language.GetDefault().GetTranslation("button.menu"), AssetManager.GetObject<FontInfo>("Button Font"));
+            quit=new UIButton(new Vector2u(160, 64), new Vector2f(Utilities.CenterInWindow(WindowSize.WIDTH, 160), Utilities.CenterInWindow(WindowSize.HEIGHT, 64)+70), Language.GetDefault().GetTranslation("button.quit"), AssetManager.GetObject<FontInfo>("Button Font"));
             AddGUI(pausedText);
             AddGUI(continueButton);
             AddGUI(quit);

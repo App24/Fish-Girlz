@@ -23,7 +23,7 @@ namespace Fish_Girlz.States{
             AddGUI(checkbox);
             dialogBox=new DialogBox();
             List<DialogInfo> dialogInfos=new List<DialogInfo>();
-            Localisation.Language language=Localisation.LocalisationLoader.GetCurrentLanguage();
+            Localisation.Language language=Localisation.Language.GetDefault();
             dialogInfos.Add(new DialogInfo(CharacterInfo.DOMINIQUE, "dialog.test1", language, true));
             dialogInfos.Add(new DialogInfo(CharacterInfo.ASTRA, "dialog.test2", language, true));
             dialogInfos.Add(new DialogInfo(CharacterInfo.LAURELY, "dialog.test3", language, true));

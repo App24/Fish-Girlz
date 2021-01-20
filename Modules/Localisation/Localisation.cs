@@ -3,26 +3,18 @@ using System.Collections.Generic;
 using System.IO;
 using Newtonsoft.Json;
 using Fish_Girlz.Utils;
+using System.Runtime.CompilerServices;
 
+[assembly: InternalsVisibleTo("Fish Girlz")]
 namespace Fish_Girlz.Localisation{
     public class Language {
         private string langName;
         private Dictionary<string, string> translations=new Dictionary<string, string>();
 
-        public string languagePath;
+        static List<Language> languages=new List<Language>();
 
-        public Language(string languagePath, string langName){
+        public Language(string langName){
             this.langName=langName;
-            this.languagePath=Path.Combine(Utilities.ExecutingFolder, languagePath);
-            LoadLanguage();
-        }
-
-        void LoadLanguage(){
-            if(File.Exists(Path.Combine(languagePath, $"{langName}.json"))){
-                translations=JsonConvert.DeserializeObject<Dictionary<string, string>>(File.ReadAllText(Path.Combine(languagePath, $"{langName}.json")));
-            }else{
-                throw new FileNotFoundException("Could not load language file: "+langName);
-            }
         }
 
         public string GetTranslation(string key, params object[] args){
@@ -37,6 +29,22 @@ namespace Fish_Girlz.Localisation{
                 }
             }
             return text;
+        }
+
+        public void AddLocalisation(string key, string value){
+            translations.Add(key, value);
+        }
+
+        internal static void AddLanguage(Language language){
+            languages.Add(language);
+        }
+
+        internal static Language GetLanguage(string name){
+            return languages.Find(delegate(Language language){return language.langName==name;});
+        }
+
+        public static Language GetDefault(){
+            return GetLanguage("English");
         }
     }
 }

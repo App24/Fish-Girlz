@@ -25,11 +25,11 @@ namespace Fish_Girlz.States{
 
         public override void Init()
         {
-            play=new UIButton(new Vector2u(160, 64), new Vector2f(Utilities.CenterInWindow(WindowSize.WIDTH, 160), Utilities.CenterInWindow(WindowSize.HEIGHT, 60)-40), LocalisationLoader.GetCurrentLanguage().GetTranslation("button.start"), AssetManager.GetObject<FontInfo>("Button Font"));
-            quit=new UIButton(new Vector2u(160, 64), new Vector2f(Utilities.CenterInWindow(WindowSize.WIDTH, 160), Utilities.CenterInWindow(WindowSize.HEIGHT, 60)+40), LocalisationLoader.GetCurrentLanguage().GetTranslation("button.quit"), AssetManager.GetObject<FontInfo>("Button Font"));
+            play=new UIButton(new Vector2u(160, 64), new Vector2f(Utilities.CenterInWindow(WindowSize.WIDTH, 160), Utilities.CenterInWindow(WindowSize.HEIGHT, 60)-40), Language.GetDefault().GetTranslation("button.start"), AssetManager.GetObject<FontInfo>("Button Font"));
+            quit=new UIButton(new Vector2u(160, 64), new Vector2f(Utilities.CenterInWindow(WindowSize.WIDTH, 160), Utilities.CenterInWindow(WindowSize.HEIGHT, 60)+40), Language.GetDefault().GetTranslation("button.quit"), AssetManager.GetObject<FontInfo>("Button Font"));
             AddGUI(play);
             AddGUI(quit);
-            version = new UIText(new FontInfo(AssetManager.GetFont("Arial"), 24), LocalisationLoader.GetCurrentLanguage().GetTranslation("text.version", Program.Version), Color.White, new Vector2f(6, DisplayManager.Height-30));
+            version = new UIText(new FontInfo(AssetManager.GetFont("Arial"), 24), Language.GetDefault().GetTranslation("text.version", Program.Version), Color.White, new Vector2f(6, DisplayManager.Height-30));
             AddGUI(version);
             //play.OnClick+=new EventHandler((sender, e)=>{StateMachine.AddState(new GameState());});
             quit.OnClick+=new EventHandler((sender, e)=>{DisplayManager.Close();});

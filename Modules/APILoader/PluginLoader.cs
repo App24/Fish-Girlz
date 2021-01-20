@@ -18,6 +18,11 @@ namespace Fish_Girlz.API{
             string modsFolder=Path.Combine(Utilities.ExecutingFolder, "mods");
             if(!Directory.Exists(modsFolder)) Directory.CreateDirectory(modsFolder);
             ProcessDirectory(modsFolder);
+            foreach (var plugin in plugins)
+            {
+                plugin.APIPlugin.Directory=plugin.Directory;
+                plugin.APIPlugin.ID=plugin.Mod.ID;
+            }
             Load();
         }
 
@@ -36,10 +41,10 @@ namespace Fish_Girlz.API{
                 Mod mod=JsonConvert.DeserializeObject<Mod>(File.ReadAllText(fileName));
                 if(!mod.Enabled) return;
                 try{
-                    Logger.Log($"Loaded Plugin: {mod.Name}");
                     AddPlugin(TryToLoadPlugin(mod, Path.GetDirectoryName(fileName)));
+                    Logger.Log($"Loaded Plugin: {mod.Name}");
                 }catch(Exception e){
-                    Logger.Log($"Could not load {mod.Name}, because {e.Message}");
+                    Logger.Log($"Could not load {mod.Name}, because {e.Message}", Logger.LogLevel.Warn);
                     return;
                 }
             }
@@ -58,14 +63,14 @@ namespace Fish_Girlz.API{
             APIPlugin apiPlugin=null;
             foreach (var type in assembly.GetTypes())
             {
-                object obj=Activator.CreateInstance(type);
-                if(obj==null) continue;
-                if(obj is APIPlugin){
+                if(type.IsSubclassOf(typeof(APIPlugin))){
+                    dynamic plugin=Activator.CreateInstance(type);
                     if(apiPlugin!=null) throw new Exception($"Multiple APIPlugins detected in {mod.AssemblyName}");
-                    apiPlugin=(APIPlugin)obj;
+                    apiPlugin=plugin;
                 }
             }
             if(apiPlugin==null) throw new Exception($"No APIPlugin was detected in {mod.AssemblyName}");
+            
             
             return new Plugin(apiPlugin, mod, directory);
         }
@@ -84,11 +89,11 @@ namespace Fish_Girlz.API{
             }
         }
 
-        public static void LoadAssets(){
+        public static void LoadItems(){
             foreach (var plugin in plugins)
             {
-                AssetManager assetManager=new AssetManager(plugin.Mod.ID, plugin.Directory);
-                plugin.APIPlugin.LoadAssets(assetManager);
+                ItemLoader itemLoader=new ItemLoader(plugin.Mod.ID);
+                plugin.APIPlugin.LoadItems(itemLoader);
             }
         }
     }

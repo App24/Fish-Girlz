@@ -3,7 +3,7 @@ using Fish_Girlz.Entities;
 using SFML.Graphics;
 
 namespace Fish_Girlz.Items{
-    public class LeggingsArmorItem : ArmorItem
+    public abstract class LeggingsArmorItem : ArmorItem
     {
         public LeggingsArmorItem(string id, string name, Texture texture, float defense) : base(id, name, texture, defense)
         {

@@ -12,6 +12,7 @@ using System.Collections.Generic;
 using SFML.System;
 using Fish_Girlz.Entities.Items;
 using Fish_Girlz.Utils;
+using Fish_Girlz.Localisation;
 
 namespace Fish_Girlz.Systems{
     public static class RenderSystem {
@@ -103,7 +104,7 @@ namespace Fish_Girlz.Systems{
                         TextComponent textComponent=(TextComponent) guiComponent;
                         if(string.IsNullOrEmpty(textComponent.Text)) continue;
                         FontInfo fontInfo=textComponent.FontInfo;
-                        Text text=new Text(textComponent.Text, fontInfo.Font, fontInfo.Size);
+                        Text text=new Text(Language.GetDefault().GetTranslation(textComponent.Text), fontInfo.Font, fontInfo.Size);
                         text.Position=gui.Position+textComponent.Position;
                         text.FillColor=textComponent.TextColor;
                         text.OutlineColor=textComponent.OutlineColor;
@@ -169,7 +170,7 @@ namespace Fish_Girlz.Systems{
                         if(slotComponent.Slot==null||slotComponent.Slot.Item==null)continue;
                         FontInfo fontInfo=slotComponent.FontInfo;
                         if(slotComponent.ShowItemName)
-                        DrawText(slotComponent.Slot.Item.Name, fontInfo, InputManager.MousePosition+new Vector2f(0,-fontInfo.Size), view);
+                        DrawText(Language.GetDefault().GetTranslation(slotComponent.Slot.Item.Name), fontInfo, InputManager.MousePosition+new Vector2f(0,-fontInfo.Size), view);
                     }
                 }
             }

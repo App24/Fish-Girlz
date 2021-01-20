@@ -7,6 +7,7 @@ using Fish_Girlz.Items;
 using Fish_Girlz.Entities;
 using Fish_Girlz.Systems;
 using Fish_Girlz.API;
+using Fish_Girlz.Localisation;
 
 namespace Fish_Girlz
 {
@@ -22,24 +23,26 @@ namespace Fish_Girlz
             PluginLoader.AddPlugin(new Plugin(new Fish_Girlz.API.Core.CoreAPIPlugin(), new Mod("Core", "core", "App24", new API.Version(1,0,0)), Utilities.ExecutingFolder));
             Logger.InitLogger();
 
+            LocalisationLoader.LoadDefault();
+
             PluginLoader.LoadPlugins();
 
-            AssetLoader.LoadAssets();
-            PluginLoader.LoadAssets();
+            Utils.AssetLoader.LoadAssets();
 
             DisplayManager.CreateWindow(1280,720, "Fish Girlz: Mermaid Adventures");
 
             InputManager.InitInputManager();
 
             Tiles.TileLoader.LoadTiles();
-            ItemLoader.LoadItems();
+            // Items.ItemLoader.LoadItems();
+            PluginLoader.LoadItems();
             
             StateMachine.AddState(new MainMenuState());
 
-            if(!ItemLoader.Loaded){
-                Logger.Log("Failed to load items or entities", Logger.LogLevel.Error);
-                throw new Exception("Failed to load items or entities");
-            }
+            // if(!Items.ItemLoader.Loaded){
+            //     Logger.Log("Failed to load items or entities", Logger.LogLevel.Error);
+            //     throw new Exception("Failed to load items or entities");
+            // }
 
             while(DisplayManager.Window.IsOpen){
                 StateMachine.ProcessStateChanges();
