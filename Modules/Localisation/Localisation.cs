@@ -6,6 +6,7 @@ using Fish_Girlz.Utils;
 using System.Runtime.CompilerServices;
 
 [assembly: InternalsVisibleTo("Fish Girlz")]
+[assembly: InternalsVisibleTo("API")]
 namespace Fish_Girlz.Localisation{
     public class Language {
         private string langName;
@@ -31,7 +32,7 @@ namespace Fish_Girlz.Localisation{
             return text;
         }
 
-        public void AddLocalisation(string key, string value){
+        internal void AddLocalisation(string key, string value){
             translations.Add(key, value);
         }
 

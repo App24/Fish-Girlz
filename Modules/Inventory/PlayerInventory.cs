@@ -6,7 +6,9 @@ using Fish_Girlz.Inventory.UI;
 using SFML.System;
 using Fish_Girlz.Entities;
 using Fish_Girlz.Systems;
+using System.Runtime.CompilerServices;
 
+[assembly: InternalsVisibleTo("Entities")]
 namespace Fish_Girlz.Inventory{
     public class PlayerInventory {
         Slot[] slots;
@@ -23,7 +25,6 @@ namespace Fish_Girlz.Inventory{
             this.inventorySize=inventorySize;
             uIInventory=new UIInventory(new Vector2f(Utilities.CenterInWindow(WindowSize.WIDTH, 32+((inventorySize/2)*64)+((inventorySize/2)*10)+192), 200), inventorySize);
             uIInventory.SetVisible(false);
-            StateMachine.ActiveState.AddGUI(uIInventory);
             slots=new Slot[inventorySize];
             this.player=player;
 
@@ -34,6 +35,10 @@ namespace Fish_Girlz.Inventory{
             chestplateSlot=new Slot(null,0, typeof(ChestPlateArmorItem));
             leggingsSlot=new Slot(null, 0, typeof(LeggingsArmorItem));
             bootsSlot=new Slot(null, 0, typeof(BootsArmorItem));
+        }
+
+        internal void Init(){
+            StateMachine.ActiveState.AddGUI(uIInventory);
         }
 
         public int AddItem(Item item, int amount=1){

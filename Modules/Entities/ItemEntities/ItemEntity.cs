@@ -14,7 +14,7 @@ namespace Fish_Girlz.Entities.Items{
 
         public Item Item{get;}
 
-        public ItemEntity(Vector2f position, Item item) : base(position, item.Sprite)
+        public ItemEntity(Item item) : base(item.ID, item.Name, item.Sprite)
         {
             collisionComponent=AddComponent(new CollisionComponent());
             collisionComponent.Collidable=false;
@@ -24,23 +24,23 @@ namespace Fish_Girlz.Entities.Items{
         }
 
         void OnCollision(object sender, CollisionEventArgs e){
-            if(e.Other is PlayerEntity){
-                PickUp((PlayerEntity)e.Other);
+            if(e.Other.Entity is PlayerEntity){
+                PickUp((PlayerEntity)e.Other.Entity);
             }
         }
 
         void PickUp(PlayerEntity player){
             int added=player.Inventory.AddItem(Item);
             if(added<=0)
-                ToRemove=true;
+                EntityEntity.ToRemove=true;
         }
 
-        public override void Update(State currentState)
+        internal override void Update(State currentState)
         {
 
         }
 
-        public override void Move()
+        internal override void Move()
         {
 
         }

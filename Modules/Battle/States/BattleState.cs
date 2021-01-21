@@ -23,20 +23,20 @@ namespace Fish_Girlz.States{
             Camera.ResetView();
             if(battleData.Enemy0!=null){
                 EnemyEntity enemy=battleData.Enemy0;
-                AddEntity(new BattleEntity(enemy0Pos, enemy.Sprite, enemy.Health, enemy.MaxHealth, enemy.Stats));
+                AddEntity(new EntityEntity(enemy0Pos, enemy));
             }
             if(battleData.Enemy1!=null){
                 EnemyEntity enemy=battleData.Enemy1;
-                AddEntity(new BattleEntity(enemy0Pos, enemy.Sprite, enemy.Health, enemy.MaxHealth, enemy.Stats));
+                AddEntity(new EntityEntity(enemy1Pos, enemy));
             }
             if(battleData.Enemy2!=null){
                 EnemyEntity enemy=battleData.Enemy2;
-                AddEntity(new BattleEntity(enemy0Pos, enemy.Sprite, enemy.Health, enemy.MaxHealth, enemy.Stats));
+                AddEntity(new EntityEntity(enemy2Pos, enemy));
             }
 
             if(battleData.Player!=null){
                 PlayerEntity player=battleData.Player;
-                AddEntity(new PlayerBattleEntity(player0Pos, player.Health, player.MaxHealth, player.Stats));
+                AddEntity(new EntityEntity(player0Pos, player));
             }
         }
 

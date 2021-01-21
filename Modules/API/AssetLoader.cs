@@ -1,7 +1,5 @@
 using System;
 using System.IO;
-using Fish_Girlz.Utils;
-using System.Reflection;
 using Fish_Girlz.Systems;
 using SFML.Graphics;
 using SFML.Audio;

@@ -1,78 +1,63 @@
 using System;
-using System.Linq;
 using System.Collections.Generic;
 using Fish_Girlz.Art;
-using Fish_Girlz.Utils;
-using Fish_Girlz.States;
-using SFML.System;
 using SFML.Graphics;
+using Fish_Girlz.Utils;
 using Fish_Girlz.Entities.Components;
-using Fish_Girlz.Entities.Items;
+using Fish_Girlz.States;
 
 namespace Fish_Girlz.Entities{
-    public abstract class Entity : IComparable<Entity> {
-        public SpriteInfo Sprite {get; protected set;}
+    public abstract class Entity {
+        public string ID{get; private set;}
+        public string Name{get; private set;}
+        public SpriteInfo Sprite{get; protected set;}
+        public IntRect CollisionBounds{get; protected set;}
 
-        public Vector2f Position{get; private set;}
-        public Vector2f Speed {get; set;}
-
-        public bool ToRemove{get;set;}
-
-        public float Rotation{get;protected set;}
-
+        static List<Entity> entities=new List<Entity>();
+        static List<Entity> mapEntities=new List<Entity>();
         List<EntityComponent> components=new List<EntityComponent>();
 
-        public Entity(Vector2f position, SpriteInfo sprite){
-            this.Sprite=sprite;
-            Position=position;
+        public EntityEntity EntityEntity{get;set;}
+
+        public virtual bool ShowOnMapEditor=>true;
+        public virtual int Max=>0;
+
+        public Entity(string id, string name, SpriteInfo sprite){
+            ID=id;
+            Name=name;
+            if(!Name.StartsWith("entity.")) Name=$"entity.{Name}";
+            Sprite=sprite;
+            CollisionBounds=new IntRect(0,0,sprite.Bounds.Width, sprite.Bounds.Height);
         }
 
-        public int CompareTo(Entity other)
-        {
-            if(other==null)
-                return 1;
-            return Sprite.Layer.CompareTo(other.Sprite.Layer);
-        }
-
-        public LayeredSprite ToLayeredSprite(){
-            LayeredSprite sprite=new LayeredSprite(Sprite.Texture);
-            sprite.TextureRect=Sprite.Bounds;
-            sprite.Position=Position;
-            return sprite;
-        }
-
-        public List<T> GetNearbyEntities<T>(List<T> entities, float distance=500, params Type[] toIgnore) where T: Entity{
-            List<T> newEntities=new List<T>();
-            List<Type> toIgnoreList=new List<Type>(toIgnore);
-            foreach (T entity in entities)
-            {
-                if(entity==this||toIgnoreList.Contains(entity.GetType()))
-                    continue;
-                if(entity.Position.Distance(Position)<=distance){
-                    newEntities.Add(entity);
-                }
+        internal static void AddEntity<T>(T entity, string modId="") where T:Entity{
+            if(entity.Max>0){
+                if(entities.FindAll(delegate(Entity other){return other.GetType().IsSubclassOf(entity.GetType());}).Count>=entity.Max) return;
             }
-            newEntities.Sort(delegate(T x, T y){
-                return x.Position.Distance(Position).CompareTo(y.Position.Distance(Position));
-            });
-            return newEntities;
+            if(!string.IsNullOrEmpty(modId)){
+                entity.ID=$"{modId}.{entity.ID}";
+                entity.Name=$"{modId}.{entity.Name}";
+            }
+            if(entities.Find(delegate(Entity other){if(other.ID==entity.ID) return true; return false;})!=null) return;
+            entities.Add(entity);
+            if(entity.ShowOnMapEditor) mapEntities.Add(entity);
         }
 
-        public List<T> GetNearbyEntitiesWithComponent<C, T>(List<T> entities, float distance=500) where T : Entity where C : EntityComponent{
-            List<T> nearbyEntities=GetNearbyEntities(entities, distance);
-            List<T> newEntities=nearbyEntities.FindAll(delegate(T entity){if(entity.GetComponent<C>()!=null)return true; return false;});
-            return newEntities;
+        public static Entity GetEntity(string id){
+            return entities.Find(delegate(Entity entity){if(entity.ID==id)return true; return false;});
         }
 
-        public List<EnemyEntity> GetNearbyEnemies(List<Entity> entities, float distance=500){
-            List<Entity> nearbyEntities=GetNearbyEntities(entities, distance);
-            List<EnemyEntity> newEntities=nearbyEntities.FindAll(delegate(Entity entity){if(entity is EnemyEntity)return true; return false;}).Cast<EnemyEntity>().ToList();
-            return newEntities;
+        public static Entity GetMapEntity(string id){
+            return mapEntities.Find(delegate(Entity entity){if(entity.ID==id)return true; return false;});
         }
 
-        public abstract void Update(State currentState);
+        public static List<Entity> GetEntities(){
+            return entities.Clone();
+        }
 
-        public abstract void Move();
+        public static List<Entity> GetMapEntities(){
+            return mapEntities.Clone();
+        }
 
         public T GetComponent<T>() where T : EntityComponent{
             EntityComponent component=components.Find(delegate(EntityComponent e){if(e is T)return true; return false;});
@@ -82,39 +67,19 @@ namespace Fish_Girlz.Entities{
             return null;
         }
 
-        protected T AddComponent<T>(T component) where T:EntityComponent{
+        public T AddComponent<T>(T component) where T:EntityComponent{
             component.ParentEntity=this;
             component.Init();
             components.Add(component);
             return component;
         }
 
-        public void CheckCollision(Entity entity){
-            Position+=Speed;
-            if(entity!=null){
-                CollisionComponent collisionComponent=GetComponent<CollisionComponent>();
-                if(collisionComponent!=null){
-                    if (this.CollideWithEntity(entity))
-                    {
-                        collisionComponent.Colliding=true;
-                    }
-                }
-            }
-            Position -= Speed;
-        }
-
-        public void CheckMovement(){
-            CollisionComponent collisionComponent=GetComponent<CollisionComponent>();
-            if((collisionComponent!=null&&!collisionComponent.Colliding)||(collisionComponent==null)){
-                Position+=Speed;
-            }
-            Speed=new Vector2f();
-            if(collisionComponent!=null)
-                collisionComponent.Colliding=false;
-        }
-
         public List<EntityComponent> GetComponents(){
             return components;
         }
+
+        internal abstract void Update(State currentState);
+
+        internal abstract void Move();
     }
 }

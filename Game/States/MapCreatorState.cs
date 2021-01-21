@@ -14,12 +14,13 @@ using Fish_Girlz.World;
 using Fish_Girlz.Items;
 using Fish_Girlz.Entities.Items;
 using Fish_Girlz.Systems;
+using Fish_Girlz.Entities;
 
 namespace Fish_Girlz.States{
     public class MapCreatorState : State
     {
         int tileId=1;
-        int itemId=0;
+        int itemId=0, entityId=0;
 
         UIImage tileImage;
         UIText tileName, selectedMode;
@@ -28,10 +29,13 @@ namespace Fish_Girlz.States{
 
         Item selectedItem;
 
+        Entity selectedEntity;
+
         LayeredSprite previewSprite;
 
-        Dictionary<Vector2f, TileEntity> tiles=new Dictionary<Vector2f, TileEntity>();
-        Dictionary<Vector2f, ItemEntity> items=new Dictionary<Vector2f, ItemEntity>();
+        Dictionary<Vector2f, EntityEntity> tiles=new Dictionary<Vector2f, EntityEntity>();
+        Dictionary<Vector2f, EntityEntity> items=new Dictionary<Vector2f, EntityEntity>();
+        Dictionary<Vector2f, EntityEntity> entitiesEntities=new Dictionary<Vector2f, EntityEntity>();
 
         SelectedEdit selectedEdit=SelectedEdit.Tile;
 
@@ -51,6 +55,7 @@ namespace Fish_Girlz.States{
             tileName.OutlineThickness=2;
             selectedTile=Tile.GetTile(tileId);
             selectedItem=Item.GetItem(Item.GetItems()[itemId].ID);
+            selectedEntity=Entity.GetMapEntity(Entity.GetMapEntities()[entityId].ID);
             tileName.Text=selectedTile.Name;
             previewSprite=new LayeredSprite();
             sprites.Add(previewSprite);
@@ -90,6 +95,21 @@ namespace Fish_Girlz.States{
             if(InputManager.IsMouseButtonPressed(SFML.Window.Mouse.Button.XButton2)){
                 selectedEdit=selectedEdit.Previous();
             }
+            switch (selectedEdit)
+            {
+                case SelectedEdit.Tile:
+                    tileName.Text=selectedTile.Name;
+                    break;
+                case SelectedEdit.PlayerPos:
+                    tileName.Text="";
+                    break;
+                case SelectedEdit.Entity:
+                    tileName.Text=selectedEntity.Name;
+                    break;
+                case SelectedEdit.Item:
+                    tileName.Text=selectedItem.Name;
+                    break;
+            }
             selectedMode.Text=$"Selected Mode: {Enum.GetName(typeof(SelectedEdit), selectedEdit)}";
             previewSprite.Position=tilePos;
 
@@ -99,26 +119,24 @@ namespace Fish_Girlz.States{
                         tileId--;
                         if(tileId<1) tileId=Tile.GetTiles().Count-1;
                         selectedTile=Tile.GetTile(tileId);
-                        tileName.Text=selectedTile.Name;
                     }
                     if(InputManager.ScrollDelta>0){
                         tileId++;
                         if(tileId>Tile.GetTiles().Count-1) tileId=1;
                         selectedTile=Tile.GetTile(tileId);
-                        tileName.Text=selectedTile.Name;
                     }
                     if(InputManager.IsMouseButtonHeld(SFML.Window.Mouse.Button.Left)){
                         if(tiles.ContainsKey(tilePos)){
-                            TileEntity tileEntity;
+                            EntityEntity tileEntity;
                             tiles.TryGetValue(tilePos, out tileEntity);
                             tileEntity.ToRemove=true;
                         }
-                        tiles.AddOrReplace(tilePos, AddTileEntity(new TileEntity(tilePos, selectedTile)));
+                        tiles.AddOrReplace(tilePos, AddTileEntity(new EntityEntity(tilePos, new TileEntity(selectedTile))));
                     }
 
                     if(InputManager.IsMouseButtonHeld(SFML.Window.Mouse.Button.Right)){
                         if(tiles.ContainsKey(tilePos)){
-                            TileEntity tileEntity;
+                            EntityEntity tileEntity;
                             tiles.TryGetValue(tilePos, out tileEntity);
                             tileEntity.ToRemove=true;
                             tiles.Remove(tilePos);
@@ -135,33 +153,59 @@ namespace Fish_Girlz.States{
                     }
                     break;
                 case SelectedEdit.Entity:
+                    if(InputManager.ScrollDelta<0){
+                        entityId--;
+                        if(entityId<0) entityId=Entity.GetEntities().Count-1;
+                        selectedEntity=Entity.GetMapEntity(Entity.GetMapEntities()[entityId].ID);
+                    }
+                    if(InputManager.ScrollDelta>0){
+                        entityId++;
+                        if(entityId>Entity.GetEntities().Count-1) entityId=0;
+                        selectedEntity=Entity.GetMapEntity(Entity.GetMapEntities()[entityId].ID);
+                    }
+
+                    if(InputManager.IsMouseButtonHeld(SFML.Window.Mouse.Button.Left)){
+                        if(entitiesEntities.ContainsKey(tilePos)){
+                            EntityEntity entity;
+                            entitiesEntities.TryGetValue(tilePos, out entity);
+                            entity.ToRemove=true;
+                        }
+                        entitiesEntities.AddOrReplace(tilePos, AddItem(new EntityEntity(tilePos, selectedEntity)));
+                    }
+
+                    if(InputManager.IsMouseButtonHeld(SFML.Window.Mouse.Button.Right)){
+                        if(entitiesEntities.ContainsKey(tilePos)){
+                            EntityEntity entity;
+                            entitiesEntities.TryGetValue(tilePos, out entity);
+                            entity.ToRemove=true;
+                            entitiesEntities.Remove(tilePos);
+                        }
+                    }
                     break;
                 case SelectedEdit.Item:
                     if(InputManager.ScrollDelta<0){
                         itemId--;
                         if(itemId<0) itemId=Item.GetItems().Count-1;
                         selectedItem=Item.GetItem(Item.GetItems()[itemId].ID);
-                        tileName.Text=selectedItem.Name;
                     }
                     if(InputManager.ScrollDelta>0){
                         itemId++;
                         if(itemId>Item.GetItems().Count-1) itemId=0;
                         selectedItem=Item.GetItem(Item.GetItems()[itemId].ID);
-                        tileName.Text=selectedItem.Name;
                     }
 
                     if(InputManager.IsMouseButtonHeld(SFML.Window.Mouse.Button.Left)){
                         if(items.ContainsKey(tilePos)){
-                            ItemEntity tileEntity;
-                            items.TryGetValue(tilePos, out tileEntity);
-                            tileEntity.ToRemove=true;
+                            EntityEntity itemEntity;
+                            items.TryGetValue(tilePos, out itemEntity);
+                            itemEntity.ToRemove=true;
                         }
-                        items.AddOrReplace(tilePos, AddItem(new ItemEntity(tilePos, selectedItem)));
+                        items.AddOrReplace(tilePos, AddItem(new EntityEntity(tilePos, new ItemEntity(selectedItem))));
                     }
 
                     if(InputManager.IsMouseButtonHeld(SFML.Window.Mouse.Button.Right)){
                         if(items.ContainsKey(tilePos)){
-                            ItemEntity itemEntity;
+                            EntityEntity itemEntity;
                             items.TryGetValue(tilePos, out itemEntity);
                             itemEntity.ToRemove=true;
                             items.Remove(tilePos);
@@ -211,6 +255,10 @@ namespace Fish_Girlz.States{
                     tileImage.Texture=selectedItem.Sprite.Texture;
                     previewSprite.Texture=selectedItem.Sprite.Texture;
                     break;
+                case SelectedEdit.Entity:
+                    tileImage.Texture=selectedEntity.Sprite.Texture;
+                    previewSprite.Texture=selectedEntity.Sprite.Texture;
+                    break;
             }
             previewSprite.Color=new Color(255,255,255,(byte)(255/1.5f));
         }
@@ -243,16 +291,21 @@ namespace Fish_Girlz.States{
 
         void Save(string mapName="map"){
             List<TileData> tileDatas=new List<TileData>();
-            foreach (KeyValuePair<Vector2f, TileEntity> pair in tiles)
+            foreach (KeyValuePair<Vector2f, EntityEntity> pair in tiles)
             {
-                tileDatas.Add(new TileData(new Vector2f(MathF.Floor(pair.Key.X/64), MathF.Floor(pair.Key.Y/64)), pair.Value.Tile.ID));
+                tileDatas.Add(new TileData(new Vector2f(MathF.Floor(pair.Key.X/64), MathF.Floor(pair.Key.Y/64)), ((TileEntity)pair.Value.Entity).Tile.ID));
             }
             List<ItemData> itemDatas=new List<ItemData>();
-            foreach (KeyValuePair<Vector2f, ItemEntity> pair in items)
+            foreach (KeyValuePair<Vector2f, EntityEntity> pair in items)
             {
-                itemDatas.Add(new ItemData(new Vector2f(MathF.Floor(pair.Key.X/64), MathF.Floor(pair.Key.Y/64)), pair.Value.Item.ID));
+                itemDatas.Add(new ItemData(new Vector2f(MathF.Floor(pair.Key.X/64), MathF.Floor(pair.Key.Y/64)), ((ItemEntity)pair.Value.Entity).Item.ID));
             }
-            MapData mapData=new MapData(new Vector2f(MathF.Floor(playerPosSprite.Position.X/64), MathF.Floor(playerPosSprite.Position.Y/64)), tileDatas, itemDatas);
+            List<EntityData> entityDatas=new List<EntityData>();
+            foreach (KeyValuePair<Vector2f, EntityEntity> pair in entitiesEntities)
+            {
+                entityDatas.Add(new EntityData(new Vector2f(MathF.Floor(pair.Key.X/64), MathF.Floor(pair.Key.Y/64)), pair.Value.Entity.ID));
+            }
+            MapData mapData=new MapData(new Vector2f(MathF.Floor(playerPosSprite.Position.X/64), MathF.Floor(playerPosSprite.Position.Y/64)), tileDatas, itemDatas, entityDatas);
             string text=JsonConvert.SerializeObject(mapData, Formatting.Indented);
             File.WriteAllText(Path.Combine(Utilities.ExecutingFolder, $"res/maps/{mapName}.json"), text);
             Console.WriteLine("Saved!");
@@ -265,17 +318,28 @@ namespace Fish_Girlz.States{
                 GetTileEntities().Clear();
                 GetItems().Clear();
                 items.Clear();
+                entitiesEntities.Clear();
+                GetEntities().Clear();
+                if(mapData.TilesData!=null)
                 foreach (TileData tileData in mapData.TilesData)
                 {
                     Tile tile=Tile.GetTile(tileData.ID);
                     if(tile==null)continue;
-                    tiles.Add(tileData.Position*64, AddTileEntity(new TileEntity(tileData.Position*64, tile)));
+                    tiles.Add(tileData.Position*64, AddTileEntity(new EntityEntity(tileData.Position*64, new TileEntity(tile))));
                 }
+                if(mapData.ItemsData!=null)
                 foreach (ItemData itemData in mapData.ItemsData)
                 {
                     Item item=Item.GetItem(itemData.ID);
                     if(item==null)continue;
-                    items.Add(itemData.Position*64, AddItem(new ItemEntity(itemData.Position*64, item)));
+                    items.Add(itemData.Position*64, AddItem(new EntityEntity(itemData.Position*64, new ItemEntity(item))));
+                }
+                if(mapData.EntitiesData!=null)
+                foreach (EntityData entityData in mapData.EntitiesData)
+                {
+                    Entity entity=Entity.GetMapEntity(entityData.ID);
+                    if(entity==null)continue;
+                    entitiesEntities.Add(entityData.Position*64, AddItem(new EntityEntity(entityData.Position*64, entity)));
                 }
                 playerPosSprite.Position=mapData.PlayerPos*64;
                 if(!sprites.Contains(playerPosSprite))

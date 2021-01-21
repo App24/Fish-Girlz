@@ -11,7 +11,7 @@ namespace Fish_Girlz.Entities{
 
         public EntityStats Stats{get;protected set;}
 
-        public LivingEntity(Vector2f position, SpriteInfo sprite, int maxHealth) : base(position, sprite)
+        public LivingEntity(string id, string name, SpriteInfo sprite, int maxHealth) : base(id, name, sprite)
         {
             MaxHealth=maxHealth;
             Health=maxHealth;
@@ -33,7 +33,7 @@ namespace Fish_Girlz.Entities{
         }
 
         private void Die(){
-            ToRemove=true;
+            EntityEntity.ToRemove=true;
             OnDeath();
         }
 

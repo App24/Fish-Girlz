@@ -24,7 +24,13 @@ namespace Fish_Girlz.Entities
 
         public PlayerInventory Inventory{get;}
 
-        public PlayerEntity(Vector2f position) : base(position, AssetManager.GetSpriteSheet("dominique").GetSpriteInfo(0, 0), 20)
+        public override bool ShowOnMapEditor => false;
+
+        private bool initialised=false;
+
+        public override int Max => 1;
+
+        internal PlayerEntity() : base("player","player", AssetManager.GetSpriteSheet("dominique").GetSpriteInfo(0, 0), 20)
         {
             spriteSheet = AssetManager.GetSpriteSheet("dominique");
             SetupAnimations();
@@ -33,6 +39,12 @@ namespace Fish_Girlz.Entities
             collisionComponent=AddComponent(new CollisionComponent());
             collisionComponent.CollisionBounds=new IntRect(20,14,44,63);
             Inventory=new PlayerInventory(this);
+        }
+
+        internal void Init(){
+            if(initialised) return;
+            Inventory.Init();
+            initialised=true;
         }
 
         private void SetupAnimations()
@@ -97,7 +109,7 @@ namespace Fish_Girlz.Entities
 
         }
 
-        public override void Update(State currentState)
+        internal override void Update(State currentState)
         {
             if (currentAnimation.Update())
             {
@@ -106,17 +118,17 @@ namespace Fish_Girlz.Entities
             Inventory.Update();
         }
 
-        public override void Move()
+        internal override void Move()
         {
             if (InputManager.IsKeyHeld(SFML.Window.Keyboard.Key.W)||InputManager.AxisMovement(Joystick.Axis.Y)<-50)
             {
-                Speed += new Vector2f(0, -speed);
+                EntityEntity.Speed += new Vector2f(0, -speed);
                 currentAnimation = walkForward;
                 walking.Item1 = true;
             }
             else if (InputManager.IsKeyHeld(SFML.Window.Keyboard.Key.S)||InputManager.AxisMovement(Joystick.Axis.Y)>50)
             {
-                Speed += new Vector2f(0, speed);
+                EntityEntity.Speed += new Vector2f(0, speed);
                 currentAnimation = walkBackward;
                 walking.Item1 = true;
             }
@@ -127,13 +139,13 @@ namespace Fish_Girlz.Entities
 
             if (InputManager.IsKeyHeld(SFML.Window.Keyboard.Key.A)||InputManager.AxisMovement(Joystick.Axis.X)<-50)
             {
-                Speed += new Vector2f(-speed, 0);
+                EntityEntity.Speed += new Vector2f(-speed, 0);
                 currentAnimation = walkLeft;
                 walking.Item2 = true;
             }
             else if (InputManager.IsKeyHeld(SFML.Window.Keyboard.Key.D)||InputManager.AxisMovement(Joystick.Axis.X)>50)
             {
-                Speed += new Vector2f(speed, 0);
+                EntityEntity.Speed += new Vector2f(speed, 0);
                 currentAnimation = walkRight;
                 walking.Item2 = true;
             }

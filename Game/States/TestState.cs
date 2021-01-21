@@ -18,8 +18,8 @@ namespace Fish_Girlz.States{
     public class TestState : State
     {
         UIText text;
-        PlayerEntity player;
-        TestEnemy test;
+        EntityEntity player;
+        // TestEnemy test;
         DialogBox dialogBox;
         PromptBox promptBox;
         
@@ -28,11 +28,14 @@ namespace Fish_Girlz.States{
             text=new UIText(new FontInfo(AssetManager.GetFont("Arial"), 16), "Health: ",Color.White,new Vector2f(0,0));
             AddGUI(text);
             MapGenerator.InitMap("map2");
-            player=new PlayerEntity(MapGenerator.GetPlayerPos());
+            Console.WriteLine(Entity.GetEntity("player"));
+            player=new EntityEntity(MapGenerator.GetPlayerPos(), Entity.GetEntity("player"));
+            ((PlayerEntity)player.Entity).Init();
             AddEntity(player);
             tileEntities=MapGenerator.GetTileEntities();
             itemEntities=MapGenerator.GetItemEntities();
-            test=new TestEnemy(new Vector2f(256,256), new SpriteInfo(AssetManager.GetTexture("temp"), new IntRect(0,0,64,64)));
+            entities=MapGenerator.GetEntityEntities();
+            // test=new TestEnemy(new Vector2f(256,256), new SpriteInfo(AssetManager.GetTexture("temp"), new IntRect(0,0,64,64)));
             //AddEntity(test);
 
             dialogBox=new DialogBox();
@@ -42,7 +45,7 @@ namespace Fish_Girlz.States{
         public override void Update()
         {
             Camera.TargetEntity(player);
-            text.Text=$"Health: {player.Health}";
+            text.Text=$"Health: {((PlayerEntity)player.Entity).Health}";
         }
 
         public override void HandleInput()
@@ -50,7 +53,7 @@ namespace Fish_Girlz.States{
             if(InputManager.IsKeyPressed(SFML.Window.Keyboard.Key.Escape)){
                 StateMachine.AddState(new PauseState(), false);
             }
-            List<Entity> nearbyDialogs=player.GetNearbyEntitiesWithComponent<DialogComponent, Entity>(GetEntities(), 200);
+            List<EntityEntity> nearbyDialogs=player.GetNearbyEntitiesWithComponent<DialogComponent, EntityEntity>(GetEntities(), 200);
             if(nearbyDialogs.Count>0){
                 promptBox.ShowPrompt(InputManager.KeyCodeToString(SFML.Window.Keyboard.Key.Space));
                 if(InputManager.IsKeyPressed(SFML.Window.Keyboard.Key.Space)&&!dialogBox.Visible){
@@ -63,7 +66,7 @@ namespace Fish_Girlz.States{
                 dialogBox.Hide();
             }
             if(InputManager.IsKeyPressed(SFML.Window.Keyboard.Key.E)||InputManager.IsJoystickButtonPressed(0)){
-                player.Inventory.ToggleInventory();
+                ((PlayerEntity)player.Entity).Inventory.ToggleInventory();
             }
         }
 

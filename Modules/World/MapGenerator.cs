@@ -9,6 +9,7 @@ using SFML.System;
 using Fish_Girlz.Tiles;
 using Newtonsoft.Json;
 using Fish_Girlz.Entities.Items;
+using Fish_Girlz.Entities;
 using Fish_Girlz.Items;
 using Fish_Girlz.Utils;
 
@@ -16,8 +17,9 @@ namespace Fish_Girlz.World{
     public static class MapGenerator {
         public static int TileSize=64;
 
-        private static List<TileEntity> tileEntities=new List<TileEntity>();
-        private static List<ItemEntity> itemEntities=new List<ItemEntity>();
+        private static List<EntityEntity> tileEntities=new List<EntityEntity>();
+        private static List<EntityEntity> itemEntities=new List<EntityEntity>();
+        private static List<EntityEntity> entityEntities=new List<EntityEntity>();
         public static int MapWidth=24;
         public static int MapHeight=24;
 
@@ -35,17 +37,23 @@ namespace Fish_Girlz.World{
             {
                 Tile tile=Tile.GetTile(tileData.ID);
                 if(tile==null)continue;
-                tileEntities.Add(new TileEntity(tileData.Position*64, tile));
+                tileEntities.Add(new EntityEntity(tileData.Position*64, new TileEntity(tile)));
             }
             foreach (ItemData itemData in mapData.ItemsData)
             {
                 Item item=Item.GetItem(itemData.ID);
                 if(item==null)continue;
-                itemEntities.Add(new ItemEntity(itemData.Position*64, item));
+                itemEntities.Add(new EntityEntity(itemData.Position*64, new ItemEntity(item)));
+            }
+            foreach (EntityData entityData in mapData.EntitiesData)
+            {
+                Entity entity=Entity.GetMapEntity(entityData.ID);
+                if(entity==null)continue;
+                entityEntities.Add(new EntityEntity(entityData.Position*64, entity));
             }
         }
 
-        public static List<TileEntity> GetTileEntities(){
+        public static List<EntityEntity> GetTileEntities(){
             return tileEntities;
         }
         
@@ -53,8 +61,12 @@ namespace Fish_Girlz.World{
             return playerPos;
         }
 
-        public static List<ItemEntity> GetItemEntities(){
+        public static List<EntityEntity> GetItemEntities(){
             return itemEntities;
+        }
+
+        public static List<EntityEntity> GetEntityEntities(){
+            return entityEntities;
         }
     }
 
@@ -78,15 +90,27 @@ namespace Fish_Girlz.World{
         }
     }
 
+    public struct EntityData{
+        public Vector2f Position{get;}
+        public string ID{get;}
+
+        public EntityData(Vector2f position, string id){
+            Position=position;
+            ID=id;
+        }
+    }
+
     public struct MapData{
         public Vector2f PlayerPos{get;}
         public List<TileData> TilesData{get;}
         public List<ItemData> ItemsData{get;}
+        public List<EntityData> EntitiesData{get;}
 
-        public MapData(Vector2f playerPos, List<TileData> tilesData, List<ItemData> itemsData){
+        public MapData(Vector2f playerPos, List<TileData> tilesData, List<ItemData> itemsData, List<EntityData> entitiesData){
             PlayerPos=playerPos;
             TilesData=tilesData;
             ItemsData=itemsData;
+            EntitiesData=entitiesData;
         }
     }
 }

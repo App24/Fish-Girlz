@@ -14,7 +14,7 @@ namespace Fish_Girlz.Entities{
         Animation attack;
         Animation currentAnimation;
 
-        public PlayerBattleEntity(Vector2f position, int health, int maxHealth, EntityStats stats) : base(position, AssetManager.GetSpriteSheet("dominique").GetSpriteInfo(0, 0), health, maxHealth, stats)
+        public PlayerBattleEntity(int health, int maxHealth, EntityStats stats) : base("battle_player", "battle_player", AssetManager.GetSpriteSheet("dominique").GetSpriteInfo(0, 0), health, maxHealth, stats)
         {
             spriteSheet = AssetManager.GetSpriteSheet("dominique");
             SetupAnimations();
@@ -49,7 +49,7 @@ namespace Fish_Girlz.Entities{
             });
         }
 
-        public override void Update(State currentState)
+        internal override void Update(State currentState)
         {
             base.Update(currentState);
             if (currentAnimation.Update())

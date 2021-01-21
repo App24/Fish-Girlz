@@ -15,7 +15,7 @@ using System.Runtime.CompilerServices;
 namespace Fish_Girlz.Items{
     public abstract class Item {
         public string ID{get; private set;}
-        public string Name{get;}
+        public string Name{get; private set;}
         public int MaxStack{get;}
         public SpriteInfo Sprite{get;}
         public IntRect CollisionBounds{get; protected set;}
@@ -32,7 +32,10 @@ namespace Fish_Girlz.Items{
         }
 
         internal static void AddItem<T>(T item, string modId="") where T: Item{
-            if(!string.IsNullOrEmpty(modId)) item.ID=$"{modId}.{item.ID}";
+            if(!string.IsNullOrEmpty(modId)){
+                item.ID=$"{modId}.{item.ID}";
+                item.Name=$"{modId}.{item.Name}";
+            }
             if(items.Find(delegate(Item other){if(other.ID==item.ID) return true; return false;})!=null) return;
             items.Add(item);
         }

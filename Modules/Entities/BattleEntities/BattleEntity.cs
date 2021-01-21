@@ -11,19 +11,21 @@ namespace Fish_Girlz.Entities{
 
         public EntityStats Stats{get;protected set;}
 
-        public BattleEntity(Vector2f position, SpriteInfo sprite, int health, int maxHealth, EntityStats stats) : base(position, sprite)
+        public override bool ShowOnMapEditor => false;
+
+        public BattleEntity(string id, string name, SpriteInfo sprite, int health, int maxHealth, EntityStats stats) : base(id, name, sprite)
         {
             MaxHealth=maxHealth;
             Health=health;
             Stats=stats;
         }
 
-        public override void Move()
+        internal override void Move()
         {
 
         }
 
-        public override void Update(State currentState)
+        internal override void Update(State currentState)
         {
 
         }

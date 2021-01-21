@@ -4,7 +4,7 @@ using SFML.System;
 using SFML.Window;
 using SFML.Graphics;
 using Fish_Girlz.Audio;
-using Fish_Girlz.API;
+using Fish_Girlz.API.Loader;
 
 namespace Fish_Girlz.Systems{
     public static class DisplayManager {

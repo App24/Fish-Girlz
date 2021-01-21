@@ -15,14 +15,14 @@ namespace Fish_Girlz.States{
     public abstract class State {
         protected List<LayeredSprite> sprites=new List<LayeredSprite>();
         private List<GUI> guis=new List<GUI>();
-        private List<Entity> entities=new List<Entity>();
-        protected List<TileEntity> tileEntities=new List<TileEntity>();
-        protected List<ItemEntity> itemEntities=new List<ItemEntity>();
+        protected List<EntityEntity> entities=new List<EntityEntity>();
+        protected List<EntityEntity> tileEntities=new List<EntityEntity>();
+        protected List<EntityEntity> itemEntities=new List<EntityEntity>();
 
-        private List<Entity> toAddEntities=new List<Entity>();
-        private List<TileEntity> toAddTileEntities=new List<TileEntity>();
+        private List<EntityEntity> toAddEntities=new List<EntityEntity>();
+        private List<EntityEntity> toAddTileEntities=new List<EntityEntity>();
         private List<GUI> toAddGuis=new List<GUI>();
-        private List<ItemEntity> toAddItems=new List<ItemEntity>();
+        private List<EntityEntity> toAddItems=new List<EntityEntity>();
 
         public abstract void Init();
         public abstract void HandleInput();
@@ -58,24 +58,24 @@ namespace Fish_Girlz.States{
             return guis;//.Clone();
         }
 
-        public List<Entity> GetEntities(){
+        public List<EntityEntity> GetEntities(){
             return entities;//.Clone();
         }
 
-        public List<TileEntity> GetTileEntities(){
+        public List<EntityEntity> GetTileEntities(){
             return tileEntities;//.Clone();
         }
 
-        public List<ItemEntity> GetItems(){
+        public List<EntityEntity> GetItems(){
             return itemEntities;
         }
 
-        public T AddEntity<T>(T entity) where T: Entity{
+        public T AddEntity<T>(T entity) where T: EntityEntity{
             toAddEntities.Add(entity);
             return entity;
         }
 
-        public T AddTileEntity<T>(T tileEntity) where T : TileEntity{
+        public T AddTileEntity<T>(T tileEntity) where T : EntityEntity{
             toAddTileEntities.Add(tileEntity);
             return tileEntity;
         }
@@ -85,7 +85,7 @@ namespace Fish_Girlz.States{
             return gui;
         }
 
-        public T AddItem<T>(T item) where T : ItemEntity{
+        public T AddItem<T>(T item) where T : EntityEntity{
             toAddItems.Add(item);
             return item;
         }

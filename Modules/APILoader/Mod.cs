@@ -1,6 +1,6 @@
 using Newtonsoft.Json;
 
-namespace Fish_Girlz.API{
+namespace Fish_Girlz.API.Loader{
     public struct Mod
     {
         public string Name{get;}

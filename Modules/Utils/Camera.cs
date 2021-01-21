@@ -20,7 +20,7 @@ namespace Fish_Girlz.Utils{
             DisplayManager.Window.SetView(view);
         }
 
-        public static void TargetEntity(Entity entity){
+        public static void TargetEntity(EntityEntity entity){
             Vector2i WorldToScreen = DisplayManager.Window.MapCoordsToPixel(entity.Position);
             if (WorldToScreen.X > float.MinValue && WorldToScreen.X < DisplayManager.Width / 5f)
             {

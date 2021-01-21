@@ -1,31 +1,31 @@
-using System;
-using System.Collections.Generic;
-using Fish_Girlz.Art;
-using Fish_Girlz.States;
-using SFML.System;
-using Fish_Girlz.Entities.Components;
+// using System;
+// using System.Collections.Generic;
+// using Fish_Girlz.Art;
+// using Fish_Girlz.States;
+// using SFML.System;
+// using Fish_Girlz.Entities.Components;
 
-namespace Fish_Girlz.Entities{
-    public class TestEnemy : EnemyEntity
-    {
-        public TestEnemy(Vector2f position, SpriteInfo sprite) : base(position, sprite, 2, 1)
-        {
+// namespace Fish_Girlz.Entities{
+//     public class TestEnemy : EnemyEntity
+//     {
+//         public TestEnemy(Vector2f position, SpriteInfo sprite) : base(position, sprite, 2, 1)
+//         {
             
-        }
+//         }
 
-        public override void Move()
-        {
+//         internal override void Move()
+//         {
 
-        }
+//         }
 
-        public override void Update(State currentState)
-        {
+//         internal override void Update(State currentState)
+//         {
 
-        }
+//         }
 
-        protected override void OnDeath()
-        {
+//         protected override void OnDeath()
+//         {
 
-        }
-    }
-}
+//         }
+//     }
+// }

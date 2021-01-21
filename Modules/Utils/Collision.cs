@@ -16,7 +16,7 @@ namespace Fish_Girlz.Utils
     {
         static BitmaskManager bitmasks=new BitmaskManager();
 
-        static Dictionary<Entity, List<Entity>> collidingEntities=new Dictionary<Entity, List<Entity>>();
+        static Dictionary<EntityEntity, List<EntityEntity>> collidingEntities=new Dictionary<EntityEntity, List<EntityEntity>>();
 
         public static bool PixelPerfectTest(Sprite object1, Sprite object2, uint alphaLimit = 0)
         {
@@ -64,12 +64,12 @@ namespace Fish_Girlz.Utils
 
         }*/
 
-        public static bool CollideWithEntity(this Entity entity, Entity other){
+        public static bool CollideWithEntity(this EntityEntity entity, EntityEntity other){
             return BoundingBoxTest(entity, other);
         }
         
         //TODO: MEMORY LEAK ISSUE
-        public static bool BoundingBoxTest(Entity object1, Entity object2)
+        public static bool BoundingBoxTest(EntityEntity object1, EntityEntity object2)
         {
             CollisionComponent object1CC=object1.GetComponent<CollisionComponent>();
             CollisionComponent object2CC=object2.GetComponent<CollisionComponent>();
@@ -105,11 +105,11 @@ namespace Fish_Girlz.Utils
             if(colliding){
                 if(!collidingEntities.ContainsKey(object1)){
                     object2CC.OnCollision?.Invoke(object2, new CollisionEventArgs(object1));
-                    List<Entity> collidingEntity=new List<Entity>();
+                    List<EntityEntity> collidingEntity=new List<EntityEntity>();
                     collidingEntity.Add(object2);
                     collidingEntities.AddOrReplace(object1, collidingEntity);
                 }else{
-                    List<Entity> collidingEntity=new List<Entity>();
+                    List<EntityEntity> collidingEntity=new List<EntityEntity>();
                     if(collidingEntities.TryGetValue(object1, out collidingEntity)){
                         if(!collidingEntity.Contains(object2)){
                             object2CC.OnCollision?.Invoke(object2, new CollisionEventArgs(object1));
@@ -136,7 +136,7 @@ namespace Fish_Girlz.Utils
                 }*/
             }else{
                 if(collidingEntities.ContainsKey(object1)){
-                    List<Entity> collidingEntity=new List<Entity>();
+                    List<EntityEntity> collidingEntity=new List<EntityEntity>();
                     if(collidingEntities.TryGetValue(object1, out collidingEntity)){
                         if(collidingEntity.Contains(object2)){
                             collidingEntity.Remove(object2);
@@ -225,7 +225,7 @@ namespace Fish_Girlz.Utils
     class OrientatedBoundingBox
     {
         public Vector2f[] points = new Vector2f[4];
-        public OrientatedBoundingBox(Entity entity, CollisionComponent cc)
+        public OrientatedBoundingBox(EntityEntity entity, CollisionComponent cc)
         {
             Transform trans = entity.ToLayeredSprite().Transform;
             IntRect local = cc.CollisionBounds;
@@ -252,8 +252,8 @@ namespace Fish_Girlz.Utils
     }
 
     public class CollisionEventArgs : EventArgs{
-        public Entity Other{get;}
-        public CollisionEventArgs(Entity other){
+        public EntityEntity Other{get;}
+        public CollisionEventArgs(EntityEntity other){
             Other=other;
         }
     }

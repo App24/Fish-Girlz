@@ -13,23 +13,23 @@ namespace Fish_Girlz.Systems{
             CheckCollisions(currentState.GetEntities(), currentState.GetTileEntities(), currentState.GetItems());
         }
 
-        static void CheckCollisions(List<Entity> entities, List<TileEntity> tiles, List<ItemEntity> items){
-            foreach (Entity entity in entities)
+        static void CheckCollisions(List<EntityEntity> entities, List<EntityEntity> tiles, List<EntityEntity> items){
+            foreach (EntityEntity entity in entities)
             {
-                List<Entity> nearbyEntities=entity.GetNearbyEntities(entities);
-                List<TileEntity> nearbyTiles=entity.GetNearbyEntities(tiles);
-                List<ItemEntity> nearbyItems=entity.GetNearbyEntities(items);
-                entity.Move();
+                List<EntityEntity> nearbyEntities=entity.GetNearbyEntities(entities);
+                List<EntityEntity> nearbyTiles=entity.GetNearbyEntities(tiles);
+                List<EntityEntity> nearbyItems=entity.GetNearbyEntities(items);
+                entity.Entity.Move();
                 entity.Speed*=Delta.DeltaTime;
-                foreach (Entity nearbyEntity in nearbyEntities)
+                foreach (EntityEntity nearbyEntity in nearbyEntities)
                 {
                     entity.CheckCollision(nearbyEntity);
                 }
-                foreach (TileEntity nearbyTile in nearbyTiles)
+                foreach (EntityEntity nearbyTile in nearbyTiles)
                 {
                     entity.CheckCollision(nearbyTile);
                 }
-                foreach (ItemEntity item in nearbyItems)
+                foreach (EntityEntity item in nearbyItems)
                 {
                     entity.CheckCollision(item);
                 }

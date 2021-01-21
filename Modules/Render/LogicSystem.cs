@@ -18,11 +18,11 @@ namespace Fish_Girlz.Systems{
         }
 
         static void UpdateItemEntities(State currentState){
-            List<ItemEntity> itemEntities=currentState.GetItems();
-            List<ItemEntity> newItems=new List<ItemEntity>();
-            foreach (ItemEntity item in itemEntities)
+            List<EntityEntity> itemEntities=currentState.GetItems();
+            List<EntityEntity> newItems=new List<EntityEntity>();
+            foreach (EntityEntity item in itemEntities)
             {
-                item.Update(currentState);
+                item.Entity.Update(currentState);
                 if(!item.ToRemove){
                     newItems.Add(item);
                 }
@@ -51,11 +51,11 @@ namespace Fish_Girlz.Systems{
         }
 
         static void UpdateEntities(State currentState){
-            List<Entity> entities=currentState.GetEntities();
-            List<Entity> newEntities=new List<Entity>();
-            foreach (Entity entity in entities)
+            List<EntityEntity> entities=currentState.GetEntities();
+            List<EntityEntity> newEntities=new List<EntityEntity>();
+            foreach (EntityEntity entity in entities)
             {
-                entity.Update(currentState);
+                entity.Entity.Update(currentState);
                 if(!entity.ToRemove){
                     newEntities.Add(entity);
                 }
@@ -65,11 +65,11 @@ namespace Fish_Girlz.Systems{
         }
 
         static void UpdateTileEntities(State currentState){
-            List<TileEntity> tiles=currentState.GetTileEntities();
-            List<TileEntity> newTiles=new List<TileEntity>();
-            foreach (TileEntity tile in tiles)
+            List<EntityEntity> tiles=currentState.GetTileEntities();
+            List<EntityEntity> newTiles=new List<EntityEntity>();
+            foreach (EntityEntity tile in tiles)
             {
-                tile.Update(currentState);
+                tile.Entity.Update(currentState);
                 if(!tile.ToRemove)
                     newTiles.Add(tile);
             }

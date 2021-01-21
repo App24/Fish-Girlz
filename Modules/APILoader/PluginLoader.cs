@@ -6,7 +6,7 @@ using Fish_Girlz.Systems;
 using Newtonsoft.Json;
 using System.Reflection;
 
-namespace Fish_Girlz.API{
+namespace Fish_Girlz.API.Loader{
     public static class PluginLoader {
         static List<Plugin> plugins=new List<Plugin>();
 
@@ -70,7 +70,7 @@ namespace Fish_Girlz.API{
                 }
             }
             if(apiPlugin==null) throw new Exception($"No APIPlugin was detected in {mod.AssemblyName}");
-            
+            if(plugins.Find(delegate(Plugin plugin){return mod.ID==plugin.Mod.ID;})!=null) throw new Exception($"There is a plugin by the ID {mod.ID} already loaded!");
             
             return new Plugin(apiPlugin, mod, directory);
         }
@@ -94,6 +94,29 @@ namespace Fish_Girlz.API{
             {
                 ItemLoader itemLoader=new ItemLoader(plugin.Mod.ID);
                 plugin.APIPlugin.LoadItems(itemLoader);
+            }
+        }
+
+        public static void LoadLocalisation(){
+            foreach (var plugin in plugins)
+            {
+                LocalisationLoader localisationLoader=new LocalisationLoader(plugin.Mod.ID);
+                plugin.APIPlugin.LoadLocalisation(localisationLoader);
+            }
+        }
+
+        public static void LoadAssets(){
+            foreach (var plugin in plugins)
+            {
+                plugin.APIPlugin.LoadAssets();
+            }
+        }
+
+        public static void LoadEntities(){
+            foreach (var plugin in plugins)
+            {
+                EntityLoader entityLoader=new EntityLoader(plugin.Mod.ID);
+                plugin.APIPlugin.LoadEntities(entityLoader);
             }
         }
     }

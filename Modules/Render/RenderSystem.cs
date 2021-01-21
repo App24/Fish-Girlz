@@ -25,14 +25,13 @@ namespace Fish_Girlz.Systems{
             RenderGUI(currentState.GetGUIs());
         }
 
-        static void RenderItems(List<ItemEntity> itemEntities){
+        static void RenderItems(List<EntityEntity> itemEntities){
             itemEntities.Sort();
 
-            foreach (ItemEntity item in itemEntities)
+            foreach (EntityEntity item in itemEntities)
             {
-                LayeredSprite sprite=(LayeredSprite)item.Sprite;
+                LayeredSprite sprite=(LayeredSprite)item.Entity.Sprite;
                 sprite.Position=item.Position;
-                sprite.Rotation=item.Rotation;
                 //CollisionComponent collision=item.GetComponent<CollisionComponent>();
                 //if(collision!=null){
                 //    Sprite collisionSprite=new Sprite(Utilities.CreateTexture((uint)(collision.CollisionBounds.Width-collision.CollisionBounds.Left), (uint)(collision.CollisionBounds.Height-collision.CollisionBounds.Top), Color.Blue));
@@ -43,11 +42,11 @@ namespace Fish_Girlz.Systems{
             }
         }
 
-        private static void RenderTiles(List<TileEntity> tileEntities){
+        private static void RenderTiles(List<EntityEntity> tileEntities){
             tileEntities.Sort();
 
-            foreach(TileEntity tileEntity in tileEntities){
-                LayeredSprite sprite=(LayeredSprite)tileEntity.Sprite;
+            foreach(EntityEntity tileEntity in tileEntities){
+                LayeredSprite sprite=(LayeredSprite)tileEntity.Entity.Sprite;
                 sprite.Position=tileEntity.Position;
                 DisplayManager.Window.Draw(sprite);
             }
@@ -62,13 +61,12 @@ namespace Fish_Girlz.Systems{
             }
         }
 
-        private static void RenderEntities(List<Entity> entities){
+        private static void RenderEntities(List<EntityEntity> entities){
             entities.Sort();
 
-            foreach(Entity entity in entities){
-                LayeredSprite sprite=(LayeredSprite)entity.Sprite;
+            foreach(EntityEntity entity in entities){
+                LayeredSprite sprite=(LayeredSprite)entity.Entity.Sprite;
                 sprite.Position=entity.Position;
-                sprite.Rotation=entity.Rotation;
                 //CollisionComponent collision=entity.GetComponent<CollisionComponent>();
                 //if(collision!=null){
                 //    Sprite collisionSprite=new Sprite(Utilities.CreateTexture((uint)(collision.CollisionBounds.Width-collision.CollisionBounds.Left), (uint)(collision.CollisionBounds.Height-collision.CollisionBounds.Top), Color.Blue));

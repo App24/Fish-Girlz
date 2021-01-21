@@ -15,7 +15,7 @@ namespace Fish_Girlz.Entities{
         protected int damage;
         protected CollisionComponent collisionComponent;
 
-        public EnemyEntity(Vector2f position, SpriteInfo sprite, int maxHealth, int damage) : base(position, sprite, maxHealth)
+        public EnemyEntity(string id, string name, SpriteInfo sprite, int maxHealth, int damage) : base(id, name, sprite, maxHealth)
         {
             this.damage=damage;
             collisionComponent=AddComponent(new CollisionComponent());
@@ -23,14 +23,14 @@ namespace Fish_Girlz.Entities{
         }
 
         private void Collision(object sender, CollisionEventArgs e){
-            if(e.Other is PlayerEntity){
-                List<EnemyEntity> nearbyEntities=GetNearbyEnemies(StateMachine.ActiveState.GetEntities());
+            if(e.Other.Entity is PlayerEntity){
+                List<EnemyEntity> nearbyEntities=EntityEntity.GetNearbyEnemies(StateMachine.ActiveState.GetEntities());
                 EnemyEntity[] enemies=new EnemyEntity[2];
                 for (int i = 0; i < Math.Min(2, nearbyEntities.Count); i++)
                 {
                     enemies[i]=nearbyEntities[i];
                 }
-                BattleData battleData=new BattleData((PlayerEntity)e.Other, this, enemies[0], enemies[1]);
+                BattleData battleData=new BattleData((PlayerEntity)e.Other.Entity, this, enemies[0], enemies[1]);
                 BattleSystem.TriggerBattle(battleData);
             }
         }

@@ -2,7 +2,7 @@ using System;
 using Fish_Girlz.Items;
 
 namespace Fish_Girlz.API{
-    public class ItemLoader : Loader {
+    public class ItemLoader : APILoader {
 
         public ItemLoader(string id) : base(id)
         {

@@ -5,7 +5,7 @@ using SFML.System;
 namespace Fish_Girlz.Entities{
     public abstract class NPCEntity : LivingEntity
     {
-        public NPCEntity(Vector2f position, SpriteInfo sprite, int maxHealth) : base(position, sprite, maxHealth)
+        public NPCEntity(string id, string name, SpriteInfo sprite, int maxHealth) : base(id, name, sprite, maxHealth)
         {
         }
     }

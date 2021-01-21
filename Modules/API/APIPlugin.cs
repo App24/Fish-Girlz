@@ -10,6 +10,9 @@ namespace Fish_Girlz.API{
 
         public abstract void OnLoad();
         public abstract void LoadItems(ItemLoader itemLoader);
+        public abstract void LoadLocalisation(LocalisationLoader localisationLoader);
+        public abstract void LoadEntities(EntityLoader entityLoader);
+        public abstract void LoadAssets();
         public abstract void OnUnload();
     }
 }
