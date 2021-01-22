@@ -23,7 +23,7 @@ namespace Fish_Girlz.States{
         DialogBox dialogBox;
         PromptBox promptBox;
         
-        public override void Init()
+        internal override void Init()
         {
             text=new UIText(new FontInfo(AssetManager.GetFont("Arial"), 16), "Health: ",Color.White,new Vector2f(0,0));
             AddGUI(text);
@@ -42,13 +42,13 @@ namespace Fish_Girlz.States{
             promptBox=new PromptBox();
         }
 
-        public override void Update()
+        internal override void Update()
         {
             Camera.TargetEntity(player);
             text.Text=$"Health: {((PlayerEntity)player.Entity).Health}";
         }
 
-        public override void HandleInput()
+        internal override void HandleInput()
         {
             if(InputManager.IsKeyPressed(SFML.Window.Keyboard.Key.Escape)){
                 StateMachine.AddState(new PauseState(), false);
@@ -70,7 +70,7 @@ namespace Fish_Girlz.States{
             }
         }
 
-        public override void Pause()
+        internal override void Pause()
         {
             
         }

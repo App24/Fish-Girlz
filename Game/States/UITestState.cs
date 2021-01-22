@@ -15,7 +15,7 @@ namespace Fish_Girlz.States{
         private DialogBox dialogBox;
         private GUIGroup group;
 
-        public override void Init()
+        internal override void Init()
         {
             testTextField=new UITextField(new Vector2f(400,400), new Vector2u(300,50));
             AddGUI(testTextField);
@@ -34,12 +34,12 @@ namespace Fish_Girlz.States{
             group.AddGUIs(this);
         }
 
-        public override void HandleInput()
+        internal override void HandleInput()
         {
 
         }
 
-        public override void Update()
+        internal override void Update()
         {
             if(InputManager.IsKeyPressed(SFML.Window.Keyboard.Key.Escape)){
                 StateMachine.AddState(new MainMenuState());

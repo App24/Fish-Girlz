@@ -47,7 +47,7 @@ namespace Fish_Girlz.States{
 
         string mapName;
 
-        public override void Init()
+        internal override void Init()
         {
             tileImage=AddGUI(new UIImage(new Vector2f()));
             tileName=AddGUI(new UIText(new FontInfo(AssetManager.GetFont("Arial"), 18), "", SFML.Graphics.Color.Black, new Vector2f(70,0)));
@@ -86,7 +86,7 @@ namespace Fish_Girlz.States{
             loadGroup.SetVisible(false);
         }
 
-        public override void HandleInput()
+        internal override void HandleInput()
         {
             Vector2f tilePos=new Vector2f(MathF.Floor((InputManager.MousePosition.X+(DisplayManager.View.Center.X-640))/64)*64,MathF.Floor((InputManager.MousePosition.Y+(DisplayManager.View.Center.Y-360))/64)*64);;
             if(InputManager.IsMouseButtonPressed(SFML.Window.Mouse.Button.XButton1)){
@@ -241,7 +241,7 @@ namespace Fish_Girlz.States{
             }
         }
 
-        public override void Update()
+        internal override void Update()
         {
             switch(selectedEdit){
                 case SelectedEdit.Tile:

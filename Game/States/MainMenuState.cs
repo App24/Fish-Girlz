@@ -23,7 +23,7 @@ namespace Fish_Girlz.States{
             private UIButton testButton;
         #endif
 
-        public override void Init()
+        internal override void Init()
         {
             play=new UIButton(new Vector2u(160, 64), new Vector2f(Utilities.CenterInWindow(WindowSize.WIDTH, 160), Utilities.CenterInWindow(WindowSize.HEIGHT, 60)-40), Language.GetDefault().GetTranslation("button.start"), AssetManager.GetObject<FontInfo>("Button Font"));
             quit=new UIButton(new Vector2u(160, 64), new Vector2f(Utilities.CenterInWindow(WindowSize.WIDTH, 160), Utilities.CenterInWindow(WindowSize.HEIGHT, 60)+40), Language.GetDefault().GetTranslation("button.quit"), AssetManager.GetObject<FontInfo>("Button Font"));
@@ -44,12 +44,12 @@ namespace Fish_Girlz.States{
             #endif
         }
 
-        public override void Update()
+        internal override void Update()
         {
             
         }
 
-        public override void HandleInput()
+        internal override void HandleInput()
         {
             #if DEBUG
             if(InputManager.IsKeyHeld(Keyboard.Key.LAlt)&&InputManager.IsKeyHeld(Keyboard.Key.LControl)){

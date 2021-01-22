@@ -9,15 +9,15 @@ namespace Fish_Girlz.API.Core.Entities{
     {
         public TestEntity() : base("test", "test", new SpriteInfo(AssetLoader.GetTexture(CoreAPIPlugin.Instance, "temp"), new SFML.Graphics.IntRect(0,0,64,64)))
         {
-            AddComponent(new CollisionComponent());
+            AddComponent(new CollisionComponent(new SFML.Graphics.IntRect(0,0,Sprite.Bounds.Width, Sprite.Bounds.Height)));
         }
 
-        internal override void Move()
+        public override void Move()
         {
 
         }
 
-        internal override void Update(State currentState)
+        public override void Update(State currentState)
         {
 
         }

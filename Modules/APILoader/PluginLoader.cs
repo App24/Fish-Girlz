@@ -22,6 +22,7 @@ namespace Fish_Girlz.API.Loader{
             {
                 plugin.APIPlugin.Directory=plugin.Directory;
                 plugin.APIPlugin.ID=plugin.Mod.ID;
+                plugin.APIPlugin.Name=plugin.Mod.Name;
             }
             Load();
         }

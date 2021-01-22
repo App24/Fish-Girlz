@@ -4,7 +4,7 @@ using Fish_Girlz.Entities;
 namespace Fish_Girlz.API{
     public class EntityLoader : APILoader
     {
-        public EntityLoader(string id) : base(id)
+        internal EntityLoader(string id) : base(id)
         {
         }
 

@@ -7,6 +7,7 @@ namespace Fish_Girlz.API{
 
         internal string ID{get;set;}
         internal string Directory{get;set;}
+        internal string Name{get;set;}
 
         public abstract void OnLoad();
         public abstract void LoadItems(ItemLoader itemLoader);

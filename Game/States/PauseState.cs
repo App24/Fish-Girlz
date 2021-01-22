@@ -13,7 +13,7 @@ namespace Fish_Girlz.States{
         private UIButton continueButton, quit, menu;
         private UIText pausedText;
 
-        public override void Init()
+        internal override void Init()
         {
             pausedText=new UIText(AssetManager.GetObject<FontInfo>("Title Font"), Language.GetDefault().GetTranslation("text.paused"), Color.White, new Vector2f(DisplayManager.Width/2-68, 200));
             continueButton=new UIButton(new Vector2u(160, 64), new Vector2f(Utilities.CenterInWindow(WindowSize.WIDTH, 160), Utilities.CenterInWindow(WindowSize.HEIGHT, 64)-70), Language.GetDefault().GetTranslation("button.continue"), AssetManager.GetObject<FontInfo>("Button Font"));
@@ -32,12 +32,12 @@ namespace Fish_Girlz.States{
             });
         }
 
-        public override void Update()
+        internal override void Update()
         {
 
         }
         
-        public override void HandleInput()
+        internal override void HandleInput()
         {
             if(InputManager.IsKeyPressed(SFML.Window.Keyboard.Key.Escape)){
                 StateMachine.RemoveState();

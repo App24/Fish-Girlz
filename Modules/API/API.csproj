@@ -5,20 +5,8 @@
   </PropertyGroup>
   <ItemGroup>
     <PackageReference Include="SFML.Net" Version="2.5.0"/>
-    <Reference Include="Systems">
-      <HintPath>..\Systems\bin\Release\netstandard2.0\Systems.dll</HintPath>
-    </Reference>
-    <Reference Include="Items">
-      <HintPath>..\Items\bin\Release\netstandard2.0\Items.dll</HintPath>
-    </Reference>
-    <Reference Include="Art">
-      <HintPath>..\Art\bin\Release\netstandard2.0\Art.dll</HintPath>
-    </Reference>
-    <Reference Include="Localisation">
-      <HintPath>..\Localisation\bin\Release\netstandard2.0\Localisation.dll</HintPath>
-    </Reference>
-    <Reference Include="Entities">
-      <HintPath>..\Entities\bin\Release\netstandard2.0\Entities.dll</HintPath>
+    <Reference Include="Game">
+      <HintPath>..\Game\bin\Release\netstandard2.0\Game.dll</HintPath>
     </Reference>
   </ItemGroup>
 

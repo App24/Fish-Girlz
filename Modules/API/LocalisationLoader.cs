@@ -4,7 +4,7 @@ using Fish_Girlz.Localisation;
 namespace Fish_Girlz.API{
     public class LocalisationLoader : APILoader
     {
-        public LocalisationLoader(string id) : base(id)
+        internal LocalisationLoader(string id) : base(id)
         {
         }
 

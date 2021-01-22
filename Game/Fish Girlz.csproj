@@ -9,53 +9,8 @@
   <ItemGroup>
     <PackageReference Include="SFML.Net" Version="2.5.0"/>
     <PackageReference Include="Newtonsoft.Json" Version="12.0.3"/>
-    <Reference Include="Art">
-      <HintPath>..\Modules\Art\bin\Release\netstandard2.0\Art.dll</HintPath>
-    </Reference>
-    <Reference Include="Audio">
-      <HintPath>..\Modules\Audio\bin\Release\netstandard2.0\Audio.dll</HintPath>
-    </Reference>
-    <Reference Include="Systems">
-      <HintPath>..\Modules\Systems\bin\Release\netstandard2.0\Systems.dll</HintPath>
-    </Reference>
-    <Reference Include="Tiles">
-      <HintPath>..\Modules\Tiles\bin\Release\netstandard2.0\Tiles.dll</HintPath>
-    </Reference>
-    <Reference Include="UI">
-      <HintPath>..\Modules\UI\bin\Release\netstandard2.0\UI.dll</HintPath>
-    </Reference>
-    <Reference Include="Localisation">
-      <HintPath>..\Modules\Localisation\bin\Release\netstandard2.0\Localisation.dll</HintPath>
-    </Reference>
-    <Reference Include="Items">
-      <HintPath>..\Modules\Items\bin\Release\netstandard2.0\Items.dll</HintPath>
-    </Reference>
-    <Reference Include="Inventory">
-      <HintPath>..\Modules\Inventory\bin\Release\netstandard2.0\Inventory.dll</HintPath>
-    </Reference>
-    <Reference Include="Utils">
-      <HintPath>..\Modules\Utils\bin\Release\netstandard2.0\Utils.dll</HintPath>
-    </Reference>
-    <Reference Include="States">
-      <HintPath>..\Modules\States\bin\Release\netstandard2.0\States.dll</HintPath>
-    </Reference>
-    <Reference Include="Battle">
-      <HintPath>..\Modules\Battle\bin\Release\netstandard2.0\Battle.dll</HintPath>
-    </Reference>
-    <Reference Include="Entities">
-      <HintPath>..\Modules\Entities\bin\Release\netstandard2.0\Entities.dll</HintPath>
-    </Reference>
-    <Reference Include="Dialog">
-      <HintPath>..\Modules\Dialog\bin\Release\netstandard2.0\Dialog.dll</HintPath>
-    </Reference>
-    <Reference Include="Prompt">
-      <HintPath>..\Modules\Prompt\bin\Release\netstandard2.0\Prompt.dll</HintPath>
-    </Reference>
-    <Reference Include="World">
-      <HintPath>..\Modules\World\bin\Release\netstandard2.0\World.dll</HintPath>
-    </Reference>
-    <Reference Include="Render">
-      <HintPath>..\Modules\Render\bin\Release\netstandard2.0\Render.dll</HintPath>
+    <Reference Include="Game">
+      <HintPath>..\Modules\Game\bin\Release\netstandard2.0\Game.dll</HintPath>
     </Reference>
     <Reference Include="API">
       <HintPath>..\Modules\API\bin\Release\netstandard2.0\API.dll</HintPath>
