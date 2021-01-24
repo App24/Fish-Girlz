@@ -24,7 +24,7 @@ namespace Fish_Girlz.States{
             AddGUI(quit);
             AddGUI(menu);
             continueButton.OnClick+=new EventHandler((sender, e)=>{StateMachine.RemoveState();});
-            quit.OnClick+=new EventHandler((sender, e)=>{DisplayManager.Window.Close();});
+            quit.OnClick+=new EventHandler((sender, e)=>{DisplayManager.Close();});
             menu.OnClick+=new EventHandler((sender, e)=>{
                 StateMachine.RemoveState();
                 StateMachine.RemoveState();

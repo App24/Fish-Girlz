@@ -5,8 +5,10 @@ using SFML.Graphics;
 namespace Fish_Girlz.Entities.Components{
     public class CollisionComponent : EntityComponent {
 
-        public bool Colliding{get;set;}
-        public CollisionEventHandler OnCollision;
+        internal bool Colliding{get;set;}
+        public CollisionEnterEventHandler OnEnterCollision;
+        public CollisionExitEventHandler OnExitCollision;
+        public CollisionContinueEventHandler OnContinueCollision;
         public bool Collidable{get; set;}
 
         public IntRect CollisionBounds {get; set;}

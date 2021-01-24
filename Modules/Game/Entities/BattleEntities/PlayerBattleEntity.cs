@@ -14,7 +14,7 @@ namespace Fish_Girlz.Entities{
         Animation attack;
         Animation currentAnimation;
 
-        public PlayerBattleEntity(int health, int maxHealth, EntityStats stats) : base("battle_player", "battle_player", AssetManager.GetSpriteSheet("dominique").GetSpriteInfo(0, 0), health, maxHealth, stats)
+        public PlayerBattleEntity(int health, int maxHealth, EntityStats stats) : base("battle_player", "battle_player", health, maxHealth, stats, AssetManager.GetSpriteSheet("dominique").Texture, AssetManager.GetSpriteSheet("dominique").GetTextureOffset(0,0))
         {
             spriteSheet = AssetManager.GetSpriteSheet("dominique");
             SetupAnimations();

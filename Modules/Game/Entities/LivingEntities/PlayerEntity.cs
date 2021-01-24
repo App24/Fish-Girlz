@@ -22,15 +22,20 @@ namespace Fish_Girlz.Entities
         (bool, bool) walking;
         protected CollisionComponent collisionComponent;
 
+        public int Mana{get;private set;}
+        public int MaxMana{get;private set;}
+
         public PlayerInventory Inventory{get;}
 
         public override bool ShowOnMapEditor => false;
 
         private bool initialised=false;
 
+        public bool IsMermaid{get;internal set;}
+
         public override int Max => 1;
 
-        internal PlayerEntity() : base("player","player", AssetManager.GetSpriteSheet("dominique").GetSpriteInfo(0, 0), 20)
+        internal PlayerEntity() : base("player","player", 20, AssetManager.GetSpriteSheet("dominique").Texture, AssetManager.GetSpriteSheet("dominique").GetTextureOffset(0,0))
         {
             spriteSheet = AssetManager.GetSpriteSheet("dominique");
             SetupAnimations();
@@ -38,6 +43,8 @@ namespace Fish_Girlz.Entities
             Sprite.Layer=10000;
             collisionComponent=AddComponent(new CollisionComponent(new IntRect(20,14,44,63)));
             Inventory=new PlayerInventory(this);
+            MaxMana=20;
+            Mana=MaxMana;
         }
 
         internal void Init(){
@@ -157,6 +164,28 @@ namespace Fish_Girlz.Entities
             {
                 currentAnimation = idle;
             }
+        }
+
+        public void AddMana(int amount){
+            if(amount<0){
+                RemoveMana(Math.Abs(amount));
+                return;
+            }
+            Mana+=amount;
+            if(Mana>MaxMana) Mana=MaxMana;
+        }
+
+        public void RemoveMana(int amount){
+            if(amount<0){
+                AddMana(Math.Abs(amount));
+                return;
+            }
+            Mana-=amount;
+            if(Mana<0)Mana=0;
+        }
+
+        public bool HasEnoughMana(int amount){
+            return Mana>=amount;
         }
     }
 }

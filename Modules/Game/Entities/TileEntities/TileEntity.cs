@@ -41,9 +41,14 @@ namespace Fish_Girlz.Entities.Tiles{
 
         public override bool ShowOnMapEditor => false;
 
-        public TileEntity(Tile tile) : base(tile.ID.ToString(), tile.Name, tile.Sprite)
+        public TileEntity(Tile tile) : base(tile.ID.ToString(), tile.Name, tile.Sprite.Texture, tile.Sprite.TextureOffset)
         {
             Tile=tile;
+            collisionComponent=AddComponent(new CollisionComponent(new SFML.Graphics.IntRect(0,0,tile.Sprite.Bounds.Width, tile.Sprite.Bounds.Height)));
+            collisionComponent.Collidable=tile.Collidable;
+            collisionComponent.OnEnterCollision+=tile.OnEnterCollision;
+            collisionComponent.OnContinueCollision+=tile.OnContiueCollision;
+            collisionComponent.OnExitCollision+=tile.OnExitCollision;
         }
 
         public override void Update(State currentState)

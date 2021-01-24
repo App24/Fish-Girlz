@@ -22,7 +22,7 @@ namespace Fish_Girlz.States{
         int tileId=1;
         int itemId=0, entityId=0;
 
-        UIImage tileImage;
+        UIImage modeImage;
         UIText tileName, selectedMode;
 
         Tile selectedTile;
@@ -49,11 +49,11 @@ namespace Fish_Girlz.States{
 
         internal override void Init()
         {
-            tileImage=AddGUI(new UIImage(new Vector2f()));
+            modeImage=AddGUI(new UIImage(new Vector2f()));
             tileName=AddGUI(new UIText(new FontInfo(AssetManager.GetFont("Arial"), 18), "", SFML.Graphics.Color.Black, new Vector2f(70,0)));
             tileName.OutlineColor=SFML.Graphics.Color.White;
             tileName.OutlineThickness=2;
-            selectedTile=Tile.GetTile(tileId);
+            selectedTile=Tile.GetTile(Tile.GetTiles()[tileId].ID);
             selectedItem=Item.GetItem(Item.GetItems()[itemId].ID);
             selectedEntity=Entity.GetMapEntity(Entity.GetMapEntities()[entityId].ID);
             tileName.Text=selectedTile.Name;
@@ -95,21 +95,6 @@ namespace Fish_Girlz.States{
             if(InputManager.IsMouseButtonPressed(SFML.Window.Mouse.Button.XButton2)){
                 selectedEdit=selectedEdit.Previous();
             }
-            switch (selectedEdit)
-            {
-                case SelectedEdit.Tile:
-                    tileName.Text=selectedTile.Name;
-                    break;
-                case SelectedEdit.PlayerPos:
-                    tileName.Text="";
-                    break;
-                case SelectedEdit.Entity:
-                    tileName.Text=selectedEntity.Name;
-                    break;
-                case SelectedEdit.Item:
-                    tileName.Text=selectedItem.Name;
-                    break;
-            }
             selectedMode.Text=$"Selected Mode: {Enum.GetName(typeof(SelectedEdit), selectedEdit)}";
             previewSprite.Position=tilePos;
 
@@ -118,12 +103,12 @@ namespace Fish_Girlz.States{
                     if(InputManager.ScrollDelta<0){
                         tileId--;
                         if(tileId<1) tileId=Tile.GetTiles().Count-1;
-                        selectedTile=Tile.GetTile(tileId);
+                        selectedTile=Tile.GetTile(Tile.GetTiles()[tileId].ID);
                     }
                     if(InputManager.ScrollDelta>0){
                         tileId++;
                         if(tileId>Tile.GetTiles().Count-1) tileId=1;
-                        selectedTile=Tile.GetTile(tileId);
+                        selectedTile=Tile.GetTile(Tile.GetTiles()[tileId].ID);
                     }
                     if(InputManager.IsMouseButtonHeld(SFML.Window.Mouse.Button.Left)){
                         if(tiles.ContainsKey(tilePos)){
@@ -155,12 +140,12 @@ namespace Fish_Girlz.States{
                 case SelectedEdit.Entity:
                     if(InputManager.ScrollDelta<0){
                         entityId--;
-                        if(entityId<0) entityId=Entity.GetEntities().Count-1;
+                        if(entityId<0) entityId=Entity.GetMapEntities().Count-1;
                         selectedEntity=Entity.GetMapEntity(Entity.GetMapEntities()[entityId].ID);
                     }
                     if(InputManager.ScrollDelta>0){
                         entityId++;
-                        if(entityId>Entity.GetEntities().Count-1) entityId=0;
+                        if(entityId>Entity.GetMapEntities().Count-1) entityId=0;
                         selectedEntity=Entity.GetMapEntity(Entity.GetMapEntities()[entityId].ID);
                     }
 
@@ -246,18 +231,23 @@ namespace Fish_Girlz.States{
             switch(selectedEdit){
                 case SelectedEdit.Tile:
                     previewSprite.Texture=selectedTile.Sprite.Texture;
-                    tileImage.Texture=selectedTile.Sprite.Texture;
+                    modeImage.Texture=selectedTile.Sprite.Texture;
+                    tileName.Text=selectedTile.Name;
                     break;
                 case SelectedEdit.PlayerPos:
                     previewSprite.Texture=Utilities.CreateTexture(64,64,new Color(255,0,0));
-                    break;
-                case SelectedEdit.Item:
-                    tileImage.Texture=selectedItem.Sprite.Texture;
-                    previewSprite.Texture=selectedItem.Sprite.Texture;
+                    modeImage.Texture=Utilities.CreateTexture(64,64,new Color(255,0,0));
+                    tileName.Text="Player Position";
                     break;
                 case SelectedEdit.Entity:
-                    tileImage.Texture=selectedEntity.Sprite.Texture;
+                    modeImage.Texture=selectedEntity.Sprite.Texture;
                     previewSprite.Texture=selectedEntity.Sprite.Texture;
+                    tileName.Text=selectedEntity.Name;
+                    break;
+                case SelectedEdit.Item:
+                    modeImage.Texture=selectedItem.Sprite.Texture;
+                    previewSprite.Texture=selectedItem.Sprite.Texture;
+                    tileName.Text=selectedItem.Name;
                     break;
             }
             previewSprite.Color=new Color(255,255,255,(byte)(255/1.5f));

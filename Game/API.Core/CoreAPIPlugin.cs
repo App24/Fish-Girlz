@@ -46,11 +46,26 @@ namespace Fish_Girlz.API.Core{
             localisationLoader.AddItemLocalisation("normal_leggings", "Normal Leggings");
             localisationLoader.AddItemLocalisation("normal_chestplate", "Normal Chestplate");
             localisationLoader.AddItemLocalisation("normal_helmet", "Normal Helmet");
+            
+            localisationLoader.AddEntityLocalisation("test", "Test");
+
+            localisationLoader.AddTileLocalisation("wall", "Wall");
+            localisationLoader.AddTileLocalisation("water", "Water");
+            localisationLoader.AddTileLocalisation("deep_water", "Deep Water");
+            localisationLoader.AddTileLocalisation("sand", "Sand");
         }
 
         public override void LoadEntities(EntityLoader entityLoader)
         {
             entityLoader.AddEntity(new Entities.TestEntity());
+        }
+
+        public override void LoadTiles(TileLoader tileLoader)
+        {
+            tileLoader.AddTile(new Tiles.WallTile());
+            tileLoader.AddTile(new Tiles.WaterTile());
+            tileLoader.AddTile(new Tiles.DeepWaterTile());
+            tileLoader.AddTile(new Tiles.SandTile());
         }
     }
 }

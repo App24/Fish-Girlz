@@ -9,11 +9,19 @@ namespace Fish_Girlz.API{
         }
 
         public void AddLocalisation(string key, string name){
-            Language.GetDefault().AddLocalisation(key, name);
+            Language.GetDefault().AddLocalisation($"{ID}.{key}", name);
         }
 
         public void AddItemLocalisation(string key, string name){
-            AddLocalisation($"{ID}.item.{key}", name);
+            AddLocalisation($"item.{key}", name);
+        }
+
+        public void AddTileLocalisation(string key, string name){
+            AddLocalisation($"tile.{key}", name);
+        }
+
+        public void AddEntityLocalisation(string key, string name){
+            AddLocalisation($"entity.{key}", name);
         }
     }
 }

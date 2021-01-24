@@ -1,13 +1,14 @@
 using SFML.Graphics;
+using SFML.System;
 
 namespace Fish_Girlz.Art
 {
     public class SpriteSheet {
-        private Texture texture;
+        public Texture Texture{get;private set;}
         private int width, height;
 
         public SpriteSheet(Texture texture, int spriteWidth, int spriteHeight){
-            this.texture=texture;
+            this.Texture=texture;
             this.width=spriteWidth;
             this.height=spriteHeight;
         }
@@ -21,24 +22,27 @@ namespace Fish_Girlz.Art
         }
 
         public SpriteInfo GetSpriteInfo(IntRect bounds){
-            SpriteInfo spriteInfo=new SpriteInfo(texture, bounds);
+            SpriteInfo spriteInfo=new SpriteInfo(Texture, bounds);
             return spriteInfo;
         }
 
         public LayeredSprite GetSprite(IntRect bounds){
-            LayeredSprite sprite=new LayeredSprite(texture);
+            LayeredSprite sprite=new LayeredSprite(Texture);
             sprite.TextureRect=bounds;
             return sprite;
         }
 
         public IntRect GetTextureRect(int x, int y){
-            return new IntRect(x*width, y*height, width, height);
+            Vector2i offset=GetTextureOffset(x,y);
+            return new IntRect(offset.X, offset.Y, width, height);
+        }
+
+        public Vector2i GetTextureOffset(int x, int y){
+            return new Vector2i(x*width, y*width);
         }
 
         public int SpriteWidth=>width;
 
         public int SpriteHeight=>height;
-
-        public Texture Texture=>texture;
     }
 }

@@ -14,18 +14,19 @@ namespace Fish_Girlz.Entities.Items{
 
         public Item Item{get;}
 
-        public ItemEntity(Item item) : base(item.ID, item.Name, item.Sprite)
+        public ItemEntity(Item item) : base(item.ID, item.Name, item.Sprite.Texture, item.Sprite.TextureOffset)
         {
             collisionComponent=AddComponent(new CollisionComponent(item.CollisionBounds));
             collisionComponent.Collidable=false;
-            collisionComponent.OnCollision+=OnCollision;
+            collisionComponent.OnEnterCollision+=OnEnterCollision;
             this.Item=item;
         }
 
-        void OnCollision(object sender, CollisionEventArgs e){
+        CollisionBehaviour OnEnterCollision(CollisionEventArgs e){
             if(e.Other.Entity is PlayerEntity){
                 PickUp((PlayerEntity)e.Other.Entity);
             }
+            return CollisionBehaviour.Collision;
         }
 
         void PickUp(PlayerEntity player){

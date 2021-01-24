@@ -120,5 +120,13 @@ namespace Fish_Girlz.API.Loader{
                 plugin.APIPlugin.LoadEntities(entityLoader);
             }
         }
+
+        public static void LoadTiles(){
+            foreach (var plugin in plugins)
+            {
+                TileLoader tileLoader=new TileLoader(plugin.Mod.ID);
+                plugin.APIPlugin.LoadTiles(tileLoader);
+            }
+        }
     }
 }

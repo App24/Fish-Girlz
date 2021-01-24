@@ -16,6 +16,8 @@ namespace Fish_Girlz.API.Core.Items{
 
         public override bool OnUse(PlayerEntity player)
         {
+            if(player.Mana>=player.MaxMana) return false;
+            player.AddMana(manaAmount);
             return true;
         }
     }

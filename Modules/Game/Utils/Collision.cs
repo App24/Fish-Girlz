@@ -98,13 +98,17 @@ namespace Fish_Girlz.Utils
 
                 OBB1.ProjectOntoAxis(axis[i], out minOBB1, out maxOBB1);
                 OBB2.ProjectOntoAxis(axis[i], out minOBB2, out maxOBB2);
-                if (!((minOBB2 <= maxOBB1) && (maxOBB2 >= minOBB1))){
+                if (!((minOBB2 < maxOBB1) && (maxOBB2 > minOBB1))){
                     colliding=false;
+                    break;
                 }
             }
             if(colliding){
                 if(!collidingEntities.ContainsKey(object1)){
-                    object2CC.OnCollision?.Invoke(object2, new CollisionEventArgs(object1));
+                    CollisionBehaviour? cb = object2CC.OnEnterCollision?.Invoke(new CollisionEventArgs(object1));
+                    if(cb.HasValue){
+                        if(cb.Value==CollisionBehaviour.IgnoreCollision) colliding=false;
+                    }
                     List<EntityEntity> collidingEntity=new List<EntityEntity>();
                     collidingEntity.Add(object2);
                     collidingEntities.AddOrReplace(object1, collidingEntity);
@@ -112,48 +116,31 @@ namespace Fish_Girlz.Utils
                     List<EntityEntity> collidingEntity=new List<EntityEntity>();
                     if(collidingEntities.TryGetValue(object1, out collidingEntity)){
                         if(!collidingEntity.Contains(object2)){
-                            object2CC.OnCollision?.Invoke(object2, new CollisionEventArgs(object1));
+                            CollisionBehaviour? cb = object2CC.OnEnterCollision?.Invoke(new CollisionEventArgs(object1));
+                            if(cb.HasValue){
+                                if(cb.Value==CollisionBehaviour.IgnoreCollision) colliding=false;
+                            }
                             collidingEntity.Add(object2);
                             collidingEntities.AddOrReplace(object1, collidingEntity);
+                        }else{
+                            CollisionBehaviour? cb = object2CC.OnContinueCollision?.Invoke(new CollisionEventArgs(object1));
+                            if(cb.HasValue){
+                                if(cb.Value==CollisionBehaviour.IgnoreCollision) colliding=false;
+                            }
                         }
                     }
                 }
-
-                /*if(!collidingEntities.ContainsKey(object2)){
-                    object2.OnCollision?.Invoke(object2, new CollisionEventArgs(object1));
-                    List<Entity> collidingEntity=new List<Entity>();
-                    collidingEntity.Add(object1);
-                    collidingEntities.AddOrReplace(object2, collidingEntity);
-                }else{
-                    List<Entity> collidingEntity=new List<Entity>();
-                    if(collidingEntities.TryGetValue(object2, out collidingEntity)){
-                        if(!collidingEntity.Contains(object1)){
-                            object2.OnCollision?.Invoke(object2, new CollisionEventArgs(object1));
-                            collidingEntity.Add(object1);
-                            collidingEntities.AddOrReplace(object2, collidingEntity);
-                        }
-                    }
-                }*/
             }else{
                 if(collidingEntities.ContainsKey(object1)){
                     List<EntityEntity> collidingEntity=new List<EntityEntity>();
                     if(collidingEntities.TryGetValue(object1, out collidingEntity)){
                         if(collidingEntity.Contains(object2)){
+                            object2CC.OnExitCollision?.Invoke(new CollisionEventArgs(object1));
                             collidingEntity.Remove(object2);
                             collidingEntities.AddOrReplace(object1, collidingEntity);
                         }
                     }
                 }
-
-                /*if(collidingEntities.ContainsKey(object2)){
-                    List<Entity> collidingEntity=new List<Entity>();
-                    if(collidingEntities.TryGetValue(object2, out collidingEntity)){
-                        if(collidingEntity.Contains(object1)){
-                            collidingEntity.Remove(object1);
-                            collidingEntities.AddOrReplace(object2, collidingEntity);
-                        }
-                    }
-                }*/
             }
 
             if(!object1CC.Collidable)
@@ -239,7 +226,7 @@ namespace Fish_Girlz.Utils
         {
             min = (points[0].X * axis.X + points[0].Y * axis.Y);
             max = min;
-            for (int j = 0; j < 4; j++)
+            for (int j = 1; j < 4; j++)
             {
                 float projection = (points[j].X * axis.X + points[j].Y * axis.Y);
 
@@ -258,5 +245,11 @@ namespace Fish_Girlz.Utils
         }
     }
 
-    public delegate void CollisionEventHandler(object sender, CollisionEventArgs e);
+    public delegate CollisionBehaviour CollisionEnterEventHandler(CollisionEventArgs e);
+    public delegate CollisionBehaviour CollisionContinueEventHandler(CollisionEventArgs e);
+    public delegate void CollisionExitEventHandler(CollisionEventArgs e);
+
+    public enum CollisionBehaviour{
+        Collision, IgnoreCollision
+    }
 }

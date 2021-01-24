@@ -1,20 +1,16 @@
 using System;
 using Fish_Girlz.Art;
-// using Fish_Girlz.Entities;
 using SFML.Graphics;
+using SFML.System;
 
 namespace Fish_Girlz.Items{
     public abstract class EquipableItem : Item
     {
-        public EquipableItem(string id, string name, Texture texture) : base(id, name, new SpriteInfo(texture, new IntRect(0,0,64,64)), 1)
+        public EquipableItem(string id, string name, Texture texture) : base(id, name, texture, 1)
         {
         }
-
-        // public override bool OnUse(PlayerEntity player)
-        // {
-        //     /*if(!player.Inventory.SetEquipable(this)) return false;
-        //     return true;*/
-        //     return false;
-        // }
+        public EquipableItem(string id, string name, Texture texture, Vector2i offset) : base(id, name, texture, offset, 1)
+        {
+        }
     }
 }

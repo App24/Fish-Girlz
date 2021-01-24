@@ -1,15 +1,20 @@
 using System;
+using System.Collections.Generic;
 using Fish_Girlz.Art;
 using Fish_Girlz.Entities;
 using Fish_Girlz.Entities.Components;
 using Fish_Girlz.States;
+using Fish_Girlz.Utils;
+using Fish_Girlz.Systems;
 
 namespace Fish_Girlz.API.Core.Entities{
     public class TestEntity : Entity
     {
-        public TestEntity() : base("test", "test", new SpriteInfo(AssetLoader.GetTexture(CoreAPIPlugin.Instance, "temp"), new SFML.Graphics.IntRect(0,0,64,64)))
+        CollisionComponent collisionComponent;
+
+        public TestEntity() : base("test", "test", AssetLoader.GetTexture(CoreAPIPlugin.Instance, "temp"))
         {
-            AddComponent(new CollisionComponent(new SFML.Graphics.IntRect(0,0,Sprite.Bounds.Width, Sprite.Bounds.Height)));
+            collisionComponent=AddComponent(new CollisionComponent(new SFML.Graphics.IntRect(0,0,Sprite.Bounds.Width, Sprite.Bounds.Height)));
         }
 
         public override void Move()

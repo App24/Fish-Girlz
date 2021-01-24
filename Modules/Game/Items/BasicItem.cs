@@ -1,18 +1,18 @@
-using System;
-using Fish_Girlz.Art;
-using Fish_Girlz.Entities;
-using SFML.Graphics;
+// using System;
+// using Fish_Girlz.Art;
+// using Fish_Girlz.Entities;
+// using SFML.Graphics;
 
-namespace Fish_Girlz.Items{
-    internal class BasicItem : Item
-    {
-        public BasicItem(string id, string name, SpriteInfo sprite, int maxStack=64) : base(id, name, sprite, maxStack)
-        {
-        }
+// namespace Fish_Girlz.Items{
+//     internal class BasicItem : Item
+//     {
+//         public BasicItem(string id, string name, SpriteInfo sprite, int maxStack=64) : base(id, name, sprite, maxStack)
+//         {
+//         }
 
-        public override bool OnUse(PlayerEntity player)
-        {
-            return true;
-        }
-    }
-}
+//         public override bool OnUse(PlayerEntity player)
+//         {
+//             return true;
+//         }
+//     }
+// }

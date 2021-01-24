@@ -17,26 +17,26 @@ using Fish_Girlz.Systems;
 namespace Fish_Girlz.States{
     public class TestState : State
     {
-        UIText text;
+        UIText healthText, manaText;
+        GUIGroup hudGroup;
         EntityEntity player;
-        // TestEnemy test;
         DialogBox dialogBox;
         PromptBox promptBox;
         
         internal override void Init()
         {
-            text=new UIText(new FontInfo(AssetManager.GetFont("Arial"), 16), "Health: ",Color.White,new Vector2f(0,0));
-            AddGUI(text);
+            hudGroup=new GUIGroup();
+            healthText=hudGroup.AddGUI(new UIText(new FontInfo(AssetManager.GetFont("Arial"), 16), "Health: ",Color.White,new Vector2f(0,0)));
+            manaText=hudGroup.AddGUI(new UIText(new FontInfo(AssetManager.GetFont("Arial"), 16), "Mana: ", Color.White, new Vector2f(0,18)));
+            hudGroup.AddGUIs(this);
+            AddGUI(healthText);
             MapGenerator.InitMap("map2");
-            Console.WriteLine(Entity.GetEntity("player"));
             player=new EntityEntity(MapGenerator.GetPlayerPos(), Entity.GetEntity("player"));
             ((PlayerEntity)player.Entity).Init();
             AddEntity(player);
             tileEntities=MapGenerator.GetTileEntities();
             itemEntities=MapGenerator.GetItemEntities();
             entities=MapGenerator.GetEntityEntities();
-            // test=new TestEnemy(new Vector2f(256,256), new SpriteInfo(AssetManager.GetTexture("temp"), new IntRect(0,0,64,64)));
-            //AddEntity(test);
 
             dialogBox=new DialogBox();
             promptBox=new PromptBox();
@@ -45,7 +45,8 @@ namespace Fish_Girlz.States{
         internal override void Update()
         {
             Camera.TargetEntity(player);
-            text.Text=$"Health: {((PlayerEntity)player.Entity).Health}";
+            healthText.Text=$"Health: {((PlayerEntity)player.Entity).Health}";
+            manaText.Text=$"Mana: {((PlayerEntity)player.Entity).Mana}";
         }
 
         internal override void HandleInput()
@@ -53,7 +54,7 @@ namespace Fish_Girlz.States{
             if(InputManager.IsKeyPressed(SFML.Window.Keyboard.Key.Escape)){
                 StateMachine.AddState(new PauseState(), false);
             }
-            List<EntityEntity> nearbyDialogs=player.GetNearbyEntitiesWithComponent<DialogComponent, EntityEntity>(GetEntities(), 200);
+            List<EntityEntity> nearbyDialogs=player.GetNearbyEntitiesWithComponent<DialogComponent, EntityEntity>(GetEntities(), 3.125f);
             if(nearbyDialogs.Count>0){
                 promptBox.ShowPrompt(InputManager.KeyCodeToString(SFML.Window.Keyboard.Key.Space));
                 if(InputManager.IsKeyPressed(SFML.Window.Keyboard.Key.Space)&&!dialogBox.Visible){

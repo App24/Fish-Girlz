@@ -15,13 +15,9 @@ using Fish_Girlz.Utils;
 
 namespace Fish_Girlz.World{
     public static class MapGenerator {
-        public static int TileSize=64;
-
         private static List<EntityEntity> tileEntities=new List<EntityEntity>();
         private static List<EntityEntity> itemEntities=new List<EntityEntity>();
         private static List<EntityEntity> entityEntities=new List<EntityEntity>();
-        public static int MapWidth=24;
-        public static int MapHeight=24;
 
         private static Vector2f playerPos;
 
@@ -30,26 +26,27 @@ namespace Fish_Girlz.World{
             if(!File.Exists(mapFile)){ return; }
 
             MapData mapData=JsonConvert.DeserializeObject<MapData>(File.ReadAllText(mapFile));
-            playerPos=mapData.PlayerPos*64;
+            playerPos=mapData.PlayerPos*Statics.UNIT_SIZE;
             tileEntities.Clear();
             itemEntities.Clear();
+            entityEntities.Clear();
             foreach (TileData tileData in mapData.TilesData)
             {
                 Tile tile=Tile.GetTile(tileData.ID);
                 if(tile==null)continue;
-                tileEntities.Add(new EntityEntity(tileData.Position*64, new TileEntity(tile)));
+                tileEntities.Add(new EntityEntity(tileData.Position*Statics.UNIT_SIZE, new TileEntity(tile)));
             }
             foreach (ItemData itemData in mapData.ItemsData)
             {
                 Item item=Item.GetItem(itemData.ID);
                 if(item==null)continue;
-                itemEntities.Add(new EntityEntity(itemData.Position*64, new ItemEntity(item)));
+                itemEntities.Add(new EntityEntity(itemData.Position*Statics.UNIT_SIZE, new ItemEntity(item)));
             }
             foreach (EntityData entityData in mapData.EntitiesData)
             {
                 Entity entity=Entity.GetMapEntity(entityData.ID);
                 if(entity==null)continue;
-                entityEntities.Add(new EntityEntity(entityData.Position*64, entity));
+                entityEntities.Add(new EntityEntity(entityData.Position*Statics.UNIT_SIZE, entity));
             }
         }
 
@@ -72,9 +69,9 @@ namespace Fish_Girlz.World{
 
     public struct TileData{
         public Vector2f Position{get;}
-        public int ID{get;}
+        public string ID{get;}
 
-        public TileData(Vector2f position, int id){
+        public TileData(Vector2f position, string id){
             Position=position;
             ID=id;
         }

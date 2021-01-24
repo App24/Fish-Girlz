@@ -5,6 +5,7 @@ using SFML.Graphics;
 using Fish_Girlz.Utils;
 using Fish_Girlz.Entities.Components;
 using Fish_Girlz.States;
+using SFML.System;
 
 namespace Fish_Girlz.Entities{
     public abstract class Entity {
@@ -21,11 +22,14 @@ namespace Fish_Girlz.Entities{
         public virtual bool ShowOnMapEditor=>true;
         public virtual int Max=>0;
 
-        public Entity(string id, string name, SpriteInfo sprite){
+        public Entity(string id, string name, Texture texture, Vector2i offset){
             ID=id;
             Name=name;
             if(!Name.StartsWith("entity.")) Name=$"entity.{Name}";
-            Sprite=sprite;
+            Sprite=new SpriteInfo(texture, new IntRect(offset.X,offset.Y,Statics.UNIT_SIZE, Statics.UNIT_SIZE));
+        }
+
+        public Entity(string id, string name, Texture texture):this(id,name,texture,new Vector2i()){
         }
 
         internal static void AddEntity<T>(T entity, string modId="") where T:Entity{

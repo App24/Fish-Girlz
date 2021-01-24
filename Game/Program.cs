@@ -32,7 +32,7 @@ namespace Fish_Girlz
 
             InputManager.InitInputManager();
 
-            Tiles.TileLoader.LoadTiles();
+            PluginLoader.LoadTiles();
             PluginLoader.LoadItems();
             Entities.Entity.AddEntity(new Entities.PlayerEntity());
             PluginLoader.LoadEntities();

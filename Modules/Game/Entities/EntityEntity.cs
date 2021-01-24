@@ -40,14 +40,14 @@ namespace Fish_Girlz.Entities{
             return sprite;
         }
 
-        internal List<T> GetNearbyEntities<T>(List<T> entities, float distance=500, params Type[] toIgnore) where T: EntityEntity{
+        internal List<T> GetNearbyEntities<T>(List<T> entities, float distance=10, params Type[] toIgnore) where T: EntityEntity{
             List<T> newEntities=new List<T>();
             List<Type> toIgnoreList=new List<Type>(toIgnore);
             foreach (T entity in entities)
             {
                 if(entity==this||toIgnoreList.Contains(entity.GetType()))
                     continue;
-                if(entity.Position.Distance(Position)<=distance){
+                if(entity.Position.Distance(Position)<=Statics.UNIT_SIZE*distance){
                     newEntities.Add(entity);
                 }
             }
@@ -57,13 +57,13 @@ namespace Fish_Girlz.Entities{
             return newEntities;
         }
 
-        internal List<T> GetNearbyEntitiesWithComponent<C, T>(List<T> entities, float distance=500) where T : EntityEntity where C : EntityComponent{
+        internal List<T> GetNearbyEntitiesWithComponent<C, T>(List<T> entities, float distance=10) where T : EntityEntity where C : EntityComponent{
             List<T> nearbyEntities=GetNearbyEntities(entities, distance);
             List<T> newEntities=nearbyEntities.FindAll(delegate(T entity){if(entity.Entity.GetComponent<C>()!=null)return true; return false;});
             return newEntities;
         }
 
-        internal List<EnemyEntity> GetNearbyEnemies(List<EntityEntity> entities, float distance=500){
+        internal List<EnemyEntity> GetNearbyEnemies(List<EntityEntity> entities, float distance=10){
             List<EntityEntity> nearbyEntities=GetNearbyEntities(entities, distance);
             List<EnemyEntity> newEntities=nearbyEntities.FindAll(delegate(EntityEntity entity){if(entity.Entity is EnemyEntity)return true; return false;}).Cast<EnemyEntity>().ToList();
             return newEntities;

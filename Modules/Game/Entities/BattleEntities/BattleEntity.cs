@@ -2,6 +2,7 @@ using System;
 using Fish_Girlz.Art;
 using Fish_Girlz.States;
 using SFML.System;
+using SFML.Graphics;
 
 namespace Fish_Girlz.Entities{
     internal class BattleEntity : Entity
@@ -13,11 +14,15 @@ namespace Fish_Girlz.Entities{
 
         public override bool ShowOnMapEditor => false;
 
-        public BattleEntity(string id, string name, SpriteInfo sprite, int health, int maxHealth, EntityStats stats) : base(id, name, sprite)
+        public BattleEntity(string id, string name, int health, int maxHealth, EntityStats stats, Texture texture, Vector2i offset) : base(id, name, texture, offset)
         {
             MaxHealth=maxHealth;
             Health=health;
             Stats=stats;
+        }
+
+        public BattleEntity(string id, string name, int health, int maxHealth, EntityStats stats, Texture texture) : this(id, name, health, maxHealth, stats, texture, new Vector2i())
+        {
         }
 
         public override void Move()
