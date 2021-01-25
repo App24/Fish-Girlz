@@ -12,11 +12,11 @@ namespace Fish_Girlz.Battle
 
     internal struct BattleData{
         internal PlayerEntity Player {get;}
-        internal EnemyEntity Enemy0 {get;}
-        internal EnemyEntity Enemy1 {get;}
-        internal EnemyEntity Enemy2 {get;}
+        internal LivingEntity Enemy0 {get;}
+        internal LivingEntity Enemy1 {get;}
+        internal LivingEntity Enemy2 {get;}
 
-        internal BattleData(PlayerEntity player, EnemyEntity enemy0, EnemyEntity enemy1, EnemyEntity enemy2){
+        internal BattleData(PlayerEntity player, LivingEntity enemy0, LivingEntity enemy1, LivingEntity enemy2){
             this.Player=player;
             this.Enemy0=enemy0;
             this.Enemy1=enemy1;

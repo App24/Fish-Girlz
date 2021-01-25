@@ -63,11 +63,11 @@ namespace Fish_Girlz.Entities{
             return newEntities;
         }
 
-        internal List<EnemyEntity> GetNearbyEnemies(List<EntityEntity> entities, float distance=10){
-            List<EntityEntity> nearbyEntities=GetNearbyEntities(entities, distance);
-            List<EnemyEntity> newEntities=nearbyEntities.FindAll(delegate(EntityEntity entity){if(entity.Entity is EnemyEntity)return true; return false;}).Cast<EnemyEntity>().ToList();
-            return newEntities;
-        }
+        // internal List<EnemyEntity> GetNearbyEnemies(List<EntityEntity> entities, float distance=10){
+        //     List<EntityEntity> nearbyEntities=GetNearbyEntities(entities, distance);
+        //     List<EnemyEntity> newEntities=nearbyEntities.FindAll(delegate(EntityEntity entity){if(entity.Entity is EnemyEntity)return true; return false;}).Cast<EnemyEntity>().ToList();
+        //     return newEntities;
+        // }
 
         internal void CheckCollision(EntityEntity entity){
             Position+=Speed;

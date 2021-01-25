@@ -230,8 +230,8 @@ namespace Fish_Girlz.States{
         {
             switch(selectedEdit){
                 case SelectedEdit.Tile:
-                    previewSprite.Texture=selectedTile.Sprite.Texture;
-                    modeImage.Texture=selectedTile.Sprite.Texture;
+                    previewSprite.Texture=new Texture(selectedTile.Sprite.Texture.CopyToImage(), selectedTile.Sprite.Bounds);
+                    modeImage.Texture=new Texture(selectedTile.Sprite.Texture.CopyToImage(), selectedTile.Sprite.Bounds);
                     tileName.Text=selectedTile.Name;
                     break;
                 case SelectedEdit.PlayerPos:
@@ -240,13 +240,13 @@ namespace Fish_Girlz.States{
                     tileName.Text="Player Position";
                     break;
                 case SelectedEdit.Entity:
-                    modeImage.Texture=selectedEntity.Sprite.Texture;
-                    previewSprite.Texture=selectedEntity.Sprite.Texture;
+                    modeImage.Texture=new Texture(selectedEntity.Sprite.Texture.CopyToImage(), selectedEntity.Sprite.Bounds);
+                    previewSprite.Texture=new Texture(selectedEntity.Sprite.Texture.CopyToImage(), selectedEntity.Sprite.Bounds);
                     tileName.Text=selectedEntity.Name;
                     break;
                 case SelectedEdit.Item:
-                    modeImage.Texture=selectedItem.Sprite.Texture;
-                    previewSprite.Texture=selectedItem.Sprite.Texture;
+                    modeImage.Texture=new Texture(selectedItem.Sprite.Texture.CopyToImage(), selectedItem.Sprite.Bounds);
+                    previewSprite.Texture=new Texture(selectedItem.Sprite.Texture.CopyToImage(), selectedItem.Sprite.Bounds);
                     tileName.Text=selectedItem.Name;
                     break;
             }

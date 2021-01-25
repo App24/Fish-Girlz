@@ -29,7 +29,6 @@ namespace Fish_Girlz.States{
             healthText=hudGroup.AddGUI(new UIText(new FontInfo(AssetManager.GetFont("Arial"), 16), "Health: ",Color.White,new Vector2f(0,0)));
             manaText=hudGroup.AddGUI(new UIText(new FontInfo(AssetManager.GetFont("Arial"), 16), "Mana: ", Color.White, new Vector2f(0,18)));
             hudGroup.AddGUIs(this);
-            AddGUI(healthText);
             MapGenerator.InitMap("map2");
             player=new EntityEntity(MapGenerator.GetPlayerPos(), Entity.GetEntity("player"));
             ((PlayerEntity)player.Entity).Init();

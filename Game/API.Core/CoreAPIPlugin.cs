@@ -16,6 +16,11 @@ namespace Fish_Girlz.API.Core{
             AssetLoader.LoadTexture(this, "leggings", "res/textures/items/armor/normal/leggings.png");
             AssetLoader.LoadTexture(this, "chestplate", "res/textures/items/armor/normal/chestplate.png");
             AssetLoader.LoadTexture(this, "helmet", "res/textures/items/armor/normal/helmet.png");
+
+            AssetLoader.LoadTexture(this, "deep_water tile", "res/textures/tiles/deepWater.png");
+            AssetLoader.LoadTexture(this, "water tile", "res/textures/tiles/water.png");
+            AssetLoader.LoadTexture(this, "sand tile", "res/textures/tiles/sand.png");
+            AssetLoader.LoadTexture(this, "wall tile", "res/textures/tiles/wall.png");
         }
 
         public override void OnUnload()
