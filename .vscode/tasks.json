@@ -7,7 +7,7 @@
             "type": "process",
             "args": [
                 "build",
-                "${workspaceFolder}/Game/Fish Girlz.csproj",
+                "${workspaceFolder}/Fish-Girlz.csproj",
                 "/property:GenerateFullPaths=true",
                 "/consoleloggerparameters:NoSummary"
             ],
@@ -19,53 +19,10 @@
             "type": "process",
             "args": [
                 "build",
-                "${workspaceFolder}/Game/Fish Girlz.csproj",
+                "${workspaceFolder}/Fish-Girlz.csproj",
                 "/property:GenerateFullPaths=true",
                 "/consoleloggerparameters:NoSummary",
-                "-c",
-                "Release",
-            ],
-            "problemMatcher": "$msCompile"
-        },
-        {
-            "label": "build API",
-            "command": "dotnet",
-            "type": "process",
-            "args": [
-                "build",
-                "${workspaceFolder}/Modules/API/API.csproj",
-                "/property:GenerateFullPaths=true",
-                "/consoleloggerparameters:NoSummary",
-                "-c",
-                "Release",
-            ],
-            "problemMatcher": "$msCompile"
-        },
-        {
-            "label": "build APILoader",
-            "command": "dotnet",
-            "type": "process",
-            "args": [
-                "build",
-                "${workspaceFolder}/Modules/APILoader/APILoader.csproj",
-                "/property:GenerateFullPaths=true",
-                "/consoleloggerparameters:NoSummary",
-                "-c",
-                "Release",
-            ],
-            "problemMatcher": "$msCompile"
-        },
-        {
-            "label": "build Game",
-            "command": "dotnet",
-            "type": "process",
-            "args": [
-                "build",
-                "${workspaceFolder}/Modules/Game/Game.csproj",
-                "/property:GenerateFullPaths=true",
-                "/consoleloggerparameters:NoSummary",
-                "-c",
-                "Release",
+                "-c", "Release"
             ],
             "problemMatcher": "$msCompile"
         },
@@ -75,7 +32,7 @@
             "type": "process",
             "args": [
                 "publish",
-                "${workspaceFolder}/Fish Girlz.csproj",
+                "${workspaceFolder}/Fish-Girlz.csproj",
                 "/property:GenerateFullPaths=true",
                 "/consoleloggerparameters:NoSummary"
             ],
@@ -88,7 +45,7 @@
             "args": [
                 "watch",
                 "run",
-                "${workspaceFolder}/Fish Girlz.csproj",
+                "${workspaceFolder}/Fish-Girlz.csproj",
                 "/property:GenerateFullPaths=true",
                 "/consoleloggerparameters:NoSummary"
             ],
