@@ -2,6 +2,7 @@ using System.Collections.Generic;
 using Fish_Girlz.States;
 using Fish_Girlz.UI;
 using Fish_Girlz.Entities;
+using Fish_Girlz.Utils;
 
 namespace Fish_Girlz.Systems{
     public static class LogicSystem {
@@ -10,6 +11,23 @@ namespace Fish_Girlz.Systems{
             if(currentState==null) return;
             UpdateGUIs(currentState);
             UpdateEntities(currentState);
+            UpdateTileEntities(currentState);
+        }
+
+        static void UpdateTileEntities(State currentState){
+            List<TileEntity> tileEntities=currentState.GetTileEntities();
+            List<TileEntity> removeEntities=new List<TileEntity>();
+            foreach (TileEntity entity in tileEntities)
+            {
+                if(entity.ToRemove){
+                    removeEntities.Add(entity);
+                    continue;
+                }
+                entity.Update();
+            }
+            foreach(TileEntity entity in removeEntities){
+                currentState.RemoveTileEntity(entity);
+            }
         }
 
         static void UpdateEntities(State currentState){
@@ -22,6 +40,9 @@ namespace Fish_Girlz.Systems{
                     continue;
                 }
                 entity.Update();
+                entity.Move();
+                entity.Speed*=Delta.DeltaTime;
+                entity.CheckMovement();
             }
             foreach(Entity entity in removeEntities){
                 currentState.RemoveEntity(entity);

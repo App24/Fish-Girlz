@@ -13,8 +13,31 @@ namespace Fish_Girlz.Systems{
         public static void Render(){
             State currentState=StateMachine.ActiveState;
             if(currentState==null) return;
+            RenderSprites(currentState);
             RenderEntities(currentState);
+            RenderTileEntities(currentState);
             RenderGUIs(currentState);
+        }
+
+        static void RenderSprites(State currentState){
+            List<Sprite> sprites=currentState.GetSprites();
+            foreach (var sprite in sprites)
+            {
+                DisplayManager.Window.Draw(sprite);
+            }
+        }
+
+        static void RenderTileEntities(State currentState){
+            List<TileEntity> tileEntities=currentState.GetTileEntities();
+            tileEntities.Sort(delegate(TileEntity tileEntity1, TileEntity tileEntity2){
+                return tileEntity1.Position.Y.CompareTo(tileEntity2.Position.Y);
+            });
+            foreach (TileEntity tileEntity in tileEntities)
+            {
+                Sprite sprite=new Sprite(tileEntity.Texture);
+                sprite.Position=tileEntity.Position;
+                DisplayManager.Window.Draw(sprite);
+            }
         }
 
         static void RenderEntities(State currentState){
@@ -48,6 +71,12 @@ namespace Fish_Girlz.Systems{
                         text.OutlineThickness=textComponent.OutlineThickness;
                         text.Style=textComponent.Style;
                         DisplayManager.Window.Draw(text);
+                    }else if(guiComponent is TextureComponent){
+                        TextureComponent textureComponent=(TextureComponent)guiComponent;
+                        Sprite sprite=new Sprite(textureComponent.Texture);
+                        sprite.Position=textureComponent.GetPosition();
+                        sprite.Scale=new Vector2f(textureComponent.Size.X/(float)textureComponent.Texture.Size.X, textureComponent.Size.Y/(float)textureComponent.Texture.Size.Y);
+                        DisplayManager.Window.Draw(sprite);
                     }
                 }
             }

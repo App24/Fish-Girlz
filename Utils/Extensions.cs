@@ -187,11 +187,6 @@ namespace Fish_Girlz.Utils{
             return ((leftPos, rightPos), (topPos, bottomPos));
         }
 
-        public static Texture AdjustTexture(this Texture texture){
-            (uint leftPos, uint rightPos)=texture.GetSpriteBounds().Item1;
-            return new Texture(texture.CopyToImage(), new IntRect((int)leftPos, (int)0, (int)rightPos, (int)texture.Size.Y));
-        }
-
         public static Texture SetColor(this Texture texture, Color color, Color toReplaceColor){
             List<byte> pixels=new List<byte>(texture.CopyToImage().Pixels);
             for (int i = 0; i < pixels.Count; i+=4)

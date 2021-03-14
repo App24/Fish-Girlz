@@ -1,5 +1,6 @@
 using Fish_Girlz.Entities;
 using Fish_Girlz.Systems;
+using Fish_Girlz.Utils;
 using SFML.System;
 
 namespace Fish_Girlz.States{
@@ -14,12 +15,14 @@ namespace Fish_Girlz.States{
 
         public override void HandleInput()
         {
-
+            if(InputManager.IsEscPressed()){
+                StateMachine.AddState(new PauseState(), false).SetBackgroundTexture(Utilities.TakeScreenshot());
+            }
         }
 
         public override void Update()
         {
-            
+            Camera.TargetEntity(playerEntity);
         }
     }
 }

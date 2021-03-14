@@ -35,6 +35,30 @@ namespace Fish_Girlz.Entities{
             return null;
         }
 
+        public void CheckCollision(Entity entity){
+            Position+=Speed;
+            if(entity!=null){
+                // CollisionComponent collisionComponent=GetComponent<CollisionComponent>();
+                // if(collisionComponent!=null){
+                //     if (this.CollideWithEntity(entity))
+                //     {
+                //         collisionComponent.Colliding=true;
+                //     }
+                // }
+            }
+            Position -= Speed;
+        }
+
+        public void CheckMovement(){
+            // CollisionComponent collisionComponent=GetComponent<CollisionComponent>();
+            // if((collisionComponent!=null&&!collisionComponent.Colliding)||(collisionComponent==null)){
+                Position+=Speed;
+            // }
+            Speed=new Vector2f();
+            // if(collisionComponent!=null)
+            //     collisionComponent.Colliding=false;
+        }
+
         protected T AddComponent<T>(T component) where T:EntityComponent{
             component.ParentEntity=this;
             component.Init();

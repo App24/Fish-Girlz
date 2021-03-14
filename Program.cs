@@ -16,6 +16,8 @@ namespace Fish_Girlz
 
             Assets.Load();
 
+            Tiles.TileLoader.LoadTiles();
+
             StateMachine.AddState(new States.MainMenuState());
 
             while(DisplayManager.Window.IsOpen){

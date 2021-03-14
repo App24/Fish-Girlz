@@ -17,7 +17,7 @@ namespace Fish_Girlz.States{
             AddGUI(menu.AddText(new UISelectableText(arial24, "Play", new SFML.System.Vector2f())));
             #if DEBUG
             AddGUI(menu.AddText(new UISelectableText(arial24, "Test", new SFML.System.Vector2f()))).OnSelect+=new EventHandler((sender, e)=>{StateMachine.AddState(new TestState());});
-            AddGUI(menu.AddText(new UISelectableText(arial24, "Map Editor", new SFML.System.Vector2f()))).OnSelect+=new EventHandler((sender, e)=>{Logger.Log("Map Editor");});
+            AddGUI(menu.AddText(new UISelectableText(arial24, "Map Editor", new SFML.System.Vector2f()))).OnSelect+=new EventHandler((sender, e)=>{StateMachine.AddState(new MapEditorState());});
             #endif
             AddGUI(menu.AddText(new UISelectableText(arial24, "Settings", new SFML.System.Vector2f())));
             AddGUI(menu.AddText(new UISelectableText(arial24, "Credits", new SFML.System.Vector2f())));

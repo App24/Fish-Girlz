@@ -6,6 +6,11 @@ namespace Fish_Girlz.Utils{
             AssetManager.LoadFont("Arial", "Assets/fonts/arial.ttf");
 
             AssetManager.LoadTexture("Temp", "Assets/textures/temp.png");
+
+            AssetManager.LoadTexture("Wall", "Assets/textures/tiles/wall.png");
+            AssetManager.LoadTexture("Sand", "Assets/textures/tiles/sand.png");
+            AssetManager.LoadTexture("Water", "Assets/textures/tiles/water.png");
+            AssetManager.LoadTexture("Deep Water", "Assets/textures/tiles/deepWater.png");
             
             AssetManager.LoadSpritesheet("Dominique Spritesheet", "Assets/textures/entities/characters/Dominique/spritesheet.png", 64, 64);
 

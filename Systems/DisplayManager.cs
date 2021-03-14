@@ -97,11 +97,11 @@ namespace Fish_Girlz.Systems{
 
         public static void DisposeDisplay(){
             if(!initiliased) return;
-            Logger.Log("Display Disposed!");
             StateMachine.DisposeStateMachine();
             AssetManager.CleanUp();
-            Logger.DisposeLogger();
             Window.Close();
+            Logger.Log("Display Disposed!");
+            Logger.DisposeLogger();
             initiliased=false;
         }
     }
