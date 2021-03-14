@@ -3,15 +3,31 @@ using System.Collections.Generic;
 using Fish_Girlz.States;
 using Fish_Girlz.UI;
 using Fish_Girlz.UI.Components;
-using Fish_Girlz.Misc;
+using Fish_Girlz.Entities;
+using Fish_Girlz.Utils;
 using SFML.Graphics;
+using SFML.System;
 
 namespace Fish_Girlz.Systems{
     public static class RenderSystem {
         public static void Render(){
             State currentState=StateMachine.ActiveState;
             if(currentState==null) return;
+            RenderEntities(currentState);
             RenderGUIs(currentState);
+        }
+
+        static void RenderEntities(State currentState){
+            List<Entity> entities=currentState.GetEntities();
+            entities.Sort(delegate(Entity entity1, Entity entity2){
+                return entity1.Position.Y.CompareTo(entity2.Position.Y);
+            });
+            foreach (Entity entity in entities)
+            {
+                Sprite sprite=new Sprite(entity.Texture);
+                sprite.Position=entity.Position;
+                DisplayManager.Window.Draw(sprite);
+            }
         }
 
         static void RenderGUIs(State currentState){
